@@ -28,7 +28,7 @@ public class LoginController {
     @FXML
     private void onLogin(){
         user = new LoginUser(username.getText(),password.getText());
-        //TODO: Write code that writes user to file and canges sceene.
+        //TODO: Write code that writes user to file and canges scene.
         try {
             
         } catch (Exception e) {
