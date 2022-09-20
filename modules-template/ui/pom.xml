@@ -8,7 +8,7 @@
         <artifactId>modules-template</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>..</relativePath>
-    </parent>
+    </parent>   
 
     <dependencies>
 
