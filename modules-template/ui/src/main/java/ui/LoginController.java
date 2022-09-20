@@ -2,6 +2,7 @@ package ui;
 
 import java.nio.file.attribute.UserPrincipalNotFoundException;
 
+import core.FileOperator;
 import core.LoginUser;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +13,7 @@ import javafx.scene.text.Text;
 public class LoginController {
 
     private LoginUser user;
+    private FileOperator fileOperator;
     
     @FXML
     private PasswordField password;
@@ -30,7 +32,9 @@ public class LoginController {
         user = new LoginUser(username.getText(),password.getText());
         //TODO: Write code that writes user to file and canges sceene.
         try {
-            
+            fileOperator = new FileOperator();
+            fileOperator.writeUserToFile("modules-template/ui/src/main/resources/ui/users.txt", username.getText()
+            + ";" + password.getText());
         } catch (Exception e) {
             // TODO: handle exception
         }
