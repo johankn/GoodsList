@@ -1,6 +1,5 @@
 package ui;
 
-import java.nio.file.attribute.UserPrincipalNotFoundException;
 
 import core.FileOperator;
 import core.LoginUser;
