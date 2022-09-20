@@ -12,7 +12,7 @@ public class AppController {
     @FXML private Label WelcomeText;
 
     @FXML
-    private void setUsername(String username){
+    public void setUsername(String username){
         WelcomeText.setText(username);
     }
 

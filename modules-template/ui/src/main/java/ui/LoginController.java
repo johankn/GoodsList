@@ -30,9 +30,12 @@ public class LoginController {
         user = new LoginUser(username.getText(),password.getText());
         //TODO: Write code that writes user to file and canges sceene.
         try {
-            
+            App main = new App();
+            main.setHomePage("App.fxml");
+            main.bringUserInfo(user.getUsername());
         } catch (Exception e) {
             // TODO: handle exception
+            e.printStackTrace();
         }
     }
 }
