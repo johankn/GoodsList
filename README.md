@@ -1,26 +1,17 @@
-[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.stud.ntnu.no/#https://gitlab.stud.idi.ntnu.no/it1901/javafx-template)
-# Javafx template
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.stud.ntnu.no/#https://gitlab.stud.idi.ntnu.no/it1901/groups-2022/gr2226/gr2226)
 
-A repository with three variants of a javafx projects, with maven setup for Java 16 and JavaFX 16, and JUnit 5 (Jupiter) and TestFX for testing.
+# GoodsList
 
-To make the project(s) more interesting, it is the start of an [RPN](https://en.wikipedia.org/wiki/Reverse_Polish_notation) calculator (look for `// TODO`) markers). The core logic is almost implemented (in [Calc.java](javafx-template/src/main/java/app/Calc.java)), the fxml file (in [App.fxml](javafx-template/src/main/resources/app/App.fxml) is almost complete, but the controller class (in [AppController.java](javafx-template/src/main/java/app/AppController.java) is pretty limited. And last, but not least, there is a TestFX-based test (in [AppTest.java](javafx-template/src/test/java/app/AppTest.java), see the [README](javafx-template/src/test/java/app/README.md) for details about what it tests).
+A repository using the modules-template containing a javafx project, with maven setup for Java 18.0.1 and JavaFX 18.0.1, and JUnit 5 (Jupiter) and TestFX for testing.
 
-## javafx-template
+This repository contains the first iteration of our group project in the course IT1901 - Informatics, Project I. The concept is a page where the user can buy and sell different goods online, similar to finn.no or craigslist.org. In this iteration we will begin forming the three architecture layers: domain logic, user interface and data persistence. This will be done focusing on the user login feature, where the files can be found in the core folder (see the [README](GoodsList/core/src/main/java/core/README.md) for details about the functions of the app), whereas the fxml files (containing the JavaFX-interface), app starter and controllers connecting the logic to the UI, can be found in the ui (user interface) folder. We have also created tests for the write to file process, and an ability to report the test coverage percentage using maven (see the [README](GoodsList/ui/src/test/java/ui/README.md) for details about the tests).
 
-Template for  single-module, single-package javafx project.
-
-## packages-template
-
-Template for  single-module, multi-package javafx project.
-
-## modules-template
-
-Template for  multi-module, multi-package javafx project.
 
 ## Trying it out
 
-All projects can be tried out by cd-ing into the corresponding folder and using `mvn`:
+The project can be tried out by cd-ing into the GoodsList folder and using `mvn`:
 
-- compile with `mvn compile` (after `cd javafx-template` of course)
-- test with `mvn test` (it should fail until you complete the RPN calculator)
-- run with `mvn javafx:run` (it should open, but not work properly)
+- compile with "mvn compile"
+- test with "mvn test"
+- run with "mvn javafx:run"
+
