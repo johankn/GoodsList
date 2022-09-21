@@ -32,7 +32,7 @@ public class LoginController {
         //TODO: Write code that writes user to file and canges sceene.
         try {
             fileOperator = new FileOperator();
-            fileOperator.writeUserToFile("modules-template/ui/src/main/resources/ui/users.txt", username.getText()
+            fileOperator.writeUserToFile("GoodsList/ui/src/main/resources/ui/users.txt", username.getText()
             + ";" + password.getText());
             App main = new App();
             main.setHomePage("App.fxml");
