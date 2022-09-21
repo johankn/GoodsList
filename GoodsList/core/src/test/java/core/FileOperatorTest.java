@@ -1,5 +1,6 @@
 package core;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -16,9 +17,10 @@ public class FileOperatorTest {
     @DisplayName("Test if writeUserToFile writes users to our test file")
     public void testFileOperator(){
         FileOperator fileOperator = new FileOperator();
-        fileOperator.writeUserToFile("modules-template/core/src/test/java/core/testUsers.txt", "testUsername;testPassword");
-        fileOperator.writeUserToFile("modules-template/core/src/test/java/core/testUsers.txt", "testUsername2;testPassword2");
-        try(Stream<String> list = Files.lines(Paths.get("testUsers.txt"));){
+        File testfile = new File("Testfile.txt");
+        fileOperator.writeUserToFile("Testfile.txt", "testUsername;testPassword");
+        fileOperator.writeUserToFile("Testfile.txt", "testUsername2;testPassword2");
+        try(Stream<String> list = Files.lines(Paths.get("Testfile.txt"));){
             String users = list.collect(Collectors.joining(" "));
             Assertions.assertEquals("testUsername;testPassword testUsername2;testPassword2", users);
         }
@@ -26,6 +28,7 @@ public class FileOperatorTest {
         catch (IOException e) {
             e.printStackTrace();
         }
+        testfile.delete();
     }
 }
 
