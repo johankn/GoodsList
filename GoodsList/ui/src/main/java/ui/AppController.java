@@ -11,7 +11,7 @@ public class AppController {
 
     @FXML
     public void setUsername(String username){
-        WelcomeText.setText(username);
+        WelcomeText.setText("Welcome, "+username);
     }
 
 }

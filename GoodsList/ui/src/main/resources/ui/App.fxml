@@ -13,7 +13,7 @@
             <Font name="Arial" size="52.0" />
          </font>
       </Label>
-      <Label layoutX="530.0" layoutY="14.0" prefHeight="37.0" prefWidth="68.0" text="TheSquare">
+      <Label layoutX="530.0" layoutY="14.0" prefHeight="37.0" prefWidth="68.0" text="GoodsList">
          <font>
             <Font name="AppleGothic Regular" size="13.0" />
          </font>
