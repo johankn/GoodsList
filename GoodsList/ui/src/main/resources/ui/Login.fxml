@@ -7,16 +7,35 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.LoginController">
+<AnchorPane fx:id="repeatedRegistrationPassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.LoginController">
    <children>
       <Text fx:id="header" layoutX="280.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GoodsList" textAlignment="CENTER" wrappingWidth="453.50006103515625">
          <font>
             <Font name="Arial Bold" size="36.0" />
          </font>
       </Text>
-      <TextField fx:id="username" layoutX="422.0" layoutY="205.0" prefHeight="40.0" prefWidth="182.0" promptText="Username" />
-      <PasswordField fx:id="password" layoutX="424.0" layoutY="311.0" prefHeight="39.0" prefWidth="179.0" promptText="Password" />
-      <Button fx:id="loginButton" layoutX="433.0" layoutY="390.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="41.0" prefWidth="163.0" text="Login" />
+      <TextField fx:id="username" layoutX="199.0" layoutY="206.0" prefHeight="40.0" prefWidth="182.0" promptText="Username" />
+      <PasswordField fx:id="password" layoutX="201.0" layoutY="281.0" prefHeight="39.0" prefWidth="179.0" promptText="Password" />
+      <Button fx:id="loginButton" layoutX="209.0" layoutY="392.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="41.0" prefWidth="163.0" text="Login" />
+      <TextField fx:id="registrationUsername" layoutX="589.0" layoutY="206.0" prefHeight="40.0" prefWidth="182.0" promptText="Username" />
+      <PasswordField fx:id="password1" layoutX="591.0" layoutY="445.0" prefHeight="39.0" prefWidth="179.0" promptText="Repeat Password" />
+      <Button fx:id="registrationButton" layoutX="599.0" layoutY="532.0" mnemonicParsing="false" onAction="#onRegistration" prefHeight="41.0" prefWidth="163.0" text="Registration" />
+      <Text fx:id="loginHeader" layoutX="180.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" textAlignment="CENTER" wrappingWidth="221.5519905090332">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="header11" layoutX="571.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration" textAlignment="CENTER" wrappingWidth="221.5519905090332">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Text>
+      <PasswordField fx:id="registrationPassword" layoutX="589.0" layoutY="369.0" prefHeight="39.0" prefWidth="179.0" promptText="Password" />
+      <TextField fx:id="fullName" layoutX="589.0" layoutY="289.0" prefHeight="40.0" prefWidth="182.0" promptText="Full name" />
+      <Text fx:id="feedback" layoutX="310.0" layoutY="606.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="401.7135009765625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

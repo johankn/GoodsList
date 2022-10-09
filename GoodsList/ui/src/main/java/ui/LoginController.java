@@ -16,15 +16,28 @@ public class LoginController {
     
     @FXML
     private PasswordField password;
+    private PasswordField registrationPassword;
+    private PasswordField repeatedregistrationPassword;
+
 
     @FXML
     private TextField username;
+    private TextField registrationUsername;
+    private TextField fullName;
 
     @FXML
     private Button loginButton;
+    private Button registrationButton;
     
     @FXML 
     private Text header;
+    private Text loginHeader;
+    private Text registrationHeader;
+
+    @FXML
+    private void onRegistration(){
+        
+    }
 
     @FXML
     private void onLogin(){
