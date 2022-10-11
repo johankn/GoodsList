@@ -1,7 +1,5 @@
 package core;
 
-import java.util.Date;
-
 public class Property extends Product {
 
     private String propertyType;
