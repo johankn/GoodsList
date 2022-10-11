@@ -1,12 +1,18 @@
 package core;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class RegistrationValidator {
     
     private FileOperator fileOperator;
+    private static final String filename = "GoodsList/core/src/main/java/json/dataObjects.json";
 
     public RegistrationValidator() {
         this.fileOperator = new FileOperator();
+    }
+
+    public FileOperator getFileOperator() {
+        return this.fileOperator;
     }
 
     public boolean isUsernameValid(String username) {
@@ -30,10 +36,12 @@ public class RegistrationValidator {
         return true;
     }
 
-    public boolean checkExcistingUsername(String username) {
-        // mangler lese fra fil med JSON
-        // if brukernavn finnes fra før:
-        //     throw new IllegalArgumentException("Brukernavnet er allerede tatt");
+    public boolean checkExcistingUsername(List<String> excistingUsers, String username) {
+        for (int i = 0; i < excistingUsers.size(); i += 3) {
+            if (username.equals(excistingUsers.get(i))) {
+                throw new IllegalArgumentException("This username is already taken.");
+            }
+        }
         return true;
     }
 
@@ -62,16 +70,17 @@ public class RegistrationValidator {
         if (username.isBlank() || password.isBlank() || repeatedpassword.isBlank() || fullname.isBlank()) {
             throw new IllegalArgumentException("You have to fill out all of the input fields");
         }
-        if (isUsernameValid(username) &&
-        isFullNameValid(fullname) && 
-        isPasswordValid(password) &&
-        equalPasswords(password, repeatedpassword) &&
-        checkExcistingUsername(username)) {
+        // if (isUsernameValid(username) &&
+        // isFullNameValid(fullname) && 
+        // isPasswordValid(password) &&
+        // equalPasswords(password, repeatedpassword) &&
+        // checkExcistingUsername(this.fileOperator.getAllUsersAsList(filename), username)) {
+        //     return true;
+        // }
+        else {
             return true;
         }
-        else {
-            return false;
-        }
     }
+
 
 }
