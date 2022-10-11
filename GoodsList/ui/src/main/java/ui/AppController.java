@@ -15,13 +15,11 @@ import javafx.scene.layout.AnchorPane;
 
 public class AppController {
 
-    @FXML private Label WelcomeText;
-    @FXML private AnchorPane homePage;
-    @FXML private AnchorPane newAdPage;
+    @FXML private Label WelcomeText, titlePreview, pricePreview, conditionPreview, descriptionPreview;
+    @FXML private AnchorPane homePage, newAdPage, adPreview;
     @FXML private ChoiceBox<String> categoryBox;
     @FXML private TextArea descriptionArea;
-    @FXML private TextField titleField;
-    @FXML private TextField priceField;
+    @FXML private TextField titleField, priceField;
     @FXML private CheckBox conditionField;
     @FXML private Ad ad;
 
@@ -57,13 +55,46 @@ public class AppController {
         }
     
         else{
-            displayError("GOOD");
-            // lage et ad objekt her
+            newAdPage.setDisable(true);
+            newAdPage.setVisible(false);
+            adPreview.setDisable(false);
+            adPreview.setVisible(true);
+            titlePreview.setText(titleField.getText());
+            conditionPreview.setText(setCondition());
+            pricePreview.setText(priceField.getText()+"Kr");
+            descriptionPreview.setText(descriptionArea.getText());
+
+            
             // ny scene etter det, med oversikt over ad'en du nettopp laget.
         }
 
 
     }
+    @FXML
+    private void handlePostAd(){
+        adPreview.setDisable(true);
+        adPreview.setVisible(false);
+        homePage.setDisable(false);
+        homePage.setVisible(true);
+        // lage et ad objekt her
+        // legge det til i JSON-fil med bruker-id og kategori-id
+
+        priceField.setText("");
+        titleField.setText("");
+        descriptionArea.setText("");
+        conditionField.setSelected(false);
+        categoryBox.setValue(null);
+
+    }
+    @FXML
+    private void handleEdit(){
+        adPreview.setDisable(true);
+        adPreview.setVisible(false);
+        newAdPage.setDisable(false);
+        newAdPage.setVisible(true); 
+        
+    }
+
     private void displayError(String message){
 
         Alert alert = new Alert(AlertType.ERROR);
@@ -71,6 +102,12 @@ public class AppController {
         alert.setContentText(message);
         alert.showAndWait();
     
+    }
+    private String setCondition(){
+        if (conditionField.isSelected()){
+            return "New";
+        }
+        return "Used";
     }
     
 }

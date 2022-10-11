@@ -50,12 +50,12 @@
                   <Font size="9.0" />
                </font>
             </Button>
-            <Button fx:id="newAdButton" layoutX="215.0" layoutY="409.0" mnemonicParsing="false" onAction="#handleNewAd" prefHeight="51.0" prefWidth="117.0" style="-fx-background-color: grey;" text="New ad">
+            <Button fx:id="newAdButton" layoutX="205.0" layoutY="409.0" mnemonicParsing="false" onAction="#handleNewAd" prefHeight="51.0" prefWidth="117.0" style="-fx-background-color: grey;" text="New ad">
                <font>
                   <Font size="23.0" />
                </font>
                <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
          </children>
@@ -105,11 +105,32 @@
       </AnchorPane>
       <AnchorPane fx:id="adPreview" disable="true" prefHeight="491.0" prefWidth="527.0" visible="false">
          <children>
-            <Label layoutX="205.0" layoutY="64.0" prefHeight="43.0" prefWidth="117.0" text="Your new ad" wrapText="true">
+            <Label layoutX="167.0" layoutY="66.0" prefHeight="43.0" prefWidth="196.0" text="Preview of your new ad" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
+            <Label fx:id="titlePreview" alignment="CENTER" contentDisplay="CENTER" layoutX="194.0" layoutY="146.0" prefHeight="26.0" prefWidth="139.0" text="Title" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="descriptionPreview" alignment="TOP_LEFT" layoutX="90.0" layoutY="281.0" prefHeight="115.0" prefWidth="349.0" style="-fx-border-color: grey;" text="Description" wrapText="true" />
+            <Label fx:id="conditionPreview" alignment="CENTER" layoutX="247.0" layoutY="181.0" text="Used" wrapText="true" />
+            <Label fx:id="pricePreview" alignment="CENTER" layoutX="107.0" layoutY="217.0" prefHeight="58.0" prefWidth="316.0" text="Kr" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="postButton" layoutX="207.0" layoutY="422.0" mnemonicParsing="false" onAction="#handlePostAd" prefHeight="43.0" prefWidth="108.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Post for sale">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="editButton" layoutX="89.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="26.0" prefWidth="68.0" text="Edit" />
          </children>
       </AnchorPane>
    </children>
