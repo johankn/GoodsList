@@ -82,6 +82,7 @@ public class AppController {
         homePage.setVisible(true);
         // lage et ad objekt her
         // legge det til i JSON-fil med bruker-id og kategori-id
+        // gjøre det mulig å browse ad på hjemmesiden
 
         priceField.setText("");
         titleField.setText("");
