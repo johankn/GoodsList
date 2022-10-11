@@ -6,11 +6,6 @@ public class LoginUser {
     private String password;
     private String fullName;
 
-    public LoginUser(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
     public LoginUser(String username, String password, String fullName) {
         this.username = username;
         this.password = password;

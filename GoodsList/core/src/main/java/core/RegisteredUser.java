@@ -1,10 +1,10 @@
 package core;
 
-public class RegistratedUser extends LoginUser {
+public class RegisteredUser extends LoginUser {
 
     private String repeatedPassword;
 
-    public RegistratedUser(String username, String password, String fullName, String repeatedPassword) {
+    public RegisteredUser(String username, String password, String fullName, String repeatedPassword) {
         super(username, password, fullName);
         this.repeatedPassword = repeatedPassword;
     }

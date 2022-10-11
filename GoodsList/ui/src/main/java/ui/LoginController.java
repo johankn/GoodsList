@@ -1,9 +1,10 @@
 package ui;
 
-
+import javafx.fxml.FXML;
 import core.FileOperator;
 import core.LoginUser;
-import javafx.fxml.FXML;
+import core.RegisteredUser;
+import core.RegistrationValidator;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -15,44 +16,34 @@ public class LoginController {
     private FileOperator fileOperator;
     
     @FXML
-    private PasswordField password;
-    private PasswordField registrationPassword;
-    private PasswordField repeatedregistrationPassword;
+    private PasswordField password, registrationPassword, repeatedRegistrationPassword;
 
 
     @FXML
-    private TextField username;
-    private TextField registrationUsername;
-    private TextField fullName;
+    private TextField username, registrationUsername, fullName;
 
     @FXML
-    private Button loginButton;
-    private Button registrationButton;
+    private Button loginButton, egistrationButton;
     
     @FXML 
-    private Text header;
-    private Text loginHeader;
-    private Text registrationHeader;
-
-    @FXML
-    private void onRegistration(){
-        
-    }
+    private Text header, loginHeader, registrationHeader, feedback;
 
     @FXML
     private void onLogin(){
-        user = new LoginUser(username.getText(),password.getText());
-        //TODO: Write code that writes user to file and canges scene.
+
+    }
+
+    @FXML
+    private void onRegistration() {
+        RegistrationValidator validator = new RegistrationValidator();
         try {
-            fileOperator = new FileOperator();
-            fileOperator.writeUserToFile("src/main/resources/ui/users.txt", username.getText()
-            + ";" + password.getText());
-            App main = new App();
-            main.setHomePage("App.fxml");
-            main.bringUserInfo(user.getUsername());
-        } catch (Exception e) {
-            // TODO: handle exception
-            e.printStackTrace();
+            if (validator.isRegistrationLegal(registrationUsername.getText(), registrationPassword.getText(), repeatedRegistrationPassword.getText(), fullName.getText())) {
+                RegisteredUser regUser = new RegisteredUser(registrationUsername.getText(), registrationPassword.getText(), fullName.getText(), repeatedRegistrationPassword.getText());
+                feedback.setText("You have been succesfully registered!");
+            }
+        } 
+        catch (IllegalArgumentException e) {
+            feedback.setText(e.getMessage());
         }
     }
 }
