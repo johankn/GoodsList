@@ -46,15 +46,19 @@ public class AppController {
     }
     @FXML
     private void makeAd(){
-
+        int okPublish = 1;
         if (priceField.getText().isEmpty() || titleField.getText().isEmpty() || descriptionArea.getText().isEmpty() || categoryBox.getValue() == null){
             displayError("No fields can be empty!");
+            okPublish = 0;
         }
+
         if (!(priceField.getText().matches("[0-9]+"))){
             displayError("Price must only contain numbers");
+            okPublish = 0;
+
         }
     
-        else{
+        if (okPublish == 1){
             newAdPage.setDisable(true);
             newAdPage.setVisible(false);
             adPreview.setDisable(false);
