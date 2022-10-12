@@ -4,9 +4,11 @@ import javafx.fxml.FXML;
 import core.FileOperator;
 import core.RegisteredUser;
 import core.RegistrationValidator;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Text;
 
 public class LoginController {
@@ -26,6 +28,21 @@ public class LoginController {
     @FXML 
     private Text header, loginHeader, registrationHeader, feedback;
 
+    private void displayError(String message){
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("ERROR");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void displayMessage(String message) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+
     @FXML
     private void onLogin(){
 
@@ -37,11 +54,15 @@ public class LoginController {
         try {
             if (validator.isRegistrationLegal(registrationUsername.getText(), registrationPassword.getText(), repeatedRegistrationPassword.getText(), fullName.getText())) {
                 RegisteredUser regUser = new RegisteredUser(registrationUsername.getText(), registrationPassword.getText(), fullName.getText(), repeatedRegistrationPassword.getText());
-                feedback.setText("You have been succesfully registered!");
+                this.displayMessage("You have been succesfully registered!");
+                this.registrationUsername.clear();
+                this.registrationPassword.clear();
+                this.repeatedRegistrationPassword.clear();
+                this.fullName.clear();
             }
         } 
         catch (IllegalArgumentException e) {
-            feedback.setText(e.getMessage());
+            this.displayError(e.getMessage());
         }
     }
 }

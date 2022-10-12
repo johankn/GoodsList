@@ -70,15 +70,15 @@ public class RegistrationValidator {
         if (username.isBlank() || password.isBlank() || repeatedpassword.isBlank() || fullname.isBlank()) {
             throw new IllegalArgumentException("You have to fill out all of the input fields");
         }
-        // if (isUsernameValid(username) &&
-        // isFullNameValid(fullname) && 
-        // isPasswordValid(password) &&
-        // equalPasswords(password, repeatedpassword) &&
-        // checkExcistingUsername(this.fileOperator.getAllUsersAsList(filename), username)) {
-        //     return true;
-        // }
-        else {
+        if (isUsernameValid(username) &&
+        isFullNameValid(fullname) && 
+        isPasswordValid(password) &&
+        equalPasswords(password, repeatedpassword) &&
+        checkExcistingUsername(this.fileOperator.getAllUsersAsList(filename), username)) {
             return true;
+        }
+        else {
+            return false;
         }
     }
 
