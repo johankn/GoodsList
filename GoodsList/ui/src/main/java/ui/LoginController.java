@@ -2,7 +2,6 @@ package ui;
 
 import javafx.fxml.FXML;
 import core.FileOperator;
-import core.LoginUser;
 import core.RegisteredUser;
 import core.RegistrationValidator;
 import javafx.scene.control.Button;
@@ -12,7 +11,6 @@ import javafx.scene.text.Text;
 
 public class LoginController {
 
-    private LoginUser user;
     private FileOperator fileOperator;
     
     @FXML
