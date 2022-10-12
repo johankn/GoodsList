@@ -1,6 +1,7 @@
 package core;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -13,16 +14,17 @@ import java.io.FileNotFoundException;
 public class FileOperator {
 
     // Writes a user to the json-file
-    public void writeUserDataToFile(String filename, LoginUser userInfo) throws FileNotFoundException {
-        JSONObject jsonFileAsJsonObject;
+    public void writeUserDataToFile(String filename, Registered userInfo) throws FileNotFoundException {
         try {
             //Henter ut json-filen som JSONObject.
-            jsonFileAsJsonObject = makeJsonObjectFromJsonFile(filename);
+            JSONObject jsonFileAsJsonObject = makeJsonObjectFromJsonFile(filename);
             //Legger til den nye brukeren i JSONobjektet
             JSONArray jsonArray = jsonFileAsJsonObject.getJSONArray("users");
             JSONObject userToBeAppended = new JSONObject();
             userToBeAppended.put("username", userInfo.getUsername());
             userToBeAppended.put("password", userInfo.getPassword());
+            userToBeAppended.put("fullname", userInfo.getFullName());
+
             jsonArray.put(userToBeAppended);
             jsonFileAsJsonObject.put("users", jsonArray);
             JSONObject newJsonFileAsJsonObject = new JSONObject();
@@ -53,15 +55,23 @@ public class FileOperator {
         }
     }
 
+    //Help methood to make a jsonObject from the json-file
     private JSONObject makeJsonObjectFromJsonFile(String filename) throws JSONException, Exception {
         JSONObject jsonObject = new JSONObject(readFileAsString(filename));
         return jsonObject;
     }
 
-    private static String readFileAsString(String file) throws Exception {
-        return new String(Files.readAllBytes(Paths.get(file)));
+    //Help methood to read a file as a String.
+    private static String readFileAsString(String file) {
+        try {
+            return new String(Files.readAllBytes(Paths.get(file)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
+    //Methood to get all the users in the jsonfile on the fromat: [username, password, fullname, username, password,...]
     public List<String> getAllUsersAsList(String filename){
         try {
             JSONObject jsonFileAsObject = makeJsonObjectFromJsonFile(filename);
@@ -82,12 +92,6 @@ public class FileOperator {
         }
         return null;
         
-    }
-
-    public static void main(String[] args) throws Exception {
-        FileOperator f = new FileOperator();
-        //System.out.println(f.makeJsonObjectFromJsonFile("GoodsList/core/src/main/java/json/dataObjects.json"));
-        System.out.println(f.getAllUsersAsList("GoodsList/core/src/main/java/json/dataObjects.json"));
     }
 
 }
