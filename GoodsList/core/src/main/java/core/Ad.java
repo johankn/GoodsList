@@ -12,12 +12,13 @@ public class Ad {
     private String description;
     private int id;
 
-    public Ad(Product product, User owner, Date date, String location, String description) {
+    public Ad(Product product, User owner, Date date, String location, String description, int id) {
         this.product = product;
         this.owner = owner;
         this.date = date;
         this.location = location;
         this.description = description;
+        this.id = id;
     }
 
     public Product getProduct() {
