@@ -90,9 +90,6 @@ public class LoginController {
         } catch (IllegalArgumentException e) {
             this.displayError(e.getMessage());
         }
-        catch (FileNotFoundException e) {
-            this.displayError("Something went wrong, there is a problem with the filepath");
-        }
     }
 
     public static void main(String[] args) {
