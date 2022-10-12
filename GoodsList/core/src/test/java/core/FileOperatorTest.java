@@ -13,6 +13,22 @@ import org.junit.jupiter.api.Test;
 
 public class FileOperatorTest {
     
-
+    /* @Test
+    @DisplayName("Test if writeUserToFile writes users to our test file")
+    public void testFileOperator(){
+        FileOperator fileOperator = new FileOperator();
+        File testfile = new File("Testfile.txt");
+        fileOperator.writeUserToFile("Testfile.txt", "testUsername;testPassword");
+        fileOperator.writeUserToFile("Testfile.txt", "testUsername2;testPassword2");
+        try(Stream<String> list = Files.lines(Paths.get("Testfile.txt"));){
+            String users = list.collect(Collectors.joining(" "));
+            Assertions.assertEquals("testUsername;testPassword testUsername2;testPassword2", users);
+        }
+    
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        testfile.delete();
+    } */
 }
 
