@@ -55,8 +55,8 @@ public class AppController {
 
 
     @FXML
-    public void setUsername(String username){
-        WelcomeText.setText("Welcome, "+username);
+    public void setUsername(User user){
+        WelcomeText.setText("Welcome, " + user.getFullname());
     }
     @FXML
     private void handleNewAd(){
