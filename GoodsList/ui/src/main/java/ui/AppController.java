@@ -247,7 +247,7 @@ public class AppController {
             return false;
         }
         if (okPublish == 1){
-            label.setText("Colour "+ choice.getValue().toString());
+            label.setText("Colour: "+ choice.getValue().toString());
             return true;
         }
         return false;
