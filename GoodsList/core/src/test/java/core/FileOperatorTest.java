@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 public class FileOperatorTest {
     
-    @Test
+    /* @Test
     @DisplayName("Test if writeUserToFile writes users to our test file")
     public void testFileOperator(){
         FileOperator fileOperator = new FileOperator();
@@ -29,6 +29,6 @@ public class FileOperatorTest {
             e.printStackTrace();
         }
         testfile.delete();
-    }
+    } */
 }
 

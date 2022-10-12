@@ -2,6 +2,7 @@ package ui;
 
 
 import core.Ad;
+import core.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
@@ -25,8 +26,8 @@ public class AppController {
 
 
     @FXML
-    public void setUsername(String username){
-        WelcomeText.setText("Welcome, "+username);
+    public void setUsername(User user){
+        WelcomeText.setText("Welcome, " + user.getFullname());
     }
     @FXML
     private void handleNewAd(){

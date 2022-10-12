@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+import core.User;
+
 /**
  * JavaFX App
  */
@@ -33,11 +35,11 @@ public class App extends Application {
         mainStage.getScene().setRoot(parent);
     }
 
-    public void bringUserInfo(String LoginUsername) throws IOException{
+    public void bringUserInfo(User user) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("App.fxml"));
         Parent parent = fxmlLoader.load();
         AppController appController = fxmlLoader.getController();
-        appController.setUsername(LoginUsername);
+        appController.setUsername(user);
         appController.setChoiceBox();
         mainStage.getScene().setRoot(parent);
     }
