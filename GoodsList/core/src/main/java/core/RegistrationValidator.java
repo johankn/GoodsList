@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class RegistrationValidator {
     
     private FileOperator fileOperator;
-    private static final String filename = "GoodsList/core/src/main/java/json/dataObjects.json";
+    private static final String filename = "..//core/src/main/java/json/dataObjects.json";
 
     public RegistrationValidator() {
         this.fileOperator = new FileOperator();
@@ -13,6 +13,10 @@ public class RegistrationValidator {
 
     public FileOperator getFileOperator() {
         return this.fileOperator;
+    }
+
+    public String getFilename() {
+        return filename;
     }
 
     public boolean isUsernameValid(String username) {

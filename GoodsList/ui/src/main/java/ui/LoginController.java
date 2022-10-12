@@ -3,6 +3,7 @@ package ui;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
+import java.io.FileNotFoundException;
 
 import core.FileOperator;
 import core.LoginValidator;
@@ -80,6 +81,7 @@ public class LoginController {
                 RegisteredUser regUser = new RegisteredUser(registrationUsername.getText(),
                         registrationPassword.getText(), fullName.getText(), repeatedRegistrationPassword.getText());
                 this.displayMessage("You have been succesfully registered!");
+                registrationValidator.getFileOperator().writeUserDataToFile(registrationValidator.getFilename(), regUser);
                 this.registrationUsername.clear();
                 this.registrationPassword.clear();
                 this.repeatedRegistrationPassword.clear();
@@ -87,6 +89,9 @@ public class LoginController {
             }
         } catch (IllegalArgumentException e) {
             this.displayError(e.getMessage());
+        }
+        catch (FileNotFoundException e) {
+            this.displayError("Something went wrong, there is a problem with the filepath");
         }
     }
 
