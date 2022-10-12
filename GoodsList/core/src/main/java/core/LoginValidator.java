@@ -38,13 +38,7 @@ public class LoginValidator {
         if (username.isBlank() || password.isBlank()){
             throw new IllegalArgumentException("You need to fill out all the fields!");
         }
-        if (doesUserNameExist(username, fileOperator.getAllUsersAsList(filename)) &&
-          doesUserNameAndPasswordMatch(username, password, fileOperator.getAllUsersAsList(filename))){
-                return true;
-            }
-        else {
-            return false;
-        }
+        return ((doesUserNameExist(username, fileOperator.getAllUsersAsList(filename))) && (doesUserNameAndPasswordMatch(username, password, fileOperator.getAllUsersAsList(filename))));
     }
 
 }
