@@ -136,16 +136,16 @@ public class AppController {
 
     @FXML
     private void makeAd1(){
-        if (validateStringField(brandField1, label1, "Brand-field can't be empty!") &&
-        validateStringField(typeField1, label2, "Type-field can't be empty!")){
+        if (validateStringField(brandField1, label1, "Brand-field can't be empty!", "") &&
+        validateStringField(typeField1, label2, "Type-field can't be empty!", "")){
 
         validateAdFinal(titleField1, priceField1, descriptionArea1, electronicsAd, conditionField1);}
     }
     @FXML
     private void makeAd2(){
-        if (validateStringField(brandField2, label1, "Brand-field can't be empty!") &&
-        validateStringField(typeField2, label2, "Type-field can't be empty!") &&
-        validateStringField(sizeField2, label3, "Size-field can't be empty!") &&
+        if (validateStringField(brandField2, label1, "Brand-field can't be empty!", "") &&
+        validateStringField(typeField2, label2, "Type-field can't be empty!", "") &&
+        validateStringField(sizeField2, label3, "Size-field can't be empty!", "Size: ") &&
 
         validateColourChoice(colourChoiceClothing, label4, "Colour-field can't be empty!")){
 
@@ -154,21 +154,21 @@ public class AppController {
     }
     @FXML
     private void makeAd3(){
-        if (validateStringField(typeField3, label2, "Type-field can't be empty!") &&
+        if (validateStringField(typeField3, label2, "Type-field can't be empty!", "") &&
 
-        validateIntField(areaField3, label1, "Area-field can't be empty!", "Area-field must only contain numbers!") &&
-        validateIntField(yearBuiltField3, label3, "Year-field can't be empty!", "Year-field must only contain numbers!") &&
-        validateIntField(bedroomsField3, label4, "Bedrooms-field can't be empty!", "Bedrooms-field must only contain numbers!")){
+        validateIntField(areaField3, label1, "Area-field can't be empty!", "Area-field must only contain numbers!", "Area: ") &&
+        validateIntField(yearBuiltField3, label3, "Year-field can't be empty!", "Year-field must only contain numbers!", "Year: ") &&
+        validateIntField(bedroomsField3, label4, "Bedrooms-field can't be empty!", "Bedrooms-field must only contain numbers!", "Bedrooms: ")){
 
         validateAdFinal(titleField3, priceField3, descriptionArea3, propertyAd, conditionField3);}
         
     }
     @FXML
     private void makeAd4(){
-        if (validateStringField(brandField4, label1, "Brand-field can't be empty!") &&
-        validateStringField(typeField4, label2, "Type-field can't be empty!") &&
+        if (validateStringField(brandField4, label1, "Brand-field can't be empty!", "") &&
+        validateStringField(typeField4, label2, "Type-field can't be empty!", "") &&
 
-        validateIntField(yearField4, label3, "Year-field can't be empty!", "Year-field must only contain numbers!") &&
+        validateIntField(yearField4, label3, "Year-field can't be empty!", "Year-field must only contain numbers!", "Year: ") &&
 
         validateColourChoice(colourChoiceVehicles, label4, "Colour-field can't be empty!")){
 
@@ -178,10 +178,10 @@ public class AppController {
     }
     @FXML
     private void makeAd5(){
-        if (validateStringField(authorField5, label1, "Author-field can't be empty!") &&
-        validateStringField(genreField5, label2, "Genre-field can't be empty!") &&
-        validateIntField(pagesField5, label3, "Pages-field can't be empty!", "Pages-field must only contain numbers!") &&
-        validateIntField(yearField5, label4, "Year-field can't be empty!", "Year-field must only contain numbers!")){
+        if (validateStringField(authorField5, label1, "Author-field can't be empty!", "Author: ") &&
+        validateStringField(genreField5, label2, "Genre-field can't be empty!", "Genre: ") &&
+        validateIntField(pagesField5, label3, "Pages-field can't be empty!", "Pages-field must only contain numbers!", "Pages: ") &&
+        validateIntField(yearField5, label4, "Year-field can't be empty!", "Year-field must only contain numbers!", "Year: ")){
 
             validateAdFinal(titleField5, priceField5, descriptionArea5, booksAd, conditionField5);
         }
@@ -203,7 +203,7 @@ public class AppController {
         colourChoiceVehicles.getItems().add("Brown");
     }
 
-    private boolean validateIntField(TextField field, Label label, String text, String text2){
+    private boolean validateIntField(TextField field, Label label, String text, String text2, String previewText){
         int okPublish = 1;
         if (field.getText().isEmpty()){
             displayError(text);
@@ -218,13 +218,13 @@ public class AppController {
 
         }
         if (okPublish == 1){
-            label.setText(field.getText());
+            label.setText(previewText+field.getText());
             return true;
 
         }
         return false;
     }
-    private boolean validateStringField(TextField field, Label label, String text){
+    private boolean validateStringField(TextField field, Label label, String text, String previewText){
         int okPublish = 1;
         if (field.getText().isEmpty()){
             displayError(text);
@@ -232,7 +232,7 @@ public class AppController {
             return false;
         }
         if (okPublish == 1){
-            label.setText(field.getText());
+            label.setText(previewText+field.getText());
             return true;
 
         }
@@ -247,7 +247,7 @@ public class AppController {
             return false;
         }
         if (okPublish == 1){
-            label.setText(choice.getValue().toString());
+            label.setText("Colour "+ choice.getValue().toString());
             return true;
         }
         return false;
