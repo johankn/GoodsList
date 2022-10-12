@@ -1,22 +1,19 @@
 package core;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Ad {
     private Product product;
     private User owner;
-    private Date date;
-    private String location;
+    private String date;
     private ArrayList<Integer> offers;
     private String description;
     private int id;
 
-    public Ad(Product product, User owner, Date date, String location, String description, int id) {
+    public Ad(Product product, User owner, String date, String description, int id) {
         this.product = product;
         this.owner = owner;
         this.date = date;
-        this.location = location;
         this.description = description;
         this.id = id;
     }
@@ -33,18 +30,13 @@ public class Ad {
     public void setOwner(User owner) {
         this.owner = owner;
     }
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
-    public String getLocation() {
-        return location;
-    }
-    public void setLocation(String location) {
-        this.location = location;
-    }
+    
     public ArrayList<Integer> getOffers() {
         return offers;
     }
