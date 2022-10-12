@@ -38,6 +38,7 @@ public class App extends Application {
         Parent parent = fxmlLoader.load();
         AppController appController = fxmlLoader.getController();
         appController.setUsername(LoginUsername);
+        appController.setChoiceBox();
         mainStage.getScene().setRoot(parent);
     }
 }

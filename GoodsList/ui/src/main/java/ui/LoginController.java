@@ -65,4 +65,9 @@ public class LoginController {
             this.displayError(e.getMessage());
         }
     }
+
+    public static void main(String[] args) {
+        LoginController l = new LoginController();
+        l.onRegistration();
+    }
 }
