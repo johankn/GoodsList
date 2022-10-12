@@ -1,6 +1,8 @@
 package ui;
 
 
+import java.io.FileNotFoundException;
+
 import core.FileOperator;
 import core.LoginUser;
 import javafx.fxml.FXML;
@@ -36,7 +38,16 @@ public class LoginController {
 
     @FXML
     private void onRegistration(){
-        
+        fileOperator = new FileOperator();
+        String path = "GoodsList/core/src/main/java/json/dataObjects.json";
+        user = new LoginUser("Per", "g");
+
+        try {
+            fileOperator.writeUserDataToFile(path, user);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -54,5 +65,10 @@ public class LoginController {
             // TODO: handle exception
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        LoginController l = new LoginController();
+        l.onRegistration();
     }
 }
