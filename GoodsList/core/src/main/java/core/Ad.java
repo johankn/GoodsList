@@ -10,6 +10,7 @@ public class Ad {
     private String location;
     private ArrayList<Integer> offers;
     private String description;
+    private int id;
 
     public Ad(Product product, User owner, Date date, String location, String description) {
         this.product = product;
@@ -54,6 +55,12 @@ public class Ad {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
     private void publishAd(User user) {
         user.addAdToList(this);
