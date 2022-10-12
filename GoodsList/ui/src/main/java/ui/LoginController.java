@@ -1,6 +1,9 @@
 package ui;
 
 import javafx.fxml.FXML;
+
+import java.io.FileNotFoundException;
+
 import core.FileOperator;
 import core.RegisteredUser;
 import core.RegistrationValidator;
@@ -55,6 +58,7 @@ public class LoginController {
             if (validator.isRegistrationLegal(registrationUsername.getText(), registrationPassword.getText(), repeatedRegistrationPassword.getText(), fullName.getText())) {
                 RegisteredUser regUser = new RegisteredUser(registrationUsername.getText(), registrationPassword.getText(), fullName.getText(), repeatedRegistrationPassword.getText());
                 this.displayMessage("You have been succesfully registered!");
+                validator.getFileOperator().writeUserDataToFile(validator.getFilename(), regUser);
                 this.registrationUsername.clear();
                 this.registrationPassword.clear();
                 this.repeatedRegistrationPassword.clear();
@@ -63,6 +67,9 @@ public class LoginController {
         } 
         catch (IllegalArgumentException e) {
             this.displayError(e.getMessage());
+        }
+        catch (FileNotFoundException e) {
+            this.displayError("Something went wrong, there is a problem with the filepath");
         }
     }
 

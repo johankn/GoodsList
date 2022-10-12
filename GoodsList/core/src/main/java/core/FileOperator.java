@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 public class FileOperator {
 
     // Writes a user to the json-file
-    public void writeUserDataToFile(String filename, Registered userInfo) throws FileNotFoundException {
+    public void writeUserDataToFile(String filename, RegisteredUser userInfo) throws FileNotFoundException {
         try {
             //Henter ut json-filen som JSONObject.
             JSONObject jsonFileAsJsonObject = makeJsonObjectFromJsonFile(filename);
