@@ -59,7 +59,7 @@ public class RegistrationValidator {
     }
 
     private boolean usernameValidation(String username) {
-        return Pattern.matches("^[a-zA-Z0-9ÆØÅæøå]+${1,11}", username);
+        return Pattern.matches("^[a-zA-Z0-9ÆØÅæøå]{1,10}$", username);
     }
 
     private boolean passwordValidation(String password) {
@@ -74,15 +74,12 @@ public class RegistrationValidator {
         if (username.isBlank() || password.isBlank() || repeatedpassword.isBlank() || fullname.isBlank()) {
             throw new IllegalArgumentException("You have to fill out all of the input fields");
         }
-        if (isUsernameValid(username) &&
-        isFullNameValid(fullname) && 
-        isPasswordValid(password) &&
-        equalPasswords(password, repeatedpassword) &&
-        checkExcistingUsername(this.fileOperator.getAllUsersAsList(filename), username)) {
-            return true;
-        }
         else {
-            return false;
+            return isUsernameValid(username) &&
+            isFullNameValid(fullname) && 
+            isPasswordValid(password) &&
+            equalPasswords(password, repeatedpassword) &&
+            checkExcistingUsername(this.fileOperator.getAllUsersAsList(filename), username);
         }
     }
 
