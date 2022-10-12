@@ -2,7 +2,12 @@ package ui;
 
 
 import core.Ad;
+import core.Books;
+import core.Clothing;
+import core.Electronics;
+import core.Property;
 import core.User;
+import core.Vehicles;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -54,10 +59,13 @@ public class AppController {
     //which category ad is in the making
     private int categoryId;
 
+    private User user;
+
 
     @FXML
     public void setUsername(User user){
         WelcomeText.setText("Welcome, " + user.getFullname());
+        this.user = user;
     }
     @FXML
     private void handleNewAd(){
@@ -293,6 +301,38 @@ public class AppController {
         // lage et ad objekt her, basert på hvilken categoryID som er
         // legge det til i JSON-fil med bruker-id og kategori-id
         // gjøre det mulig å browse ad på hjemmesiden
+
+        String date = java.time.LocalDate.now().toString();
+
+        /* skal ikke bruke categoryId som id siden alle ads skal ha unik id, men da må man 
+        ha id lagret i fil. Ikke implementert enda, så per nå kan man kun lagre en annonse per kategori*/
+
+        //skrive ad til fil i sprint2
+        switch (categoryId) {
+            case 1:
+                Electronics product1 = new Electronics(Integer.parseInt(priceField1.getText()), setCondition(conditionField1), titleField1.getText(), brandField1.getText(), typeField1.getText());
+                Ad ad1 = new Ad(product1, this.user, date, descriptionArea1.getText(), categoryId);
+                break;
+            case 2:
+                Clothing product2 = new Clothing(Integer.parseInt(priceField2.getText()), setCondition(conditionField2), titleField2.getText(), brandField2.getText(), typeField2.getText(), colourChoiceClothing.getValue().toString(), sizeField2.getText());
+                Ad ad2 = new Ad(product2, this.user, date, descriptionArea2.getText(), categoryId);
+                break;
+            case 3:
+                Property product3 = new Property(Integer.parseInt(priceField3.getText()), setCondition(conditionField3), titleField3.getText(), typeField3.getText(), Integer.parseInt(yearBuiltField3.getText()), Integer.parseInt(bedroomsField3.getText()), Integer.parseInt(areaField3.getText()));
+                Ad ad3 = new Ad(product3, this.user, date, descriptionArea3.getText(), categoryId);
+                break;
+            case 4:
+                Vehicles product4 = new Vehicles(Integer.parseInt(priceField4.getText()), setCondition(conditionField4), titleField4.getText(), brandField4.getText(), typeField4.getText(), Integer.parseInt(yearField4.getText()));
+                Ad ad4 = new Ad(product4, this.user, date, descriptionArea4.getText(), categoryId);
+                break;
+            case 5:
+                Books product5 = new Books(Integer.parseInt(priceField5.getText()), setCondition(conditionField5), titleField5.getText(), authorField5.getText(), genreField5.getText(), Integer.parseInt(yearField5.getText()), Integer.parseInt(pagesField5.getText()));
+                Ad ad5 = new Ad(product5, this.user, date, descriptionArea5.getText(), categoryId);
+                break;
+        
+            default:
+                break;
+        }
 
         //erase electronics
         priceField1.setText("");
