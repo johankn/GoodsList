@@ -51,20 +51,26 @@ public class FileOperator {
     }
 
     
-
-    
-
-
     //Methood to get all the users in the jsonfile on the fromat: [username, password, fullname, username, password,...]
     public List<User> getAllUsersAsList(String filename){
         dataObject = new DataObject(filename);
-        return dataObject.getUserList();
-        
+        List<User> list = dataObject.getUserList();
+        return list;
     }
 
     public static void main(String[] args) {
         FileOperator f = new FileOperator();
-        
+        System.out.println(f.getAllUsersAsList("GoodsList/core/src/main/java/json/dataObjects.json"));
+        List<Ad> listOfAds = new ArrayList<>();
+        /* this.pages = pages;
+        this.author = author;
+        this.genre = genre;
+        this.releaseYear = releaseYear; */
+        Books book1 = new Books(12, "Good", "Mikkemus", "embre", "comic", 2003, 75);
+        Ad ad1 = new Ad(book1, "12.10.2022", "very nice book");
+        listOfAds.add(ad1);
+        User user = new User("eliasls", "kookok", "Mathias VAl", listOfAds);
+        f.updateUserObjectJsonFile("GoodsList/core/src/main/java/json/dataObjects.json", user);
         
     }
 

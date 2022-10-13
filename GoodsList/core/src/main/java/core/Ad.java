@@ -2,22 +2,39 @@ package core;
 
 import java.util.ArrayList;
 
-public class Ad {
-    private Product product;
-    //private User owner;
-    private String date;
-    private ArrayList<Integer> offers;
-    private String description;
-    private int id;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    public Ad(Product product, String date, String description, int id) {
+public class Ad {
+    
+    private Product product;
+    private String date;
+    private String description;
+    
+    @JsonIgnore
+    private ArrayList<Integer> offers;
+    /* public Ad(Product product, String date, String description, int id) {
         this.product = product;
-        //this.owner = owner;
         this.date = date;
         this.description = description;
         this.id = id;
         this.offers = new ArrayList<>();
+    } */
+
+    @JsonCreator
+    public Ad(
+        @JsonProperty(value = "product") Product product,
+        @JsonProperty(value = "date")String date,
+        @JsonProperty(value = "description")String description
+        ) {
+        this.product = product;
+        this.date = date;
+        this.description = description;
+        this.offers = new ArrayList<>();
     }
+
+
 
     public Product getProduct() {
         return product;
@@ -50,12 +67,7 @@ public class Ad {
     public void setDescription(String description) {
         this.description = description;
     }
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
+    
     private void publishAd(User user) {
         user.addAdToList(this);
     }

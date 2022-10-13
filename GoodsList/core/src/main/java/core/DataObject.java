@@ -1,14 +1,19 @@
 package core;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.channels.FileChannel.MapMode;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class DataObject {
@@ -21,6 +26,7 @@ public class DataObject {
     private User user;
     private boolean addUser;
     private List<User> userList;
+    private JsonFileAsObject jsonFileAsObject;
 
     public DataObject(String filename, User user, boolean addUser) {
         this.filename = filename;
@@ -33,7 +39,7 @@ public class DataObject {
     public DataObject(String filename) {
         this.filename = filename;
         objectMapper = new ObjectMapper();
-        generateMapOfUsers();
+        setUserList();
     }
 
     //Genrates a map og dataObject.json
@@ -41,14 +47,11 @@ public class DataObject {
         String jsonString;
         try {
             jsonString = makeJsonObjectFromJsonFile().toString();
-            jsonFileAsMap = objectMapper.readValue(jsonString, Map.class);
+            jsonFileAsObject = objectMapper.readValue(jsonString , JsonFileAsObject.class);
             if(addUser){
                 addUserToMap(user);
             } else if (!addUser){
                 updateUserActiveAds(user);
-            }
-            else if (user == null){
-                setUserList();
             }
             
         } catch (Exception e) {
@@ -63,20 +66,35 @@ public class DataObject {
     }
 
     private void updateUserActiveAds(User userToBeUpdated){
-        List<User> userList = jsonFileAsMap.get("users");
-        for (int i = 0; i < userList.size(); i++) {
-            if (userList.get(i).getUsername().equals(userToBeUpdated.getUsername())){
-                userList.set(i, userToBeUpdated);
+        List<User> userList = jsonFileAsObject.getUsers();
+        for (int i = 0; i < jsonFileAsObject.getUsers().size(); i++) {
+            if (jsonFileAsObject.getUsers().get(i).getUsername().equals(userToBeUpdated.getUsername())){
+                jsonFileAsObject.set(i, userToBeUpdated);
             }
         }
     }
 
     private void setUserList(){
-        userList = jsonFileAsMap.get("users");
+        String jsonString;
+        try {
+            jsonString = makeJsonObjectFromJsonFile().toString();
+            System.out.println(jsonString);
+            //https://www.baeldung.com/jackson-object-mapper-tutorial
+            int a = 0;
+            jsonFileAsObject = objectMapper.readValue(jsonString , JsonFileAsObject.class);
+            int b = 0;
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //userList = jsonFileAsMap.get("users");
     }
 
     public List<User> getUserList(){
-        return userList;
+        return jsonFileAsObject.getUsers();
     }
 
     //Help methood to make a jsonObject from the json-file

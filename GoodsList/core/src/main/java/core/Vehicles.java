@@ -1,5 +1,9 @@
 package core;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+@JsonTypeName("vehicles")
+
 public class Vehicles extends Product {
 
     private String brand;

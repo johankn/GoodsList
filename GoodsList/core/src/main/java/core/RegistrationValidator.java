@@ -41,7 +41,7 @@ public class RegistrationValidator {
     }
 
     public boolean checkExcistingUsername(List<User> excistingUsers, String username) {
-        for (int i = 0; i < excistingUsers.size(); i += 3) {
+        for (int i = 0; i < excistingUsers.size(); i++) {
             if (username.equals(excistingUsers.get(i).getUsername())) {
                 throw new IllegalArgumentException("This username is already taken.");
             }

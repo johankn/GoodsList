@@ -1,5 +1,9 @@
 package core;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+@JsonTypeName("property")
+
 public class Property extends Product {
 
     private String propertyType;

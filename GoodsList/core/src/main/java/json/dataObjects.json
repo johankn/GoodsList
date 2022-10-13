@@ -1,32 +1,27 @@
 {
-    "users": [
-        {
-            "password": "EliasGutten123",
-            "activeAds": [
-                {
-                    "date": "13.10.2022",
-                    "offers": [],
-                    "product": {
-                        "productTitle": "Donad Duck",
-                        "condition": "Good",
-                        "pages": 74,
-                        "price": 12,
-                        "author": "Emil",
-                        "genre": "Comic",
-                        "releaseYear": 2002
-                    },
-                    "description": "Veldig god stand og en sykt bra bok",
-                    "id": 1
-                }
-            ],
-            "fullname": "Elias Lys�� Sommerseth",
-            "username": "eliasls"
-        },
-        {
-            "activeAds": [],
-            "fullname": "Elias Lysø Sommerseth",
-            "username": "eliasls",
-            "password": "EliasGutten123"
-        }
-    ]
+  "users" : [ {
+    "password" : "EliasGutten123",
+    "activeAds" : [ {
+      "date" : "13.10.2022",
+      "offers" : [ ],
+      "product" : {
+        "productTitle" : "Donad Duck",
+        "condition" : "Good",
+        "pages" : 74,
+        "@type" : "book",
+        "price" : 12,
+        "author" : "Emil",
+        "genre" : "Comic",
+        "releaseYear" : 2002
+      },
+      "description" : "Veldig god stand og en sykt bra bok"
+    } ],
+    "fullname" : "Elias Lysoe Sommerseth",
+    "username" : "eliasls"
+  }, {
+    "password" : "EliasGutten123",
+    "activeAds" : [ ],
+    "fullname" : "Elias Lysoe Sommerseth",
+    "username" : "eliasls"
+  } ]
 }

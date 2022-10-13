@@ -1,5 +1,11 @@
 package core;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+@JsonTypeName("book")
+
 public class Books extends Product {
 
     private int pages;
@@ -7,7 +13,16 @@ public class Books extends Product {
     private String genre;
     private int releaseYear;
 
-    public Books(int price, String condition, String productTitle, String author, String genre, int releaseYear, int pages) {
+    @JsonCreator
+    public Books(
+        @JsonProperty(value = "price") int price,
+        @JsonProperty(value = "condition") String condition,
+        @JsonProperty(value = "productTitle") String productTitle,
+        @JsonProperty(value = "author") String author,
+        @JsonProperty(value = "genre") String genre,
+        @JsonProperty(value = "releaseYear") int releaseYear,
+        @JsonProperty(value = "pages") int pages
+    ){
         super(price, condition, productTitle);
         this.pages = pages;
         this.author = author;
