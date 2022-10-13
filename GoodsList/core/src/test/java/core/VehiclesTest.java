@@ -10,7 +10,7 @@ public class VehiclesTest {
 
     @BeforeEach
     public void setUp() {
-        this.vehicle = new Vehicles(100, "good", "x", "porsche", "911", 2019);
+        this.vehicle = new Vehicles(100, "good", "porsche", "911", 2019, "black");
     }
 
     @Test

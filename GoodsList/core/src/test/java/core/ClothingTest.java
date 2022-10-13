@@ -10,7 +10,7 @@ public class ClothingTest {
 
     @BeforeEach
     public void setUp() {
-        this.jumper = new Clothing(300, "good", "x", "Polo", "Hoodie", "blue", "medium");
+        this.jumper = new Clothing(300, "good", "Polo", "Hoodie", "blue", "medium");
     }
 
     @Test

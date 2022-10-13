@@ -11,7 +11,7 @@ public class PropertyTest {
 
     @BeforeEach
     public void setUp() {
-        this.property = new Property(300000, "good", "x", "House", 2010, 4, 250);
+        this.property = new Property(300000, "good", "House", 2010, 4, 250);
     }
 
     @Test

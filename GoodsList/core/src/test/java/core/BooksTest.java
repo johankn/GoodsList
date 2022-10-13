@@ -11,7 +11,7 @@ public class BooksTest {
 
     @BeforeEach
     public void setUp() {
-        this.book = new Books(300, "good", "harry potter", "J.K Rowling", "Fiction", 2009, 350);
+        this.book = new Books(300, "good", "J.K Rowling", "Fiction", 2009, 350);
     }
 
     @Test

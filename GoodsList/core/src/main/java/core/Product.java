@@ -13,10 +13,6 @@ public class Product {
         return this.condition;
     }
 
-    public String getProductTitle() {
-        return this.productTitle;
-    }
-
     public int getPrice() {
         return this.price;
     }
