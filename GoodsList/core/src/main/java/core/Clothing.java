@@ -2,7 +2,7 @@ package core;
 
 public class Clothing extends Product {
 
-    private String gender;
+
     private String type;
     private String color;
     private String brand;
@@ -15,15 +15,7 @@ public class Clothing extends Product {
         this.brand = brand;
         this.size = size;
     }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
+    
     public String getType() {
         return type;
     }
