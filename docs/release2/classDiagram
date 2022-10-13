@@ -1,0 +1,4 @@
+@startuml name
+!theme plain
+Bob -> Alice : hellooo
+@enduml
