@@ -83,12 +83,4 @@ public class AdValidator {
 
     }
 
-    public static void main(String[] args) {
-        AdValidator ad = new AdValidator();
-        String price = "";
-        String brand = "";
-        String type = "h";
-    
-    }
-
 }

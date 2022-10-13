@@ -41,6 +41,7 @@ public class AdValidatorTest {
         this.area = "100";
     }
     
+    
     @Test
     @DisplayName("test validateElectronics method")
     public void testValidateElectronics(){
@@ -110,27 +111,38 @@ public class AdValidatorTest {
         this.description = "";
         this.price = "";
         this.type = "";
-        this.year = "2022";
-        this.bedrooms = "0";
+        this.year = "";
+        this.bedrooms = "";
         this.area = "";
         Assertions.assertThrows(IllegalArgumentException.class, () -> adValidator.validateProperty(title, description, price, type, year, bedrooms, area));
 
-        this.title = "";
+        this.title = "title";
         this.description = "";
         this.price = "000";
-        this.type = "Jumper";
+        this.type = "House";
         this.year = "2022";
         this.bedrooms = "11";
         this.area = "20";
         Assertions.assertThrows(IllegalArgumentException.class, () -> adValidator.validateProperty(title, description, price, type, year, bedrooms, area));
 
-        this.title = "";
-        this.description = "";
-        this.price = "-200";
-        this.type = "Jumper";
-        this.year = "2022";
+        this.title = "title";
+        this.description = "description";
+        this.price = "200";
+        this.type = "Apartment";
+        this.year = "1000";
         this.bedrooms = "8";
-        this.area = "1000";
+        this.area = "gg";
+        Assertions.assertThrows(IllegalArgumentException.class, () -> adValidator.validateProperty(title, description, price, type, year, bedrooms, area));
+
+        this.bedrooms = "gg";
+        this.area = "100";
+        Assertions.assertThrows(IllegalArgumentException.class, () -> adValidator.validateProperty(title, description, price, type, year, bedrooms, area));
+
+        this.bedrooms = "11";
+        Assertions.assertThrows(IllegalArgumentException.class, () -> adValidator.validateProperty(title, description, price, type, year, bedrooms, area));
+
+        this.bedrooms = "4";
+        this.price = "gg";
         Assertions.assertThrows(IllegalArgumentException.class, () -> adValidator.validateProperty(title, description, price, type, year, bedrooms, area));
 
     }
@@ -140,20 +152,20 @@ public class AdValidatorTest {
     public void testValidateVehicles(){
         Assertions.assertTrue(adValidator.validateVehicles(title, description, price, brand, type, year));
         
-        this.title = "";
-        this.description = "";
-        this.price = "";
-        this.brand = "";
-        this.type = "";
-        this.year = "";
-        Assertions.assertThrows(IllegalArgumentException.class, () -> adValidator.validateVehicles(title, description, price, brand, type, year));
-
-        this.title = "";
+        this.title = "title";
         this.description = "description";
-        this.price = "000";
-        this.brand = "Ford";
+        this.price = "100";
+        this.brand = "ford";
         this.type = "focus";
         this.year = "2030";
+        Assertions.assertThrows(IllegalArgumentException.class, () -> adValidator.validateVehicles(title, description, price, brand, type, year));
+
+        this.title = "title";
+        this.description = "description";
+        this.price = "100";
+        this.brand = "ford";
+        this.type = "focus";
+        this.year = "gg";
         Assertions.assertThrows(IllegalArgumentException.class, () -> adValidator.validateVehicles(title, description, price, brand, type, year));
 
         this.title = "title";
@@ -181,20 +193,20 @@ public class AdValidatorTest {
 
         this.title = "title";
         this.description = "Description";
-        this.price = "yoooo";
-        this.author = "";
+        this.price = "100";
+        this.author = "yooo";
         this.genre = "Comedy";
         this.year = "11";
         this.pages = "31000";
         Assertions.assertThrows(IllegalArgumentException.class, () -> adValidator.validateBooks(title, description, price, author, genre, year, pages));
 
-        this.title = "";
-        this.description = "";
-        this.price = "-200";
+        this.title = "title";
+        this.description = "description";
+        this.price = "200";
         this.author = "JK Rowling";
         this.genre = "Roman";
         this.year = "2000";
-        this.pages = "0";
+        this.pages = "gg";
         Assertions.assertThrows(IllegalArgumentException.class, () -> adValidator.validateBooks(title, description, price, author, genre, year, pages));
 
     }
