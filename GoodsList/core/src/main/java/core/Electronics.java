@@ -5,8 +5,8 @@ public class Electronics extends Product {
     private String brand;
     private String type;
 
-    public Electronics(int price, String condition, String productTitle, String brand, String type) {
-        super(price, condition, productTitle);
+    public Electronics(int price, String condition, String brand, String type) {
+        super(price, condition);
         this.brand = brand;
         this.type = type;
     }

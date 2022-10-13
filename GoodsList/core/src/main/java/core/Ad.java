@@ -9,15 +9,28 @@ public class Ad {
     private ArrayList<Integer> offers;
     private String description;
     private int id;
+    private String adTitle;
 
-    public Ad(Product product, User owner, String date, String description, int id) {
+    public Ad(String adTitle, Product product, User owner, String date, String description, int id) {
         this.product = product;
+        this.adTitle = adTitle;
         this.owner = owner;
         this.date = date;
         this.description = description;
         this.id = id;
     }
 
+    public Ad(){
+
+    }
+    
+
+    public String getAdTitle() {
+        return adTitle;
+    }
+    public void setAdTitle(String adTitle) {
+        this.adTitle = adTitle;
+    }
     public Product getProduct() {
         return product;
     }
@@ -36,7 +49,6 @@ public class Ad {
     public void setDate(String date) {
         this.date = date;
     }
-    
     public ArrayList<Integer> getOffers() {
         return offers;
     }

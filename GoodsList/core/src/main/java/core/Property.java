@@ -7,9 +7,9 @@ public class Property extends Product {
     private int bedrooms;
     private int area; // bruksareal
 
-    public Property(int price, String condition, String productTitle, String propertyType, int yearBuilt, int bedrooms,
+    public Property(int price, String condition, String propertyType, int yearBuilt, int bedrooms,
             int area) {
-        super(price, condition, productTitle);
+        super(price, condition);
         this.propertyType = propertyType;
         this.yearBuilt = yearBuilt;
         this.bedrooms = bedrooms;

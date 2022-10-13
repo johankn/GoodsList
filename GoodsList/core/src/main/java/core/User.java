@@ -16,16 +16,16 @@ public class User {
         this.password = password;
     }
 
-    void addAdToList(Ad ad) {
+    public void addAdToList(Ad ad) {
         activeAds.add(ad);
     }
 
     public List<Ad> getActiveAds() {
-        return activeAds;
+        return new ArrayList<Ad>(activeAds);
     }
 
     public List<Ad> getInactiveAds() {
-        return inactiveAds;
+        return new ArrayList<Ad>(inactiveAds);
     }
 
     public String getFullname() {
