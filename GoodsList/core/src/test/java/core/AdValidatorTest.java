@@ -84,7 +84,7 @@ public class AdValidatorTest {
 
         this.title = "";
         this.description = "";
-        this.price = "000";
+        this.price = "halla";
         this.brand = "Adidas";
         this.type = "Jumper";
         this.size = "Medium";
@@ -115,7 +115,7 @@ public class AdValidatorTest {
         this.area = "";
         Assertions.assertThrows(IllegalArgumentException.class, () -> adValidator.validateProperty(title, description, price, type, year, bedrooms, area));
 
-        this.type = "";
+        this.title = "";
         this.description = "";
         this.price = "000";
         this.type = "Jumper";
@@ -181,7 +181,7 @@ public class AdValidatorTest {
 
         this.title = "title";
         this.description = "Description";
-        this.price = "1000";
+        this.price = "yoooo";
         this.author = "";
         this.genre = "Comedy";
         this.year = "11";
