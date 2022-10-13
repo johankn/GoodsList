@@ -16,6 +16,7 @@ public class Ad {
         this.date = date;
         this.description = description;
         this.id = id;
+        this.offers = new ArrayList<>();
     }
 
     public Product getProduct() {

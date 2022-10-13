@@ -2,7 +2,7 @@ package core;
 
 import java.util.List;
 
-public class userInfoFinder {
+public class UserInfoFinder {
 
     //This class find info about the user by information we allready know about it. 
 
@@ -10,7 +10,7 @@ public class userInfoFinder {
     private List<String> allExistingUsers;
     private static final String filename = "..//core/src/main/java/json/dataObjects.json";
 
-    public userInfoFinder() {
+    public UserInfoFinder() {
         this.fileOperator = new FileOperator();
     }
     
