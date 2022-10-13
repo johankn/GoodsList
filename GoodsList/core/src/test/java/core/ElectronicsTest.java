@@ -11,7 +11,7 @@ public class ElectronicsTest {
 
     @BeforeEach
     public void setUp() {
-        this.electronics = new Electronics(300, "good", "x", "Apple", "phone");
+        this.electronics = new Electronics(300, "good", "Apple", "phone");
     }
 
     @Test

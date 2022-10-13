@@ -8,23 +8,20 @@ public class Ad {
     private String date;
     private ArrayList<Integer> offers;
     private String description;
-    private int id;
     private String adTitle;
 
-    public Ad(String adTitle, Product product, User owner, String date, String description, int id) {
+    public Ad(String adTitle, Product product, User owner, String date, String description) {
         this.product = product;
         this.adTitle = adTitle;
         this.owner = owner;
         this.date = date;
         this.description = description;
-        this.id = id;
         this.offers = new ArrayList<>();
     }
 
-    public Ad(){
+    public Ad() {
 
     }
-    
 
     public String getAdTitle() {
         return adTitle;
@@ -51,7 +48,7 @@ public class Ad {
         this.date = date;
     }
     public ArrayList<Integer> getOffers() {
-        return offers;
+        return this.offers;
     }
     public void addOffer(Integer offer) {
         offers.add(offer);
@@ -62,13 +59,8 @@ public class Ad {
     public void setDescription(String description) {
         this.description = description;
     }
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    private void publishAd(User user) {
+
+    public void publishAd(User user) {
         user.addAdToList(this);
     }
 
