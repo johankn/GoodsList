@@ -10,4 +10,16 @@ public class Product {
         this.condition = condition;
         this.productTitle = productTitle;
     }
+
+    public String getCondition() {
+        return this.condition;
+    }
+
+    public String getProductTitle() {
+        return this.productTitle;
+    }
+
+    public int getPrice() {
+        return this.price;
+    }
 }

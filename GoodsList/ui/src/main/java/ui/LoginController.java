@@ -10,7 +10,7 @@ import core.LoginValidator;
 import core.RegisteredUser;
 import core.RegistrationValidator;
 import core.User;
-import core.userInfoFinder;
+import core.UserInfoFinder;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -23,7 +23,7 @@ public class LoginController {
     private FileOperator fileOperator;
     private RegistrationValidator registrationValidator;
     private LoginValidator loginValidator;
-    private userInfoFinder userInfoFinder;
+    private UserInfoFinder userInfoFinder;
     private User loggedInUser;
     private App app;
 
@@ -57,7 +57,7 @@ public class LoginController {
     private void onLogin() {
         try {
             registrationValidator = new RegistrationValidator();
-            userInfoFinder = new userInfoFinder();
+            userInfoFinder = new UserInfoFinder();
             loginValidator = new LoginValidator();
             if (loginValidator.isLoginLegal(username.getText(), password.getText())) {
                 loggedInUser = new User(username.getText(), password.getText(),
