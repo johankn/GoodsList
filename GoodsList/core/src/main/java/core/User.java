@@ -5,7 +5,7 @@ import java.util.List;
 
 public class User {
     private List<Ad> activeAds = new ArrayList<Ad>();
-    private List<Ad> inactiveAds = new ArrayList<Ad>();
+    //private List<Ad> inactiveAds = new ArrayList<Ad>();
     private String fullname;
     private String username;
     private String password;
@@ -16,7 +16,7 @@ public class User {
         this.password = password;
     }
 
-    void addAdToList(Ad ad) {
+    public void addAdToList(Ad ad) {
         activeAds.add(ad);
     }
 
@@ -24,9 +24,9 @@ public class User {
         return activeAds;
     }
 
-    public List<Ad> getInactiveAds() {
+    /* public List<Ad> getInactiveAds() {
         return inactiveAds;
-    }
+    } */
 
     public String getFullname() {
         return fullname;

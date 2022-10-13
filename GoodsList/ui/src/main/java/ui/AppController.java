@@ -311,23 +311,23 @@ public class AppController {
         switch (categoryId) {
             case 1:
                 Electronics product1 = new Electronics(Integer.parseInt(priceField1.getText()), setCondition(conditionField1), titleField1.getText(), brandField1.getText(), typeField1.getText());
-                Ad ad1 = new Ad(product1, this.user, date, descriptionArea1.getText(), categoryId);
+                Ad ad1 = new Ad(product1, date, descriptionArea1.getText(), categoryId);
                 break;
             case 2:
                 Clothing product2 = new Clothing(Integer.parseInt(priceField2.getText()), setCondition(conditionField2), titleField2.getText(), brandField2.getText(), typeField2.getText(), colourChoiceClothing.getValue().toString(), sizeField2.getText());
-                Ad ad2 = new Ad(product2, this.user, date, descriptionArea2.getText(), categoryId);
+                Ad ad2 = new Ad(product2, date, descriptionArea2.getText(), categoryId);
                 break;
             case 3:
                 Property product3 = new Property(Integer.parseInt(priceField3.getText()), setCondition(conditionField3), titleField3.getText(), typeField3.getText(), Integer.parseInt(yearBuiltField3.getText()), Integer.parseInt(bedroomsField3.getText()), Integer.parseInt(areaField3.getText()));
-                Ad ad3 = new Ad(product3, this.user, date, descriptionArea3.getText(), categoryId);
+                Ad ad3 = new Ad(product3, date, descriptionArea3.getText(), categoryId);
                 break;
             case 4:
                 Vehicles product4 = new Vehicles(Integer.parseInt(priceField4.getText()), setCondition(conditionField4), titleField4.getText(), brandField4.getText(), typeField4.getText(), Integer.parseInt(yearField4.getText()));
-                Ad ad4 = new Ad(product4, this.user, date, descriptionArea4.getText(), categoryId);
+                Ad ad4 = new Ad(product4, date, descriptionArea4.getText(), categoryId);
                 break;
             case 5:
                 Books product5 = new Books(Integer.parseInt(priceField5.getText()), setCondition(conditionField5), titleField5.getText(), authorField5.getText(), genreField5.getText(), Integer.parseInt(yearField5.getText()), Integer.parseInt(pagesField5.getText()));
-                Ad ad5 = new Ad(product5, this.user, date, descriptionArea5.getText(), categoryId);
+                Ad ad5 = new Ad(product5, date, descriptionArea5.getText(), categoryId);
                 break;
         
             default:

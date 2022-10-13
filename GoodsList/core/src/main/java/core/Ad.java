@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class Ad {
     private Product product;
-    private User owner;
+    //private User owner;
     private String date;
     private ArrayList<Integer> offers;
     private String description;
     private int id;
 
-    public Ad(Product product, User owner, String date, String description, int id) {
+    public Ad(Product product, String date, String description, int id) {
         this.product = product;
-        this.owner = owner;
+        //this.owner = owner;
         this.date = date;
         this.description = description;
         this.id = id;
@@ -25,12 +25,12 @@ public class Ad {
     public void setProduct(Product product) {
         this.product = product;
     }
-    public User getOwner() {
+    /* public User getOwner() {
         return owner;
-    }
-    public void setOwner(User owner) {
+    } */
+    /* public void setOwner(User owner) {
         this.owner = owner;
-    }
+    } */
     public String getDate() {
         return date;
     }

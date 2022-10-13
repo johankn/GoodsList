@@ -40,9 +40,9 @@ public class RegistrationValidator {
         return true;
     }
 
-    public boolean checkExcistingUsername(List<String> excistingUsers, String username) {
+    public boolean checkExcistingUsername(List<User> excistingUsers, String username) {
         for (int i = 0; i < excistingUsers.size(); i += 3) {
-            if (username.equals(excistingUsers.get(i))) {
+            if (username.equals(excistingUsers.get(i).getUsername())) {
                 throw new IllegalArgumentException("This username is already taken.");
             }
         }
