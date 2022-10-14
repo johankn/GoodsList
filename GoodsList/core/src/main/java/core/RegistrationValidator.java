@@ -5,7 +5,6 @@ import java.util.regex.Pattern;
 public class RegistrationValidator {
     
     private FileOperator fileOperator;
-    private static final String filename = "..//core/src/main/java/json/dataObjects.json";
 
     public RegistrationValidator() {
         this.fileOperator = new FileOperator();
@@ -13,10 +12,6 @@ public class RegistrationValidator {
 
     public FileOperator getFileOperator() {
         return this.fileOperator;
-    }
-
-    public String getFilename() {
-        return filename;
     }
 
     public boolean isUsernameValid(String username) {
@@ -70,7 +65,7 @@ public class RegistrationValidator {
         return Pattern.matches("^[ÆØÅA-Z][æøåa-zÆØÅA-Z]{2,}(?: [ÆØÅA-Z][æøåa-zÆØÅA-Z]*){0,2}$", fullname);
     }
 
-    public boolean isRegistrationLegal(String username, String password, String repeatedpassword, String fullname) {
+    public boolean isRegistrationLegal(String username, String password, String repeatedpassword, String fullname, List<User> excistingUsers) {
         if (username.isBlank() || password.isBlank() || repeatedpassword.isBlank() || fullname.isBlank()) {
             throw new IllegalArgumentException("You have to fill out all of the input fields");
         }
@@ -79,7 +74,7 @@ public class RegistrationValidator {
             isFullNameValid(fullname) && 
             isPasswordValid(password) &&
             equalPasswords(password, repeatedpassword) &&
-            checkExcistingUsername(this.fileOperator.getAllUsersAsList(filename), username);
+            checkExcistingUsername(excistingUsers, username);
         }
     }
 

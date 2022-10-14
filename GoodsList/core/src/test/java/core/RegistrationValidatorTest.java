@@ -17,10 +17,12 @@ public class RegistrationValidatorTest {
 
     private RegistrationValidator regValidator1;
     private RegistrationValidator regValidator2;
+    private List<User> testlist;
 
     @BeforeEach
     public void setUp() {
         regValidator1 = new RegistrationValidator();
+        testlist = new ArrayList<>();
     }
 
     @Test
@@ -84,7 +86,6 @@ public class RegistrationValidatorTest {
     @Test
     public void TestCheckExcistingUsername() { //this method checks if a username is in a given list. Because our structure is Username, password, fullname it should only check every third index. 
         //it should throw when if the username already is in the list (taken)
-        List<User> testlist = new ArrayList<>();
         User user1 = new User("username", "password", "fullname", new ArrayList<>());
         User user2 = new User("username2", "password2", "fullname2", new ArrayList<>());
         User user3 = new User("username3", "password3", "fullname3", new ArrayList<>());
@@ -124,18 +125,18 @@ public class RegistrationValidatorTest {
 
     @Test
     public void TestIsRegistrationLegal() {
-        assertTrue(regValidator1.isRegistrationLegal("username", "Passord11", "Passord11", "Username"));
+        assertTrue(regValidator1.isRegistrationLegal("username", "Passord11", "Passord11", "Username", testlist));
         assertThrows(IllegalArgumentException.class, () -> {
-            regValidator1.isRegistrationLegal("", "Passord11", "Passord11", "Username"); //test for empty field
+            regValidator1.isRegistrationLegal("", "Passord11", "Passord11", "Username", testlist); //test for empty field
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            regValidator1.isRegistrationLegal("username", "", "Passord11", "Username"); //test for empty field
+            regValidator1.isRegistrationLegal("username", "", "Passord11", "Username", testlist); //test for empty field
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            regValidator1.isRegistrationLegal("username", "Passord11", "", "Username"); //test for empty field
+            regValidator1.isRegistrationLegal("username", "Passord11", "", "Username", testlist); //test for empty field
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            regValidator1.isRegistrationLegal("username", "Passord11", "Passord11", ""); //test for empty field
+            regValidator1.isRegistrationLegal("username", "Passord11", "Passord11", "", testlist); //test for empty field
         });
     }
 

@@ -4,7 +4,6 @@ import java.util.List;
 
 public class LoginValidator {
 
-    private static final String filename = "..//core/src/main/java/json/dataObjects.json";
     private FileOperator fileOperator;
 
     public LoginValidator() {
@@ -17,7 +16,7 @@ public class LoginValidator {
 
     private boolean doesUserNameExist(String username, List<User> listOfExistingUsers) {
 
-        for (int i = 0; i < listOfExistingUsers.size(); i += 3) {
+        for (int i = 0; i < listOfExistingUsers.size(); i++) {
             if (username.equals(listOfExistingUsers.get(i).getUsername())) {
                 return true;
             }
@@ -26,19 +25,19 @@ public class LoginValidator {
     }
 
     private boolean doesUserNameAndPasswordMatch(String username, String password, List<User> listOfExistingUsers) {
-        for (int i = 0; i < listOfExistingUsers.size(); i += 3) {
-            if (username.equals(listOfExistingUsers.get(i).getUsername()) && password.equals(listOfExistingUsers.get(i + 1).getPassword())) {
+        for (int i = 0; i < listOfExistingUsers.size(); i++ ) {
+            if (username.equals(listOfExistingUsers.get(i).getUsername()) && password.equals(listOfExistingUsers.get(i).getPassword())) {
                 return true;
             }
         }
         throw new IllegalArgumentException("This password is incorrect");
     }
 
-    public boolean isLoginLegal(String username, String password){
+    public boolean isLoginLegal(String username, String password, List<User> exsitingUsers){
         if (username.isBlank() || password.isBlank()){
             throw new IllegalArgumentException("You need to fill out all the fields!");
         }
-        return ((doesUserNameExist(username, fileOperator.getAllUsersAsList(filename))) && (doesUserNameAndPasswordMatch(username, password, fileOperator.getAllUsersAsList(filename))));
+        return ((doesUserNameExist(username, exsitingUsers))) && (doesUserNameAndPasswordMatch(username, password, exsitingUsers));
     }
 
 }

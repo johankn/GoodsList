@@ -3,6 +3,7 @@ package ui;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.io.FileNotFoundException;
 
 import core.FileOperator;
@@ -26,6 +27,7 @@ public class LoginController {
     private UserInfoCollector userInfoFinder;
     private User loggedInUser;
     private App app;
+    private String filename;
 
     @FXML
     private PasswordField password, registrationPassword, repeatedRegistrationPassword;
@@ -38,6 +40,15 @@ public class LoginController {
 
     @FXML
     private Text header, loginHeader, registrationHeader, feedback;
+
+    public void setFilepath(boolean isTest) {
+        if (isTest) {
+            this.filename = "/src/test/java/json/dataObjectsTest.json";
+        }
+        else {
+            this.filename = "..//core/src/main/java/json/dataObjects.json";
+        }
+    }
 
     private void displayError(String message) {
         Alert alert = new Alert(AlertType.ERROR);
@@ -56,12 +67,11 @@ public class LoginController {
     @FXML
     private void onLogin() {
         try {
-            registrationValidator = new RegistrationValidator();
             userInfoFinder = new UserInfoCollector();
             loginValidator = new LoginValidator();
-            if (loginValidator.isLoginLegal(username.getText(), password.getText())) {
+            if (loginValidator.isLoginLegal(username.getText(), password.getText(), loginValidator.getFileOperator().getAllUsersAsList(filename))) {
                 loggedInUser = new User(username.getText(), password.getText(),
-                        userInfoFinder.getFullNameByUsername(username.getText()));
+                        userInfoFinder.getFullNameByUsername(username.getText()), new ArrayList<>());
                 app = new App();
                 app.bringUserInfo(loggedInUser);
             }
@@ -77,11 +87,11 @@ public class LoginController {
         registrationValidator = new RegistrationValidator();
         try {
             if (registrationValidator.isRegistrationLegal(registrationUsername.getText(),
-                    registrationPassword.getText(), repeatedRegistrationPassword.getText(), fullName.getText())) {
+                    registrationPassword.getText(), repeatedRegistrationPassword.getText(), fullName.getText(), registrationValidator.getFileOperator().getAllUsersAsList(filename))) {
                 RegisteredUser regUser = new RegisteredUser(registrationUsername.getText(),
                         registrationPassword.getText(), fullName.getText(), repeatedRegistrationPassword.getText());
                 this.displayMessage("You have been succesfully registered!");
-                registrationValidator.getFileOperator().writeNewUserDataToFile(registrationValidator.getFilename(), regUser);
+                registrationValidator.getFileOperator().writeNewUserDataToFile(filename, regUser);
                 this.registrationUsername.clear();
                 this.registrationPassword.clear();
                 this.repeatedRegistrationPassword.clear();
@@ -92,8 +102,4 @@ public class LoginController {
         }
     }
 
-    public static void main(String[] args) {
-        LoginController l = new LoginController();
-        l.onRegistration();
-    }
 }
