@@ -14,15 +14,17 @@ public class FileOperator {
     private ObjectMapper objectMapper;
     private ObjectWriter objectWriter;
     private DataObject dataObject;
+    private String filename;
 
-    public FileOperator() {
+    public FileOperator(String filename) {
         objectMapper = new ObjectMapper();
         objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        this.filename = filename;
     }
 
 
     // Writes a user to the json-file
-    public void writeNewUserDataToFile(String filename, RegisteredUser registeredUser) {
+    public void writeNewUserDataToFile(RegisteredUser registeredUser) {
         dataObject = new DataObject(filename, registeredUser.generateUser(), true);
         try {
             objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
@@ -31,7 +33,7 @@ public class FileOperator {
         }   
     }
 
-    public void updateUserObjectJsonFile(String filename, User user){
+    public void updateUserObjectJsonFile(User user){
         dataObject = new DataObject(filename, user, false);
         try {
             objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
@@ -42,7 +44,7 @@ public class FileOperator {
 
     
     //Methood to get all the users in the jsonfile on the fromat: [username, password, fullname, username, password,...]
-    public List<User> getAllUsersAsList(String filename){
+    public List<User> getAllUsersAsList(){
         dataObject = new DataObject(filename);
         List<User> list = dataObject.getUserList();
         return list;
