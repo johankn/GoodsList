@@ -17,13 +17,12 @@ public class Books extends Product {
     public Books(
         @JsonProperty(value = "price") int price,
         @JsonProperty(value = "condition") String condition,
-        @JsonProperty(value = "productTitle") String productTitle,
         @JsonProperty(value = "author") String author,
         @JsonProperty(value = "genre") String genre,
         @JsonProperty(value = "releaseYear") int releaseYear,
         @JsonProperty(value = "pages") int pages
     ){
-        super(price, condition, productTitle);
+        super(price, condition);
         this.pages = pages;
         this.author = author;
         this.genre = genre;

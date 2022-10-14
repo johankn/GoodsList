@@ -11,7 +11,7 @@ public class Vehicles extends Product {
     private int modelYear;
 
     public Vehicles(int price, String condition, String productTitle, String brand, String modelName, int modelYear) {
-        super(price, condition, productTitle);
+        super(price, condition);
         this.brand = brand;
         this.modelName = modelName;
         this.modelYear = modelYear;

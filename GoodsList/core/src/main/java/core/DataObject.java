@@ -60,18 +60,18 @@ public class DataObject {
     }
 
     private void addUserToMap(User userToBeAdded){
-        List<User> userList = jsonFileAsMap.get("users");
-        userList.add(userToBeAdded);
-        jsonFileAsMap.put("users", userList);
+        jsonFileAsObject.getUsers().add(userToBeAdded);
+
     }
 
     private void updateUserActiveAds(User userToBeUpdated){
         List<User> userList = jsonFileAsObject.getUsers();
         for (int i = 0; i < jsonFileAsObject.getUsers().size(); i++) {
             if (jsonFileAsObject.getUsers().get(i).getUsername().equals(userToBeUpdated.getUsername())){
-                jsonFileAsObject.set(i, userToBeUpdated);
+                userList.set(i, userToBeUpdated);
             }
         }
+        jsonFileAsObject.setUsers(userList);
     }
 
     private void setUserList(){
@@ -80,14 +80,10 @@ public class DataObject {
             jsonString = makeJsonObjectFromJsonFile().toString();
             System.out.println(jsonString);
             //https://www.baeldung.com/jackson-object-mapper-tutorial
-            int a = 0;
             jsonFileAsObject = objectMapper.readValue(jsonString , JsonFileAsObject.class);
-            int b = 0;
         } catch (JSONException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         //userList = jsonFileAsMap.get("users");
@@ -111,6 +107,12 @@ public class DataObject {
             e.printStackTrace();
         }
         return null;
+    }
+
+    
+
+    public JsonFileAsObject getJsonFileAsObject() {
+        return jsonFileAsObject;
     }
 
     public Map<String, List<User>> getJsonFileAsMap() {

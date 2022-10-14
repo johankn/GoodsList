@@ -22,6 +22,10 @@ public class JsonFileAsObject {
         this.users = users;
     }
 
+    public void addUser(User user){
+        users.add(user);
+    }
+
     
 
 

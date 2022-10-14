@@ -23,16 +23,13 @@ public class Product {
 
     private int price;
     private String condition;
-    private String productTitle;
 
     @JsonCreator
     public Product(
             @JsonProperty(value = "price") int price,
-            @JsonProperty(value = "condition") String condition,
-            @JsonProperty(value = "productTitle") String productTitle) {
+            @JsonProperty(value = "condition") String condition) {
         this.price = price;
         this.condition = condition;
-        this.productTitle = productTitle;
     }
 
     /*
@@ -48,10 +45,6 @@ public class Product {
         return this.condition;
     }
 
-    public String getProductTitle() {
-        return this.productTitle;
-    }
-
     public int getPrice() {
         return this.price;
     }
@@ -62,10 +55,6 @@ public class Product {
 
     public void setCondition(String condition) {
         this.condition = condition;
-    }
-
-    public void setProductTitle(String productTitle) {
-        this.productTitle = productTitle;
     }
 
 }
