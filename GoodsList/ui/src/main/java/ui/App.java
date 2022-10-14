@@ -21,12 +21,18 @@ public class App extends Application {
         mainStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("Login.fxml"));
         Parent parent = fxmlLoader.load();
+        LoginController li= fxmlLoader.getController();
+        li.setFilepath(false);
         stage.setScene(new Scene(parent));
         stage.show();
     }
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public Stage getStage() {
+        return mainStage;
     }
 
     //changes scene to the new homescene for given loginUser
@@ -41,6 +47,12 @@ public class App extends Application {
         AppController appController = fxmlLoader.getController();
         appController.setUsername(user);
         appController.setChoiceBox();
-        mainStage.getScene().setRoot(parent);
+        try {
+            if (!mainStage.equals(null)) {
+                mainStage.getScene().setRoot(parent);
+            }
+        } catch (NullPointerException e) {
+            // TODO: handle exception
+        }
     }
 }

@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,11 +16,14 @@ import org.junit.jupiter.api.Test;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationTest;
 
+import core.User;
+
 /**
  * TestFX App test
  */
 public class LoginTest extends ApplicationTest {
     
+    private static Stage mainStage;
     private FxRobot robot = new FxRobot();
     private final String REGISTER_USERNAME_ID = "#registrationUsername";
     private final String REGISTER_FULLNAME_ID = "#fullName";
@@ -31,11 +35,23 @@ public class LoginTest extends ApplicationTest {
 
     @Override
     public void start(Stage stage) throws IOException {
-            FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("Login.fxml"));
-            final Parent root = fxmlLoader.load();
-            //this.loginController = fxmlLoader.getController();
-            stage.setScene(new Scene(root));
-            stage.show();
+        mainStage = stage;
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("Login.fxml"));
+        final Parent root = fxmlLoader.load();
+        LoginController li= fxmlLoader.getController();
+        li.setFilepath(false);
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    public Stage getStage() {
+        return mainStage;
+    }
+
+    private void setHomePage() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("App.fxml"));
+        Parent parent = fxmlLoader.load();
+        mainStage.getScene().setRoot(parent);
     }
 
     @Test
@@ -72,12 +88,13 @@ public class LoginTest extends ApplicationTest {
         sleep(200);
         robot.clickOn(850, 390);
 
-        String takenLoginUserName = "emilklo";
-        String takenLoginPassword = "b935wzzEmil";
+        User user = new User("hei", "Hei", "Matte365", new ArrayList<>());
+        String takenLoginUserName = "hei";
+        String takenLoginPassword = "Matte365";
         robot.doubleClickOn(LOGIN_USERNAME_ID).eraseText(1).write(takenLoginUserName);
         robot.doubleClickOn(LOGIN_PASSWORD_ID).eraseText(1).write(takenLoginPassword);
         robot.clickOn("#loginButton");
-        sleep(200);
-        sleep(1000);
+        this.setHomePage();
+        sleep(5000);
     }
 }
