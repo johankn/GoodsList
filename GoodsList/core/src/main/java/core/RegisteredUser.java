@@ -36,7 +36,8 @@ public class RegisteredUser{
     public User generateUser(){
         return new User(this.getUsername(),
                         this.getPassword(),
-                        this.getFullName()
+                        this.getFullName(),
+                        new ArrayList<>()
                     );
     }
 
