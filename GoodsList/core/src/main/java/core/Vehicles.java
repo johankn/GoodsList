@@ -1,5 +1,7 @@
 package core;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @JsonTypeName("vehicles")
@@ -11,7 +13,14 @@ public class Vehicles extends Product {
     private int modelYear;
     private String color;
 
-    public Vehicles(int price, String condition, String brand, String modelName, int modelYear, String color) {
+    @JsonCreator
+    public Vehicles(
+    @JsonProperty(value = "price") int price,
+    @JsonProperty(value = "condition") String condition,
+    @JsonProperty(value = "brand") String brand,
+    @JsonProperty(value = "modelName") String modelName,
+    @JsonProperty(value = "modelYear") int modelYear,
+    @JsonProperty(value = "color") String color) {
         super(price, condition);
         this.brand = brand;
         this.modelName = modelName;
