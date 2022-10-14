@@ -85,9 +85,9 @@ public class RegistrationValidatorTest {
     public void TestCheckExcistingUsername() { //this method checks if a username is in a given list. Because our structure is Username, password, fullname it should only check every third index. 
         //it should throw when if the username already is in the list (taken)
         List<User> testlist = new ArrayList<>();
-        User user1 = new User("username", "password", "fullname");
-        User user2 = new User("username2", "password2", "fullname2");
-        User user3 = new User("username3", "password3", "fullname3");
+        User user1 = new User("username", "password", "fullname", new ArrayList<>());
+        User user2 = new User("username2", "password2", "fullname2", new ArrayList<>());
+        User user3 = new User("username3", "password3", "fullname3", new ArrayList<>());
         
         testlist.add(user1);
         testlist.add(user2);
