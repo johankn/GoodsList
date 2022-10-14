@@ -1,16 +1,14 @@
 package core;
 
 import java.util.List;
-
-public class UserInfoFinder {
-
+public class UserInfoCollector {
     //This class find info about the user by information we allready know about it. 
 
     private FileOperator fileOperator;
     private List<User> allExistingUsers;
     private static final String filename = "..//core/src/main/java/json/dataObjects.json";
 
-    public UserInfoFinder() {
+    public UserInfoCollector() {
         this.fileOperator = new FileOperator();
     }
     
@@ -24,5 +22,4 @@ public class UserInfoFinder {
         }
         throw new NullPointerException("This user does not exist");
     }
-    
 }
