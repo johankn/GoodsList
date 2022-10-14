@@ -29,18 +29,17 @@ public class User {
     }
 
 
-
     public void addAdToList(Ad ad) {
         activeAds.add(ad);
     }
 
     public List<Ad> getActiveAds() {
-        return activeAds;
+        return new ArrayList<Ad>(activeAds);
     }
 
-    /* public List<Ad> getInactiveAds() {
-        return inactiveAds;
-    } */
+    public List<Ad> getInactiveAds() {
+        return new ArrayList<Ad>(inactiveAds);
+    }
 
     public String getFullname() {
         return fullname;
@@ -53,7 +52,7 @@ public class User {
     public String getPassword() {
         return password;
     }
-    
+
     public void setActiveAds(List<Ad> activeAds) {
         this.activeAds = activeAds;
     }

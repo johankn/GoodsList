@@ -8,36 +8,20 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 public class Clothing extends Product {
 
-    private String gender;
+
     private String type;
     private String color;
     private String brand;
     private String size;
 
-    @JsonCreator
-    public Clothing(
-        @JsonProperty(value = "price") int price,
-        @JsonProperty(value = "condition")String condition,
-        @JsonProperty(value = "price")String productTitle,
-        @JsonProperty(value = "type")String type,
-        @JsonProperty(value = "color")String color,
-        @JsonProperty(value = "size")String size
-        ) {
+    public Clothing(int price, String condition, String brand, String type, String color, String size) {
         super(price, condition);
         this.type = type;
         this.color = color;
         this.brand = brand;
         this.size = size;
     }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
+    
     public String getType() {
         return type;
     }

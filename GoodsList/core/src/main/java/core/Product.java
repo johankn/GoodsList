@@ -24,10 +24,7 @@ public class Product {
     private int price;
     private String condition;
 
-    @JsonCreator
-    public Product(
-            @JsonProperty(value = "price") int price,
-            @JsonProperty(value = "condition") String condition) {
+    public Product(int price, String condition) {
         this.price = price;
         this.condition = condition;
     }

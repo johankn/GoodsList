@@ -9,12 +9,14 @@ public class Vehicles extends Product {
     private String brand;
     private String modelName;
     private int modelYear;
+    private String color;
 
-    public Vehicles(int price, String condition, String productTitle, String brand, String modelName, int modelYear) {
+    public Vehicles(int price, String condition, String brand, String modelName, int modelYear, String color) {
         super(price, condition);
         this.brand = brand;
         this.modelName = modelName;
         this.modelYear = modelYear;
+        this.color = color;
     }
 
     public String getBrand() {
@@ -41,4 +43,12 @@ public class Vehicles extends Product {
         this.modelYear = modelYear;
     }
 
+    public String getColor() {
+        return this.color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+ 
 }

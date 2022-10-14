@@ -1,7 +1,10 @@
 package ui;
 
 
+import java.io.IOException;
+
 import core.Ad;
+import core.AdValidator;
 import core.Books;
 import core.Clothing;
 import core.Electronics;
@@ -26,9 +29,8 @@ public class AppController {
     @FXML private Label WelcomeText, titlePreview, pricePreview, conditionPreview, descriptionPreview, label1, label2, label3, label4, label5;
     @FXML private AnchorPane homePage, newAdPage, adPreview, categoriesPane, electronicsAd, clothingAd, propertyAd, vehiclesAd, booksAd;
     @FXML private ChoiceBox<String> colourChoiceVehicles, colourChoiceClothing;
-    @FXML private TextArea descriptionArea;
-    @FXML private CheckBox conditionField;
-    @FXML private Ad ad;
+    
+    private Ad ad;
 
     //electronics
     @FXML private TextField titleField1, priceField1, brandField1, typeField1;
@@ -143,56 +145,153 @@ public class AppController {
         categoriesPane.setVisible(false);
     }
 
+    AdValidator adValidator = new AdValidator();
+    String date = java.time.LocalDate.now().toString();
+
+    /* skal ikke bruke categoryId som id siden alle ads skal ha unik id, men da må man 
+        ha id lagret i fil. Ikke implementert enda, så per nå kan man kun lagre en annonse per kategori*/
+
     @FXML
     private void makeAd1(){
-        if (validateStringField(brandField1, label1, "Brand-field can't be empty!", "") &&
-        validateStringField(typeField1, label2, "Type-field can't be empty!", "")){
+        try {
+            adValidator.validateElectronics(titleField1.getText(), descriptionArea1.getText(), priceField1.getText(), brandField1.getText(), typeField1.getText());
+            
+            Electronics product1 = new Electronics(Integer.parseInt(priceField1.getText()), setCondition(conditionField1), brandField1.getText(), typeField1.getText());
+            ad = new Ad(titleField1.getText(), product1, this.user, date, descriptionArea1.getText());
 
-        validateAdFinal(titleField1, priceField1, descriptionArea1, electronicsAd, conditionField1);}
+            titlePreview.setText(titleField1.getText());
+            conditionPreview.setText(setCondition(conditionField1));
+            pricePreview.setText(priceField1.getText()+"Kr");
+            descriptionPreview.setText(descriptionArea1.getText());
+            label1.setText("Brand: "+brandField1.getText());
+            label2.setText("Type: "+typeField1.getText());
+
+            electronicsAd.setDisable(true);
+            electronicsAd.setVisible(false);
+            adPreview.setDisable(false);
+            adPreview.setVisible(true);
+            
+        } 
+        catch (IllegalArgumentException e) {
+            displayError(e.getMessage());
+        }
     }
+    
     @FXML
     private void makeAd2(){
-        if (validateStringField(brandField2, label1, "Brand-field can't be empty!", "") &&
-        validateStringField(typeField2, label2, "Type-field can't be empty!", "") &&
-        validateStringField(sizeField2, label3, "Size-field can't be empty!", "Size: ") &&
+        if (colourChoiceClothing.getValue() != null) {
+            try {
+            adValidator.validateClothing(titleField2.getText(), descriptionArea2.getText(),priceField2.getText(), brandField2.getText(), typeField2.getText(), sizeField2.getText());
+            
+            Clothing product2 = new Clothing(Integer.parseInt(priceField2.getText()), setCondition(conditionField2), brandField2.getText(), typeField2.getText(), colourChoiceClothing.getValue().toString(), sizeField2.getText());
+            ad = new Ad(titleField2.getText(), product2, this.user, date, descriptionArea2.getText());
 
-        validateColourChoice(colourChoiceClothing, label4, "Colour-field can't be empty!")){
+            titlePreview.setText(titleField2.getText());
+            conditionPreview.setText(setCondition(conditionField2));
+            pricePreview.setText(priceField2.getText()+"Kr");
+            descriptionPreview.setText(descriptionArea2.getText());
+            label1.setText("Brand: "+brandField2.getText());
+            label2.setText("Type: "+typeField2.getText());
+            label3.setText("Colour: "+colourChoiceClothing.getValue().toString());
+            label4.setText("Size: "+sizeField2.getText());
 
-        validateAdFinal(titleField2, priceField2, descriptionArea2, clothingAd, conditionField2);}
-        
+            clothingAd.setDisable(true);
+            clothingAd.setVisible(false);
+            adPreview.setDisable(false);
+            adPreview.setVisible(true);
+        }   
+        catch (IllegalArgumentException e) {
+            displayError(e.getMessage());
+        }}
+        else{
+            displayError("You have to fill out all of the input fields");
+        }
     }
+        
     @FXML
     private void makeAd3(){
-        if (validateStringField(typeField3, label2, "Type-field can't be empty!", "") &&
+        try {
+            adValidator.validateProperty(titleField3.getText(), descriptionArea3.getText(),priceField3.getText(), typeField3.getText(), yearBuiltField3.getText(), bedroomsField3.getText(), areaField3.getText());
+            
+            Property product3 = new Property(Integer.parseInt(priceField3.getText()), setCondition(conditionField3), typeField3.getText(), Integer.parseInt(yearBuiltField3.getText()), Integer.parseInt(bedroomsField3.getText()), Integer.parseInt(areaField3.getText()));
+            ad = new Ad(titleField3.getText(), product3, this.user, date, descriptionArea3.getText());
 
-        validateIntField(areaField3, label1, "Area-field can't be empty!", "Area-field must only contain numbers!", "Area: ") &&
-        validateIntField(yearBuiltField3, label3, "Year-field can't be empty!", "Year-field must only contain numbers!", "Year: ") &&
-        validateIntField(bedroomsField3, label4, "Bedrooms-field can't be empty!", "Bedrooms-field must only contain numbers!", "Bedrooms: ")){
+            titlePreview.setText(titleField3.getText());
+            conditionPreview.setText(setCondition(conditionField3));
+            pricePreview.setText(priceField3.getText()+"Kr");
+            descriptionPreview.setText(descriptionArea3.getText());
+            label1.setText("Area: "+areaField3.getText());
+            label2.setText("Type: "+typeField3.getText());
+            label3.setText("Bedrooms: "+bedroomsField3.getText());
+            label4.setText("Year: "+yearBuiltField3.getText());
 
-        validateAdFinal(titleField3, priceField3, descriptionArea3, propertyAd, conditionField3);}
+            propertyAd.setDisable(true);
+            propertyAd.setVisible(false);
+            adPreview.setDisable(false);
+            adPreview.setVisible(true);
+        }   
+        catch (IllegalArgumentException e) {
+            displayError(e.getMessage());
+        }
         
     }
     @FXML
     private void makeAd4(){
-        if (validateStringField(brandField4, label1, "Brand-field can't be empty!", "") &&
-        validateStringField(typeField4, label2, "Type-field can't be empty!", "") &&
+        if (colourChoiceVehicles.getValue() != null) {
+            try {
+            adValidator.validateVehicles(titleField4.getText(), descriptionArea4.getText(),priceField4.getText(), brandField4.getText(), typeField4.getText(), yearField4.getText());
+                
+            Vehicles product4 = new Vehicles(Integer.parseInt(priceField4.getText()), setCondition(conditionField4), brandField4.getText(), typeField4.getText(), Integer.parseInt(yearField4.getText()), colourChoiceVehicles.getValue().toString());
+            ad = new Ad(titleField4.getText(), product4, this.user, date, descriptionArea4.getText());
 
-        validateIntField(yearField4, label3, "Year-field can't be empty!", "Year-field must only contain numbers!", "Year: ") &&
+            titlePreview.setText(titleField4.getText());
+            conditionPreview.setText(setCondition(conditionField4));
+            pricePreview.setText(priceField4.getText()+"Kr");
+            descriptionPreview.setText(descriptionArea4.getText());
+            label1.setText("Brand: "+brandField4.getText());
+            label2.setText("Type: "+typeField4.getText());
+            label3.setText("Colour: "+colourChoiceVehicles.getValue().toString());
+            label4.setText("Year: "+yearField4.getText());
 
-        validateColourChoice(colourChoiceVehicles, label4, "Colour-field can't be empty!")){
-
-        validateAdFinal(titleField4, priceField4, descriptionArea4, vehiclesAd, conditionField4);
+            vehiclesAd.setDisable(true);
+            vehiclesAd.setVisible(false);
+            adPreview.setDisable(false);
+            adPreview.setVisible(true);
+        }   
+        catch (IllegalArgumentException e) {
+            displayError(e.getMessage());
+        }}
+        else{
+            displayError("You have to fill out all of the input fields");
         }
         
     }
     @FXML
     private void makeAd5(){
-        if (validateStringField(authorField5, label1, "Author-field can't be empty!", "Author: ") &&
-        validateStringField(genreField5, label2, "Genre-field can't be empty!", "Genre: ") &&
-        validateIntField(pagesField5, label3, "Pages-field can't be empty!", "Pages-field must only contain numbers!", "Pages: ") &&
-        validateIntField(yearField5, label4, "Year-field can't be empty!", "Year-field must only contain numbers!", "Year: ")){
+        try {
+            adValidator.validateBooks(titleField5.getText(), descriptionArea5.getText(),priceField5.getText(), authorField5.getText(), genreField5.getText(), yearField5.getText(), pagesField5.getText());
+            
+            Books product5 = new Books(Integer.parseInt(priceField5.getText()), setCondition(conditionField5), authorField5.getText(), genreField5.getText(), Integer.parseInt(yearField5.getText()), Integer.parseInt(pagesField5.getText()));
+            ad = new Ad(titleField5.getText(), product5, this.user, date, descriptionArea5.getText());
 
-            validateAdFinal(titleField5, priceField5, descriptionArea5, booksAd, conditionField5);
+            //preview
+        titlePreview.setText(titleField5.getText());
+        conditionPreview.setText(setCondition(conditionField5));
+        pricePreview.setText(priceField5.getText()+"Kr");
+        descriptionPreview.setText(descriptionArea5.getText());
+        label1.setText("Author: "+authorField5.getText());
+        label2.setText("Genre: "+genreField5.getText());
+        label3.setText("Pages: "+pagesField5.getText());
+        label4.setText("Year: "+yearField5.getText());
+
+            booksAd.setDisable(true);
+            booksAd.setVisible(false);
+            adPreview.setDisable(false);
+            adPreview.setVisible(true);
+
+        }   
+        catch (IllegalArgumentException e) {
+            displayError(e.getMessage());
         }
         
     }
@@ -212,127 +311,19 @@ public class AppController {
         colourChoiceVehicles.getItems().add("Brown");
     }
 
-    private boolean validateIntField(TextField field, Label label, String text, String text2, String previewText){
-        int okPublish = 1;
-        if (field.getText().isEmpty()){
-            displayError(text);
-            okPublish = 0;
-            return false;
-        }
 
-        else if (!(field.getText().matches("[0-9]+"))){
-            displayError(text2);
-            okPublish = 0;
-            return false;
-
-        }
-        if (okPublish == 1){
-            label.setText(previewText+field.getText());
-            return true;
-
-        }
-        return false;
-    }
-    private boolean validateStringField(TextField field, Label label, String text, String previewText){
-        int okPublish = 1;
-        if (field.getText().isEmpty()){
-            displayError(text);
-            okPublish = 0;
-            return false;
-        }
-        if (okPublish == 1){
-            label.setText(previewText+field.getText());
-            return true;
-
-        }
-        return false;
-
-    }
-    private boolean validateColourChoice(ChoiceBox<String> choice, Label label, String text) {
-        int okPublish = 1;
-        if (choice.getValue() == null){
-            displayError(text);
-            okPublish = 0;
-            return false;
-        }
-        if (okPublish == 1){
-            label.setText("Colour: "+ choice.getValue().toString());
-            return true;
-        }
-        return false;
-    }
-
-    //@FXML
-    private void validateAdFinal(TextField title, TextField price, TextArea description, AnchorPane pane, CheckBox checkBox){
-        int okPublish = 1;
-        if (price.getText().isEmpty() || title.getText().isEmpty() || description.getText().isEmpty()){
-            displayError("No fields can be empty!");
-            okPublish = 0;
-        }
-
-        else if (!(price.getText().matches("[0-9]+"))){
-            displayError("Price must only contain numbers");
-            okPublish = 0;
-
-        }
     
-        if (okPublish == 1){
-            pane.setDisable(true);
-            pane.setVisible(false);
-            adPreview.setDisable(false);
-            adPreview.setVisible(true);
-            titlePreview.setText(title.getText());
-            conditionPreview.setText(setCondition(checkBox));
-            pricePreview.setText(price.getText()+"Kr");
-            descriptionPreview.setText(description.getText());
-
-            
-            // ny scene etter det, med oversikt over ad'en du nettopp laget.
-        }
-
-
-    }
     @FXML
     private void handlePostAd(){
         adPreview.setDisable(true);
         adPreview.setVisible(false);
         homePage.setDisable(false);
         homePage.setVisible(true);
-        // lage et ad objekt her, basert på hvilken categoryID som er
-        // legge det til i JSON-fil med bruker-id og kategori-id
-        // gjøre det mulig å browse ad på hjemmesiden
 
-        String date = java.time.LocalDate.now().toString();
+        //skrive ad til fil her
+        //gjøre det mulig å browse ad på hjemmesiden
+        this.user.addAdToList(ad);
 
-        /* skal ikke bruke categoryId som id siden alle ads skal ha unik id, men da må man 
-        ha id lagret i fil. Ikke implementert enda, så per nå kan man kun lagre en annonse per kategori*/
-
-        //skrive ad til fil i sprint2
-        switch (categoryId) {
-            case 1:
-                Electronics product1 = new Electronics(Integer.parseInt(priceField1.getText()), setCondition(conditionField1), titleField1.getText(), brandField1.getText(), typeField1.getText());
-                Ad ad1 = new Ad(product1, date, descriptionArea1.getText(), categoryId);
-                break;
-            case 2:
-                Clothing product2 = new Clothing(Integer.parseInt(priceField2.getText()), setCondition(conditionField2), titleField2.getText(), brandField2.getText(), typeField2.getText(), colourChoiceClothing.getValue().toString(), sizeField2.getText());
-                Ad ad2 = new Ad(product2, date, descriptionArea2.getText(), categoryId);
-                break;
-            case 3:
-                Property product3 = new Property(Integer.parseInt(priceField3.getText()), setCondition(conditionField3), titleField3.getText(), typeField3.getText(), Integer.parseInt(yearBuiltField3.getText()), Integer.parseInt(bedroomsField3.getText()), Integer.parseInt(areaField3.getText()));
-                Ad ad3 = new Ad(product3, date, descriptionArea3.getText(), categoryId);
-                break;
-            case 4:
-                Vehicles product4 = new Vehicles(Integer.parseInt(priceField4.getText()), setCondition(conditionField4), titleField4.getText(), brandField4.getText(), typeField4.getText(), Integer.parseInt(yearField4.getText()));
-                Ad ad4 = new Ad(product4, date, descriptionArea4.getText(), categoryId);
-                break;
-            case 5:
-                Books product5 = new Books(Integer.parseInt(priceField5.getText()), setCondition(conditionField5), titleField5.getText(), authorField5.getText(), genreField5.getText(), Integer.parseInt(yearField5.getText()), Integer.parseInt(pagesField5.getText()));
-                Ad ad5 = new Ad(product5, date, descriptionArea5.getText(), categoryId);
-                break;
-        
-            default:
-                break;
-        }
 
         //erase electronics
         priceField1.setText("");
@@ -382,13 +373,15 @@ public class AppController {
         yearField5.setText("");
         authorField5.setText("");
 
-
+        ad = new Ad();
     }
     @FXML
     private void handleEdit(){
         
         adPreview.setDisable(true);
         adPreview.setVisible(false);
+
+        ad = new Ad();
 
         switch (categoryId) {
             case 1:
