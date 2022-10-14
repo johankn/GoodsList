@@ -22,6 +22,14 @@ public class Ad {
         this.description = description;
     }
 
+    /* 
+     * Empty constructor to make a preview of an ad
+     * @param none
+     */
+    public Ad(){
+
+    }
+
     public String getAdTitle() {
         return adTitle;
     }

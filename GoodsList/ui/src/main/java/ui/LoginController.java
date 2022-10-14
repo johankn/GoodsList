@@ -3,7 +3,6 @@ package ui;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.io.FileNotFoundException;
 
 import core.FileOperator;
@@ -62,7 +61,7 @@ public class LoginController {
             loginValidator = new LoginValidator();
             if (loginValidator.isLoginLegal(username.getText(), password.getText())) {
                 loggedInUser = new User(username.getText(), password.getText(),
-                        userInfoFinder.getFullNameByUsername(username.getText()), new ArrayList<>());
+                        userInfoFinder.getFullNameByUsername(username.getText()));
                 app = new App();
                 app.bringUserInfo(loggedInUser);
             }
