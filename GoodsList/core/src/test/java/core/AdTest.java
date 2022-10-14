@@ -24,7 +24,7 @@ public class AdTest {
     @Test
     public void TestConstructor() {
         assertEquals(Ad.class, ad.getClass());
-        assertEquals("nice ad", ad.getAdTitle());
+        assertEquals("Selling this product", ad.getAdTitle());
         assertEquals(product, ad.getProduct());
         assertEquals("13.10.2022", ad.getDate());
         assertEquals("very nice product", ad.getDescription());
