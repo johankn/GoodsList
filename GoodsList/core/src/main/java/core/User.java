@@ -5,17 +5,13 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class User {
-    private List<Ad> activeAds = new ArrayList<Ad>();
-    //private List<Ad> inactiveAds = new ArrayList<Ad>();
+
+    private List<Ad> activeAds;
     private String fullname;
     private String username;
     private String password;
 
-    public User(String username, String password, String fullname) {
-        this.fullname = fullname;
-        this.username = username;
-        this.password = password;
-    }
+
     public User(
         @JsonProperty(value = "username") String username,
         @JsonProperty(value = "password") String password,
@@ -35,10 +31,6 @@ public class User {
 
     public List<Ad> getActiveAds() {
         return new ArrayList<Ad>(activeAds);
-    }
-
-    public List<Ad> getInactiveAds() {
-        return new ArrayList<Ad>(inactiveAds);
     }
 
     public String getFullname() {
