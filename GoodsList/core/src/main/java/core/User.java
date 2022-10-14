@@ -19,7 +19,6 @@ public class User {
     public void addAdToList(Ad ad) {
         activeAds.add(ad);
     }
-
     public List<Ad> getActiveAds() {
         return new ArrayList<Ad>(activeAds);
     }
