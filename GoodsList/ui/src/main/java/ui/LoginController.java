@@ -81,7 +81,7 @@ public class LoginController {
                 RegisteredUser regUser = new RegisteredUser(registrationUsername.getText(),
                         registrationPassword.getText(), fullName.getText(), repeatedRegistrationPassword.getText());
                 this.displayMessage("You have been succesfully registered!");
-                registrationValidator.getFileOperator().writeUserDataToFile(registrationValidator.getFilename(), regUser);
+                registrationValidator.getFileOperator().writeNewUserDataToFile(registrationValidator.getFilename(), regUser);
                 this.registrationUsername.clear();
                 this.registrationPassword.clear();
                 this.repeatedRegistrationPassword.clear();

@@ -31,5 +31,13 @@ public class RegisteredUser{
         return this.repeatedPassword;
     }
 
+    public User generateUser(){
+        return new User(this.getUsername(),
+                        this.getPassword(),
+                        this.getFullName()
+                    );
+    }
+
+
     
 }

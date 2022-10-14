@@ -1,19 +1,53 @@
 {
-    "users": [
-        {
-            "username": "Freddy",
-            "password": "gutt123",
-            "fullname": "kavring"
-        },
-        {
-            "username": "Embre",
-            "password": "werwew",
-            "fullname": "kavring"
-        },
-        {
-            "username": "Per",
-            "password": "g",
-            "fullname": "kavring"
-        }
-    ]
+  "users" : [ {
+    "username" : "eliasls",
+    "password" : "kookok",
+    "fullname" : "Mathias VAl",
+    "activeAds" : [ {
+      "product" : {
+        "@type" : "book",
+        "price" : 12,
+        "condition" : "Good",
+        "productTitle" : "Mikkemus",
+        "author" : "embre",
+        "genre" : "comic",
+        "releaseYear" : 2003,
+        "pages" : 75
+      },
+      "date" : "12.10.2022",
+      "description" : "very nice book"
+    } ]
+  }, {
+    "username" : "JohanGutt",
+    "password" : "Datakam9012",
+    "fullname" : "Johan Knudsen",
+    "activeAds" : [ {
+      "product" : {
+        "@type" : "electronics",
+        "price" : 3500,
+        "condition" : "Good",
+        "productTitle" : "Iphone 12 Pro Max",
+        "brand" : "Apple",
+        "type" : "Phone"
+      },
+      "date" : "12.10.2022",
+      "description" : "Iphone"
+    } ]
+  }, {
+    "username" : "JohanGutt",
+    "password" : "Datakam9012",
+    "fullname" : "Johan Knudsen",
+    "activeAds" : [ {
+      "product" : {
+        "@type" : "electronics",
+        "price" : 3500,
+        "condition" : "Good",
+        "productTitle" : "Iphone 12 Pro Max",
+        "brand" : "Apple",
+        "type" : "Phone"
+      },
+      "date" : "12.10.2022",
+      "description" : "Iphone"
+    } ]
+  } ]
 }

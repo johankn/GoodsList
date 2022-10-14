@@ -1,5 +1,11 @@
 package core;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+@JsonTypeName("book")
+
 public class Books extends Product {
 
     private int pages;

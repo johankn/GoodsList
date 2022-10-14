@@ -15,19 +15,19 @@ public class LoginValidator {
         return fileOperator;
     }
 
-    private boolean doesUserNameExist(String username, List<String> listOfExistingUsers) {
+    private boolean doesUserNameExist(String username, List<User> listOfExistingUsers) {
 
         for (int i = 0; i < listOfExistingUsers.size(); i += 3) {
-            if (username.equals(listOfExistingUsers.get(i))) {
+            if (username.equals(listOfExistingUsers.get(i).getUsername())) {
                 return true;
             }
         }
         throw new IllegalArgumentException("This username does not exist");
     }
 
-    private boolean doesUserNameAndPasswordMatch(String username, String password, List<String> listOfExistingUsers) {
+    private boolean doesUserNameAndPasswordMatch(String username, String password, List<User> listOfExistingUsers) {
         for (int i = 0; i < listOfExistingUsers.size(); i += 3) {
-            if (username.equals(listOfExistingUsers.get(i)) && password.equals(listOfExistingUsers.get(i + 1))) {
+            if (username.equals(listOfExistingUsers.get(i).getUsername()) && password.equals(listOfExistingUsers.get(i + 1).getPassword())) {
                 return true;
             }
         }
