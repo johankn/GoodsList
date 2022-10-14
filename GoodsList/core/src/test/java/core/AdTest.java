@@ -17,7 +17,7 @@ public class AdTest {
     @BeforeEach
     public void setUp() {
         this.product = new Product(10, "good");
-        this.ad = new Ad(product, "13.10.2022", "very nice product");
+        this.ad = new Ad("Selling this product", product, "13.10.2022", "very nice product");
         this.user = new User("username", "password", "Ola Nordmann", new ArrayList<>());
     }
     

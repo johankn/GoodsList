@@ -1,8 +1,5 @@
 package ui;
 
-
-import java.io.IOException;
-
 import core.Ad;
 import core.AdValidator;
 import core.Books;
@@ -157,7 +154,7 @@ public class AppController {
             adValidator.validateElectronics(titleField1.getText(), descriptionArea1.getText(), priceField1.getText(), brandField1.getText(), typeField1.getText());
             
             Electronics product1 = new Electronics(Integer.parseInt(priceField1.getText()), setCondition(conditionField1), brandField1.getText(), typeField1.getText());
-            ad = new Ad(titleField1.getText(), product1, this.user, date, descriptionArea1.getText());
+            ad = new Ad(titleField1.getText(), product1, date, descriptionArea1.getText());
 
             titlePreview.setText(titleField1.getText());
             conditionPreview.setText(setCondition(conditionField1));
@@ -184,7 +181,7 @@ public class AppController {
             adValidator.validateClothing(titleField2.getText(), descriptionArea2.getText(),priceField2.getText(), brandField2.getText(), typeField2.getText(), sizeField2.getText());
             
             Clothing product2 = new Clothing(Integer.parseInt(priceField2.getText()), setCondition(conditionField2), brandField2.getText(), typeField2.getText(), colourChoiceClothing.getValue().toString(), sizeField2.getText());
-            ad = new Ad(titleField2.getText(), product2, this.user, date, descriptionArea2.getText());
+            ad = new Ad(titleField2.getText(), product2, date, descriptionArea2.getText());
 
             titlePreview.setText(titleField2.getText());
             conditionPreview.setText(setCondition(conditionField2));
@@ -214,7 +211,7 @@ public class AppController {
             adValidator.validateProperty(titleField3.getText(), descriptionArea3.getText(),priceField3.getText(), typeField3.getText(), yearBuiltField3.getText(), bedroomsField3.getText(), areaField3.getText());
             
             Property product3 = new Property(Integer.parseInt(priceField3.getText()), setCondition(conditionField3), typeField3.getText(), Integer.parseInt(yearBuiltField3.getText()), Integer.parseInt(bedroomsField3.getText()), Integer.parseInt(areaField3.getText()));
-            ad = new Ad(titleField3.getText(), product3, this.user, date, descriptionArea3.getText());
+            ad = new Ad(titleField3.getText(), product3, date, descriptionArea3.getText());
 
             titlePreview.setText(titleField3.getText());
             conditionPreview.setText(setCondition(conditionField3));
@@ -242,7 +239,7 @@ public class AppController {
             adValidator.validateVehicles(titleField4.getText(), descriptionArea4.getText(),priceField4.getText(), brandField4.getText(), typeField4.getText(), yearField4.getText());
                 
             Vehicles product4 = new Vehicles(Integer.parseInt(priceField4.getText()), setCondition(conditionField4), brandField4.getText(), typeField4.getText(), Integer.parseInt(yearField4.getText()), colourChoiceVehicles.getValue().toString());
-            ad = new Ad(titleField4.getText(), product4, this.user, date, descriptionArea4.getText());
+            ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText());
 
             titlePreview.setText(titleField4.getText());
             conditionPreview.setText(setCondition(conditionField4));
@@ -272,7 +269,7 @@ public class AppController {
             adValidator.validateBooks(titleField5.getText(), descriptionArea5.getText(),priceField5.getText(), authorField5.getText(), genreField5.getText(), yearField5.getText(), pagesField5.getText());
             
             Books product5 = new Books(Integer.parseInt(priceField5.getText()), setCondition(conditionField5), authorField5.getText(), genreField5.getText(), Integer.parseInt(yearField5.getText()), Integer.parseInt(pagesField5.getText()));
-            ad = new Ad(titleField5.getText(), product5, this.user, date, descriptionArea5.getText());
+            ad = new Ad(titleField5.getText(), product5, date, descriptionArea5.getText());
 
             //preview
         titlePreview.setText(titleField5.getText());
