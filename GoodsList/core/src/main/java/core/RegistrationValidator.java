@@ -6,8 +6,8 @@ public class RegistrationValidator {
     
     private FileOperator fileOperator;
 
-    public RegistrationValidator(String filename) {
-        this.fileOperator = new FileOperator(filename);
+    public RegistrationValidator() {
+        this.fileOperator = new FileOperator();
     }
 
     public FileOperator getFileOperator() {
