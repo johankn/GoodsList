@@ -27,6 +27,7 @@ public class LoginController {
     private UserInfoCollector userInfoFinder;
     private User loggedInUser;
     private App app;
+    private String filename;
 
     @FXML
     private PasswordField password, registrationPassword, repeatedRegistrationPassword;
@@ -39,6 +40,15 @@ public class LoginController {
 
     @FXML
     private Text header, loginHeader, registrationHeader, feedback;
+
+    public void setFilepath(boolean isTest) {
+        if (isTest) {
+            this.filename = "/src/test/java/json/dataObjectsTest.json";
+        }
+        else {
+            this.filename = "..//core/src/main/java/json/dataObjects.json";
+        }
+    }
 
     private void displayError(String message) {
         Alert alert = new Alert(AlertType.ERROR);
@@ -57,7 +67,6 @@ public class LoginController {
     @FXML
     private void onLogin() {
         try {
-            registrationValidator = new RegistrationValidator();
             userInfoFinder = new UserInfoCollector();
             loginValidator = new LoginValidator();
             if (loginValidator.isLoginLegal(username.getText(), password.getText())) {
@@ -78,7 +87,7 @@ public class LoginController {
         registrationValidator = new RegistrationValidator();
         try {
             if (registrationValidator.isRegistrationLegal(registrationUsername.getText(),
-                    registrationPassword.getText(), repeatedRegistrationPassword.getText(), fullName.getText())) {
+                    registrationPassword.getText(), repeatedRegistrationPassword.getText(), fullName.getText(), registrationValidator.getFileOperator().getAllUsersAsList())) {
                 RegisteredUser regUser = new RegisteredUser(registrationUsername.getText(),
                         registrationPassword.getText(), fullName.getText(), repeatedRegistrationPassword.getText());
                 this.displayMessage("You have been succesfully registered!");
