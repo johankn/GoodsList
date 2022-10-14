@@ -21,7 +21,7 @@ public class RegistrationValidatorTest {
 
     @BeforeEach
     public void setUp() {
-        regValidator1 = new RegistrationValidator("test");
+        regValidator1 = new RegistrationValidator();
         testlist = new ArrayList<>();
     }
 
