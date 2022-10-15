@@ -43,7 +43,7 @@ public class LoginController {
 
     public void setFilepath(boolean isTest) {
         if (isTest) {
-            this.filename = "/src/test/java/json/dataObjectsTest.json";
+            this.filename = "..//ui/src/test/resources/ui/uiTest.json";
         }
         else {
             this.filename = "..//core/src/main/java/json/dataObjects.json";
@@ -71,12 +71,14 @@ public class LoginController {
             loginValidator = new LoginValidator();
             if (loginValidator.isLoginLegal(username.getText(), password.getText(), loginValidator.getFileOperator().getAllUsersAsList(filename))) {
                 loggedInUser = new User(username.getText(), password.getText(),
-                        userInfoFinder.getFullNameByUsername(username.getText()), new ArrayList<>());
+                        userInfoFinder.getFullNameByUsername(filename, username.getText()), new ArrayList<>());
                 app = new App();
                 app.bringUserInfo(loggedInUser);
             }
         } catch (IOException | IllegalArgumentException e) {
             displayError(e.getMessage());
+            this.username.clear();
+            this.password.clear();
         }
     }
 
@@ -99,6 +101,10 @@ public class LoginController {
             }
         } catch (IllegalArgumentException e) {
             this.displayError(e.getMessage());
+            this.registrationUsername.clear();
+            this.registrationPassword.clear();
+            this.repeatedRegistrationPassword.clear();
+            this.fullName.clear();
         }
     }
 

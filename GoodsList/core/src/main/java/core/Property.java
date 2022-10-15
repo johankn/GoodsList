@@ -13,8 +13,14 @@ public class Property extends Product {
     private int bedrooms;
     private int area; // bruksareal
 
-    public Property(int price, String condition, String propertyType, int yearBuilt, int bedrooms,
-            int area) {
+    @JsonCreator
+    public Property(
+        @JsonProperty(value = "price") int price,
+        @JsonProperty(value = "condition") String condition,
+        @JsonProperty(value = "propertyType") String propertyType,
+        @JsonProperty(value = "yearBuilt") int yearBuilt,
+        @JsonProperty(value = "bedrooms") int bedrooms,
+        @JsonProperty(value = "area") int area) {
         super(price, condition);
         this.propertyType = propertyType;
         this.yearBuilt = yearBuilt;
