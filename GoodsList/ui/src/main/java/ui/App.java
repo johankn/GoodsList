@@ -47,6 +47,7 @@ public class App extends Application {
         AppController appController = fxmlLoader.getController();
         appController.setUsername(user);
         appController.setChoiceBox();
+        appController.setFilepath(false);
         try {
             if (!mainStage.equals(null)) {
                 mainStage.getScene().setRoot(parent);
