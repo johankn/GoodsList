@@ -21,7 +21,6 @@ import javafx.scene.text.Text;
 
 public class LoginController {
 
-    private FileOperator fileOperator;
     private RegistrationValidator registrationValidator;
     private LoginValidator loginValidator;
     private UserInfoCollector userInfoFinder;
