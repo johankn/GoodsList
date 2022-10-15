@@ -86,51 +86,51 @@ public class UiFirstTest extends ApplicationTest {
 
     }
 
-    @Test
-    @Order(1)
-    public void TestLoginWithoutRegistration() {
-        robot.clickOn(loginButton);
-        this.closeAlert();
-        robot.clickOn(usernameField).write(regUser.getUsername());
-        robot.clickOn(passwordField).write(regUser.getPassword());
-        robot.clickOn(loginButton);
-        this.closeAlert();
-    }
+    // @Test
+    // @Order(1)
+    // public void TestLoginWithoutRegistration() {
+    //     robot.clickOn(loginButton);
+    //     this.closeAlert();
+    //     robot.clickOn(usernameField).write(regUser.getUsername());
+    //     robot.clickOn(passwordField).write(regUser.getPassword());
+    //     robot.clickOn(loginButton);
+    //     this.closeAlert();
+    // }
 
-    @Test
-    @Order(2)
-    public void TestRegistration() {
-        robot.clickOn(registerButton);
-        this.closeAlert();
+    // @Test
+    // @Order(2)
+    // public void TestRegistration() {
+    //     robot.clickOn(registerButton);
+    //     this.closeAlert();
 
-        robot.clickOn(regUsername).write(invalidUser.getUsername());
-        robot.clickOn(fullName).write(invalidUser.getFullName());
-        robot.clickOn(regPassword).write(invalidUser.getPassword());
-        robot.clickOn(repeatedRegPassword).write(invalidUser.getRepeatedPassword());
-        robot.clickOn(registerButton);
-        this.closeAlert();
+    //     robot.clickOn(regUsername).write(invalidUser.getUsername());
+    //     robot.clickOn(fullName).write(invalidUser.getFullName());
+    //     robot.clickOn(regPassword).write(invalidUser.getPassword());
+    //     robot.clickOn(repeatedRegPassword).write(invalidUser.getRepeatedPassword());
+    //     robot.clickOn(registerButton);
+    //     this.closeAlert();
 
-        robot.clickOn(regUsername).write(regUser.getUsername());
-        robot.clickOn(fullName).write(regUser.getFullName());
-        robot.clickOn(regPassword).write(regUser.getPassword());
-        robot.clickOn(repeatedRegPassword).write(regUser.getRepeatedPassword());
-        robot.clickOn(registerButton);
-        this.closeAlert();
-    }
+    //     robot.clickOn(regUsername).write(regUser.getUsername());
+    //     robot.clickOn(fullName).write(regUser.getFullName());
+    //     robot.clickOn(regPassword).write(regUser.getPassword());
+    //     robot.clickOn(repeatedRegPassword).write(regUser.getRepeatedPassword());
+    //     robot.clickOn(registerButton);
+    //     this.closeAlert();
+    // }
 
-    @Test
-    @Order(3)
-    public void TestLogInWithRegistration() {
-        robot.clickOn(usernameField).write(regUser.getUsername());
-        robot.clickOn(passwordField).write(regUser.getPassword());
-        robot.clickOn(loginButton);
-        try {
-            this.setHomePage(new User(regUser.getUsername(), regUser.getPassword(), regUser.getFullName(), new ArrayList<>()));
-            sleep(500);
-        } catch (IOException e) {
-            // TODO: handle exception
-        }
-    }
+    // @Test
+    // @Order(3)
+    // public void TestLogInWithRegistration() {
+    //     robot.clickOn(usernameField).write(regUser.getUsername());
+    //     robot.clickOn(passwordField).write(regUser.getPassword());
+    //     robot.clickOn(loginButton);
+    //     try {
+    //         this.setHomePage(new User(regUser.getUsername(), regUser.getPassword(), regUser.getFullName(), new ArrayList<>()));
+    //         sleep(500);
+    //     } catch (IOException e) {
+    //         // TODO: handle exception
+    //     }
+    // }
 
     private void LogIn() {
         robot.clickOn(usernameField).write(regUser.getUsername());
@@ -150,21 +150,30 @@ public class UiFirstTest extends ApplicationTest {
         this.LogIn();
         this.makeAd();
         robot.clickOn("#ElectronicsButton1");
-        sleep(3000);
-        String adTitle1 = "MacBook Pro 2022";
-        String adDescription1 = "Brand new MacBook Pro 2022 with M1 chip for sale! Price can be discussed in dm.";
-        String validAdPrice1 = "20000";
-        String adBrand1 = "Apple";
-        String adType1 = "Laptop";
 
-        robot.clickOn("#titleField1").write(adTitle1);
-        robot.clickOn("#descriptionArea1").write(adDescription1);
+        String adTitle = "MacBook Pro 2022";
+        String adDescription = "Brand new MacBook Pro 2022";
+        String invalidPrice = "twenty thousand";
+        String validAdPrice = "20000";
+        String adBrand = "Apple";
+        String adType = "Laptop";
+
+        robot.clickOn("#titleField1").write(adTitle);
+        robot.clickOn("#descriptionArea1").write(adDescription);
         robot.clickOn("#conditionField1");
-        robot.clickOn("#priceField1").write(validAdPrice1);
-        robot.clickOn("#brandField1").write(adBrand1);
-        robot.clickOn("#typeField1").write(adType1);
+        robot.clickOn("#priceField1").write(invalidPrice);
+        robot.clickOn("#brandField1").write(adBrand);
+        robot.clickOn("#typeField1").write(adType);
         robot.clickOn("#makeAd1");
-        
+        this.closeAlert();
+
+
+        robot.doubleClickOn("#priceField1").eraseText(invalidPrice.length()).write(validAdPrice);
+        robot.clickOn("#makeAd1");
+        this.makeAd();
+
+        sleep(2000);
+
     }
     
 }

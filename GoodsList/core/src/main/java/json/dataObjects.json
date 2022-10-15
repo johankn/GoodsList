@@ -4,5 +4,10 @@
     "password" : "Matte365",
     "fullname" : "Hei",
     "activeAds" : [ ]
+  }, {
+    "username" : "test",
+    "password" : "Test1234",
+    "fullname" : "Test",
+    "activeAds" : [ ]
   } ]
 }
