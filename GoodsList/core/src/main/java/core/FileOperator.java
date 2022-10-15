@@ -43,9 +43,18 @@ public class FileOperator {
     
     //Methood to get all the users in the jsonfile on the fromat: [username, password, fullname, username, password,...]
     public List<User> getAllUsersAsList(String filename){
-        dataObject = new DataObject(filename);
+        dataObject = new DataObject(filename, false);
         List<User> list = dataObject.getJsonFileAsObject().getUsers();
         return list;
+    }
+
+    public void removeAllUsers(String filename){
+        dataObject = new DataObject(filename, true);
+        try {
+            objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }   
     }
    
 }
