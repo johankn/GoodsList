@@ -3,6 +3,7 @@ package core;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,6 +19,7 @@ public class DataObject {
     private ObjectMapper objectMapper;
     private User user;
     private boolean addUser;
+    private boolean removeAllUsers;
     private JsonFileAsObject jsonFileAsObject;
 
     /* 
@@ -26,6 +28,7 @@ public class DataObject {
     public DataObject(String filename, User user, boolean addUser) {
         this.filename = filename;
         this.user = user;
+        System.out.println(System.getProperty("user.dir"));
         this.addUser = addUser;
         objectMapper = new ObjectMapper();
         generateJsonFileAsObject();
@@ -34,10 +37,11 @@ public class DataObject {
     /* 
     * Constructor used when reading a file.
     *  */
-    public DataObject(String filename) {
+    public DataObject(String filename, boolean removeAllUsers) {
         this.filename = filename;
+        this.removeAllUsers = removeAllUsers;
         objectMapper = new ObjectMapper();
-        generateJsonFileAsObjectForReading();
+        generateJsonFileAsObjectForReadingAndRemoving();
     }
 
     /*
@@ -87,15 +91,22 @@ public class DataObject {
     /* 
     * Generates a JsonFileAsObject from the json-file, used for reading content of dataObjects.json.
     */
-    private void generateJsonFileAsObjectForReading(){
+    private void generateJsonFileAsObjectForReadingAndRemoving(){
         try {
             String jsonString = makeJsonObjectFromJsonFile().toString();
             jsonFileAsObject = objectMapper.readValue(jsonString , JsonFileAsObject.class);
+            if(removeAllUsers){
+                removeAllUsersFromFile();
+            } 
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void removeAllUsersFromFile(){
+        jsonFileAsObject.setUsers(new ArrayList<>());
     }
 
     
