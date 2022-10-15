@@ -5,6 +5,7 @@ import core.AdValidator;
 import core.Books;
 import core.Clothing;
 import core.Electronics;
+import core.FileOperator;
 import core.Property;
 import core.User;
 import core.Vehicles;
@@ -23,6 +24,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class AppController {
 
+    @FXML private Button postButton;
     @FXML private Label WelcomeText, titlePreview, pricePreview, conditionPreview, descriptionPreview, label1, label2, label3, label4, label5;
     @FXML private AnchorPane homePage, newAdPage, adPreview, categoriesPane, electronicsAd, clothingAd, propertyAd, vehiclesAd, booksAd;
     @FXML private ChoiceBox<String> colourChoiceVehicles, colourChoiceClothing;
@@ -320,6 +322,8 @@ public class AppController {
         //skrive ad til fil her
         //gjøre det mulig å browse ad på hjemmesiden
         this.user.addAdToList(ad);
+        FileOperator fo = new FileOperator();
+        fo.updateUserObjectJsonFile("..//core/src/main/java/json/dataObjects.json", user);
 
 
         //erase electronics

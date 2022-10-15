@@ -44,7 +44,7 @@ public class FileOperator {
     //Methood to get all the users in the jsonfile on the fromat: [username, password, fullname, username, password,...]
     public List<User> getAllUsersAsList(String filename){
         dataObject = new DataObject(filename);
-        List<User> list = dataObject.getUserList();
+        List<User> list = dataObject.getJsonFileAsObject().getUsers();
         return list;
     }
    

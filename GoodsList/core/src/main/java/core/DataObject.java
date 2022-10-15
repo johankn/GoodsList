@@ -1,55 +1,55 @@
 package core;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.nio.channels.FileChannel.MapMode;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class DataObject {
 
-    //This class represents dataObjects.json as a java.util.Map.
+    /* 
+    * This class makes a jsonFileAsObject from the json-file and initiates various operations on the JsonFileAsObject 
+    */
     
-    private Map<String, List<User>> jsonFileAsMap;
     private String filename;
     private ObjectMapper objectMapper;
     private User user;
     private boolean addUser;
-    private List<User> userList;
     private JsonFileAsObject jsonFileAsObject;
 
+    /* 
+    *Constructor used when wrinting to a file.
+    *  */
     public DataObject(String filename, User user, boolean addUser) {
         this.filename = filename;
         this.user = user;
         this.addUser = addUser;
         objectMapper = new ObjectMapper();
-        generateMapOfUsers();
+        generateJsonFileAsObject();
     }
 
+    /* 
+    * Constructor used when reading a file.
+    *  */
     public DataObject(String filename) {
         this.filename = filename;
         objectMapper = new ObjectMapper();
-        setUserList();
+        generateJsonFileAsObjectForReading();
     }
 
-    //Genrates a map og dataObject.json
-    private void generateMapOfUsers(){
-        String jsonString;
+    /*
+    *Generates a JsonFileAsObject from the json-file, used for appending a new user or updating 
+    *an existitng user in dataObjects.json.
+    */
+    private void generateJsonFileAsObject(){
         try {
-            jsonString = makeJsonObjectFromJsonFile().toString();
+            String jsonString = makeJsonObjectFromJsonFile().toString();
             jsonFileAsObject = objectMapper.readValue(jsonString , JsonFileAsObject.class);
             if(addUser){
-                addUserToMap(user);
+                addUserToJsonFileAsObjectUserList(user);
             } else if (!addUser){
                 updateUserActiveAds(user);
             }
@@ -59,11 +59,21 @@ public class DataObject {
         }
     }
 
-    private void addUserToMap(User userToBeAdded){
+    
+    /** 
+     * Adds a user to JsonFileAsObjectUserList
+     * @param userToBeAdded
+     */
+    private void addUserToJsonFileAsObjectUserList(User userToBeAdded){
         jsonFileAsObject.getUsers().add(userToBeAdded);
 
     }
 
+    
+    /** 
+     * Updates a User-object in the list of Users in JsonFileAsObject.
+     * @param userToBeUpdated
+     */
     private void updateUserActiveAds(User userToBeUpdated){
         List<User> userList = jsonFileAsObject.getUsers();
         for (int i = 0; i < jsonFileAsObject.getUsers().size(); i++) {
@@ -74,33 +84,40 @@ public class DataObject {
         jsonFileAsObject.setUsers(userList);
     }
 
-    private void setUserList(){
-        String jsonString;
+    /* 
+    * Generates a JsonFileAsObject from the json-file, used for reading content of dataObjects.json.
+    */
+    private void generateJsonFileAsObjectForReading(){
         try {
-            jsonString = makeJsonObjectFromJsonFile().toString();
-            System.out.println(jsonString);
-            //https://www.baeldung.com/jackson-object-mapper-tutorial
+            String jsonString = makeJsonObjectFromJsonFile().toString();
             jsonFileAsObject = objectMapper.readValue(jsonString , JsonFileAsObject.class);
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //userList = jsonFileAsMap.get("users");
     }
 
-    public List<User> getUserList(){
-        return jsonFileAsObject.getUsers();
-    }
-
-    //Help methood to make a jsonObject from the json-file
+    
+    /** 
+     * Help methood to make a JsonObject from a json-file as a string.
+     * 
+     * @return JSONObject
+     * @throws JSONException
+     * @throws Exception
+     */
     private JSONObject makeJsonObjectFromJsonFile() throws JSONException, Exception {
         JSONObject jsonObject = new JSONObject(readFileAsString(filename));
         return jsonObject;
     }
 
-    //Help methood to read a file as a String.
-    private static String readFileAsString(String filename) {
+    
+    /** 
+     * Help method to convert a file to a string
+     * @param filename
+     * @return String
+     */
+    private String readFileAsString(String filename) {
         try {
             return new String(Files.readAllBytes(Paths.get(filename)));
         } catch (IOException e) {
@@ -110,21 +127,12 @@ public class DataObject {
     }
 
     
-
+    /** 
+     * Getter method
+     * @return JsonFileAsObject
+     */
     public JsonFileAsObject getJsonFileAsObject() {
         return jsonFileAsObject;
     }
-
-    public Map<String, List<User>> getJsonFileAsMap() {
-        return jsonFileAsMap;
-    }
-
-    
-
-    
-
-
-
-    
 
 }
