@@ -24,7 +24,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class AppController {
 
-    @FXML private Button postButton;
+    @FXML private Button postButton, newAdButton;
     @FXML private Label WelcomeText, titlePreview, pricePreview, conditionPreview, descriptionPreview, label1, label2, label3, label4, label5;
     @FXML private AnchorPane homePage, newAdPage, adPreview, categoriesPane, electronicsAd, clothingAd, propertyAd, vehiclesAd, booksAd;
     @FXML private ChoiceBox<String> colourChoiceVehicles, colourChoiceClothing;

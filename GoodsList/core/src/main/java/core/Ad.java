@@ -66,4 +66,5 @@ public class Ad {
         user.addAdToList(this);
     }
 
+
 }
