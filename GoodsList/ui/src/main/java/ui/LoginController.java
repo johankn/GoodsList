@@ -43,7 +43,7 @@ public class LoginController {
 
     public void setFilepath(boolean isTest) {
         if (isTest) {
-            this.filename = "/src/test/java/json/dataObjectsTest.json";
+            this.filename = "..//ui/src/test/resources/ui/uiTest.json";
         }
         else {
             this.filename = "..//core/src/main/java/json/dataObjects.json";

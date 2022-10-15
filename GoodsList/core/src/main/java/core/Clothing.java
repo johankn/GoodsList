@@ -14,7 +14,14 @@ public class Clothing extends Product {
     private String brand;
     private String size;
 
-    public Clothing(int price, String condition, String brand, String type, String color, String size) {
+    @JsonCreator
+    public Clothing(
+        @JsonProperty(value = "price") int price,
+        @JsonProperty(value = "condition") String condition,
+        @JsonProperty(value = "brand") String brand,
+        @JsonProperty(value = "type") String type,
+        @JsonProperty(value = "color") String color,
+        @JsonProperty(value = "size") String size) {
         super(price, condition);
         this.type = type;
         this.color = color;

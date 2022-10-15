@@ -274,14 +274,14 @@ public class AppController {
             ad = new Ad(titleField5.getText(), product5, date, descriptionArea5.getText());
 
             //preview
-        titlePreview.setText(titleField5.getText());
-        conditionPreview.setText(setCondition(conditionField5));
-        pricePreview.setText(priceField5.getText()+"Kr");
-        descriptionPreview.setText(descriptionArea5.getText());
-        label1.setText("Author: "+authorField5.getText());
-        label2.setText("Genre: "+genreField5.getText());
-        label3.setText("Pages: "+pagesField5.getText());
-        label4.setText("Year: "+yearField5.getText());
+            titlePreview.setText(titleField5.getText());
+            conditionPreview.setText(setCondition(conditionField5));
+            pricePreview.setText(priceField5.getText()+"Kr");
+            descriptionPreview.setText(descriptionArea5.getText());
+            label1.setText("Author: "+authorField5.getText());
+            label2.setText("Genre: "+genreField5.getText());
+            label3.setText("Pages: "+pagesField5.getText());
+            label4.setText("Year: "+yearField5.getText());
 
             booksAd.setDisable(true);
             booksAd.setVisible(false);

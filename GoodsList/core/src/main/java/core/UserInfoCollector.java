@@ -20,4 +20,8 @@ public class UserInfoCollector {
         }
         throw new NullPointerException("This user does not exist");
     }
+
+    public FileOperator getFileOperator() {
+        return fileOperator;
+    }
 }
