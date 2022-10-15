@@ -21,7 +21,7 @@ public class App extends Application {
         mainStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("Login.fxml"));
         Parent parent = fxmlLoader.load();
-        LoginController li= fxmlLoader.getController();
+        LoginController li = fxmlLoader.getController();
         li.setFilepath(false);
         stage.setScene(new Scene(parent));
         stage.show();
@@ -35,25 +35,20 @@ public class App extends Application {
         return mainStage;
     }
 
-    //changes scene to the new homescene for given loginUser
-    public void setHomePage(String fxml) throws IOException{
+    // changes scene to the new homescene for given loginUser
+    public void setHomePage(String fxml) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource(fxml));
         mainStage.getScene().setRoot(parent);
     }
 
-    public void bringUserInfo(User user) throws IOException{
+    public void bringUserInfo(User user) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("App.fxml"));
         Parent parent = fxmlLoader.load();
         AppController appController = fxmlLoader.getController();
         appController.setUsername(user);
         appController.setChoiceBox();
-        appController.setFilepath(false);
-        try {
-            if (!mainStage.equals(null)) {
-                mainStage.getScene().setRoot(parent);
-            }
-        } catch (NullPointerException e) {
-            // TODO: handle exception
+        if (mainStage != null) {
+            mainStage.getScene().setRoot(parent);
         }
     }
 }
