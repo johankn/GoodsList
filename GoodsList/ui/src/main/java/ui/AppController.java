@@ -59,7 +59,7 @@ public class AppController {
 
     //which category ad is in the making
     private int categoryId;
-
+    private String filename;
     private User user;
 
 
@@ -68,6 +68,16 @@ public class AppController {
         WelcomeText.setText("Welcome, " + user.getFullname());
         this.user = user;
     }
+
+    public void setFilepath(boolean isTest) {
+        if (isTest) {
+            this.filename = "..//ui/src/test/resources/ui/uiTest.json";
+        }
+        else {
+            this.filename = "..//core/src/main/java/json/dataObjects.json";
+        }
+    }
+    
     @FXML
     private void handleNewAd(){
         homePage.setDisable(true);
@@ -323,7 +333,7 @@ public class AppController {
         //gjøre det mulig å browse ad på hjemmesiden
         this.user.addAdToList(ad);
         FileOperator fo = new FileOperator();
-        fo.updateUserObjectJsonFile("..//core/src/main/java/json/dataObjects.json", user);
+        fo.updateUserObjectJsonFile(filename, user);
 
 
         //erase electronics

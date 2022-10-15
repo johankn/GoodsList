@@ -66,6 +66,7 @@ public class UiTest extends ApplicationTest {
         Parent parent = fxmlLoader.load();
         AppController appController = fxmlLoader.getController();
         appController.setUsername(user);
+        appController.setFilepath(true);
         appController.setChoiceBox();
         mainStage.getScene().setRoot(parent);
     }
