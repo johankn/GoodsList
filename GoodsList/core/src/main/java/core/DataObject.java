@@ -1,6 +1,7 @@
 package core;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -130,7 +131,7 @@ public class DataObject {
      */
     private String readFileAsString(String filename) {
         try {
-            return new String(Files.readAllBytes(Paths.get(filename)));
+            return new String(Files.readAllBytes(Paths.get(filename)), Charset.forName("UTF-8"));
         } catch (IOException e) {
             e.printStackTrace();
         }
