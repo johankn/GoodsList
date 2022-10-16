@@ -4,6 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import json.FileOperator; 
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -19,7 +21,6 @@ import org.testfx.framework.junit5.ApplicationTest;
 
 import core.Ad;
 import core.Electronics;
-import core.FileOperator;
 import core.RegisteredUser;
 import core.User;
 

@@ -1,6 +1,8 @@
-package core;
+package json;
 
 import java.util.List;
+
+import core.User;
 public class UserInfoCollector {
     //This class find info about the user by information we allready know about it. 
 

@@ -6,18 +6,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.io.FileNotFoundException;
 
-import core.FileOperator;
 import core.LoginValidator;
 import core.RegisteredUser;
 import core.RegistrationValidator;
 import core.User;
-import core.UserInfoCollector;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Text;
+import json.FileOperator;
+import json.UserInfoCollector;
 
 public class LoginController {
 

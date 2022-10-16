@@ -2,6 +2,8 @@ package core;
 
 import java.util.List;
 
+import json.FileOperator;
+
 public class LoginValidator {
 
     private FileOperator fileOperator;

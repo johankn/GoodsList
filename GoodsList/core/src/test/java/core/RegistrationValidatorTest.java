@@ -3,8 +3,8 @@ package core;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import core.FileOperator;
 import core.RegistrationValidator;
+import json.FileOperator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

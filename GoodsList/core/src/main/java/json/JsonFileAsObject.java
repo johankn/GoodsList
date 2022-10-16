@@ -1,9 +1,11 @@
-package core;
+package json;
 
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import core.User;
 
 public class JsonFileAsObject {
     
