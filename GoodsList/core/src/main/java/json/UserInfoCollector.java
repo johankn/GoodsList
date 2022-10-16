@@ -4,7 +4,10 @@ import java.util.List;
 
 import core.User;
 public class UserInfoCollector {
-    //This class find info about the user by information we allready know about it. 
+    /* 
+     *This class find info about the user by information we allready know about it.
+    */
+    
 
     private FileOperator fileOperator;
 
@@ -12,6 +15,12 @@ public class UserInfoCollector {
         this.fileOperator = new FileOperator();
     }
     
+    /** 
+     * Gets the full name of a user by knowing its user name.
+     * @param filename
+     * @param userName
+     * @return String
+     */
     //Finds the full name of a user by its username.
     public String getFullNameByUsername(String filename, String userName){
         List<User> allExistingUsers = fileOperator.getAllUsersAsList(filename);
@@ -23,6 +32,11 @@ public class UserInfoCollector {
         throw new NullPointerException("This user does not exist");
     }
 
+    
+    /** 
+     * getter for fileoerator-field-
+     * @return FileOperator
+     */
     public FileOperator getFileOperator() {
         return fileOperator;
     }

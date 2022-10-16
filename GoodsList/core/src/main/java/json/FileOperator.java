@@ -14,6 +14,10 @@ import core.User;
 
 public class FileOperator {
 
+    /* 
+     * This Class read from and writes to a json file. 
+     */
+
     private ObjectMapper objectMapper;
     private ObjectWriter objectWriter;
     private DataObject dataObject;
@@ -24,6 +28,12 @@ public class FileOperator {
     }
 
 
+    
+    /** 
+     * Writes a new user to json file.
+     * @param filename
+     * @param registeredUser
+     */
     // Writes a user to the json-file
     public void writeNewUserDataToFile(String filename, RegisteredUser registeredUser) {
         dataObject = new DataObject(filename, registeredUser.generateUser(), true);
@@ -34,6 +44,12 @@ public class FileOperator {
         }   
     }
 
+    
+    /** 
+     * Writes update of an existing user with the new information.
+     * @param filename
+     * @param user
+     */
     public void updateUserObjectJsonFile(String filename, User user){
         dataObject = new DataObject(filename, user, false);
         try {
@@ -43,14 +59,23 @@ public class FileOperator {
         }  
     }
 
-    
-    //Methood to get all the users in the jsonfile on the fromat: [username, password, fullname, username, password,...]
+
+    /** 
+     * Gets all the users in a json-file. Format: [User1, User2, ..., User_j]
+     * @param filename
+     * @return List<User>
+     */
     public List<User> getAllUsersAsList(String filename){
         dataObject = new DataObject(filename, false);
         List<User> list = dataObject.getJsonFileAsObject().getUsers();
         return list;
     }
 
+    
+    /** 
+     * Removes all users from a json file
+     * @param filename
+     */
     public void removeAllUsers(String filename){
         dataObject = new DataObject(filename, true);
         try {
