@@ -4,16 +4,87 @@
     "password" : "Matte365",
     "fullname" : "Hei",
     "activeAds" : [ {
-      "adTitle" : "sdfwefewf",
+      "adTitle" : "Newest!",
       "product" : {
-        "@type" : "electronics",
-        "price" : 123,
+        "@type" : "book",
+        "price" : 12,
         "condition" : "New",
-        "brand" : "wefwefwe",
-        "type" : "asfqewd"
+        "author" : "asdqsd",
+        "genre" : "asd",
+        "releaseYear" : 2001,
+        "pages" : 2313
       },
       "date" : "2022-10-16",
-      "description" : "asdqwdq"
+      "description" : "asdCWAC"
+    }, {
+      "adTitle" : "SADQW",
+      "product" : {
+        "@type" : "electronics",
+        "price" : 12,
+        "condition" : "New",
+        "brand" : "QADWQWD",
+        "type" : "ASCD"
+      },
+      "date" : "2022-10-15",
+      "description" : "AWD"
+    }]
+  }, {
+    "username" : "Emil",
+    "password" : "Emilgutt12",
+    "fullname" : "Emil",
+    "activeAds" : [ {
+      "adTitle" : "wewewe",
+      "product" : {
+        "@type" : "clothing",
+        "price" : 23,
+        "condition" : "Used",
+        "brand" : "wewewe",
+        "type" : "qwew",
+        "color" : "White",
+        "size" : "wew"
+      },
+      "date" : "2022-10-15",
+      "description" : "we"
+    }, {
+      "adTitle" : "Hei",
+      "product" : {
+        "@type" : "property",
+        "price" : 12,
+        "condition" : "Used",
+        "propertyType" : "wfdq",
+        "yearBuilt" : 23,
+        "bedrooms" : 3,
+        "area" : 300
+      },
+      "date" : "2022-10-15",
+      "description" : "wd"
+    } ]
+  }, {
+    "username" : "1",
+    "password" : "2",
+    "fullname" : "ADMIN",
+    "activeAds" : [ {
+      "adTitle" : "sDQwd",
+      "product" : {
+        "@type" : "electronics",
+        "price" : 23,
+        "condition" : "New",
+        "brand" : "qwdqwd",
+        "type" : "qwd"
+      },
+      "date" : "2022-10-15",
+      "description" : "wed"
+    }, {
+      "adTitle" : "oldest",
+      "product" : {
+        "@type" : "electronics",
+        "price" : 12,
+        "condition" : "New",
+        "brand" : "ascqwc",
+        "type" : "wcqwc"
+      },
+      "date" : "2022-10-14",
+      "description" : "qwd"
     } ]
   } ]
 }

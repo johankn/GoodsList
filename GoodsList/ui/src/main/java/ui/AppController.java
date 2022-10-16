@@ -1,6 +1,9 @@
 package ui;
 
+import java.util.List;
+
 import core.Ad;
+import core.AdSorter;
 import core.AdValidator;
 import core.Books;
 import core.Clothing;
@@ -15,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
@@ -28,6 +32,7 @@ public class AppController {
     @FXML private Label WelcomeText, titlePreview, pricePreview, conditionPreview, descriptionPreview, label1, label2, label3, label4, label5;
     @FXML private AnchorPane homePage, newAdPage, adPreview, categoriesPane, electronicsAd, clothingAd, propertyAd, vehiclesAd, booksAd;
     @FXML private ChoiceBox<String> colourChoiceVehicles, colourChoiceClothing;
+    @FXML private ListView<String> listOfAds;
     
     private Ad ad;
 
@@ -62,7 +67,13 @@ public class AppController {
     private String filename;
     private User user;
 
-
+    
+    private void initialize() {
+        listOfAds.getItems().clear();
+        FileOperator fileoperator = new FileOperator();
+        AdSorter adSorter = new AdSorter(fileoperator.getAllAdsInFile(filename));
+        listOfAds.getItems().addAll(adSorter.getAdAttributeInFile(adSorter.sortAdsByDate(), Ad::getAdTitle));
+    }
     
     /** 
      * Method for setting the username after logging in, Shows welcome "fullname" in display. 
@@ -87,6 +98,7 @@ public class AppController {
         else {
             this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
         }
+        initialize();
     }
     
     /* 
@@ -392,6 +404,7 @@ public class AppController {
         this.user.addAdToList(ad);
         FileOperator fo = new FileOperator();
         fo.updateUserObjectJsonFile(filename, user);
+        initialize();
 
 
         //erase electronics
