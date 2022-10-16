@@ -16,7 +16,6 @@ import org.junit.jupiter.api.DisplayName;
 
 import core.Ad;
 import core.Electronics;
-import core.FileOperator;
 import core.Product;
 import core.RegisteredUser;
 import core.User;
@@ -26,7 +25,7 @@ import core.User;
 public class FileOperatorTest {
     
     private FileOperator fileOperator;
-    private final String filename = "src/test/java/json/fileOperatorTest.json";
+    private final String filename = "..//ui/src/test/resources/ui/fileOperatorTest.json";
 //"/Users/eliaslysosommerseth/Documents/NTNU/2-klasse/1-semester/itp1/gruppe-//rosjekt/gr2226-1/GoodsList/core/src/test/java/json/fileOperatorTest.json"
 
     @BeforeEach

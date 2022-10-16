@@ -9,12 +9,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import core.RegisteredUser;
-import core.UserInfoCollector;
 
 public class UserInfoCollectorTest {
     
     private UserInfoCollector userInfoCollector;
-    private final String filename = "src/test/java/json/userInfoCollector.json";
+    private final String filename = "..//ui/src/test/resources/ui/userInfoCollector.json";
     private RegisteredUser regUser1;
     private RegisteredUser regUser2;
 

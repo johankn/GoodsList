@@ -1,4 +1,4 @@
-package core;
+package json;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -9,6 +9,8 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import core.User;
 
 public class DataObject {
 
