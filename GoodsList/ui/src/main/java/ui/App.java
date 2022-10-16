@@ -16,10 +16,12 @@ public class App extends Application {
 
     private static Stage mainStage;
 
-    
-    /** 
-     * Start method for the app. We have added a method for setting the filepath we are using in controller.
-     * If the param for setFilePath is false, we are running the app  normally, and true means its a test. 
+    /**
+     * Start method for the app. We have added a method for setting the filepath we
+     * are using in controller.
+     * If the param for setFilePath is false, we are running the app normally, and
+     * true means its a test.
+     * 
      * @param stage
      * @throws IOException
      */
@@ -34,34 +36,37 @@ public class App extends Application {
         stage.show();
     }
 
-    
-    /** 
+    /**
      * Launching the app
+     * 
      * @param args
      */
     public static void main(String[] args) {
         launch();
     }
 
-    
-    /** 
+    /**
      * @return Stage
      */
     public Stage getStage() {
         return mainStage;
     }
 
-
-    // changes scene to the new homescene for given loginUser
+    /*
+     * changes scene to the new homescene for given loginUser
+     * 
+     * @param fxml
+     */
     public void setHomePage(String fxml) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource(fxml));
         mainStage.getScene().setRoot(parent);
     }
 
-    
-    /** 
-     * Method for bringing the userinfo and filepath boolean tho the new controller and fxml file. 
-     * Also changes the fxml scene. 
+    /**
+     * Method for bringing the userinfo and filepath boolean tho the new controller
+     * and fxml file.
+     * Also changes the fxml scene.
+     * 
      * @param user
      * @throws IOException
      */
