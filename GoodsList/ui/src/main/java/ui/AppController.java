@@ -67,8 +67,9 @@ public class AppController {
     private String filename;
     private User user;
 
-    @FXML
-    public void initialize() {
+    
+    private void initialize() {
+        listOfAds.getItems().clear();
         FileOperator fileoperator = new FileOperator();
         AdSorter adSorter = new AdSorter(fileoperator.getAllAdsInFile(filename));
         listOfAds.getItems().addAll(adSorter.getAdAttributeInFile(adSorter.sortAdsByDate(), Ad::getAdTitle));
@@ -97,6 +98,7 @@ public class AppController {
         else {
             this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
         }
+        initialize();
     }
     
     /* 
@@ -402,6 +404,7 @@ public class AppController {
         this.user.addAdToList(ad);
         FileOperator fo = new FileOperator();
         fo.updateUserObjectJsonFile(filename, user);
+        initialize();
 
 
         //erase electronics
