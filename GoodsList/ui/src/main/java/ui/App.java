@@ -18,7 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        mainStage = stage;
+        setMainStage(stage);
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("Login.fxml"));
         Parent parent = fxmlLoader.load();
         LoginController li = fxmlLoader.getController();
@@ -34,6 +34,7 @@ public class App extends Application {
     public Stage getStage() {
         return mainStage;
     }
+
 
     // changes scene to the new homescene for given loginUser
     public void setHomePage(String fxml) throws IOException {
@@ -51,5 +52,9 @@ public class App extends Application {
         if (mainStage != null) {
             mainStage.getScene().setRoot(parent);
         }
+    }
+
+    private static void setMainStage(Stage mainStage) {
+        App.mainStage = mainStage;
     }
 }
