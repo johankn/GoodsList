@@ -108,7 +108,5 @@ public class FileOperator {
         return ads;
     } 
     
-    public List<String> getAdAttributeInFile (String filename, Function<Ad,String> function){
-        return getAllAdsInFile(filename).stream().map(function).toList();
-    }
+    
 }
