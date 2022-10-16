@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -46,6 +47,12 @@ public class UiTest extends ApplicationTest {
     private FxRobot robot = new FxRobot();
 
 
+    /** 
+     * Start method for the app. We have added a method for setting the filepath we are using in controller.
+     * If the param for setFilePath is false, we are running the app  normally, and true means its a test. 
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         mainStage = stage;
@@ -57,11 +64,18 @@ public class UiTest extends ApplicationTest {
         stage.show();
     }
 
+    /** 
+     * @return Stage
+     */
     public Stage getStage() {
         return mainStage;
     }
 
-    //method called on for switching between the login and app scene. It also passes on the logged in User object. 
+    /*
+     * changes scene to the new homescene for given loginUser
+     * 
+     * @param fxml
+     */
     private void setHomePage(User user) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("App.fxml"));
         Parent parent = fxmlLoader.load();
@@ -72,24 +86,39 @@ public class UiTest extends ApplicationTest {
         mainStage.getScene().setRoot(parent);
     }
 
+    /* 
+     * closes an alert
+     */
     private void closeAlert() {
         robot.clickOn("OK");
     }
 
+    /* 
+     * makes an ad
+     */
     private void makeAd() {
         robot.clickOn("#newAdButton");
     }
 
+    /* 
+     * posts an ad
+     */
     private void postAd() {
         robot.clickOn("#postButton");
     }
 
+    /* 
+     * Makes user and registered user.
+     */
     @BeforeEach
     public void setUp() {
         regUser = new RegisteredUser("test", "Test1234", "Test", "Test1234");
         invalidUser = new RegisteredUser("test", "Test1234", "Test", "test");
     }
 
+    /* 
+     * clears all users from testfile
+     */
     @AfterAll
     public void clearTestFile() {
         FileOperator fileOperator = new FileOperator();
@@ -97,6 +126,7 @@ public class UiTest extends ApplicationTest {
     }
 
     @Test
+    @DisplayName("Tests login whit a user that is not registrated")
     @Order(1)
     public void TestLoginWithoutRegistration() {
         robot.clickOn(loginButton);
@@ -108,6 +138,7 @@ public class UiTest extends ApplicationTest {
     }
 
     @Test
+    @DisplayName("Test registration of a user.")
     @Order(2)
     public void TestRegistration() {
         robot.clickOn(registerButton);
@@ -128,6 +159,9 @@ public class UiTest extends ApplicationTest {
         this.closeAlert();
     }
 
+    /* 
+     * Method that logs in.
+     */
     private void LogIn() {
         robot.clickOn(usernameField).write(regUser.getUsername(), 5);
         robot.clickOn(passwordField).write(regUser.getPassword(), 5);
@@ -152,6 +186,7 @@ public class UiTest extends ApplicationTest {
     }
 
     @Test
+    @DisplayName("Tests to make an electrinic ad")
     @Order(3)
     public void TestMakeElectronicsAd() {
         this.LogIn();
@@ -185,6 +220,7 @@ public class UiTest extends ApplicationTest {
 
     @Test
     @Order(4)
+    @DisplayName("Tests to make an clothing ad")
     public void TestMakeClothingAd() {
         this.LogIn();
         this.makeAd();
@@ -216,6 +252,7 @@ public class UiTest extends ApplicationTest {
 
     @Test
     @Order(5) 
+    @DisplayName("Tests to make an property ad")
     public void TestMakePropertyAd() {
         this.LogIn();
         this.makeAd();
@@ -249,6 +286,7 @@ public class UiTest extends ApplicationTest {
 
     @Test
     @Order(6)
+    @DisplayName("Tests to make an vehicle ad")
     public void TestMakeVehicleAd() {
         this.LogIn();
         this.makeAd();
@@ -281,6 +319,7 @@ public class UiTest extends ApplicationTest {
 
     @Test
     @Order(7)
+    @DisplayName("Tests to make an book ad")
     public void TestMakeBookAd() {
         this.LogIn();
         this.makeAd();

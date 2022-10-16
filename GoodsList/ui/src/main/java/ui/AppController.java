@@ -63,12 +63,23 @@ public class AppController {
     private User user;
 
 
+    
+    /** 
+     * Method for setting the username after logging in, Shows welcome "fullname" in display. 
+     * @param user
+     */
     @FXML
     public void setUsername(User user){
         WelcomeText.setText("Welcome, " + user.getFullname());
         this.user = user;
     }
 
+    
+    /** 
+     * Method for choosing the filepath and hence which file we are writing and reading from. 
+     * If istest is true it is a test, vice versa. 
+     * @param isTest
+     */
     public void setFilepath(boolean isTest) {
         if (isTest) {
             this.filename = "..//ui/src/test/resources/ui/uiTest.json";
@@ -78,6 +89,9 @@ public class AppController {
         }
     }
     
+    /* 
+     * Method which is called when you press button new ad on the homepage. It takes you to a selection of categories. 
+     */
     @FXML
     private void handleNewAd(){
         homePage.setDisable(true);
@@ -87,6 +101,12 @@ public class AppController {
 
     }
 
+    
+    /** 
+     * Method for handling the different outcomes of the chooseable categories you get when you want to make a new ad. 
+     * Each category has a case with different panes. 
+     * @param event
+     */
     @FXML
     private void handleCategory(ActionEvent event) {
         Button activatedButton = (Button) event.getSource();
@@ -146,6 +166,10 @@ public class AppController {
         }
 
     }
+
+    /* 
+     * This method is called on when you press exit after you press make ad. This is if you dont want to make an ad afterall. 
+     */
     @FXML
     private void handleExitButton(){
         homePage.setDisable(false);
@@ -157,9 +181,12 @@ public class AppController {
     AdValidator adValidator = new AdValidator();
     String date = java.time.LocalDate.now().toString();
 
-    /* skal ikke bruke categoryId som id siden alle ads skal ha unik id, men da må man 
-        ha id lagret i fil. Ikke implementert enda, så per nå kan man kun lagre en annonse per kategori*/
-
+    
+    /* 
+     * One of the five methods for making an ad. This method validates all the input field with an advalidator. 
+     * It also sends you to a preview state of your ad, and asks if you want to change anything. 
+     * This one is for the electronics
+     */
     @FXML
     private void makeAd1(){
         try {
@@ -186,6 +213,11 @@ public class AppController {
         }
     }
     
+    /* 
+     * One of the five methods for making an ad. This method validates all the input field with an advalidator. 
+     * It also sends you to a preview state of your ad, and asks if you want to change anything. 
+     * This one is for the clothing
+     */
     @FXML
     private void makeAd2(){
         if (colourChoiceClothing.getValue() != null) {
@@ -216,7 +248,12 @@ public class AppController {
             displayError("You have to fill out all of the input fields");
         }
     }
-        
+     
+    /* 
+     * One of the five methods for making an ad. This method validates all the input field with an advalidator. 
+     * It also sends you to a preview state of your ad, and asks if you want to change anything. 
+     * This one is for the Property
+     */
     @FXML
     private void makeAd3(){
         try {
@@ -244,6 +281,12 @@ public class AppController {
         }
         
     }
+
+    /* 
+     * One of the five methods for making an ad. This method validates all the input field with an advalidator. 
+     * It also sends you to a preview state of your ad, and asks if you want to change anything. 
+     * This one is for the vehicles
+     */
     @FXML
     private void makeAd4(){
         if (colourChoiceVehicles.getValue() != null) {
@@ -275,6 +318,12 @@ public class AppController {
         }
         
     }
+
+    /* 
+     * One of the five methods for making an ad. This method validates all the input field with an advalidator. 
+     * It also sends you to a preview state of your ad, and asks if you want to change anything. 
+     * This one is for the Books
+     */
     @FXML
     private void makeAd5(){
         try {
@@ -305,6 +354,10 @@ public class AppController {
         
     }
 
+    /* 
+     * This methods just sets the colour choices in the to different dropdownboxes for choosing colours in the clothing and 
+     * vehicles ad types. 
+     */
     @FXML
     public void setChoiceBox(){
         colourChoiceClothing.getItems().add("Black");
@@ -321,7 +374,12 @@ public class AppController {
     }
 
 
-    
+    /* 
+     * This is the method you can call on when you see the preview of your ad. 
+     * After you see your preview you can either go back and edit, or press post ad. 
+     * If post ad i pressed this method runs, which ads the ad to the users list of ads, 
+     * and updates the json file with the latest information
+     */
     @FXML
     private void handlePostAd(){
         adPreview.setDisable(true);
@@ -386,6 +444,10 @@ public class AppController {
 
         ad = new Ad();
     }
+
+    /* 
+     * Method for editing after you see your preview. You can go back and change before you can se a preview of your new ad. 
+     */
     @FXML
     private void handleEdit(){
         
@@ -424,6 +486,13 @@ public class AppController {
         
     }
 
+    
+    /** 
+     * private method for displaying an error with the given param message
+     * Is used when making an ad, if something is wrong in the inout fields. It gets the message from the exception that is thrown
+     * The exceptions are thrown by advalidator class.  
+     * @param message
+     */
     private void displayError(String message){
 
         Alert alert = new Alert(AlertType.ERROR);
@@ -432,6 +501,12 @@ public class AppController {
         alert.showAndWait();
     
     }
+    
+    /** 
+     * Method for "checking" the checkbox, to set if something is used or new. 
+     * @param field
+     * @return String
+     */
     private String setCondition(CheckBox field){
         if (field.isSelected()){
             return "New";

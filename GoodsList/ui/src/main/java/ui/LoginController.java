@@ -40,6 +40,12 @@ public class LoginController {
     @FXML
     private Text header, loginHeader, registrationHeader, feedback;
 
+
+    /** 
+     * Method for choosing the filepath and hence which file we are writing and reading from. 
+     * If istest is true it is a test, vice versa. 
+     * @param isTest
+     */
     public void setFilepath(boolean isTest) {
         if (isTest) {
             this.filename = "..//ui/src/test/resources/ui/uiTest.json";
@@ -49,6 +55,13 @@ public class LoginController {
         }
     }
 
+
+    /** 
+     * private method for displaying an error with the given param message
+     * It os used when logging in or registrating, if something is wrong in the input fields. 
+     * It gets the message from the exceptions, which is thrown by the registrationvalidator or loginvalidator classes. 
+     * @param message
+     */
     private void displayError(String message) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("ERROR");
@@ -56,6 +69,11 @@ public class LoginController {
         alert.showAndWait();
     }
 
+    /** 
+     * private method for displaying information to user. 
+     * is used when logging in succesfully
+     * @param message
+     */
     private void displayMessage(String message) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Information");
@@ -63,6 +81,13 @@ public class LoginController {
         alert.showAndWait();
     }
 
+    /* 
+     * This is the method which is called when pressing the login button
+     * It check if the input fields contains valid information and if the user is registered to the system via the loginvalidator. 
+     * if so, it creates a new user object
+     * then it calls the method from app, which switches fxml scenes and brings the userinfo. 
+     * If the login is not succesfull, it displays an error message with the exception message
+     */
     @FXML
     private void onLogin() {
         try {
@@ -82,7 +107,11 @@ public class LoginController {
     }
 
     
-
+    /* 
+     * This method is called on when hitting the register button. 
+     * It validates the input fields via a registrationvalidator, and writes the new user to file if true.
+     * If the registration is not seccesfull it displays an error message to the user. 
+     */
     @FXML
     private void onRegistration() {
         registrationValidator = new RegistrationValidator();
