@@ -1,8 +1,5 @@
 package ui;
 
-
-import java.io.IOException;
-
 import core.Ad;
 import core.AdValidator;
 import core.Books;
@@ -22,10 +19,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
+import json.FileOperator;
 
 
 public class AppController {
 
+    @FXML private Button postButton, newAdButton;
     @FXML private Label WelcomeText, titlePreview, pricePreview, conditionPreview, descriptionPreview, label1, label2, label3, label4, label5;
     @FXML private AnchorPane homePage, newAdPage, adPreview, categoriesPane, electronicsAd, clothingAd, propertyAd, vehiclesAd, booksAd;
     @FXML private ChoiceBox<String> colourChoiceVehicles, colourChoiceClothing;
@@ -60,15 +59,39 @@ public class AppController {
 
     //which category ad is in the making
     private int categoryId;
-
+    private String filename;
     private User user;
 
 
+    
+    /** 
+     * Method for setting the username after logging in, Shows welcome "fullname" in display. 
+     * @param user
+     */
     @FXML
     public void setUsername(User user){
         WelcomeText.setText("Welcome, " + user.getFullname());
         this.user = user;
     }
+
+    
+    /** 
+     * Method for choosing the filepath and hence which file we are writing and reading from. 
+     * If istest is true it is a test, vice versa. 
+     * @param isTest
+     */
+    public void setFilepath(boolean isTest) {
+        if (isTest) {
+            this.filename = "..//ui/src/test/resources/ui/uiTest.json";
+        }
+        else {
+            this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
+        }
+    }
+    
+    /* 
+     * Method which is called when you press button new ad on the homepage. It takes you to a selection of categories. 
+     */
     @FXML
     private void handleNewAd(){
         homePage.setDisable(true);
@@ -78,6 +101,12 @@ public class AppController {
 
     }
 
+    
+    /** 
+     * Method for handling the different outcomes of the chooseable categories you get when you want to make a new ad. 
+     * Each category has a case with different panes. 
+     * @param event
+     */
     @FXML
     private void handleCategory(ActionEvent event) {
         Button activatedButton = (Button) event.getSource();
@@ -137,6 +166,10 @@ public class AppController {
         }
 
     }
+
+    /* 
+     * This method is called on when you press exit after you press make ad. This is if you dont want to make an ad afterall. 
+     */
     @FXML
     private void handleExitButton(){
         homePage.setDisable(false);
@@ -148,16 +181,19 @@ public class AppController {
     AdValidator adValidator = new AdValidator();
     String date = java.time.LocalDate.now().toString();
 
-    /* skal ikke bruke categoryId som id siden alle ads skal ha unik id, men da må man 
-        ha id lagret i fil. Ikke implementert enda, så per nå kan man kun lagre en annonse per kategori*/
-
+    
+    /* 
+     * One of the five methods for making an ad. This method validates all the input field with an advalidator. 
+     * It also sends you to a preview state of your ad, and asks if you want to change anything. 
+     * This one is for the electronics
+     */
     @FXML
     private void makeAd1(){
         try {
             adValidator.validateElectronics(titleField1.getText(), descriptionArea1.getText(), priceField1.getText(), brandField1.getText(), typeField1.getText());
             
             Electronics product1 = new Electronics(Integer.parseInt(priceField1.getText()), setCondition(conditionField1), brandField1.getText(), typeField1.getText());
-            ad = new Ad(titleField1.getText(), product1, this.user, date, descriptionArea1.getText());
+            ad = new Ad(titleField1.getText(), product1, date, descriptionArea1.getText());
 
             titlePreview.setText(titleField1.getText());
             conditionPreview.setText(setCondition(conditionField1));
@@ -177,6 +213,11 @@ public class AppController {
         }
     }
     
+    /* 
+     * One of the five methods for making an ad. This method validates all the input field with an advalidator. 
+     * It also sends you to a preview state of your ad, and asks if you want to change anything. 
+     * This one is for the clothing
+     */
     @FXML
     private void makeAd2(){
         if (colourChoiceClothing.getValue() != null) {
@@ -184,7 +225,7 @@ public class AppController {
             adValidator.validateClothing(titleField2.getText(), descriptionArea2.getText(),priceField2.getText(), brandField2.getText(), typeField2.getText(), sizeField2.getText());
             
             Clothing product2 = new Clothing(Integer.parseInt(priceField2.getText()), setCondition(conditionField2), brandField2.getText(), typeField2.getText(), colourChoiceClothing.getValue().toString(), sizeField2.getText());
-            ad = new Ad(titleField2.getText(), product2, this.user, date, descriptionArea2.getText());
+            ad = new Ad(titleField2.getText(), product2, date, descriptionArea2.getText());
 
             titlePreview.setText(titleField2.getText());
             conditionPreview.setText(setCondition(conditionField2));
@@ -207,14 +248,19 @@ public class AppController {
             displayError("You have to fill out all of the input fields");
         }
     }
-        
+     
+    /* 
+     * One of the five methods for making an ad. This method validates all the input field with an advalidator. 
+     * It also sends you to a preview state of your ad, and asks if you want to change anything. 
+     * This one is for the Property
+     */
     @FXML
     private void makeAd3(){
         try {
             adValidator.validateProperty(titleField3.getText(), descriptionArea3.getText(),priceField3.getText(), typeField3.getText(), yearBuiltField3.getText(), bedroomsField3.getText(), areaField3.getText());
             
             Property product3 = new Property(Integer.parseInt(priceField3.getText()), setCondition(conditionField3), typeField3.getText(), Integer.parseInt(yearBuiltField3.getText()), Integer.parseInt(bedroomsField3.getText()), Integer.parseInt(areaField3.getText()));
-            ad = new Ad(titleField3.getText(), product3, this.user, date, descriptionArea3.getText());
+            ad = new Ad(titleField3.getText(), product3, date, descriptionArea3.getText());
 
             titlePreview.setText(titleField3.getText());
             conditionPreview.setText(setCondition(conditionField3));
@@ -235,6 +281,12 @@ public class AppController {
         }
         
     }
+
+    /* 
+     * One of the five methods for making an ad. This method validates all the input field with an advalidator. 
+     * It also sends you to a preview state of your ad, and asks if you want to change anything. 
+     * This one is for the vehicles
+     */
     @FXML
     private void makeAd4(){
         if (colourChoiceVehicles.getValue() != null) {
@@ -242,7 +294,7 @@ public class AppController {
             adValidator.validateVehicles(titleField4.getText(), descriptionArea4.getText(),priceField4.getText(), brandField4.getText(), typeField4.getText(), yearField4.getText());
                 
             Vehicles product4 = new Vehicles(Integer.parseInt(priceField4.getText()), setCondition(conditionField4), brandField4.getText(), typeField4.getText(), Integer.parseInt(yearField4.getText()), colourChoiceVehicles.getValue().toString());
-            ad = new Ad(titleField4.getText(), product4, this.user, date, descriptionArea4.getText());
+            ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText());
 
             titlePreview.setText(titleField4.getText());
             conditionPreview.setText(setCondition(conditionField4));
@@ -266,23 +318,29 @@ public class AppController {
         }
         
     }
+
+    /* 
+     * One of the five methods for making an ad. This method validates all the input field with an advalidator. 
+     * It also sends you to a preview state of your ad, and asks if you want to change anything. 
+     * This one is for the Books
+     */
     @FXML
     private void makeAd5(){
         try {
             adValidator.validateBooks(titleField5.getText(), descriptionArea5.getText(),priceField5.getText(), authorField5.getText(), genreField5.getText(), yearField5.getText(), pagesField5.getText());
             
             Books product5 = new Books(Integer.parseInt(priceField5.getText()), setCondition(conditionField5), authorField5.getText(), genreField5.getText(), Integer.parseInt(yearField5.getText()), Integer.parseInt(pagesField5.getText()));
-            ad = new Ad(titleField5.getText(), product5, this.user, date, descriptionArea5.getText());
+            ad = new Ad(titleField5.getText(), product5, date, descriptionArea5.getText());
 
             //preview
-        titlePreview.setText(titleField5.getText());
-        conditionPreview.setText(setCondition(conditionField5));
-        pricePreview.setText(priceField5.getText()+"Kr");
-        descriptionPreview.setText(descriptionArea5.getText());
-        label1.setText("Author: "+authorField5.getText());
-        label2.setText("Genre: "+genreField5.getText());
-        label3.setText("Pages: "+pagesField5.getText());
-        label4.setText("Year: "+yearField5.getText());
+            titlePreview.setText(titleField5.getText());
+            conditionPreview.setText(setCondition(conditionField5));
+            pricePreview.setText(priceField5.getText()+"Kr");
+            descriptionPreview.setText(descriptionArea5.getText());
+            label1.setText("Author: "+authorField5.getText());
+            label2.setText("Genre: "+genreField5.getText());
+            label3.setText("Pages: "+pagesField5.getText());
+            label4.setText("Year: "+yearField5.getText());
 
             booksAd.setDisable(true);
             booksAd.setVisible(false);
@@ -296,6 +354,10 @@ public class AppController {
         
     }
 
+    /* 
+     * This methods just sets the colour choices in the to different dropdownboxes for choosing colours in the clothing and 
+     * vehicles ad types. 
+     */
     @FXML
     public void setChoiceBox(){
         colourChoiceClothing.getItems().add("Black");
@@ -312,7 +374,12 @@ public class AppController {
     }
 
 
-    
+    /* 
+     * This is the method you can call on when you see the preview of your ad. 
+     * After you see your preview you can either go back and edit, or press post ad. 
+     * If post ad i pressed this method runs, which ads the ad to the users list of ads, 
+     * and updates the json file with the latest information
+     */
     @FXML
     private void handlePostAd(){
         adPreview.setDisable(true);
@@ -323,6 +390,8 @@ public class AppController {
         //skrive ad til fil her
         //gjøre det mulig å browse ad på hjemmesiden
         this.user.addAdToList(ad);
+        FileOperator fo = new FileOperator();
+        fo.updateUserObjectJsonFile(filename, user);
 
 
         //erase electronics
@@ -375,6 +444,10 @@ public class AppController {
 
         ad = new Ad();
     }
+
+    /* 
+     * Method for editing after you see your preview. You can go back and change before you can se a preview of your new ad. 
+     */
     @FXML
     private void handleEdit(){
         
@@ -413,6 +486,13 @@ public class AppController {
         
     }
 
+    
+    /** 
+     * private method for displaying an error with the given param message
+     * Is used when making an ad, if something is wrong in the inout fields. It gets the message from the exception that is thrown
+     * The exceptions are thrown by advalidator class.  
+     * @param message
+     */
     private void displayError(String message){
 
         Alert alert = new Alert(AlertType.ERROR);
@@ -421,6 +501,12 @@ public class AppController {
         alert.showAndWait();
     
     }
+    
+    /** 
+     * Method for "checking" the checkbox, to set if something is used or new. 
+     * @param field
+     * @return String
+     */
     private String setCondition(CheckBox field){
         if (field.isSelected()){
             return "New";
