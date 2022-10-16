@@ -36,6 +36,12 @@ public class Product {
     private int price;
     private String condition;
 
+    /**
+    * A constructor for the superclass Product
+    * @param price , Every product has a price value associated
+    * @param condition , Every product has a set condition
+    */
+
     public Product(int price, String condition) {
         this.price = price;
         this.condition = condition;
