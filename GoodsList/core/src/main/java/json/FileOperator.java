@@ -2,13 +2,16 @@ package json;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
-
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import core.Ad;
 import core.RegisteredUser;
 import core.User;
 
@@ -84,5 +87,21 @@ public class FileOperator {
             e.printStackTrace();
         }   
     }
-   
+
+    
+    /** 
+     * gets all the ads in the a json-file.
+     * @param filename
+     * @return List<Ad>
+     */
+    public List<Ad> getAllAdsInFile(String filename){
+        List<User> listOfUsers = getAllUsersAsList(filename);
+        List<Ad> ads = new ArrayList<>();
+        for (User user : listOfUsers) {
+            for (Ad ad : user.getActiveAds()) {
+                ads.add(ad);
+            }
+        }
+        return ads;
+    }   
 }
