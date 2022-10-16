@@ -45,7 +45,7 @@ public class LoginController {
             this.filename = "..//ui/src/test/resources/ui/uiTest.json";
         }
         else {
-            this.filename = "..//core/src/main/java/json/dataObjects.json";
+            this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
         }
     }
 
