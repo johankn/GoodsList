@@ -63,12 +63,23 @@ public class AppController {
     private User user;
 
 
+    
+    /** 
+     * Method for setting the username after logging in, Shows welcome "fullname" in display. 
+     * @param user
+     */
     @FXML
     public void setUsername(User user){
         WelcomeText.setText("Welcome, " + user.getFullname());
         this.user = user;
     }
 
+    
+    /** 
+     * Method for choosing the filepath and hence which file we are writing and reading from. 
+     * If istest is true it is a test, vice versa. 
+     * @param isTest
+     */
     public void setFilepath(boolean isTest) {
         if (isTest) {
             this.filename = "..//ui/src/test/resources/ui/uiTest.json";
@@ -78,6 +89,9 @@ public class AppController {
         }
     }
     
+    /* 
+     * Method which is called when you press button new ad on the homepage. It takes you to a selection of categories. 
+     */
     @FXML
     private void handleNewAd(){
         homePage.setDisable(true);
@@ -87,6 +101,12 @@ public class AppController {
 
     }
 
+    
+    /** 
+     * Method for handling the different outcomes of the chooseable categories you get when you want to make a new ad. 
+     * Each category has a case with different panes. 
+     * @param event
+     */
     @FXML
     private void handleCategory(ActionEvent event) {
         Button activatedButton = (Button) event.getSource();
@@ -146,6 +166,10 @@ public class AppController {
         }
 
     }
+
+    /* 
+     * 
+     */
     @FXML
     private void handleExitButton(){
         homePage.setDisable(false);
@@ -424,6 +448,10 @@ public class AppController {
         
     }
 
+    
+    /** 
+     * @param message
+     */
     private void displayError(String message){
 
         Alert alert = new Alert(AlertType.ERROR);
@@ -432,6 +460,11 @@ public class AppController {
         alert.showAndWait();
     
     }
+    
+    /** 
+     * @param field
+     * @return String
+     */
     private String setCondition(CheckBox field){
         if (field.isSelected()){
             return "New";
