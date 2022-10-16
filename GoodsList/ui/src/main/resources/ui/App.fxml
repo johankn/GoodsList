@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AppController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AppController">
    <children>
-      <AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="527.0">
+      <AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="791.0">
          <children>
             <Label fx:id="WelcomeText" layoutX="12.0" layoutY="39.0" prefHeight="71.0" prefWidth="589.0" text="Welcome, username" wrapText="true">
                <font>
@@ -51,7 +51,7 @@
                   <Font size="9.0" />
                </font>
             </Button>
-            <Button fx:id="newAdButton" layoutX="205.0" layoutY="409.0" mnemonicParsing="false" onAction="#handleNewAd" prefHeight="51.0" prefWidth="117.0" style="-fx-background-color: grey;" text="New ad">
+            <Button fx:id="newAdButton" layoutX="332.0" layoutY="571.0" mnemonicParsing="false" onAction="#handleNewAd" prefHeight="51.0" prefWidth="117.0" style="-fx-background-color: grey;" text="New ad">
                <font>
                   <Font size="23.0" />
                </font>
@@ -59,7 +59,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ListView fx:id="listOfAds" layoutX="150.0" layoutY="182.0" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="listOfAds" fixedCellSize="40.0" layoutX="200.0" layoutY="188.0" prefHeight="357.0" prefWidth="383.0" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="adPreview" disable="true" prefHeight="491.0" prefWidth="527.0" visible="false">

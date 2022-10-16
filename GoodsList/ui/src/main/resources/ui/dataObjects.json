@@ -27,7 +27,7 @@
       },
       "date" : "2022-10-15",
       "description" : "AWD"
-    }]
+    } ]
   }, {
     "username" : "Emil",
     "password" : "Emilgutt12",
@@ -64,27 +64,18 @@
     "password" : "2",
     "fullname" : "ADMIN",
     "activeAds" : [ {
-      "adTitle" : "sDQwd",
+      "adTitle" : "Nice Property for sale",
       "product" : {
-        "@type" : "electronics",
-        "price" : 23,
-        "condition" : "New",
-        "brand" : "qwdqwd",
-        "type" : "qwd"
+        "@type" : "property",
+        "price" : 1212,
+        "condition" : "Used",
+        "propertyType" : "wqdsqws",
+        "yearBuilt" : 121,
+        "bedrooms" : 9,
+        "area" : 120
       },
-      "date" : "2022-10-15",
-      "description" : "wed"
-    }, {
-      "adTitle" : "oldest",
-      "product" : {
-        "@type" : "electronics",
-        "price" : 12,
-        "condition" : "New",
-        "brand" : "ascqwc",
-        "type" : "wcqwc"
-      },
-      "date" : "2022-10-14",
-      "description" : "qwd"
+      "date" : "2022-10-16",
+      "description" : "qws"
     } ]
   } ]
 }
