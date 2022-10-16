@@ -4,12 +4,29 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
+/**
+ * Specifies that this is the electronics subclass
+ * and connects it to the parent class product 
+ */
+
 @JsonTypeName("electronics")
+
+/**
+ * A child class "Electronics" that inherits from the parent class "Product".
+ * An Electronics object represents an electronic device that can be sold on our site.
+ */
 
 public class Electronics extends Product {
 
     private String brand;
     private String type;
+
+    /**
+    * A constructor for the class Electronics
+    * We are using Jackson Annotation to create executing rules for jackson, 
+    * JsonCreator specifies that this is a constructor.
+    * JsonProperty specifies which fields should be set to what in the JSON-file
+    */
 
     @JsonCreator
     public Electronics(@JsonProperty(value = "price")int price, 
@@ -21,18 +38,38 @@ public class Electronics extends Product {
         this.type = type;
     }
 
+    
+    /**
+     * Gets the brand of the electronic product
+     * @return String
+     */
     public String getBrand() {
         return brand;
     }
 
+    
+    /**
+     * Sets the brand of the electronic product
+     * @param brand
+     */
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
+    
+    /**
+     * Gets the type of the electronic product
+     * @return String
+     */
     public String getType() {
         return type;
     }
 
+    
+    /**
+     * Sets the type of the electronic product
+     * @param type
+     */
     public void setType(String type) {
         this.type = type;
     }
