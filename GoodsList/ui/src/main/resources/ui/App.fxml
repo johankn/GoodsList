@@ -5,6 +5,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -58,6 +59,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <ListView fx:id="listOfAds" layoutX="150.0" layoutY="182.0" prefHeight="200.0" prefWidth="200.0" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="adPreview" disable="true" prefHeight="491.0" prefWidth="527.0" visible="false">
