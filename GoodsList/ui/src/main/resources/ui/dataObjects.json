@@ -27,18 +27,7 @@
       },
       "date" : "2022-10-15",
       "description" : "AWD"
-    }, {
-      "adTitle" : "KUK",
-      "product" : {
-        "@type" : "electronics",
-        "price" : 12,
-        "condition" : "New",
-        "brand" : "QWD",
-        "type" : "QD"
-      },
-      "date" : "2022-10-15",
-      "description" : "WAEDFQWD"
-    } ]
+    }]
   }, {
     "username" : "Emil",
     "password" : "Emilgutt12",
