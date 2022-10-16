@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -103,5 +106,9 @@ public class FileOperator {
             }
         }
         return ads;
-    }   
+    } 
+    
+    public List<String> getAdAttributeInFile (String filename, Function<Ad,String> function){
+        return getAllAdsInFile(filename).stream().map(function).toList();
+    }
 }
