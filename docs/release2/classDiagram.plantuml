@@ -1,0 +1,48 @@
+@startuml ClassDiagram
+class Product
+
+Product : price = int
+Product : condition = String
+
+Product <|-- Electronics
+Electronics : brand = String
+Electronics : type = String
+
+Product <|-- Clothing
+Clothing : brand = String
+Clothing : type = String
+Clothing : colour = String
+Clothing : size = String
+
+Product <|-- Property 
+Property : propertyType = String
+Property : yearBuilt = int
+Property : bedrooms = int
+Property : area = int
+
+Product <|-- Vehicles
+Vehicles : brand = String
+Vehicles : modelName = String
+Vehicles : modelYear = int
+Vehicles : colour = String
+
+Product <|-- Books
+Books : author = String
+Books : genre = String
+Books : releaseYear = int
+Books : pages = int
+
+Product "1"<-->"1" Ad
+Ad : adTitle = String
+Ad : product = Product
+Ad : owner = User
+Ad : date = String
+Ad : description = String
+
+Ad "many"--*"1" User
+User : username = String
+User : password = String
+User : fullname = String
+User : activeAds = ArrayList<Ad>
+
+@enduml
