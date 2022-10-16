@@ -37,7 +37,7 @@ public class Electronics extends Product {
         this.brand = brand;
         this.type = type;
     }
-
+    
     
     /**
      * Gets the brand of the electronic product
