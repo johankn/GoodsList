@@ -21,8 +21,14 @@ Prosjektet kan prøves ut ved å "cd" inn i GoodsList-mappen og bruke `mvn`:
 
 Målet med dette prosjektet er å lage en applikasjon der brukere kan kjøpe og selge alle slags ting på nettet. Det ferdige produktet bør ha full implementering av alle nødvendige funksjoner, inkludert et skybasert system som holder styr på klassifiserte annonser og et komplett brukerpåloggingssystem. Brukeren vil kunne opprette, administrere og se annonser samt sende inn tilbud på disse. Det vil også være mulig å favorisere en annonse du er interessert i, slik at du kan se den senere. På Utforsk-siden vil det være en liste over lignende annonser som de du har favorisert. Ulike brukere kan også chatte med hverandre og bli varslet når de mottar tilbud eller andre meldinger.
 
-## Brukerhistorie
+## Brukerhistorie 1
 Som student vil jeg opprette en bruker i denne applikasjonen, slik at jeg kan sjekke ut nettsiden.
+
+## Brukerhistorie 2
+Som student vil jeg opprette en bruker i applikasjonen, slik at jeg kan legge ut noe for salg.
+
+## Brukerhistorie 3
+Som mor vil jeg se om det er noen bra produkter for hjemmet mitt på applikasjonen. 
 
 ## Illustrasjon
 ![Illustration](/MicrosoftTeams-image.png "Illustration")
