@@ -1,3 +1,9 @@
-**Beskrivelse av ui-mappen**
+ # Beskrivelse av ui-mappen
+ 
+Ui-mappen inneholder alle modulene som har med brukergrensesnittet å gjøre. Her har vi en main-mappe som har kontroller-klassene og selve App-klassen, i tillegg til resources-mappen med fxml-filene og selve JSON-filen. JSON-filen med alt av lagring til fil er lagret her fordi den forandres etter hvordan bruker interagerer med appen. 
 
-Ui mappen inneholder java-klasser of fxml-filer. Her ligger fxml-filer og java-klasser som er knyttet opp mot brukergrensesnittet. Inne i /src/main/java/ui er det tre klasser: App.java (åpner appen og har metode for å bytte scene. I tillegg tar har den en metode som sender med hvilken bruker som er logget inn når man bytter scene), AppController.java (kontroller-klassen til hovedsiden, altså etter man er logget inn. Per nå er denne veldig enkel med kun en metode) og LoginController.java (knytter interaskjoner brukeren gjør i innloggings-scenen opp mot hva som skal skje ved de ulike interaksjonene). Det er også en pom.xml fil i ui-mappen. Den inneholder Junit dependency og plugin for maven. Det er ikke noen jacoco plugin som sjekker "testcoverage" her siden vi ikke har noen tester for klassene i ui-mappen. Denne pom.xml-filen er en "child"-pom.xml med "parent"-pom.xml i /GoodsList.
+Det er også en pom.xml fil i ui-mappen. Den inneholder dependencies vi trenger for å kjøre tester for ui (TestFX og Junit), samt sjekke spotbugs, testdekningsgrad (JaCoCo) og checkstyle. Denne pom.xml-filen er en "child"-pom.xml med "parent"-pom.xml i /GoodsList.
+
+For å lese mer om ui-mappen se vedlagte linker:
+- [main](/GoodsList/ui/src/main/README.md)
+- [test](/GoodsList/ui/src/test/README.md)

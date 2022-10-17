@@ -1,3 +1,9 @@
-**Beskrivelse av core-mappen**
+# Beskrivelse av core-mappen
 
-Vi har valgt å ha klasser som kun representerer data og logikk i core mappen. I release1 har vi tre klasser i core mappen: FileOperator.java (tar seg av skriving til fil og skal senere også ta seg av å lese fra fil), LoginUser.java (en enkel klasse som representerer en bruker som er logget inn) og FileOperatorTest.java (testklasse for FileOperator.java). Det er også en pom.xml-fil inne i core-mappen. Den inneholder dependency for Junit-tester samt plugins for maven og jacoco (testcoverage). Denne pom.xml-filen er en "child"-pom.xml med "parent"-pom.xml i /GoodsList.
+I denne mappen har vi to av modulene våre, persistens og logikk. Disse håndterer hver sin del av prosjektet vårt og samhandler også med hverandre og andre deler av prosjektet på en hensiktsmessig måte. Persistensklassene i json-mappen håndterer skriving til og fra json-fil. Logikklassene i core-mappen håndterer hovedlogikken og konsepter i prosjektet. Vi har gruppert de klassene vi mener hører sammen, i samme modul. Vi har også en test-mappe som tester de to modulene beskrevet over.
+
+### For å les mer om core mappen se vedlagte linker.
+- [main/core](src/main/java/core/README.md)
+- [main/json](src/main/java/json/README.md)
+- [test/core](src/test/java/core/README.md)
+- [test/json](src/test/java/json/README.md)
