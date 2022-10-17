@@ -4,18 +4,18 @@
     "password" : "2",
     "fullname" : "ADMIN",
     "activeAds" : [ {
-      "adTitle" : "ADMIN-ad",
+      "adTitle" : "Nice Property for sale",
       "product" : {
-        "@type" : "clothing",
-        "price" : 100,
-        "condition" : "New",
-        "brand" : "Admin",
-        "type" : "Pants",
-        "color" : "Blue",
-        "size" : "L"
+        "@type" : "property",
+        "price" : 1212,
+        "condition" : "Used",
+        "propertyType" : "wqdsqws",
+        "yearBuilt" : 121,
+        "bedrooms" : 9,
+        "area" : 120
       },
-      "date" : "2022-10-17",
-      "description" : "Admin pants"
+      "date" : "2022-10-16",
+      "description" : "qws"
     } ]
   } ]
 }
