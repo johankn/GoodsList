@@ -1,0 +1,5 @@
+# Core-mappen
+
+I core-mappen har valgt å ha klasser som kun representerer kjerne-objekter for applikasjonen. Dette er klasser som representerer ulike fenomener i appen som en bruker (User.java), en registrert bruker (RegisteredUser.java), en annonse (Ad.java) og  produkter (Product.java og dens subklasser). I tillegg er det klasser som validerer opprettelse av objekter (LoginValidator.java, RegistrationValidator.java, AdValidator.java) og en klasse som sorterer annonser (AdSorter.java).
+
+User.java, Ad.java, Product.java og dens subklasser bruker Jackson-annotations for å spesifisere regler for hvordan Jackson skal forholde seg til skriving til json-fil og lesing fra json-fil. Grunnen til at disse ikke er plassert inne i json-mappen er fordi de representerer konsepter i appen og kan beskrives som kjerne-klassene til applikasjonen. Derfor tenker vi at det er naturlig å ha de inne i core-mappen, selv om de indirekte er knyttet opp mot persistens.
