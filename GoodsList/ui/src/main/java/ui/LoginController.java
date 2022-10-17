@@ -23,10 +23,10 @@ public class LoginController {
 
     private RegistrationValidator registrationValidator;
     private LoginValidator loginValidator;
-    private UserInfoCollector userInfoFinder;
     private User loggedInUser;
     private App app;
     private String filename;
+    private FileOperator fileOperator;
 
     @FXML
     private PasswordField password, registrationPassword, repeatedRegistrationPassword;
@@ -91,13 +91,18 @@ public class LoginController {
     @FXML
     private void onLogin() {
         try {
-            userInfoFinder = new UserInfoCollector();
+            fileOperator = new FileOperator();
             loginValidator = new LoginValidator();
             if (loginValidator.isLoginLegal(username.getText(), password.getText(), loginValidator.getFileOperator().getAllUsersAsList(filename))) {
-                loggedInUser = new User(username.getText(), password.getText(),
-                        userInfoFinder.getFullNameByUsername(filename, username.getText()), new ArrayList<>());
-                app = new App();
-                app.bringUserInfo(loggedInUser);
+
+                for (int i = 0; i < fileOperator.getAllUsersAsList(filename).size(); i++) {
+                    if (fileOperator.getAllUsersAsList(filename).get(i).getUsername().equals(username.getText())){
+                        loggedInUser = fileOperator.getAllUsersAsList(filename).get(i);
+                        app = new App();
+                        app.bringUserInfo(loggedInUser);
+                    }
+                }
+
             }
         } catch (IOException | IllegalArgumentException e) {
             displayError(e.getMessage());
