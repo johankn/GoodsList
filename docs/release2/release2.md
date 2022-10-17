@@ -29,7 +29,7 @@ Prosjektet er arbeidet ut fra model-view-controller prinsippet. Dette gjør det 
 Vi har forbedret måten vi dokumenterer på, og nå ligger det readme-filer i hver modul som forklarer mer av selve koden i sin respektive modul. 
 
 - Generell readme for hensikt med appen og hvordan man kjører. Her ligger også tilnærming til testing, verktøy vi har brukt for kodekvalitet og brukerhistorier: [README](/GoodsList/readme.md)
-- Mye ny logikk i core-modulen er implementert i denne releasen. Egen dokumentasjon for JSON-mappen og test-mapper er linket til inni her. Se [README](/GoodsList/core/README.md). 
+- Mye ny logikk i core-modulen er implementert i denne releasen. Egen dokumentasjon for JSON-mappen og test-mapper er linket til inni her. Se [README](/GoodsList/core/README.md) (denne linken fungerer i vscode, men ikke i preview). 
 - UI-modulen er oppgradert med testing og nytt brukergrensesnitt. Dokumentasjon for test-mapper er linket til inni her. Se [README](/GoodsList/ui/README.md)
 - Et enkelt klassediagram for grunnklassene i logikken: [ClassDiagram](/docs/release2/classDiagram.plantuml)
 
