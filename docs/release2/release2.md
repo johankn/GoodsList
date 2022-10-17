@@ -23,15 +23,16 @@ På git har vi opprettet "issues" for arbeidsoppgaver som må gjennomføres, og 
 
 I release 2 har vi tatt i bruk labels på issues for å få en rask oversikt over hva issuet handler om. Hvert issue er også knyttet til en milestone (som vi nå kaller sprint 1, sprint 2, osv..). 
 
-## Koden
-Vi har forbedret måten vi dokumenterer ting på, og nå ligger det readme-filer i hver modul som forklarer mer av selve koden i sin respektive modul. 
+## Kodekvalitet
+Prosjektet er arbeidet ut fra model-view-controller prinsippet. Dette gjør det smidig for oss å implementere ny data uten å ødelegge for brukergrensesnittet. 
 
-- Generell readme for hensikt med appen og hvordan man kjører (her ligger også brukerhistoriene): [README](/GoodsList/README.md)
-- Mye ny logikk i core-modulen er implementert i denne releasen. Se [README](/GoodsList/core/README.md). 
-- UI-modulen er oppgradert med testing og nytt brukergrensesnitt. Se [README](/GoodsList/ui/README.md)
+Vi har forbedret måten vi dokumenterer på, og nå ligger det readme-filer i hver modul som forklarer mer av selve koden i sin respektive modul. 
+
+- Generell readme for hensikt med appen og hvordan man kjører. Her ligger også tilnærming til testing, verktøy vi har brukt for kodekvalitet og brukerhistorier: [README](/GoodsList/readme.md)
+- Mye ny logikk i core-modulen er implementert i denne releasen. Egen dokumentasjon for JSON-mappen og test-mapper er linket til inni her. Se [README](/GoodsList/core/README.md). 
+- UI-modulen er oppgradert med testing og nytt brukergrensesnitt. Dokumentasjon for test-mapper er linket til inni her. Se [README](/GoodsList/ui/README.md)
 - Et enkelt klassediagram for grunnklassene i logikken: [ClassDiagram](/docs/release2/classDiagram.plantuml)
-- Vi tok i bruk JSON-fil med hjelp av Jackson. Se [README](/GoodsList/core/src/main/json/README.md) for mer dokumentasjon rundt filhåndteringen. Dokumentasjon for testing av filhåndtering: [README](/GoodsList/core/src/test/json/README.md)
-- Dokumentasjon som forklarer testmappene. Core: [README](/GoodsList/core/src/test/java/core/README.md). UI: [README](/GoodsList/ui/src/test/README.md)
+
 
 ## Refleksjon
 I etterkant av releasen har vi opparbeidet oss en del tanker:
