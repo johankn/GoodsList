@@ -46,7 +46,7 @@ public class AdSorter {
      * @return List<Ad>
      */
     public List<Ad> getAds() {
-        return ads;
+        return new ArrayList<Ad>(ads);
 
     }
 
