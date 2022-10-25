@@ -2,15 +2,9 @@ package ui;
 
 import java.util.List;
 
-import core.Ad;
 import core.AdSorter;
 import core.AdValidator;
-import core.Books;
-import core.Clothing;
-import core.Electronics;
-import core.Property;
 import core.User;
-import core.Vehicles;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -23,7 +17,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
+import json.Ad;
+import json.Books;
+import json.Clothing;
+import json.Electronics;
 import json.FileOperator;
+import json.Property;
+import json.Vehicles;
 
 
 public class AppController {

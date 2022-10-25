@@ -4,6 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import json.Ad;
+import json.Electronics;
 import json.FileOperator; 
 
 import java.io.IOException;
@@ -20,8 +22,6 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationTest;
 
-import core.Ad;
-import core.Electronics;
 import core.RegisteredUser;
 import core.User;
 
