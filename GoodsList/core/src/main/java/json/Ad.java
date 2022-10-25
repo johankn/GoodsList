@@ -1,7 +1,9 @@
-package core;
+package json;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import core.User;
 
 /**
  * A class "Ad" that represents an ad that can be posted to our site.

@@ -1,6 +1,10 @@
 package core;
 
 import org.junit.jupiter.api.Test;
+
+import json.Ad;
+import json.Product;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
