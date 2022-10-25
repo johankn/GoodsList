@@ -121,7 +121,7 @@ public class AdValidator {
      * @return boolean
      */
     public boolean validateElectronics(String title, String description, String price, String brand, String type){
-        return validateBlankField(title) &&validateBlankField(description) &&validateBlankField(brand) && validateBlankField(type) && validatePriceField(price);
+        return validateBlankField(title) && validateBlankField(description) && validateBlankField(brand) && validateBlankField(type) && validatePriceField(price);
     }
     
     /** 
@@ -135,7 +135,7 @@ public class AdValidator {
      * @return boolean
      */
     public boolean validateClothing(String title, String description, String price, String brand, String type, String size){
-        return validateBlankField(title) &&validateBlankField(description)&&validateBlankField(brand) && validateBlankField(type) && validateBlankField(size) && validatePriceField(price);
+        return validateBlankField(title) && validateBlankField(description) && validateBlankField(brand) && validateBlankField(type) && validateBlankField(size) && validatePriceField(price);
     }
     
     /** 
@@ -151,7 +151,7 @@ public class AdValidator {
      */
     public boolean validateProperty(String title, String description, String price, String propertyType, String yearBuilt, String bedrooms,
     String area){
-        return validateBlankField(title) &&validateBlankField(description)&&validateBlankField(propertyType) && validateArea(area) && validateYear(yearBuilt) && validateBedrooms(bedrooms) && validatePriceField(price);
+        return validateBlankField(title) && validateBlankField(description) && validateBlankField(propertyType) && validateArea(area) && validateYear(yearBuilt) && validateBedrooms(bedrooms) && validatePriceField(price);
     }
     
     /** 
@@ -165,7 +165,7 @@ public class AdValidator {
      * @return boolean
      */
     public boolean validateVehicles(String title, String description, String price, String brand, String modelName, String modelYear){
-        return validateBlankField(title) &&validateBlankField(description)&&validateBlankField(brand) && validateBlankField(modelName) && validateYear(modelYear) && validatePriceField(price);
+        return validateBlankField(title) && validateBlankField(description) && validateBlankField(brand) && validateBlankField(modelName) && validateYear(modelYear) && validatePriceField(price);
     }
     
     /** 
@@ -180,7 +180,7 @@ public class AdValidator {
      * @return boolean
      */
     public boolean validateBooks(String title, String description, String price, String author, String genre, String releaseYear, String pages){
-        return validateBlankField(title) &&validateBlankField(description)&&validateBlankField(author) && validateBlankField(genre) && validateYear(releaseYear) && validatePages(pages) && validatePriceField(price);
+        return validateBlankField(title) && validateBlankField(description) && validateBlankField(author) && validateBlankField(genre) && validateYear(releaseYear) && validatePages(pages) && validatePriceField(price);
 
     }
 

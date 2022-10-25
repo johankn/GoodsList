@@ -1,5 +1,6 @@
 package json;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,7 +31,7 @@ public class JsonFileAsObject {
      * @return List<User>
      */
     public List<User> getUsers() {
-        return users;
+        return new ArrayList<User>(users);
     }
 
     
