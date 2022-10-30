@@ -109,6 +109,11 @@ public class Books extends Product {
     this.releaseYear = releaseYear;
   }
 
+  
+  /**
+   * A toString() for the Books class.
+   * @return String
+   */
   @Override
   public String toString() {
     return getAuthor() + " " + getGenre() + " " + getPages() + " " + getReleaseYear();

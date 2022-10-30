@@ -109,6 +109,11 @@ public class Clothing extends Product {
     this.size = size;
   }
 
+  
+  /**
+   * A toString() for the Clothing class.
+   * @return String
+   */
   @Override
   public String toString() {
     return getBrand() + " " + getType() + " " + getColor() + " " + getSize();

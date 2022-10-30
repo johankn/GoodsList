@@ -68,6 +68,11 @@ public class Electronics extends Product {
     this.type = type;
   }
 
+  
+  /**
+   * A toString() for the Electronics class.
+   * @return String
+   */
   @Override
   public String toString() {
     return getBrand() + " " + getType();
