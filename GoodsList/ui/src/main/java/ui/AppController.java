@@ -52,6 +52,14 @@ public class AppController {
   @FXML
   private Button checkOutProduct;
   @FXML
+  private Button buyButton;
+  @FXML
+  private Button cancel;
+  @FXML
+  private Button accept;
+  @FXML
+  private Button goBack;
+  @FXML
   private Label welcomeText;
   @FXML
   private Label titlePreview;
@@ -89,6 +97,8 @@ public class AppController {
   private Label label41;
   @FXML
   private Label label51;
+  @FXML
+  private Label areYouSure;
   @FXML
   private AnchorPane homePage;
   @FXML
@@ -739,6 +749,36 @@ public class AppController {
     homePage.setVisible(true);
     buyAd.setVisible(false);
     buyAd.setDisable(true);
+  }
+
+  /*
+   * Method to buy an ad.
+   */
+  @FXML
+  private void handleBuyAd() {
+    buyButton.setDisable(true);
+    buyButton.setVisible(false);
+    cancel.setVisible(true);
+    cancel.setDisable(false);
+    accept.setVisible(true);
+    accept.setDisable(false);
+    areYouSure.setDisable(false);
+    areYouSure.setVisible(true);
+  }
+
+  /*
+   * Method to cancel the process of buying an ad.
+   */
+  @FXML
+  private void handleCancel() {
+    buyButton.setDisable(false);
+    buyButton.setVisible(true);
+    cancel.setVisible(false);
+    cancel.setDisable(true);
+    accept.setVisible(false);
+    accept.setDisable(true);
+    areYouSure.setDisable(true);
+    areYouSure.setVisible(false);
   }
 
   /**
