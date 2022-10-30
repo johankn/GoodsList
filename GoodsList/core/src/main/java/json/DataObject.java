@@ -72,8 +72,7 @@ public class DataObject {
      * @param userToBeAdded
      */
     private void addUserToJsonFileAsObjectUserList(User userToBeAdded){
-        jsonFileAsObject.getUsers().add(userToBeAdded);
-
+        jsonFileAsObject.addUser(userToBeAdded);
     }
 
     
