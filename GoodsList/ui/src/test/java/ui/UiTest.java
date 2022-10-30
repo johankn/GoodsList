@@ -6,7 +6,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import json.Ad;
 import json.Electronics;
-import json.FileOperator; 
+import json.FileOperator;
+import json.User;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,7 +24,6 @@ import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationTest;
 
 import core.RegisteredUser;
-import core.User;
 
 /**
  * TestFX App test

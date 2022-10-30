@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import core.RegisteredUser;
-import core.User;
+
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 package json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import core.User;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;

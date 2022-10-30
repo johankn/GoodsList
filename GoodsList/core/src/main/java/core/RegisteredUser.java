@@ -2,6 +2,8 @@ package core;
 
 import java.util.ArrayList;
 
+import json.User;
+
 /**
  * This class represents a registered user in the app.
  */

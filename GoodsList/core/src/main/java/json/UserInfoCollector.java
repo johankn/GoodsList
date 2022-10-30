@@ -1,6 +1,5 @@
 package json;
 
-import core.User;
 import java.util.List;
 
 /**

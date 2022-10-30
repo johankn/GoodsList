@@ -13,7 +13,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 
 import core.RegisteredUser;
-import core.User;
 import junit.framework.Assert;
 
 public class FileOperatorTest {
@@ -34,7 +33,7 @@ public class FileOperatorTest {
         // Writes regUser1 to file
         fileOperator.writeNewUserDataToFile(filename, regUser1);
         // Reads all users in file
-        List<core.User> usersInFile = fileOperator.getAllUsersAsList(filename);
+        List<json.User> usersInFile = fileOperator.getAllUsersAsList(filename);
 
         // Tests the content of the users in the file
         assertEquals(1, usersInFile.size());
@@ -59,7 +58,7 @@ public class FileOperatorTest {
         user1.addAdToList(ad);
 
         fileOperator.updateUserObjectJsonFile(filename, user1);
-        List<core.User> usersInFile = fileOperator.getAllUsersAsList(filename);
+        List<json.User> usersInFile = fileOperator.getAllUsersAsList(filename);
 
         // Different testcases:
         assertTrue(usersInFile.size() == 1);
