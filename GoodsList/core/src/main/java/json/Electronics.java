@@ -4,12 +4,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-/** 
- * Specifies that this is the electronics subclass and connects it to the parent class product .
+/**
+ * Specifies that this is the electronics subclass and connects it to the parent
+ * class product .
  */
 @JsonTypeName("electronics")
-
-
 
 public class Electronics extends Product {
 
@@ -17,8 +16,10 @@ public class Electronics extends Product {
   private String type;
 
   /**
-   * A constructor for the class Electronics We are using Jackson Annotation to create executing
-   * rules for jackson, JsonCreator specifies that this is a constructor. JsonProperty specifies
+   * A constructor for the class Electronics We are using Jackson Annotation to
+   * create executing
+   * rules for jackson, JsonCreator specifies that this is a constructor.
+   * JsonProperty specifies
    * which fields should be set to what in the JSON-file
    */
   @JsonCreator
@@ -66,5 +67,15 @@ public class Electronics extends Product {
    */
   public void setType(String type) {
     this.type = type;
+  }
+
+  /**
+   * A toString() for the Electronics class.
+   * 
+   * @return String
+   */
+  @Override
+  public String toString() {
+    return getBrand() + " " + getType();
   }
 }

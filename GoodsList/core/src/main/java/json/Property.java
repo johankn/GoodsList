@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-/** 
- * Specifies that this is the property subclass and connects it to the parent class product.
+/**
+ * Specifies that this is the property subclass and connects it to the parent
+ * class product.
  */
 @JsonTypeName("property")
-
 
 public class Property extends Product {
 
@@ -18,8 +18,10 @@ public class Property extends Product {
   private int area;
 
   /**
-   * A constructor for the class Property We are using Jackson Annotation to create executing rules
-   * for jackson, JsonCreator specifies that this is a constructor. JsonProperty specifies which
+   * A constructor for the class Property We are using Jackson Annotation to
+   * create executing rules
+   * for jackson, JsonCreator specifies that this is a constructor. JsonProperty
+   * specifies which
    * fields should be set to what in the JSON-file
    */
   @JsonCreator
@@ -107,5 +109,15 @@ public class Property extends Product {
    */
   public void setArea(int area) {
     this.area = area;
+  }
+
+  /**
+   * A toString() for the Property class.
+   * 
+   * @return String
+   */
+  @Override
+  public String toString() {
+    return getArea() + " " + getPropertyType() + " " + getBedrooms() + " " + getYearBuilt();
   }
 }

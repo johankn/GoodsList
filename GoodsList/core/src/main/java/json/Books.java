@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-/** 
- * Specifies that this is the books subclass and connects it to the parent class product .
+/**
+ * Specifies that this is the books subclass and connects it to the parent class
+ * product .
  */
 @JsonTypeName("book")
-
 
 public class Books extends Product {
 
@@ -18,8 +18,10 @@ public class Books extends Product {
   private int releaseYear;
 
   /**
-   * A constructor for the class Books We are using Jackson Annotation to create executing rules for
-   * jackson, JsonCreator specifies that this is a constructor. JsonProperty specifies which fields
+   * A constructor for the class Books We are using Jackson Annotation to create
+   * executing rules for
+   * jackson, JsonCreator specifies that this is a constructor. JsonProperty
+   * specifies which fields
    * should be set to what in the JSON-file
    */
   @JsonCreator
@@ -107,5 +109,15 @@ public class Books extends Product {
    */
   public void setReleaseYear(int releaseYear) {
     this.releaseYear = releaseYear;
+  }
+
+  /**
+   * A toString() for the Books class.
+   * 
+   * @return String
+   */
+  @Override
+  public String toString() {
+    return getAuthor() + " " + getGenre() + " " + getPages() + " " + getReleaseYear();
   }
 }
