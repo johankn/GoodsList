@@ -108,4 +108,9 @@ public class Books extends Product {
   public void setReleaseYear(int releaseYear) {
     this.releaseYear = releaseYear;
   }
+
+  @Override
+  public String toString() {
+    return getAuthor() + " " + getGenre() + " " + getPages() + " " + getReleaseYear();
+  }
 }

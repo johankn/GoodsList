@@ -108,4 +108,9 @@ public class Clothing extends Product {
   public void setSize(String size) {
     this.size = size;
   }
+
+  @Override
+  public String toString() {
+    return getBrand() + " " + getType() + " " + getColor() + " " + getSize();
+  }
 }
