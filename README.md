@@ -1,5 +1,4 @@
 # Oppsett av prosjekt
-wldblqlkdqwlqbd
 
 Dette repoet inneholder vårt gruppeprosjekt i kurset IT1901 - Informatikk, Prosjekt I. Konseptet er en side hvor brukeren kan kjøpe og selge forskjellige varer på nett, tilsvarende finn.no eller craigslist.org. Prosjektet er bygget opp av disse tre arkitekturlagene: domenelogikk, brukergrensesnitt og datapersistens. Filene kan finnes i core-mappen (se [README](../GoodsList/core/README.md) (denne linken fungerer i vscode, men ikke i preview) for detaljer om funksjonene til appen), mens fxml-filene (som inneholder JavaFX-grensesnittet), appstarteren og kontrollerene som kobler logikken til brukergrensesnittet, kan finnes i ui-mappen (brukergrensesnitt) ([README](../GoodsList/ui/README.md)). 
 
@@ -9,9 +8,10 @@ Prosjektet kan prøves ut ved å "cd" inn i GoodsList-mappen og bruke `mvn`:
 
 - "mvn clean install" vil starte kompilering på nytt, teste og installere filene til Maven. Sjekker også for spotbugs og checkstyle. Kjører også testen.   
 - test med "mvn test"
+- kjøre alle testtilleggene med "mvn verify"
 - kjør med "mvn javafx:run" (cd inn i "ui" før denne operasjonen)
 
-//NB!!!! Endre denne
+
 - For å kjøre test-coverage gjennom JaCoCo, må du gå inn i target-mappen (må først ha kjørt "mvn test"). Her skal det ligge en site-mappe hvor index.html ligger. Åpne denne i din nettleser for å se test-coverage. I Gitpod fant vi ut at beste måten å åpne denne filen var ved hjelp av en extension kalt "Live Server". Etter denne er installert kan du høyreklikke på index.html og trykke "open with Live Server". 
 
 # GoodsList
@@ -31,7 +31,5 @@ for å kjøre alle testtilleggen skriv cd GoddsList mvn verify
 **Spotbugs** er et annet gratis program som sjekker prosjektet for bugs. Den ser etter forekomster av feil i kodemønsteret, og rapporterer disse slik at vi enkelt kan gå inn å forbedre koden. 
 
 
-NBBB!!!!!!
-For å kjøre alle testtilleggen skriv: mvn verify.
 
 

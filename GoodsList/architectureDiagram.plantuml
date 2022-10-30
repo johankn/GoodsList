@@ -1,0 +1,45 @@
+@startuml architectureDiagram
+
+component core {
+	package GoodsList.core
+	package GoodsList.json
+}
+
+GoodsList.core ..> GoodsList.json
+component jackson {
+}
+
+GoodsList.json ..> jackson
+
+
+
+component ui {
+	package GoodsList.ui
+}
+
+GoodsList.ui ..> GoodsList.core
+GoodsList.ui ..> GoodsList.json
+
+component javafx {
+	component fxml {
+	}
+}
+
+ui ..> javafx
+ui ..> fxml
+
+
+component rest {
+	package GoodsList.restapi
+	package GoodsList.restserver
+}
+
+
+GoodsList.restapi ..> GoodsList.core
+
+GoodsList.restserver ..> GoodsList.core
+GoodsList.restserver ..> GoodsList.json
+GoodsList.restserver ..> GoodsList.restapi
+
+
+@enduml
