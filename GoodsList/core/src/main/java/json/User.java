@@ -11,6 +11,7 @@ import java.util.List;
 public class User {
 
   private List<Integer> myAds;
+  private List<Integer> boughtAds;
   private String fullname;
   private String username;
   private String password;
@@ -25,11 +26,15 @@ public class User {
       @JsonProperty(value = "username") String username,
       @JsonProperty(value = "password") String password,
       @JsonProperty(value = "fullname") String fullname,
-      @JsonProperty(value = "myAds") List<Integer> myAds) {
+      @JsonProperty(value = "myAds") List<Integer> myAds,
+      @JsonProperty(value = "boughtAds") List<Integer> boughtAds
+      ) {
     this.fullname = fullname;
     this.username = username;
     this.password = password;
     this.myAds = myAds;
+    this.boughtAds = boughtAds;
+    
   }
 
   /**
@@ -112,4 +117,23 @@ public class User {
   public void setPassword(String password) {
     this.password = password;
   }
+  
+  /**
+   * getter.
+   *
+   * @return list of boughtAds
+   */
+  public List<Integer> getBoughtAds() {
+    return boughtAds;
+  }
+  
+  /**
+   * setter.
+   *
+   * @param boughtAds boughtAds
+   */
+  public void setBoughtAds(List<Integer> boughtAds) {
+    this.boughtAds = boughtAds;
+  }
+  
 }
