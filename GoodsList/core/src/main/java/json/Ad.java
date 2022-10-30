@@ -139,4 +139,8 @@ public class Ad {
     this.adID = adID;
   }
   
+  @Override
+  public String toString() {
+    return this.adTitle;
+  }
 }
