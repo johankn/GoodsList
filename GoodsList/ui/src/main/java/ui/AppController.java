@@ -793,6 +793,14 @@ public class AppController {
     areYouSure.setVisible(false);
   }
 
+  /*
+   * Method to actually buy an ad.
+   */
+  @FXML
+  private void handleAccept() {
+
+  }
+
   /**
    * private method for displaying an error with the given param message Is used
    * when making an ad,
