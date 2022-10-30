@@ -1,8 +1,15 @@
 package ui;
 
+
+
+import java.util.List;
+import java.util.stream.Collectors;
+
 import core.AdSorter;
 import core.AdValidator;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -28,6 +35,16 @@ import json.Vehicles;
 
 public class AppController {
 
+  @FXML
+  private Button electronicsButton;
+  @FXML
+  private Button clothingButton;
+  @FXML
+  private Button vehiclesButton;
+  @FXML
+  private Button booksButton;
+  @FXML
+  private Button propertyButton;
   @FXML
   private Button postButton;
   @FXML
@@ -686,5 +703,21 @@ public class AppController {
       return "New";
     }
     return "Used";
+  }
+
+  /**
+   * Method that sorts ads based on different events (which button is clicked)
+   * 
+   * @param event
+   */
+  @FXML
+  private void sortAds(ActionEvent event) {
+    FileOperator fileOperator = new FileOperator();
+    AdSorter adsorter = new AdSorter(fileOperator.getAllAdsInFile(filename));
+    Button pressedButton = (Button) event.getSource();
+    this.listOfAds.getItems().clear();
+    this.listOfAds.getItems().addAll(adsorter
+    .sortAds(ad -> ad.getProduct().getClass().getSimpleName().equals(pressedButton.getText())).
+    stream().map(ad -> ad.getAdTitle()).collect(Collectors.toList()));
   }
 }

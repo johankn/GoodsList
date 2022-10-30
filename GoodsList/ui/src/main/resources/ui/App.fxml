@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AppController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AppController">
    <children>
       <AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="791.0">
          <children>
@@ -26,27 +26,27 @@
                </font>
             </Label>
             <TextField fx:id="SearchBar" layoutX="14.0" layoutY="119.0" promptText="What are you looking for?" />
-            <Button fx:id="ElectronicsButton1" alignment="CENTER" layoutX="213.0" layoutY="113.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="54.0" text="Electronics">
+            <Button fx:id="electronicsButton" alignment="CENTER" layoutX="213.0" layoutY="113.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="37.0" prefWidth="54.0" text="Electronics">
                <font>
                   <Font size="9.0" />
                </font>
             </Button>
-            <Button fx:id="ClothesButton" layoutX="273.0" layoutY="113.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="54.0" text="Clothing">
+            <Button fx:id="clothesButton" layoutX="273.0" layoutY="113.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="37.0" prefWidth="54.0" text="Clothing">
                <font>
                   <Font size="9.0" />
                </font>
             </Button>
-            <Button fx:id="VehiclesButton" layoutX="334.0" layoutY="113.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="54.0" text="Vehicles">
+            <Button fx:id="vehiclesButton" layoutX="334.0" layoutY="113.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="37.0" prefWidth="54.0" text="Vehicles">
                <font>
                   <Font size="9.0" />
                </font>
             </Button>
-            <Button fx:id="BooksButton" layoutX="395.0" layoutY="113.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="54.0" text="Books">
+            <Button fx:id="booksButton" layoutX="395.0" layoutY="113.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="37.0" prefWidth="54.0" text="Books">
                <font>
                   <Font size="9.0" />
                </font>
             </Button>
-            <Button fx:id="PropertyButton" layoutX="455.0" layoutY="113.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="54.0" text="Property">
+            <Button fx:id="propertyButton" layoutX="455.0" layoutY="113.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="37.0" prefWidth="54.0" text="Property">
                <font>
                   <Font size="9.0" />
                </font>
