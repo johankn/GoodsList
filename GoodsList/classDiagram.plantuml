@@ -35,7 +35,6 @@ Books : pages = int
 Product "1"<-->"1" Ad
 Ad : adTitle = String
 Ad : product = Product
-Ad : owner = User
 Ad : date = String
 Ad : description = String
 
