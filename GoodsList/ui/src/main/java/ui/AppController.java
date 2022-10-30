@@ -33,7 +33,7 @@ public class AppController {
   @FXML
   private Button newAdButton;
   @FXML
-  private static Label WelcomeText;
+  private Label welcomeText;
   @FXML
   private Label titlePreview;
   @FXML
@@ -178,7 +178,7 @@ public class AppController {
    */
   @FXML
   public void setUsername(User user) {
-    WelcomeText.setText("Welcome, " + user.getFullname());
+    welcomeText.setText("Welcome, " + user.getFullname());
     this.user = user;
   }
 
