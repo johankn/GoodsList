@@ -4,115 +4,108 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-/**
- * Specifies that this is the property subclass
- * and connects it to the parent class product 
+/** 
+ * Specifies that this is the property subclass and connects it to the parent class product.
  */
-
 @JsonTypeName("property")
 
-/**
- * A child class "Property" that inherits from the parent class "Product".
- * A Property object represents a specific property that can be sold on our site.
- */
 
 public class Property extends Product {
 
-    private String propertyType;
-    private int yearBuilt;
-    private int bedrooms;
-    private int area;
+  private String propertyType;
+  private int yearBuilt;
+  private int bedrooms;
+  private int area;
 
-    /**
-    * A constructor for the class Property
-    * We are using Jackson Annotation to create executing rules for jackson, 
-    * JsonCreator specifies that this is a constructor.
-    * JsonProperty specifies which fields should be set to what in the JSON-file
-    */
+  /**
+   * A constructor for the class Property We are using Jackson Annotation to create executing rules
+   * for jackson, JsonCreator specifies that this is a constructor. JsonProperty specifies which
+   * fields should be set to what in the JSON-file
+   */
+  @JsonCreator
+  public Property(
+      @JsonProperty(value = "price") int price,
+      @JsonProperty(value = "condition") String condition,
+      @JsonProperty(value = "propertyType") String propertyType,
+      @JsonProperty(value = "yearBuilt") int yearBuilt,
+      @JsonProperty(value = "bedrooms") int bedrooms,
+      @JsonProperty(value = "area") int area) {
+    super(price, condition);
+    this.propertyType = propertyType;
+    this.yearBuilt = yearBuilt;
+    this.bedrooms = bedrooms;
+    this.area = area;
+  }
 
-    @JsonCreator
-    public Property(
-        @JsonProperty(value = "price") int price,
-        @JsonProperty(value = "condition") String condition,
-        @JsonProperty(value = "propertyType") String propertyType,
-        @JsonProperty(value = "yearBuilt") int yearBuilt,
-        @JsonProperty(value = "bedrooms") int bedrooms,
-        @JsonProperty(value = "area") int area) {
-        super(price, condition);
-        this.propertyType = propertyType;
-        this.yearBuilt = yearBuilt;
-        this.bedrooms = bedrooms;
-        this.area = area;
-    }
+  /**
+   * Gets the type of property.
+   *
+   * @return String
+   */
+  public String getPropertyType() {
+    return propertyType;
+  }
 
-    
-    /** 
-     * Gets the type of property
-     * @return String
-     */
-    public String getPropertyType() {
-        return propertyType;
-    }
+  /**
+   * Sets the type of property.
+   *
+   * @param propertyType type
+   */
+  public void setPropertyType(String propertyType) {
+    this.propertyType = propertyType;
+  }
 
-    /** 
-     * Sets the type of property
-     * @param propertyType
-     */
-    public void setPropertyType(String propertyType) {
-        this.propertyType = propertyType;
-    }
+  /**
+   * Gets the year the property was built.
+   *
+   * @return int
+   */
+  public int getYearBuilt() {
+    return yearBuilt;
+  }
 
-    /** 
-     * Gets the year the property was built
-     * @return int
-     */
-    public int getYearBuilt() {
-        return yearBuilt;
-    }
+  /**
+   * Sets the year the property was built.
+   *
+   * @param yearBuilt year
+   */
+  public void setYearBuilt(int yearBuilt) {
+    this.yearBuilt = yearBuilt;
+  }
 
-    
-    /** 
-     * Sets the year the property was built
-     * @param yearBuilt
-     */
-    public void setYearBuilt(int yearBuilt) {
-        this.yearBuilt = yearBuilt;
-    }
+  /**
+   * Gets the number og bedrooms in the property.
+   *
+   * @return int
+   */
+  public int getBedrooms() {
+    return bedrooms;
+  }
 
-    
-    /** 
-     * Gets the number og bedrooms in the property
-     * @return int
-     */
-    public int getBedrooms() {
-        return bedrooms;
-    }
+  /**
+   * Sets the number of bedrooms in the property.
+   *
+   * @param bedrooms bedrooms
+   */
+  public void setBedrooms(int bedrooms) {
+    this.bedrooms = bedrooms;
+  }
 
-    
-    /** 
-     * Sets the number of bedrooms in the property
-     * @param bedrooms
-     */
-    public void setBedrooms(int bedrooms) {
-        this.bedrooms = bedrooms;
-    }
+  /**
+   * Gets the area of the property.
+   *
+   * @return int
+   */
+  public int getArea() {
+    return area;
+  }
 
-    
-    /** 
-     * Gets the area of the property
-     * @return int
-     */
-    public int getArea() {
-        return area;
-    }
-
-    
-    /** 
-     * Sets the area of the property
-     * @param area
-     */
-    public void setArea(int area) {
-        this.area = area;
-    }
-
+  /**
+   * Sets the area of the property.
+   *
+   * @param area area
+   */
+  public void setArea(int area) {
+    this.area = area;
+  }
 }
