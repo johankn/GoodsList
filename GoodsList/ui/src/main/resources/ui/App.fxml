@@ -60,6 +60,7 @@
                </cursor>
             </Button>
             <ListView fx:id="listOfAds" fixedCellSize="40.0" layoutX="200.0" layoutY="188.0" prefHeight="357.0" prefWidth="383.0" />
+            <Button fx:id="checkOutProduct" layoutX="460.0" layoutY="571.0" mnemonicParsing="false" text="Check out product" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="adPreview" disable="true" prefHeight="491.0" prefWidth="527.0" visible="false">
@@ -473,6 +474,80 @@
                </font>
             </Label>
             <TextField fx:id="yearField5" layoutX="214.0" layoutY="289.0" prefHeight="26.0" prefWidth="125.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="buyAd" disable="true" layoutX="10.0" layoutY="10.0" prefHeight="491.0" prefWidth="730.0" visible="false">
+         <children>
+            <Label fx:id="titleBuy" alignment="CENTER" contentDisplay="CENTER" layoutX="194.0" layoutY="125.0" prefHeight="26.0" prefWidth="139.0" text="Title" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="descriptionBuy" alignment="TOP_LEFT" layoutX="90.0" layoutY="281.0" prefHeight="115.0" prefWidth="349.0" style="-fx-border-color: grey;" text="Description" wrapText="true" />
+            <Label fx:id="conditionBuy" alignment="CENTER" layoutX="247.0" layoutY="160.0" text="Used" wrapText="true" />
+            <Label fx:id="priceBuy" alignment="CENTER_RIGHT" layoutX="358.0" layoutY="187.0" prefHeight="43.0" prefWidth="117.0" text="Kr" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="buyButton" layoutX="207.0" layoutY="422.0" mnemonicParsing="false" onAction="#handlePostAd" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Buy now">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="label_2" alignment="CENTER" layoutX="184.0" layoutY="197.0" prefHeight="23.0" prefWidth="160.0" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_1" layoutX="58.0" layoutY="197.0" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_3" layoutX="58.0" layoutY="249.0" prefHeight="23.0" prefWidth="142.0" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_4" alignment="CENTER" layoutX="195.0" layoutY="249.0" prefHeight="23.0" prefWidth="132.0" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_5" alignment="CENTER_RIGHT" layoutX="358.0" layoutY="249.0" prefHeight="23.0" prefWidth="117.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="areYouSure" layoutX="207.0" layoutY="400.0" prefHeight="19.0" prefWidth="109.0" text="Are you sure?" />
+            <Button fx:id="cancel" layoutX="207.0" layoutY="422.0" mnemonicParsing="false" onAction="#handlePostAd" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Cancel">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="accept" layoutX="265.0" layoutY="422.0" mnemonicParsing="false" onAction="#handlePostAd" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Accept">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="goBack" layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onAction="#handlePostAd" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Go Back">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </AnchorPane>
    </children>
