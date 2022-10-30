@@ -5,12 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 import json.Ad;
+/**
+* This class represents a user in the app.
+*/
 
 public class User {
-
-  /*
-   * This class represents a user in the app.
-   */
 
   private List<Ad> activeAds;
   private String fullname;
@@ -35,65 +34,81 @@ public class User {
   }
 
   /**
-   * Add an ad to the adList activeAds.
+   * ads an ad to the users ad. 
    *
-   * @param ad
+   * @param ad ad
    */
   public void addAdToList(Ad ad) {
     activeAds.add(ad);
   }
 
   /**
-   * @return List<Ad>
+   * getter.
+   *
+   * @return list of ads
    */
   public List<Ad> getActiveAds() {
     return new ArrayList<Ad>(activeAds);
   }
 
   /**
-   * @return String
+   * getter.
+   *
+   * @return fullname
    */
   public String getFullname() {
     return fullname;
   }
 
   /**
-   * @return String
+   * getter.
+   *
+   * @return username
    */
   public String getUsername() {
     return username;
   }
 
   /**
-   * @return String
+   * getter.
+   *
+   * @return password
    */
   public String getPassword() {
     return password;
   }
 
   /**
-   * @param activeAds
+   * setter.
+   *
+   * @param activeAds activeads
    */
   public void setActiveAds(List<Ad> activeAds) {
     this.activeAds = activeAds;
   }
 
   /**
-   * @param fullname
+   * setter.
+   *
+   * @param fullname fullname
    */
   public void setFullname(String fullname) {
     this.fullname = fullname;
   }
 
   /**
-   * @param username
+   * setter.
+   *
+   * @param username username
    */
   public void setUsername(String username) {
     this.username = username;
   }
 
   /**
-   * @param password
+   * setter.
+   *
+   * @param password password
    */
   public void setPassword(String password) {
     this.password = password;

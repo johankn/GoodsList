@@ -3,11 +3,10 @@ package core;
 import java.util.List;
 import json.FileOperator;
 
+/**
+* This class represents a validator for logging in.
+*/
 public class LoginValidator {
-
-  /*
-   * This class represents a validator for logging in.
-   */
 
   private FileOperator fileOperator;
 
@@ -16,7 +15,7 @@ public class LoginValidator {
   }
 
   /**
-   * getter method
+   * getter method.
    *
    * @return FileOperator
    */
@@ -27,8 +26,8 @@ public class LoginValidator {
   /**
    * Checks if the username exist and throws IllegalArgumentException if not.
    *
-   * @param username
-   * @param listOfExistingUsers
+   * @param username username
+   * @param listOfExistingUsers list of users already excisting
    * @return boolean
    */
   private boolean doesUserNameExist(String username, List<User> listOfExistingUsers) {
@@ -44,9 +43,9 @@ public class LoginValidator {
   /**
    * Checks if the passwords match. Throws IllegalArgumentException if not.
    *
-   * @param username
-   * @param password
-   * @param listOfExistingUsers
+   * @param username username
+   * @param password password
+   * @param listOfExistingUsers list of already excisting users
    * @return boolean
    */
   private boolean doesUserNameAndPasswordMatch(
@@ -63,9 +62,9 @@ public class LoginValidator {
   /**
    * Method that checks if the log in is legal by using two help methods.
    *
-   * @param username
-   * @param password
-   * @param exsitingUsers
+   * @param username username
+   * @param password password
+   * @param exsitingUsers list of already excisting users
    * @return boolean
    */
   public boolean isLoginLegal(String username, String password, List<User> exsitingUsers) {

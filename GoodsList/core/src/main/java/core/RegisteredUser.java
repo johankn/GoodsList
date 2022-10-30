@@ -2,17 +2,24 @@ package core;
 
 import java.util.ArrayList;
 
+/**
+ * This class represents a registered user in the app.
+ */
 public class RegisteredUser {
-
-  /*
-   * This class represents a registered user in the app.
-   */
 
   private String username;
   private String password;
   private String fullName;
   private String repeatedPassword;
 
+  /**
+   * constructor.
+   *
+   * @param username username
+   * @param password password
+   * @param fullName fullname
+   * @param repeatedPassword repeatedpassword
+   */
   public RegisteredUser(
       String username, String password, String fullName, String repeatedPassword) {
     this.username = username;
@@ -22,35 +29,45 @@ public class RegisteredUser {
   }
 
   /**
-   * @return String
+   * getter.
+   *
+   * @return boolean
    */
   public String getUsername() {
     return this.username;
   }
 
   /**
-   * @return String
+   * getter.
+   *
+   * @return boolean
    */
   public String getPassword() {
     return this.password;
   }
 
   /**
-   * @return String
+   * getter.
+   *
+   * @return boolean
    */
   public String getFullName() {
     return this.fullName;
   }
 
   /**
-   * @return String
+   * getter.
+   *
+   * @return boolean
    */
   public String getRepeatedPassword() {
     return this.repeatedPassword;
   }
 
   /**
-   * @return User
+   * generates new user.
+   *
+   * @return boolean
    */
   public User generateUser() {
     return new User(this.getUsername(), this.getPassword(), this.getFullName(), new ArrayList<>());

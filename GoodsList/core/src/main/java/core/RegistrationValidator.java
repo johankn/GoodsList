@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.regex.Pattern;
 import json.FileOperator;
 
-public class RegistrationValidator {
+/**
+* This class represents a validator for registration.
+*/
 
-  /*
-   * This class represents a validator for registration.
-   */
+public class RegistrationValidator {
 
   private FileOperator fileOperator;
 
@@ -17,7 +17,7 @@ public class RegistrationValidator {
   }
 
   /**
-   * Getter
+   * Getter.
    *
    * @return FileOperator
    */
@@ -28,7 +28,7 @@ public class RegistrationValidator {
   /**
    * checks if the username is valid. if not it throws IllegalArgumentException
    *
-   * @param username
+   * @param username username
    * @return boolean
    */
   public boolean isUsernameValid(String username) {
@@ -43,7 +43,7 @@ public class RegistrationValidator {
   /**
    * checks if the password is valid. if not it throws IllegalArgumentException
    *
-   * @param password
+   * @param password password
    * @return boolean
    */
   public boolean isPasswordValid(String password) {
@@ -58,7 +58,7 @@ public class RegistrationValidator {
   /**
    * checks if the full name is valid. if not it throws IllegalArgumentException
    *
-   * @param fullname
+   * @param fullname fullname
    * @return boolean
    */
   public boolean isFullNameValid(String fullname) {
@@ -73,8 +73,8 @@ public class RegistrationValidator {
   /**
    * checks if the username already exist. If true it throws IllegalArgumentException
    *
-   * @param excistingUsers
-   * @param username
+   * @param excistingUsers excisting users
+   * @param username username
    * @return boolean
    */
   public boolean checkExcistingUsername(List<User> excistingUsers, String username) {
@@ -89,8 +89,8 @@ public class RegistrationValidator {
   /**
    * checks if the the two passwords matches. If not it throws IllegalArgumentException
    *
-   * @param password1
-   * @param password2
+   * @param password1 password 
+   * @param password2 repeated password
    * @return boolean
    */
   public boolean equalPasswords(String password1, String password2) {
@@ -104,7 +104,7 @@ public class RegistrationValidator {
   /**
    * checks if the username is valid with regex. if not it throws IllegalArgumentException
    *
-   * @param username
+   * @param username username
    * @return boolean
    */
   private boolean usernameValidation(String username) {
@@ -114,7 +114,7 @@ public class RegistrationValidator {
   /**
    * checks if the password is valid with regex. if not it throws IllegalArgumentException
    *
-   * @param password
+   * @param password password
    * @return boolean
    */
   private boolean passwordValidation(String password) {
@@ -125,7 +125,7 @@ public class RegistrationValidator {
   /**
    * checks if the fullname is valid with regex. if not it throws IllegalArgumentException
    *
-   * @param fullname
+   * @param fullname fullname
    * @return boolean
    */
   private boolean fullNameValidation(String fullname) {
@@ -138,11 +138,11 @@ public class RegistrationValidator {
    * all methods in this class. If alle the fields is not filled in it throws
    * IllegalArgumentException
    *
-   * @param username
-   * @param password
-   * @param repeatedpassword
-   * @param fullname
-   * @param excistingUsers
+   * @param username username
+   * @param password password
+   * @param repeatedpassword repeated password
+   * @param fullname fullname
+   * @param excistingUsers excisting users
    * @return boolean
    */
   public boolean isRegistrationLegal(

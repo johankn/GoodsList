@@ -127,12 +127,12 @@ public class AdValidator {
    * A method that checks if all the fields in the Clothing input is legal, throws an exception if
    * it is not.
    *
-   * @param title
-   * @param description
-   * @param price
-   * @param brand
-   * @param type
-   * @param size
+   * @param title title
+   * @param description description
+   * @param price price
+   * @param brand brand
+   * @param type type
+   * @param size size
    * @return boolean
    */
   public boolean validateClothing(
@@ -147,15 +147,15 @@ public class AdValidator {
 
   /**
    * A method that checks if all the fields in the Property input is legal, throws an exception if
-   * it is not
+   * it is not. 
    *
-   * @param title
-   * @param description
-   * @param price
-   * @param propertyType
-   * @param yearBuilt
-   * @param bedrooms
-   * @param area
+   * @param title title
+   * @param description description
+   * @param price price
+   * @param propertyType type
+   * @param yearBuilt year
+   * @param bedrooms bedrooms
+   * @param area area
    * @return boolean
    */
   public boolean validateProperty(
@@ -177,14 +177,14 @@ public class AdValidator {
 
   /**
    * A method that checks if all the fields in the Vehicles input is legal, throws an exception if
-   * it is not
+   * it is not.
    *
-   * @param title
-   * @param description
-   * @param price
-   * @param brand
-   * @param modelName
-   * @param modelYear
+   * @param title title
+   * @param description description
+   * @param price price
+   * @param brand brand
+   * @param modelName name
+   * @param modelYear year
    * @return boolean
    */
   public boolean validateVehicles(
@@ -204,15 +204,15 @@ public class AdValidator {
 
   /**
    * A method that checks if all the fields in the Books input is legal, throws an exception if it
-   * is not
+   * is not.
    *
-   * @param title
-   * @param description
-   * @param price
-   * @param author
-   * @param genre
-   * @param releaseYear
-   * @param pages
+   * @param title title
+   * @param description description
+   * @param price price
+   * @param author author
+   * @param genre genre
+   * @param releaseYear year
+   * @param pages pages
    * @return boolean
    */
   public boolean validateBooks(

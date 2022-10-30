@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.function.Function;
 import json.Ad;
 
+/**
+ * class for sorting list of ads in different ways.
+ */
 public class AdSorter {
 
   /*
@@ -37,13 +40,21 @@ public class AdSorter {
     return sortedAdsByDate;
   }
 
+  
+  /**
+   * sorts the list and returs the sortedlist by date.
+   *
+   * @param function funtion to sort
+   * @param listOfAds list of ads
+   * @return ads
+   */
   public List<String> getAdAttributeInFile(List<Ad> listOfAds, Function<Ad, String> function) {
     return listOfAds.stream().map(function).toList();
   }
 
   /**
-   * returning ads.
-   * 
+   * get all ads.
+   *
    * @return ads
    */
   public List<Ad> getAds() {
@@ -51,8 +62,8 @@ public class AdSorter {
   }
 
   /**
-   * setting ads.
-   * 
+   * sets new ads. 
+   *
    * @param ads ads
    */
   public void setAds(List<Ad> ads) {
