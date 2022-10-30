@@ -5,7 +5,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 import json.Ad;
 
 /**
@@ -68,5 +73,9 @@ public class AdSorter {
    */
   public void setAds(List<Ad> ads) {
     this.ads = ads;
+  }
+
+  public List<Ad> sortAds(Predicate<Ad> expression) {
+    return this.ads.stream().filter(expression).collect(Collectors.toList());
   }
 }
