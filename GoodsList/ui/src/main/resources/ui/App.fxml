@@ -59,8 +59,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ListView fx:id="listOfAds" fixedCellSize="40.0" layoutX="200.0" layoutY="188.0" prefHeight="357.0" prefWidth="383.0" />
-            <Button fx:id="checkOutProduct" layoutX="460.0" layoutY="571.0" mnemonicParsing="false" text="Check out product" />
+            <ListView fx:id="listOfAds" fixedCellSize="40.0" layoutX="200.0" layoutY="188.0" onMouseClicked="#displaySelected" prefHeight="357.0" prefWidth="383.0" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="adPreview" disable="true" prefHeight="491.0" prefWidth="527.0" visible="false">
@@ -498,27 +497,27 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="label_2" alignment="CENTER" layoutX="184.0" layoutY="197.0" prefHeight="23.0" prefWidth="160.0" wrapText="true">
+            <Label fx:id="label21" alignment="CENTER" layoutX="184.0" layoutY="197.0" prefHeight="23.0" prefWidth="160.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label_1" layoutX="58.0" layoutY="197.0" wrapText="true">
+            <Label fx:id="label11" layoutX="58.0" layoutY="197.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label_3" layoutX="58.0" layoutY="249.0" prefHeight="23.0" prefWidth="142.0" wrapText="true">
+            <Label fx:id="label31" layoutX="58.0" layoutY="249.0" prefHeight="23.0" prefWidth="142.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label_4" alignment="CENTER" layoutX="195.0" layoutY="249.0" prefHeight="23.0" prefWidth="132.0" wrapText="true">
+            <Label fx:id="label41" alignment="CENTER" layoutX="195.0" layoutY="249.0" prefHeight="23.0" prefWidth="132.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label_5" alignment="CENTER_RIGHT" layoutX="358.0" layoutY="249.0" prefHeight="23.0" prefWidth="117.0">
+            <Label fx:id="label51" alignment="CENTER_RIGHT" layoutX="358.0" layoutY="249.0" prefHeight="23.0" prefWidth="117.0">
                <font>
                   <Font size="18.0" />
                </font>

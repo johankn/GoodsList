@@ -13,6 +13,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
@@ -50,6 +51,8 @@ public class AppController {
   @FXML
   private Button newAdButton;
   @FXML
+  private Button checkOutProduct;
+  @FXML
   private Label welcomeText;
   @FXML
   private Label titlePreview;
@@ -60,6 +63,14 @@ public class AppController {
   @FXML
   private Label descriptionPreview;
   @FXML
+  private Label titleBuy;
+  @FXML
+  private Label priceBuy;
+  @FXML
+  private Label conditionBuy;
+  @FXML
+  private Label descriptionBuy;
+  @FXML
   private Label label1;
   @FXML
   private Label label2;
@@ -69,6 +80,16 @@ public class AppController {
   private Label label4;
   @FXML
   private Label label5;
+  @FXML
+  private Label label11;
+  @FXML
+  private Label label21;
+  @FXML
+  private Label label31;
+  @FXML
+  private Label label41;
+  @FXML
+  private Label label51;
   @FXML
   private AnchorPane homePage;
   @FXML
@@ -87,6 +108,8 @@ public class AppController {
   private AnchorPane vehiclesAd;
   @FXML
   private AnchorPane booksAd;
+  @FXML
+  private AnchorPane buyAd;
   @FXML
   private ChoiceBox<String> colourChoiceVehicles;
   @FXML
@@ -672,6 +695,32 @@ public class AppController {
 
       default:
         break;
+    }
+  }
+
+  @FXML
+  private void displaySelected(MouseEvent event) {
+    Ad selected = listOfAds.getSelectionModel().getSelectedItem();
+    homePage.setDisable(true);
+    homePage.setVisible(false);
+    buyAd.setVisible(true);
+    buyAd.setDisable(false);
+    titleBuy.setText(selected.getAdTitle());
+    descriptionBuy.setText(selected.getDescription());
+    conditionBuy.setText(selected.getProduct().getCondition());
+    priceBuy.setText(Integer.toString(selected.getProduct().getPrice()));
+    String[] splitStr = selected.toString().trim().split("\\s+");
+    if (!(splitStr[0].equals(null))) {
+      label11.setText(splitStr[0]);
+    }
+    if (!(splitStr[1].equals(null))) {
+      label21.setText(splitStr[1]);
+    }
+    if (!(splitStr[2].equals(null))) {
+      label31.setText(splitStr[2]);
+    }
+    if (!(splitStr[3].equals(null))) {
+      label41.setText(splitStr[3]);
     }
   }
 
