@@ -4,12 +4,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-/** 
- * Specifies that this is the vehicles subclass and connects it to the parent class product.
+/**
+ * Specifies that this is the vehicles subclass and connects it to the parent
+ * class product.
  */
 @JsonTypeName("vehicles")
-
-
 
 public class Vehicles extends Product {
 
@@ -19,8 +18,10 @@ public class Vehicles extends Product {
   private String color;
 
   /**
-   * A constructor for the class Vehicles We are using Jackson Annotation to create executing rules
-   * for jackson, JsonCreator specifies that this is a constructor. JsonProperty specifies which
+   * A constructor for the class Vehicles We are using Jackson Annotation to
+   * create executing rules
+   * for jackson, JsonCreator specifies that this is a constructor. JsonProperty
+   * specifies which
    * fields should be set to what in the JSON-file
    */
   @JsonCreator
@@ -110,9 +111,9 @@ public class Vehicles extends Product {
     this.color = color;
   }
 
-  
   /**
    * A toString() for the Vehicles class.
+   * 
    * @return String
    */
   @Override

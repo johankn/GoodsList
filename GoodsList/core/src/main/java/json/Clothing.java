@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-/** 
- * Specifies that this is the clothing subclass and connects it to the parent class product. 
-*/
+/**
+ * Specifies that this is the clothing subclass and connects it to the parent
+ * class product.
+ */
 @JsonTypeName("clothing")
-
 
 public class Clothing extends Product {
 
@@ -18,8 +18,10 @@ public class Clothing extends Product {
   private String size;
 
   /**
-   * A constructor for the class Clothing We are using Jackson Annotation to create executing rules
-   * for jackson, JsonCreator specifies that this is a constructor. JsonProperty specifies which
+   * A constructor for the class Clothing We are using Jackson Annotation to
+   * create executing rules
+   * for jackson, JsonCreator specifies that this is a constructor. JsonProperty
+   * specifies which
    * fields should be set to what in the JSON-file
    */
   @JsonCreator
@@ -109,9 +111,9 @@ public class Clothing extends Product {
     this.size = size;
   }
 
-  
   /**
    * A toString() for the Clothing class.
+   * 
    * @return String
    */
   @Override
