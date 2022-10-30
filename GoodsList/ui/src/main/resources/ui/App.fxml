@@ -15,7 +15,7 @@
    <children>
       <AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="791.0">
          <children>
-            <Label fx:id="WelcomeText" layoutX="12.0" layoutY="39.0" prefHeight="71.0" prefWidth="589.0" text="Welcome, username" wrapText="true">
+            <Label fx:id="welcomeText" layoutX="12.0" layoutY="39.0" prefHeight="71.0" prefWidth="589.0" text="Welcome, username" wrapText="true">
                <font>
                   <Font name="Arial" size="52.0" />
                </font>
