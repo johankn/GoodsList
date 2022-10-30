@@ -46,16 +46,16 @@ public class AdSorter {
   }
 
   
-  /**
-   * sorts the list and returs the sortedlist by date.
-   *
-   * @param function funtion to sort
-   * @param listOfAds list of ads
-   * @return ads
-   */
-  public List<String> getAdAttributeInFile(List<Ad> listOfAds, Function<Ad, String> function) {
-    return listOfAds.stream().map(function).toList();
-  }
+  // /**
+  //  * sorts the list and returs the sortedlist by date.
+  //  *
+  //  * @param function funtion to sort
+  //  * @param listOfAds list of ads
+  //  * @return ads
+  //  */
+  // public List<String> getAdAttributeInFile(List<Ad> listOfAds, Function<Ad, String> function) {
+  //   return listOfAds.stream().map(function).toList();
+  // }
 
   /**
    * get all ads.

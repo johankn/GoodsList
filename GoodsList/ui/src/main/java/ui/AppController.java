@@ -114,7 +114,7 @@ public class AppController {
   @FXML
   private ChoiceBox<String> colourChoiceClothing;
   @FXML
-  private ListView<String> listOfAds;
+  private ListView<Ad> listOfAds;
 
   private Ad ad;
 
@@ -206,7 +206,7 @@ public class AppController {
     AdSorter adSorter = new AdSorter(fileoperator.getAllAdsInFile(filename));
     listOfAds
         .getItems()
-        .addAll(adSorter.getAdAttributeInFile(adSorter.sortAdsByDate(), Ad::getAdTitle));
+        .addAll(fileoperator.getAllAdsInFile(filename));
   }
 
   /**
@@ -783,7 +783,6 @@ public class AppController {
     Button pressedButton = (Button) event.getSource();
     this.listOfAds.getItems().clear();
     this.listOfAds.getItems().addAll(adsorter
-        .sortAds(ad -> ad.getProduct().getClass().getSimpleName().equals(pressedButton.getText())).stream()
-        .map(ad -> ad.getAdTitle()).collect(Collectors.toList()));
+        .sortAds(ad -> ad.getProduct().getClass().getSimpleName().equals(pressedButton.getText())));
   }
 }
