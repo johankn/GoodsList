@@ -1,7 +1,5 @@
 package ui;
 
-
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,6 +28,7 @@ import json.FileOperator;
 import json.Property;
 import json.User;
 import json.Vehicles;
+
 /**
  * Controller for the app fxml file.
  */
@@ -698,6 +697,13 @@ public class AppController {
     }
   }
 
+  /**
+   * A method that makes it possible to click on an ad in the listview. When
+   * clicked, the user should see a preview of the ad, and will have a choice to
+   * buy the product. The user can also return to the home page.
+   * 
+   * @param event when the user clicks on an ad
+   */
   @FXML
   private void displaySelected(MouseEvent event) {
     Ad selected = listOfAds.getSelectionModel().getSelectedItem();
@@ -722,6 +728,17 @@ public class AppController {
     if (!(splitStr[3].equals(null))) {
       label41.setText(splitStr[3]);
     }
+  }
+
+  /*
+   * Method to go back to the home page.
+   */
+  @FXML
+  private void handleGoBack() {
+    homePage.setDisable(false);
+    homePage.setVisible(true);
+    buyAd.setVisible(false);
+    buyAd.setDisable(true);
   }
 
   /**
@@ -766,7 +783,7 @@ public class AppController {
     Button pressedButton = (Button) event.getSource();
     this.listOfAds.getItems().clear();
     this.listOfAds.getItems().addAll(adsorter
-    .sortAds(ad -> ad.getProduct().getClass().getSimpleName().equals(pressedButton.getText())).
-    stream().map(ad -> ad.getAdTitle()).collect(Collectors.toList()));
+        .sortAds(ad -> ad.getProduct().getClass().getSimpleName().equals(pressedButton.getText())).stream()
+        .map(ad -> ad.getAdTitle()).collect(Collectors.toList()));
   }
 }
