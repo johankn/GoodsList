@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import core.RegistrationValidator;
 import json.FileOperator;
+import json.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

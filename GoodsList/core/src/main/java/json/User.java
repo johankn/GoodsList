@@ -1,17 +1,16 @@
-package core;
+package json;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
-import json.Ad;
 /**
 * This class represents a user in the app.
 */
 
 public class User {
 
-  private List<Ad> activeAds;
+  private List<Integer> myAds;
   private String fullname;
   private String username;
   private String password;
@@ -26,11 +25,11 @@ public class User {
       @JsonProperty(value = "username") String username,
       @JsonProperty(value = "password") String password,
       @JsonProperty(value = "fullname") String fullname,
-      @JsonProperty(value = "activeAds") List<Ad> activeAds) {
+      @JsonProperty(value = "myAds") List<Integer> myAds) {
     this.fullname = fullname;
     this.username = username;
     this.password = password;
-    this.activeAds = activeAds;
+    this.myAds = myAds;
   }
 
   /**
@@ -38,8 +37,8 @@ public class User {
    *
    * @param ad ad
    */
-  public void addAdToList(Ad ad) {
-    activeAds.add(ad);
+  public void addAdToList(Integer ad) {
+    myAds.add(ad);
   }
 
   /**
@@ -47,8 +46,8 @@ public class User {
    *
    * @return list of ads
    */
-  public List<Ad> getActiveAds() {
-    return new ArrayList<Ad>(activeAds);
+  public List<Integer> getMyAds() {
+    return new ArrayList<Integer>(myAds);
   }
 
   /**
@@ -81,10 +80,10 @@ public class User {
   /**
    * setter.
    *
-   * @param activeAds activeads
+   * @param myAds myads
    */
-  public void setActiveAds(List<Ad> activeAds) {
-    this.activeAds = activeAds;
+  public void setMyAds(List<Integer> myAds) {
+    this.myAds = myAds;
   }
 
   /**

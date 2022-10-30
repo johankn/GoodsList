@@ -1,6 +1,8 @@
 package core;
 import org.junit.jupiter.api.Test;
 
+import json.User;
+
 import java.util.ArrayList;
 import java.util.List;
 

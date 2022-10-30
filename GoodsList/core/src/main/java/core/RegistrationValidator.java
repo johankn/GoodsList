@@ -3,6 +3,7 @@ package core;
 import java.util.List;
 import java.util.regex.Pattern;
 import json.FileOperator;
+import json.User;
 
 /**
 * This class represents a validator for registration.

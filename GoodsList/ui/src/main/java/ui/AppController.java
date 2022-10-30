@@ -2,7 +2,6 @@ package ui;
 
 import core.AdSorter;
 import core.AdValidator;
-import core.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -21,6 +20,7 @@ import json.Clothing;
 import json.Electronics;
 import json.FileOperator;
 import json.Property;
+import json.User;
 import json.Vehicles;
 /**
  * Controller for the app fxml file.
@@ -286,8 +286,13 @@ public class AppController {
     categoriesPane.setVisible(false);
   }
 
+  /*
+   * The necessary field for making an ad.
+   */
   AdValidator adValidator = new AdValidator();
   String date = java.time.LocalDate.now().toString();
+  FileOperator fileOperator = new FileOperator();
+  Integer adID = fileOperator.getAllAdsInFile(filename).size() + 1;
 
   /*
    * One of the five methods for making an ad. This method validates all the input
@@ -311,7 +316,7 @@ public class AppController {
           setCondition(conditionField1),
           brandField1.getText(),
           typeField1.getText());
-      ad = new Ad(titleField1.getText(), product1, date, descriptionArea1.getText());
+      ad = new Ad(titleField1.getText(), product1, date, descriptionArea1.getText(), adID);
 
       titlePreview.setText(titleField1.getText());
       conditionPreview.setText(setCondition(conditionField1));
@@ -356,7 +361,7 @@ public class AppController {
             typeField2.getText(),
             colourChoiceClothing.getValue().toString(),
             sizeField2.getText());
-        ad = new Ad(titleField2.getText(), product2, date, descriptionArea2.getText());
+        ad = new Ad(titleField2.getText(), product2, date, descriptionArea2.getText(), adID);
 
         titlePreview.setText(titleField2.getText());
         conditionPreview.setText(setCondition(conditionField2));
@@ -405,7 +410,7 @@ public class AppController {
           Integer.parseInt(yearBuiltField3.getText()),
           Integer.parseInt(bedroomsField3.getText()),
           Integer.parseInt(areaField3.getText()));
-      ad = new Ad(titleField3.getText(), product3, date, descriptionArea3.getText());
+      ad = new Ad(titleField3.getText(), product3, date, descriptionArea3.getText(), adID);
 
       titlePreview.setText(titleField3.getText());
       conditionPreview.setText(setCondition(conditionField3));
@@ -451,7 +456,7 @@ public class AppController {
             typeField4.getText(),
             Integer.parseInt(yearField4.getText()),
             colourChoiceVehicles.getValue().toString());
-        ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText());
+        ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText(), adID);
 
         titlePreview.setText(titleField4.getText());
         conditionPreview.setText(setCondition(conditionField4));
@@ -500,7 +505,7 @@ public class AppController {
           genreField5.getText(),
           Integer.parseInt(yearField5.getText()),
           Integer.parseInt(pagesField5.getText()));
-      ad = new Ad(titleField5.getText(), product5, date, descriptionArea5.getText());
+      ad = new Ad(titleField5.getText(), product5, date, descriptionArea5.getText(), adID);
 
       // preview
       titlePreview.setText(titleField5.getText());
@@ -558,7 +563,7 @@ public class AppController {
 
     // skrive ad til fil her
     // gjøre det mulig å browse ad på hjemmesiden
-    this.user.addAdToList(ad);
+    this.user.addAdToList(ad.getAdID());
     FileOperator fo = new FileOperator();
     fo.updateUserObjectJsonFile(filename, user);
     initialize();

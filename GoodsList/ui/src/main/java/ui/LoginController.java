@@ -3,7 +3,7 @@ package ui;
 import core.LoginValidator;
 import core.RegisteredUser;
 import core.RegistrationValidator;
-import core.User;
+
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -13,6 +13,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import json.FileOperator;
+import json.User;
 
 /**
  * Controller for the login fxml file.

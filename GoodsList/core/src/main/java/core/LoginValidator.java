@@ -2,6 +2,7 @@ package core;
 
 import java.util.List;
 import json.FileOperator;
+import json.User;
 
 /**
 * This class represents a validator for logging in.
