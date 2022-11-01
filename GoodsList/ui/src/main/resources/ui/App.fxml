@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AppController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AppController">
    <children>
       <AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="791.0">
          <children>
@@ -20,7 +20,7 @@
                   <Font name="Arial" size="52.0" />
                </font>
             </Label>
-            <Label layoutX="448.0" layoutY="14.0" prefHeight="37.0" prefWidth="68.0" text="GoodsList">
+            <Label layoutX="699.0" layoutY="21.0" prefHeight="37.0" prefWidth="68.0" text="GoodsList">
                <font>
                   <Font name="AppleGothic Regular" size="13.0" />
                </font>
@@ -60,6 +60,7 @@
                </cursor>
             </Button>
             <ListView fx:id="listOfAds" fixedCellSize="40.0" layoutX="200.0" layoutY="188.0" onMouseClicked="#displaySelected" prefHeight="357.0" prefWidth="383.0" />
+            <Button fx:id="yourProfile" alignment="CENTER" layoutX="574.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleYourProfile" prefHeight="51.0" prefWidth="54.0" text="Your Profile" textAlignment="CENTER" wrapText="true" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="adPreview" disable="true" prefHeight="491.0" prefWidth="527.0" visible="false">
@@ -547,6 +548,41 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="profilePage" disable="true" prefHeight="690.0" prefWidth="792.0" visible="false">
+         <children>
+            <Button fx:id="goBack1" layoutX="58.0" layoutY="72.0" mnemonicParsing="false" onAction="#handleGoBack1" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Go Back">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label alignment="CENTER" layoutX="218.0" layoutY="72.0" prefHeight="65.0" prefWidth="357.0" text="Your profile">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="87.0" layoutY="214.0" prefHeight="17.0" prefWidth="142.0" text="Active ads">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="326.0" layoutY="214.0" prefHeight="17.0" prefWidth="142.0" text="Bought ads">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="563.0" layoutY="214.0" prefHeight="17.0" prefWidth="142.0" text="Sold ads">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ListView fx:id="listActiveAds" layoutX="58.0" layoutY="252.0" prefHeight="330.0" prefWidth="200.0" />
+            <ListView fx:id="listBoughtAds" layoutX="296.0" layoutY="252.0" prefHeight="330.0" prefWidth="200.0" />
+            <ListView fx:id="listSoldAds" layoutX="534.0" layoutY="252.0" prefHeight="330.0" prefWidth="200.0" />
          </children>
       </AnchorPane>
    </children>
