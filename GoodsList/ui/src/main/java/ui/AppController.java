@@ -64,6 +64,10 @@ public class AppController {
   @FXML
   private Button goBack;
   @FXML
+  private Button goBack1;
+  @FXML
+  private Button yourProfile;
+  @FXML
   private Label welcomeText;
   @FXML
   private Label titlePreview;
