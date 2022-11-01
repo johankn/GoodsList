@@ -72,6 +72,6 @@ public class RegisteredUser {
    * @return boolean
    */
   public User generateUser() {
-    return new User(this.getUsername(), this.getPassword(), this.getFullName(), new ArrayList<>());
+    return new User(this.getUsername(), this.getPassword(), this.getFullName(), new ArrayList<>(), new ArrayList<>());
   }
 }

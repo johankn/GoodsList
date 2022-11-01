@@ -66,6 +66,7 @@ public class FileOperator {
    * @return user
    */
   public List<User> getAllUsersAsList(String filename) {
+    System.out.println(filename);
     dataObject = new DataObject(filename, false);
     List<User> list = dataObject.getJsonFileAsObject().getUsers();
     return list;
@@ -92,13 +93,12 @@ public class FileOperator {
    * @return ad
    */
   public List<Ad> getAllAdsInFile(String filename) {
-    List<User> listOfUsers = getAllUsersAsList(filename);
-    List<Ad> ads = new ArrayList<>();
-    for (User user : listOfUsers) {
-      for (Ad ad : user.getActiveAds()) {
-        ads.add(ad);
-      }
-    }
+    dataObject = new DataObject(filename, false);
+    List<Ad> ads = dataObject.getJsonFileAsObject().getAds();
     return ads;
   }
+
+  public void addAdToFile(Ad ad) {
+    
+  } 
 }

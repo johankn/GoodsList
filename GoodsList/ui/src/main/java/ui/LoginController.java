@@ -3,6 +3,7 @@ package ui;
 import core.LoginValidator;
 import core.RegisteredUser;
 import core.RegistrationValidator;
+import json.User;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -13,7 +14,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import json.FileOperator;
-import json.User;
 
 /**
  * Controller for the login fxml file.
@@ -126,6 +126,8 @@ public class LoginController {
         }
       }
     } catch (IOException | IllegalArgumentException e) {
+
+      System.out.println(e.getMessage());
       displayError(e.getMessage());
       this.username.clear();
       this.password.clear();

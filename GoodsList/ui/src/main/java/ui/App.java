@@ -55,16 +55,6 @@ public class App extends Application {
   }
 
   /**
-   * changes scene to the new homescene for given loginUser.
-   *
-   * @param fxml fxml
-   */
-  public void setHomePage(String fxml) throws IOException {
-    Parent parent = FXMLLoader.load(getClass().getResource(fxml));
-    mainStage.getScene().setRoot(parent);
-  }
-
-  /**
    * Method for bringing the userinfo and filepath boolean tho the new controller
    * and fxml file.
    * Also changes the fxml scene.
@@ -73,7 +63,7 @@ public class App extends Application {
    * @throws IOException Exception
    */
   public void bringUserInfo(User user) throws IOException {
-    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("App.fxml"));
+    FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("App.fxml"));
     Parent parent = fxmlLoader.load();
     AppController appController = fxmlLoader.getController();
     appController.setUsername(user);

@@ -341,7 +341,7 @@ public class AppController {
   AdValidator adValidator = new AdValidator();
   String date = java.time.LocalDate.now().toString();
   FileOperator fileOperator = new FileOperator();
-  Integer adID = fileOperator.getAllAdsInFile(filename).size() + 1;
+  String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
 
   /*
    * One of the five methods for making an ad. This method validates all the input

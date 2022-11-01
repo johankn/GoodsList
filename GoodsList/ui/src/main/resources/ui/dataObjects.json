@@ -3,56 +3,8 @@
     "username" : "1",
     "password" : "2",
     "fullname" : "ADMIN",
-    "activeAds" : [ {
-      "adTitle" : "Nice Property for sale",
-      "product" : {
-        "@type" : "property",
-        "price" : 1212,
-        "condition" : "Used",
-        "propertyType" : "wqdsqws",
-        "yearBuilt" : 121,
-        "bedrooms" : 9,
-        "area" : 120
-      },
-      "date" : "2022-10-16",
-      "description" : "qws"
-    }, {
-      "adTitle" : "1",
-      "product" : {
-        "@type" : "electronics",
-        "price" : 3,
-        "condition" : "Used",
-        "brand" : "2",
-        "type" : "3"
-      },
-      "date" : "2022-10-25",
-      "description" : "4"
-    }, {
-      "adTitle" : "4",
-      "product" : {
-        "@type" : "vehicles",
-        "price" : 4,
-        "condition" : "New",
-        "brand" : "4",
-        "modelName" : "4",
-        "modelYear" : 4,
-        "color" : "Red"
-      },
-      "date" : "2022-10-25",
-      "description" : "4"
-    }, {
-      "adTitle" : "6",
-      "product" : {
-        "@type" : "book",
-        "price" : 6,
-        "condition" : "New",
-        "author" : "46",
-        "genre" : "6",
-        "releaseYear" : 6,
-        "pages" : 6
-      },
-      "date" : "2022-10-25",
-      "description" : "666"
-    } ]
-  } ]
+    "myAds" : [],
+    "boughtAds" : []
+  } ],
+  "ads" : []
 }

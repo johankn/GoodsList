@@ -13,7 +13,7 @@ public class Ad {
   private String date;
   private String description;
   private String adTitle;
-  private Integer adID;
+  private String adID;
 
   /**
    * A constructor for the class Ad We are using Jackson Annotation to create executing rules for
@@ -26,7 +26,7 @@ public class Ad {
       @JsonProperty(value = "product") Product product,
       @JsonProperty(value = "date") String date,
       @JsonProperty(value = "description") String description, 
-      @JsonProperty(value = "adID") Integer adID)
+      @JsonProperty(value = "adID") String adID)
        {
     this.product = product;
     this.adTitle = adTitle;
@@ -126,7 +126,7 @@ public class Ad {
    *
    * @return Integer
    */
-  public Integer getAdID() {
+  public String getAdID() {
     return adID;
   }
 
@@ -135,7 +135,7 @@ public class Ad {
    *
    * @param Integer adID
    */
-  public void setAdID(Integer adID) {
+  public void setAdID(String adID) {
     this.adID = adID;
   }
   
