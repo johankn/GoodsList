@@ -50,6 +50,10 @@ public class AppController {
   @FXML
   private Button newAdButton;
   @FXML
+  private Button goBack1;
+  @FXML
+  private Button yourProfile;
+  @FXML
   private Button buyButton;
   @FXML
   private Button cancel;
@@ -118,11 +122,19 @@ public class AppController {
   @FXML
   private AnchorPane buyAd;
   @FXML
+  private AnchorPane profilePage;
+  @FXML
   private ChoiceBox<String> colourChoiceVehicles;
   @FXML
   private ChoiceBox<String> colourChoiceClothing;
   @FXML
-  private ListView<Ad> listOfAds;
+  private ListView<String> listOfAds;
+  @FXML
+  private ListView<String> listActiveAds;
+  @FXML
+  private ListView<String> listBoughtAds;
+  @FXML
+  private ListView<String> listSoldAds;
 
   private Ad ad;
 
@@ -830,5 +842,29 @@ public class AppController {
     this.listOfAds.getItems().clear();
     this.listOfAds.getItems().addAll(adsorter
         .sortAds(ad -> ad.getProduct().getClass().getSimpleName().equals(pressedButton.getText())));
+  }
+  
+  /*
+   * Go back to homepage after being on your profile page
+   */
+  @FXML
+  private void handleGoBack1() {
+    profilePage.setDisable(true);
+    profilePage.setVisible(false);
+    homePage.setDisable(false);
+    homePage.setVisible(true);
+  }
+
+  /*
+   * When you click on your profile on homepage, you are taken to your profile page
+   */
+  @FXML
+  private void handleYourProfile() {
+    homePage.setDisable(true);
+    homePage.setVisible(false);
+    profilePage.setDisable(false);
+    profilePage.setVisible(true);
+    //missing to add Ads to listviews (activeAds, boughtAds, soldAds). 
+
   }
 }
