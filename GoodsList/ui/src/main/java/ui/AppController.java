@@ -50,8 +50,6 @@ public class AppController {
   @FXML
   private Button newAdButton;
   @FXML
-  private Button checkOutProduct;
-  @FXML
   private Button buyButton;
   @FXML
   private Button cancel;
