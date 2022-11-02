@@ -66,9 +66,9 @@ public class App extends Application {
     FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("App.fxml"));
     Parent parent = fxmlLoader.load();
     AppController appController = fxmlLoader.getController();
+    appController.setFilepath(false);
     appController.setUsername(user);
     appController.setChoiceBox();
-    appController.setFilepath(false);
     if (mainStage != null) {
       mainStage.getScene().setRoot(parent);
     }

@@ -210,10 +210,9 @@ public class AppController {
   private String filename;
   private User user;
 
-  private void initialize() {
+  private void first() {
     listOfAds.getItems().clear();
     FileOperator fileoperator = new FileOperator();
-    AdSorter adSorter = new AdSorter(fileoperator.getAllAdsInFile(filename));
     listOfAds
         .getItems()
         .addAll(fileoperator.getAllAdsInFile(filename));
@@ -225,7 +224,6 @@ public class AppController {
    *
    * @param user user
    */
-  @FXML
   public void setUsername(User user) {
     welcomeText.setText("Welcome, " + user.getFullname());
     this.user = user;
@@ -244,7 +242,7 @@ public class AppController {
     } else {
       this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
     }
-    initialize();
+    first();
   }
 
   /*
@@ -338,10 +336,6 @@ public class AppController {
   /*
    * The necessary field for making an ad.
    */
-  AdValidator adValidator = new AdValidator();
-  String date = java.time.LocalDate.now().toString();
-  FileOperator fileOperator = new FileOperator();
-  String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
 
   /*
    * One of the five methods for making an ad. This method validates all the input
@@ -352,6 +346,10 @@ public class AppController {
    */
   @FXML
   private void makeAd1() {
+    AdValidator adValidator = new AdValidator();
+    String date = java.time.LocalDate.now().toString();
+    FileOperator fileOperator = new FileOperator();
+    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
     try {
       adValidator.validateElectronics(
           titleField1.getText(),
@@ -393,6 +391,10 @@ public class AppController {
    */
   @FXML
   private void makeAd2() {
+    AdValidator adValidator = new AdValidator();
+    String date = java.time.LocalDate.now().toString();
+    FileOperator fileOperator = new FileOperator();
+    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
     if (colourChoiceClothing.getValue() != null) {
       try {
         adValidator.validateClothing(
@@ -442,6 +444,10 @@ public class AppController {
    */
   @FXML
   private void makeAd3() {
+    AdValidator adValidator = new AdValidator();
+    String date = java.time.LocalDate.now().toString();
+    FileOperator fileOperator = new FileOperator();
+    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
     try {
       adValidator.validateProperty(
           titleField3.getText(),
@@ -488,6 +494,10 @@ public class AppController {
    */
   @FXML
   private void makeAd4() {
+    AdValidator adValidator = new AdValidator();
+    String date = java.time.LocalDate.now().toString();
+    FileOperator fileOperator = new FileOperator();
+    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
     if (colourChoiceVehicles.getValue() != null) {
       try {
         adValidator.validateVehicles(
@@ -537,6 +547,10 @@ public class AppController {
    */
   @FXML
   private void makeAd5() {
+    AdValidator adValidator = new AdValidator();
+    String date = java.time.LocalDate.now().toString();
+    FileOperator fileOperator = new FileOperator();
+    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
     try {
       adValidator.validateBooks(
           titleField5.getText(),
@@ -581,7 +595,6 @@ public class AppController {
    * for choosing colours in the clothing and
    * vehicles ad types.
    */
-  @FXML
   public void setChoiceBox() {
     colourChoiceClothing.getItems().add("Black");
     colourChoiceClothing.getItems().add("White");
@@ -615,7 +628,7 @@ public class AppController {
     this.user.addAdToList(ad.getAdID());
     FileOperator fo = new FileOperator();
     fo.updateUserObjectJsonFile(filename, user);
-    initialize();
+    first();
 
     // erase electronics
     priceField1.setText("");
@@ -716,28 +729,28 @@ public class AppController {
    */
   @FXML
   private void displaySelected(MouseEvent event) {
-    Ad selected = listOfAds.getSelectionModel().getSelectedItem();
-    homePage.setDisable(true);
-    homePage.setVisible(false);
-    buyAd.setVisible(true);
-    buyAd.setDisable(false);
-    titleBuy.setText(selected.getAdTitle());
-    descriptionBuy.setText(selected.getDescription());
-    conditionBuy.setText(selected.getProduct().getCondition());
-    priceBuy.setText(Integer.toString(selected.getProduct().getPrice()));
-    String[] splitStr = selected.toString().trim().split("\\s+");
-    if (!(splitStr[0].equals(null))) {
-      label11.setText(splitStr[0]);
-    }
-    if (!(splitStr[1].equals(null))) {
-      label21.setText(splitStr[1]);
-    }
-    if (!(splitStr[2].equals(null))) {
-      label31.setText(splitStr[2]);
-    }
-    if (!(splitStr[3].equals(null))) {
-      label41.setText(splitStr[3]);
-    }
+    // Ad selected = listOfAds.getSelectionModel().getSelectedItem();
+    // homePage.setDisable(true);
+    // homePage.setVisible(false);
+    // buyAd.setVisible(true);
+    // buyAd.setDisable(false);
+    // titleBuy.setText(selected.getAdTitle());
+    // descriptionBuy.setText(selected.getDescription());
+    // conditionBuy.setText(selected.getProduct().getCondition());
+    // priceBuy.setText(Integer.toString(selected.getProduct().getPrice()));
+    // String[] splitStr = selected.toString().trim().split("\\s+");
+    // if (!(splitStr[0].equals(null))) {
+    //   label11.setText(splitStr[0]);
+    // }
+    // if (!(splitStr[1].equals(null))) {
+    //   label21.setText(splitStr[1]);
+    // }
+    // if (!(splitStr[2].equals(null))) {
+    //   label31.setText(splitStr[2]);
+    // }
+    // if (!(splitStr[3].equals(null))) {
+    //   label41.setText(splitStr[3]);
+    // }
   }
 
   /*

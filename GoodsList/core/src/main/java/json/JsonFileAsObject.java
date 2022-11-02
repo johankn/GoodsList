@@ -60,7 +60,7 @@ public class JsonFileAsObject {
   }
 
   public List<Ad> getAds() {
-    return this.ads;
+    return new ArrayList<>(this.ads);
   }
 
   public void addAd(Ad ad) {

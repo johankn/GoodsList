@@ -19,7 +19,6 @@ import org.json.JSONObject;
  */
 public class DataObject {
 
-
   private ObjectMapper objectMapper;
   private User user;
   private boolean addUser;
@@ -31,7 +30,6 @@ public class DataObject {
   */
   public DataObject(String filename, User user, boolean addUser) {
     this.user = user;
-    System.out.println(System.getProperty("user.dir"));
     this.addUser = addUser;
     objectMapper = new ObjectMapper();
     generateJsonFileAsObject(filename);
@@ -127,14 +125,12 @@ public class DataObject {
    *
    * @return String
    */
-  private String readFileAsString(String filename) {
-    // System.out.println(filename);
-    try {
-      return new String(Files.readAllBytes(Paths.get(filename)), Charset.forName("UTF-8"));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    return null;
+  private String readFileAsString(String filename) throws Exception {
+    String string = """
+        
+        """;
+    string += new String(Files.readAllBytes(Paths.get(filename)));
+    return string;
   }
 
   /**

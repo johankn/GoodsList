@@ -66,7 +66,6 @@ public class FileOperator {
    * @return user
    */
   public List<User> getAllUsersAsList(String filename) {
-    System.out.println(filename);
     dataObject = new DataObject(filename, false);
     List<User> list = dataObject.getJsonFileAsObject().getUsers();
     return list;
