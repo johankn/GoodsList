@@ -17,121 +17,121 @@ import junit.framework.Assert;
 
 public class FileOperatorTest {
 
-    private FileOperator fileOperator;
-    private final String filename = "..//ui/src/test/resources/ui/fileOperatorTest.json";
+    // private FileOperator fileOperator;
+    // private final String filename = "..//ui/src/test/resources/ui/fileOperatorTest.json";
 
-    @BeforeEach
-    public void setup() {
-        fileOperator = new FileOperator();
-    }
+    // @BeforeEach
+    // public void setup() {
+    //     fileOperator = new FileOperator();
+    // }
 
-    @Test
-    @DisplayName("Test writing to jsonfile")
-    public void testwriteNewUserDataToFile() {
-        RegisteredUser regUser1 = new RegisteredUser("tester123", "Test123", "Tester Robot", "Test123");
+    // @Test
+    // @DisplayName("Test writing to jsonfile")
+    // public void testwriteNewUserDataToFile() {
+    //     RegisteredUser regUser1 = new RegisteredUser("tester123", "Test123", "Tester Robot", "Test123");
 
-        // Writes regUser1 to file
-        fileOperator.writeNewUserDataToFile(filename, regUser1);
-        // Reads all users in file
-        List<json.User> usersInFile = fileOperator.getAllUsersAsList(filename);
+    //     // Writes regUser1 to file
+    //     fileOperator.writeNewUserDataToFile(filename, regUser1);
+    //     // Reads all users in file
+    //     List<json.User> usersInFile = fileOperator.getAllUsersAsList(filename);
 
-        // Tests the content of the users in the file
-        assertEquals(1, usersInFile.size());
-        assertEquals("tester123", usersInFile.get(0).getUsername());
-        assertEquals("Test123", usersInFile.get(0).getPassword());
-        assertEquals("Tester Robot", usersInFile.get(0).getFullname());
-        assertTrue(usersInFile.get(0) instanceof User);
-    }
+    //     // Tests the content of the users in the file
+    //     assertEquals(1, usersInFile.size());
+    //     assertEquals("tester123", usersInFile.get(0).getUsername());
+    //     assertEquals("Test123", usersInFile.get(0).getPassword());
+    //     assertEquals("Tester Robot", usersInFile.get(0).getFullname());
+    //     assertTrue(usersInFile.get(0) instanceof User);
+    // }
 
-    @Test
-    @DisplayName("Test updating a User in json-file")
-    public void testUpdateUserObjectJsonFile() {
-        // Writes a registrated user to file
-        RegisteredUser regUser1 = new RegisteredUser("tester123", "Test123", "Tester Robot", "Test123");
-        fileOperator.writeNewUserDataToFile(filename, regUser1);
+    // @Test
+    // @DisplayName("Test updating a User in json-file")
+    // public void testUpdateUserObjectJsonFile() {
+    //     // Writes a registrated user to file
+    //     RegisteredUser regUser1 = new RegisteredUser("tester123", "Test123", "Tester Robot", "Test123");
+    //     fileOperator.writeNewUserDataToFile(filename, regUser1);
 
-        // making a Userobject that represents the same user as regUser1 with an Ad.
-        List<Ad> listOfAds = new ArrayList<>();
-        Product product = new Electronics(1200, "new", "Apple", "Airpods");
-        Ad ad = new Ad("Golf club for sale!", product, "12.10.22", "Very nice airpods, brand new");
-        User user1 = new User("tester123", "Test123", "Tester Robot", listOfAds);
-        user1.addAdToList(ad);
+    //     // making a Userobject that represents the same user as regUser1 with an Ad.
+    //     List<Ad> listOfAds = new ArrayList<>();
+    //     Product product = new Electronics(1200, "new", "Apple", "Airpods");
+    //     Ad ad = new Ad("Golf club for sale!", product, "12.10.22", "Very nice airpods, brand new");
+    //     User user1 = new User("tester123", "Test123", "Tester Robot", listOfAds);
+    //     user1.addAdToList(ad);
 
-        fileOperator.updateUserObjectJsonFile(filename, user1);
-        List<json.User> usersInFile = fileOperator.getAllUsersAsList(filename);
+    //     fileOperator.updateUserObjectJsonFile(filename, user1);
+    //     List<json.User> usersInFile = fileOperator.getAllUsersAsList(filename);
 
-        // Different testcases:
-        assertTrue(usersInFile.size() == 1);
-        assertEquals("tester123", usersInFile.get(0).getUsername());
-        assertEquals("Test123", usersInFile.get(0).getPassword());
-        assertEquals("Tester Robot", usersInFile.get(0).getFullname());
-        assertTrue(usersInFile.get(0) instanceof User);
-        assertTrue(usersInFile.get(0).getActiveAds().size() == 1);
-    }
+    //     // Different testcases:
+    //     assertTrue(usersInFile.size() == 1);
+    //     assertEquals("tester123", usersInFile.get(0).getUsername());
+    //     assertEquals("Test123", usersInFile.get(0).getPassword());
+    //     assertEquals("Tester Robot", usersInFile.get(0).getFullname());
+    //     assertTrue(usersInFile.get(0) instanceof User);
+    //     assertTrue(usersInFile.get(0).getActiveAds().size() == 1);
+    // }
 
-    @Test
-    @DisplayName("Test reading from json-file")
-    public void testGetAllUsersAsList() {
+    // @Test
+    // @DisplayName("Test reading from json-file")
+    // public void testGetAllUsersAsList() {
 
-        // Users to be written to file
-        RegisteredUser regUser2 = new RegisteredUser("tester1", "Test123", "Tester Robot", "Test123");
-        RegisteredUser regUser3 = new RegisteredUser("tester2", "Test1234", "Tester Girl", "Test1234");
-        RegisteredUser regUser4 = new RegisteredUser("tester3", "Test12345", "Tester Guy", "Test12345");
+    //     // Users to be written to file
+    //     RegisteredUser regUser2 = new RegisteredUser("tester1", "Test123", "Tester Robot", "Test123");
+    //     RegisteredUser regUser3 = new RegisteredUser("tester2", "Test1234", "Tester Girl", "Test1234");
+    //     RegisteredUser regUser4 = new RegisteredUser("tester3", "Test12345", "Tester Guy", "Test12345");
 
-        // Writes users to file
-        fileOperator.writeNewUserDataToFile(filename, regUser2);
-        fileOperator.writeNewUserDataToFile(filename, regUser3);
-        fileOperator.writeNewUserDataToFile(filename, regUser4);
+    //     // Writes users to file
+    //     fileOperator.writeNewUserDataToFile(filename, regUser2);
+    //     fileOperator.writeNewUserDataToFile(filename, regUser3);
+    //     fileOperator.writeNewUserDataToFile(filename, regUser4);
 
-        List<User> listOfUsers = fileOperator.getAllUsersAsList(filename);
+    //     List<User> listOfUsers = fileOperator.getAllUsersAsList(filename);
 
-        // testcases
-        assertNotNull(listOfUsers);
-        assertEquals("tester1", listOfUsers.get(0).getUsername());
-        assertEquals("tester2", listOfUsers.get(1).getUsername());
-        assertEquals("tester3", listOfUsers.get(2).getUsername());
-        assertEquals(3, listOfUsers.size());
-    }
+    //     // testcases
+    //     assertNotNull(listOfUsers);
+    //     assertEquals("tester1", listOfUsers.get(0).getUsername());
+    //     assertEquals("tester2", listOfUsers.get(1).getUsername());
+    //     assertEquals("tester3", listOfUsers.get(2).getUsername());
+    //     assertEquals(3, listOfUsers.size());
+    // }
 
-    @Test
-    @DisplayName("Tests getting all ads in file ")
-    public void testGetAllAdsInFile() {
-        // Writes a registrated user to file
-        RegisteredUser regUser1 = new RegisteredUser("tester123", "Test123", "Tester Robot", "Test123");
-        fileOperator.writeNewUserDataToFile(filename, regUser1);
+    // @Test
+    // @DisplayName("Tests getting all ads in file ")
+    // public void testGetAllAdsInFile() {
+    //     // Writes a registrated user to file
+    //     RegisteredUser regUser1 = new RegisteredUser("tester123", "Test123", "Tester Robot", "Test123");
+    //     fileOperator.writeNewUserDataToFile(filename, regUser1);
 
-        // making a Userobject that represents the same user as regUser1 with an Ad.
-        List<Ad> listOfAds = new ArrayList<>();
-        Product product = new Electronics(1200, "new", "Apple", "Airpods");
-        Ad ad = new Ad("Golf club for sale!", product, "12.10.22", "Very nice airpods, brand new");
-        User user1 = new User("tester123", "Test123", "Tester Robot", listOfAds);
-        user1.addAdToList(ad);
+    //     // making a Userobject that represents the same user as regUser1 with an Ad.
+    //     List<Ad> listOfAds = new ArrayList<>();
+    //     Product product = new Electronics(1200, "new", "Apple", "Airpods");
+    //     Ad ad = new Ad("Golf club for sale!", product, "12.10.22", "Very nice airpods, brand new");
+    //     User user1 = new User("tester123", "Test123", "Tester Robot", listOfAds);
+    //     user1.addAdToList(ad);
 
-        fileOperator.updateUserObjectJsonFile(filename, user1);
+    //     fileOperator.updateUserObjectJsonFile(filename, user1);
 
-        assertEquals(1, fileOperator.getAllAdsInFile(filename).size());
+    //     assertEquals(1, fileOperator.getAllAdsInFile(filename).size());
 
-        RegisteredUser regUser2 = new RegisteredUser("tester", "Test123", "Tester Robot", "Test123");
-        fileOperator.writeNewUserDataToFile(filename, regUser2);
+    //     RegisteredUser regUser2 = new RegisteredUser("tester", "Test123", "Tester Robot", "Test123");
+    //     fileOperator.writeNewUserDataToFile(filename, regUser2);
 
-        List<Ad> listOfAds2 = new ArrayList<>();
-        Ad ad2 = new Ad("Apple pen", product, "2022-10-17", filename);
-        listOfAds2.add(ad2);
+    //     List<Ad> listOfAds2 = new ArrayList<>();
+    //     Ad ad2 = new Ad("Apple pen", product, "2022-10-17", filename);
+    //     listOfAds2.add(ad2);
 
-        User user2 = new User("tester", "Test123", "Tester Robot", listOfAds2);
+    //     User user2 = new User("tester", "Test123", "Tester Robot", listOfAds2);
 
-        fileOperator.updateUserObjectJsonFile(filename, user2);
-        assertEquals(2, fileOperator.getAllUsersAsList(filename).size());
-        System.out.println(fileOperator.getAllUsersAsList(filename).get(0).getActiveAds());
-        System.out.println(fileOperator.getAllUsersAsList(filename).get(1).getActiveAds());
+    //     fileOperator.updateUserObjectJsonFile(filename, user2);
+    //     assertEquals(2, fileOperator.getAllUsersAsList(filename).size());
+    //     System.out.println(fileOperator.getAllUsersAsList(filename).get(0).getActiveAds());
+    //     System.out.println(fileOperator.getAllUsersAsList(filename).get(1).getActiveAds());
 
-        assertEquals(2, fileOperator.getAllAdsInFile(filename).size());
+    //     assertEquals(2, fileOperator.getAllAdsInFile(filename).size());
 
-    }
+    // }
 
-    @AfterEach
-    @DisplayName("Removes all the users after a method is tested.")
-    public void clearUsersInJsonFile() {
-        fileOperator.removeAllUsers(filename);
-    }
+    // @AfterEach
+    // @DisplayName("Removes all the users after a method is tested.")
+    // public void clearUsersInJsonFile() {
+    //     fileOperator.removeAllUsers(filename);
+    // }
 }

@@ -14,7 +14,7 @@ public class JsonFileAsObject {
   /**
    * This class represents a jsonfiule with list of users as a java object.
    */
-
+  private List<Ad> ads;
   private List<User> users;
 
   /**
@@ -22,8 +22,10 @@ public class JsonFileAsObject {
    * JsonProperty to tell json what to look for in json file when make this object
    */
   @JsonCreator
-  public JsonFileAsObject(@JsonProperty(value = "users") List<User> users) {
+  public JsonFileAsObject(@JsonProperty(value = "users") List<User> users, 
+      @JsonProperty(value = "ads") List<Ad> ads) {
     this.users = users;
+    this.ads = ads;
   }
 
   /**
@@ -51,5 +53,17 @@ public class JsonFileAsObject {
    */
   public void addUser(User user) {
     users.add(user);
+  }
+
+  public void setAds(List<Ad> ads) {
+    this.ads = ads;
+  }
+
+  public List<Ad> getAds() {
+    return new ArrayList<>(this.ads);
+  }
+
+  public void addAd(Ad ad) {
+    this.ads.add(ad);
   }
 }

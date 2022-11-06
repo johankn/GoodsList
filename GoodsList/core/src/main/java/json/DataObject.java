@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +19,6 @@ import org.json.JSONObject;
  */
 public class DataObject {
 
-
-  private String filename;
   private ObjectMapper objectMapper;
   private User user;
   private boolean addUser;
@@ -29,31 +29,28 @@ public class DataObject {
    *Constructor used when wrinting to a file.
   */
   public DataObject(String filename, User user, boolean addUser) {
-    this.filename = filename;
     this.user = user;
-    System.out.println(System.getProperty("user.dir"));
     this.addUser = addUser;
     objectMapper = new ObjectMapper();
-    generateJsonFileAsObject();
+    generateJsonFileAsObject(filename);
   }
 
   /**
    * Constructor used when reading a file.
    */
   public DataObject(String filename, boolean removeAllUsers) {
-    this.filename = filename;
     this.removeAllUsers = removeAllUsers;
     objectMapper = new ObjectMapper();
-    generateJsonFileAsObjectForReadingAndRemoving();
+    generateJsonFileAsObjectForReadingAndRemoving(filename);
   }
 
   /**
    *Generates a JsonFileAsObject from the json-file, used for appending a new user or updating
    *an existitng user in dataObjects.json.
    */
-  private void generateJsonFileAsObject() {
+  private void generateJsonFileAsObject(String filename) {
     try {
-      String jsonString = makeJsonObjectFromJsonFile().toString();
+      String jsonString = makeJsonObjectFromJsonFile(filename).toString();
       jsonFileAsObject = objectMapper.readValue(jsonString, JsonFileAsObject.class);
       if (addUser) {
         addUserToJsonFileAsObjectUserList(user);
@@ -93,9 +90,9 @@ public class DataObject {
   /**
    * Generates a JsonFileAsObject from the json-file, used for reading content of dataObjects.json.
    */
-  private void generateJsonFileAsObjectForReadingAndRemoving() {
+  private void generateJsonFileAsObjectForReadingAndRemoving(String filename) {
     try {
-      String jsonString = makeJsonObjectFromJsonFile().toString();
+      String jsonString = makeJsonObjectFromJsonFile(filename).toString();
       jsonFileAsObject = objectMapper.readValue(jsonString, JsonFileAsObject.class);
       if (removeAllUsers) {
         removeAllUsersFromFile();
@@ -118,7 +115,7 @@ public class DataObject {
    * @throws JSONException exception
    * @throws Exception exception
    */
-  private JSONObject makeJsonObjectFromJsonFile() throws JSONException, Exception {
+  private JSONObject makeJsonObjectFromJsonFile(String filename) throws JSONException, Exception {
     JSONObject jsonObject = new JSONObject(readFileAsString(filename));
     return jsonObject;
   }
@@ -126,16 +123,14 @@ public class DataObject {
   /**
    * Help method to convert a file to a string.
    *
-   * @param filename filename
    * @return String
    */
-  private String readFileAsString(String filename) {
-    try {
-      return new String(Files.readAllBytes(Paths.get(filename)), Charset.forName("UTF-8"));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    return null;
+  private String readFileAsString(String filename) throws Exception {
+    String string = """
+        
+        """;
+    string += new String(Files.readAllBytes(Paths.get(filename)));
+    return string;
   }
 
   /**

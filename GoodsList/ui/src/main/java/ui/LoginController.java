@@ -3,8 +3,11 @@ package ui;
 import core.LoginValidator;
 import core.RegisteredUser;
 import core.RegistrationValidator;
+import json.User;
 
 import java.io.IOException;
+import java.util.List;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -13,7 +16,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import json.FileOperator;
-import json.User;
 
 /**
  * Controller for the login fxml file.
@@ -107,25 +109,25 @@ public class LoginController {
   private void onLogin() {
     try {
       fileOperator = new FileOperator();
+      List<User> users = fileOperator.getAllUsersAsList(filename);
       loginValidator = new LoginValidator();
       if (loginValidator.isLoginLegal(
           username.getText(),
           password.getText(),
-          loginValidator.getFileOperator().getAllUsersAsList(filename))) {
-
-        for (int i = 0; i < fileOperator.getAllUsersAsList(filename).size(); i++) {
-          if (fileOperator
-              .getAllUsersAsList(filename)
+          users)) {
+        for (int i = 0; i < users.size(); i++) {
+          if (users
               .get(i)
               .getUsername()
               .equals(username.getText())) {
-            loggedInUser = fileOperator.getAllUsersAsList(filename).get(i);
+            loggedInUser = users.get(i);
             app = new App();
             app.bringUserInfo(loggedInUser);
           }
         }
       }
     } catch (IOException | IllegalArgumentException e) {
+      e.printStackTrace();
       displayError(e.getMessage());
       this.username.clear();
       this.password.clear();
