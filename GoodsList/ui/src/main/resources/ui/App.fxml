@@ -11,77 +11,78 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AppController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AppController">
    <children>
-      <AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="791.0">
+      <AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0">
          <children>
-            <Label fx:id="welcomeText" layoutX="12.0" layoutY="39.0" prefHeight="71.0" prefWidth="589.0" text="Welcome, username" wrapText="true">
+            <Label fx:id="welcomeText" layoutX="12.0" layoutY="17.0" prefHeight="71.0" prefWidth="589.0" text="Welcome, username" wrapText="true">
                <font>
-                  <Font name="Arial" size="52.0" />
+                  <Font size="52.0" />
                </font>
             </Label>
-            <Label layoutX="448.0" layoutY="14.0" prefHeight="37.0" prefWidth="68.0" text="GoodsList">
+            <Label layoutX="686.0" layoutY="35.0" prefHeight="40.0" prefWidth="90.0" text="GoodsList">
                <font>
-                  <Font name="AppleGothic Regular" size="13.0" />
+                  <Font name="AppleGothic Regular" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="SearchBar" layoutX="14.0" layoutY="119.0" promptText="What are you looking for?" />
-            <Button fx:id="electronicsButton" alignment="CENTER" layoutX="213.0" layoutY="113.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="37.0" prefWidth="54.0" text="Electronics">
+            <TextField fx:id="SearchBar" layoutX="128.0" layoutY="140.0" promptText="What are you looking for?">
                <font>
-                  <Font size="9.0" />
+                  <Font size="18.0" />
+               </font></TextField>
+            <Button fx:id="electronicsButton" alignment="CENTER" layoutX="366.0" layoutY="137.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="40.0" prefWidth="60.0" text="Electronics">
+               <font>
+                  <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="clothesButton" layoutX="273.0" layoutY="113.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="37.0" prefWidth="54.0" text="Clothing">
+            <Button fx:id="clothesButton" layoutX="431.0" layoutY="137.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="40.0" prefWidth="60.0" text="Clothing">
                <font>
-                  <Font size="9.0" />
+                  <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="vehiclesButton" layoutX="334.0" layoutY="113.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="37.0" prefWidth="54.0" text="Vehicles">
+            <Button fx:id="vehiclesButton" layoutX="497.0" layoutY="137.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="40.0" prefWidth="60.0" text="Vehicles">
                <font>
-                  <Font size="9.0" />
+                  <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="booksButton" layoutX="395.0" layoutY="113.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="37.0" prefWidth="54.0" text="Books">
+            <Button fx:id="booksButton" layoutX="563.0" layoutY="137.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="40.0" prefWidth="60.0" text="Books">
                <font>
-                  <Font size="9.0" />
+                  <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="propertyButton" layoutX="455.0" layoutY="113.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="37.0" prefWidth="54.0" text="Property">
+            <Button fx:id="propertyButton" layoutX="628.0" layoutY="137.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="40.0" prefWidth="60.0" text="Property">
                <font>
-                  <Font size="9.0" />
+                  <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="newAdButton" layoutX="332.0" layoutY="571.0" mnemonicParsing="false" onAction="#handleNewAd" prefHeight="51.0" prefWidth="117.0" style="-fx-background-color: grey;" text="New ad">
-               <font>
-                  <Font size="23.0" />
-               </font>
+            <Button fx:id="newAdButton" alignment="CENTER" layoutX="562.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleNewAd" prefHeight="51.0" prefWidth="54.0" text="New ad" textAlignment="CENTER" wrapText="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ListView fx:id="listOfAds" fixedCellSize="40.0" layoutX="200.0" layoutY="188.0" onMouseClicked="#displaySelected" prefHeight="357.0" prefWidth="383.0" />
+            <ListView fx:id="listOfAds" fixedCellSize="40.0" layoutX="129.0" layoutY="191.0" onMouseClicked="#displaySelected" prefHeight="409.0" prefWidth="560.0" />
+            <Button fx:id="yourProfile" alignment="CENTER" layoutX="623.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleYourProfile" prefHeight="51.0" prefWidth="54.0" text="Your Profile" textAlignment="CENTER" wrapText="true" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="adPreview" disable="true" prefHeight="491.0" prefWidth="527.0" visible="false">
+      <AnchorPane fx:id="adPreview" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label layoutX="167.0" layoutY="66.0" prefHeight="43.0" prefWidth="196.0" text="Preview of your new ad" wrapText="true">
+            <Label layoutX="307.0" layoutY="50.0" prefHeight="43.0" prefWidth="196.0" scaleX="2.0" scaleY="2.0" text="Preview of your new ad" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="titlePreview" alignment="CENTER" contentDisplay="CENTER" layoutX="194.0" layoutY="125.0" prefHeight="26.0" prefWidth="139.0" text="Title" wrapText="true">
+            <Label fx:id="titlePreview" alignment="CENTER" contentDisplay="CENTER" layoutX="334.0" layoutY="125.0" prefHeight="26.0" prefWidth="139.0" scaleX="2.0" scaleY="2.0" text="Title" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="28.0" />
                </font>
             </Label>
-            <Label fx:id="descriptionPreview" alignment="TOP_LEFT" layoutX="90.0" layoutY="281.0" prefHeight="115.0" prefWidth="349.0" style="-fx-border-color: grey;" text="Description" wrapText="true" />
-            <Label fx:id="conditionPreview" alignment="CENTER" layoutX="247.0" layoutY="160.0" text="Used" wrapText="true" />
-            <Label fx:id="pricePreview" alignment="CENTER_RIGHT" layoutX="358.0" layoutY="187.0" prefHeight="43.0" prefWidth="117.0" text="Kr" wrapText="true">
+            <Label fx:id="descriptionPreview" alignment="TOP_LEFT" layoutX="230.0" layoutY="370.0" prefHeight="115.0" prefWidth="349.0" scaleX="2.0" scaleY="2.0" style="-fx-border-color: grey;" text="Description" wrapText="true" />
+            <Label fx:id="conditionPreview" alignment="CENTER" layoutX="387.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Used" wrapText="true" />
+            <Label fx:id="pricePreview" alignment="CENTER_RIGHT" layoutX="498.0" layoutY="180.0" prefHeight="43.0" prefWidth="117.0" scaleX="2.0" scaleY="2.0" text="Kr" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="postButton" layoutX="207.0" layoutY="422.0" mnemonicParsing="false" onAction="#handlePostAd" prefHeight="43.0" prefWidth="108.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Post for sale">
+            <Button fx:id="postButton" layoutX="347.0" layoutY="569.0" mnemonicParsing="false" onAction="#handlePostAd" prefHeight="43.0" prefWidth="108.0" scaleX="2.0" scaleY="2.0" text="Post for sale">
                <font>
                   <Font size="15.0" />
                </font>
@@ -89,68 +90,71 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="editButton" layoutX="89.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="26.0" prefWidth="68.0" text="Edit" />
-            <Label fx:id="label2" alignment="CENTER" layoutX="184.0" layoutY="197.0" prefHeight="23.0" prefWidth="160.0" wrapText="true">
+            <Button fx:id="editButton" layoutX="80.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="26.0" prefWidth="50.0" scaleX="2.0" scaleY="2.0" text="Edit" />
+            <Label fx:id="label2" alignment="CENTER" layoutX="324.0" layoutY="220.0" prefHeight="23.0" prefWidth="160.0" scaleX="2.0" scaleY="2.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label1" layoutX="58.0" layoutY="197.0" wrapText="true">
+            <Label fx:id="label1" layoutX="170.0" layoutY="220.0" scaleX="2.0" scaleY="2.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label3" layoutX="58.0" layoutY="249.0" prefHeight="23.0" prefWidth="142.0" wrapText="true">
+            <Label fx:id="label3" layoutX="130.0" layoutY="275.0" prefHeight="23.0" prefWidth="142.0" scaleX="2.0" scaleY="2.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label4" alignment="CENTER" layoutX="195.0" layoutY="249.0" prefHeight="23.0" prefWidth="132.0" wrapText="true">
+            <Label fx:id="label4" alignment="CENTER" layoutX="335.0" layoutY="275.0" prefHeight="23.0" prefWidth="132.0" scaleX="2.0" scaleY="2.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label5" alignment="CENTER_RIGHT" layoutX="358.0" layoutY="249.0" prefHeight="23.0" prefWidth="117.0">
+            <Label fx:id="label5" alignment="CENTER_RIGHT" layoutX="570.0" layoutY="275.0" prefHeight="23.0" prefWidth="117.0" scaleX="2.0" scaleY="2.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="categoriesPane" disable="true" prefHeight="491.0" prefWidth="527.0" visible="false">
+      <AnchorPane fx:id="categoriesPane" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label alignment="CENTER" layoutX="98.0" layoutY="61.0" prefHeight="37.0" prefWidth="331.0" text="What are you selling?" />
-            <Button fx:id="ElectronicsButton1" alignment="CENTER" layoutX="89.0" layoutY="123.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="37.0" prefWidth="349.0" text="Electronics">
+            <Label alignment="CENTER" layoutX="250.0" layoutY="45.0" prefHeight="40.0" prefWidth="350.0" text="What are you selling?">
                <font>
-                  <Font size="17.0" />
+                  <Font size="36.0" />
+               </font></Label>
+            <Button fx:id="ElectronicsButton1" alignment="CENTER" layoutX="250.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="80.0" prefWidth="350.0" text="Electronics">
+               <font>
+                  <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="ClothesButton1" layoutX="88.0" layoutY="178.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="37.0" prefWidth="349.0" text="Clothing">
+            <Button fx:id="ClothesButton1" layoutX="250.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="80.0" prefWidth="350.0" text="Clothing">
                <font>
-                  <Font size="17.0" />
+                  <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="VehiclesButton1" layoutX="89.0" layoutY="287.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="37.0" prefWidth="349.0" text="Vehicles">
+            <Button fx:id="VehiclesButton1" layoutX="250.0" layoutY="400.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="80.0" prefWidth="350.0" text="Vehicles">
                <font>
-                  <Font size="17.0" />
+                  <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="BooksButton1" layoutX="89.0" layoutY="344.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="37.0" prefWidth="349.0" text="Books">
+            <Button fx:id="BooksButton1" layoutX="250.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="80.0" prefWidth="350.0" text="Books">
                <font>
-                  <Font size="17.0" />
+                  <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="PropertyButton1" layoutX="88.0" layoutY="234.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="37.0" prefWidth="349.0" text="Property">
+            <Button fx:id="PropertyButton1" layoutX="250.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="80.0" prefWidth="350.0" text="Property">
                <font>
-                  <Font size="17.0" />
+                  <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="exitButton" layoutX="245.0" layoutY="439.0" mnemonicParsing="false" onAction="#handleExitButton" text="Exit" />
+            <Button fx:id="exitButton" layoutX="410.0" layoutY="625.0" mnemonicParsing="false" onAction="#handleExitButton" scaleX="2.0" scaleY="2.0" text="Exit" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="electronicsAd" disable="true" prefHeight="491.0" prefWidth="527.0" visible="false">
+      <AnchorPane fx:id="electronicsAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label alignment="CENTER" layoutX="106.0" layoutY="47.0" prefHeight="51.0" prefWidth="316.0" text="New ad " textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="2.0" scaleY="2.0" text="New ad " textAlignment="CENTER">
                <font>
                   <Font size="35.0" />
                </font>
@@ -158,54 +162,54 @@
                   <Cursor fx:constant="NONE" />
                </cursor>
             </Label>
-            <Label layoutX="88.0" layoutY="107.0" text="Title">
+            <Label layoutX="141.0" layoutY="130.0" scaleX="2.0" scaleY="2.0" text="Title">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="216.0" layoutY="322.0" text="Description">
+            <Label layoutX="129.0" layoutY="380.0" scaleX="2.0" scaleY="2.0" text="Description">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="85.0" layoutY="215.0" text="Price">
+            <Label layoutX="143.0" layoutY="265.0" scaleX="2.0" scaleY="2.0" text="Price">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="368.0" layoutY="215.0" text="Condition">
+            <Label layoutX="607.0" layoutY="265.0" scaleX="2.0" scaleY="2.0" text="Condition">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="387.0" layoutY="107.0" text="Category">
+            <Label layoutX="608.0" layoutY="130.0" scaleX="2.0" scaleY="2.0" text="Category">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="titleField1" layoutX="44.0" layoutY="134.0" prefHeight="26.0" prefWidth="125.0" />
-            <TextArea fx:id="descriptionArea1" layoutX="116.0" layoutY="348.0" prefHeight="128.0" prefWidth="296.0" />
-            <CheckBox fx:id="conditionField1" layoutX="382.0" layoutY="246.0" mnemonicParsing="false" text="New?" />
-            <TextField fx:id="priceField1" layoutX="44.0" layoutY="242.0" prefHeight="26.0" prefWidth="125.0" promptText="kr" />
-            <Button fx:id="makeAd1" layoutX="437.0" layoutY="418.0" mnemonicParsing="false" onAction="#makeAd1" prefHeight="51.0" prefWidth="55.0" text="Make ad" textAlignment="CENTER" wrapText="true" />
-            <Label alignment="CENTER" layoutX="387.0" layoutY="139.0" prefHeight="17.0" prefWidth="78.0" text="Electronics" />
-            <Label alignment="CENTER" layoutX="249.0" layoutY="107.0" text="Brand">
+            <TextField fx:id="titleField1" layoutX="110.0" layoutY="187.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <TextArea fx:id="descriptionArea1" layoutX="200.0" layoutY="483.0" prefHeight="128.0" prefWidth="296.0" scaleX="2.0" scaleY="2.0" />
+            <CheckBox fx:id="conditionField1" layoutX="620.0" layoutY="329.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="New?" />
+            <TextField fx:id="priceField1" layoutX="110.0" layoutY="325.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="2.0" scaleY="2.0" />
+            <Button fx:id="makeAd1" layoutX="688.0" layoutY="634.0" mnemonicParsing="false" onAction="#makeAd1" prefHeight="20.0" prefWidth="65.0" scaleX="2.0" scaleY="2.0" text="Post ad" textAlignment="CENTER" wrapText="true" />
+            <Label alignment="CENTER" layoutX="610.0" layoutY="190.0" prefHeight="17.0" prefWidth="78.0" scaleX="2.0" scaleY="2.0" text="Electronics" />
+            <Label alignment="CENTER" layoutX="387.0" layoutY="130.0" scaleX="2.0" scaleY="2.0" text="Brand">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="brandField1" layoutX="208.0" layoutY="134.0" prefHeight="26.0" prefWidth="132.0" />
-            <Label alignment="CENTER" layoutX="253.0" layoutY="215.0" text="Type">
+            <TextField fx:id="brandField1" layoutX="360.0" layoutY="187.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <Label alignment="CENTER" layoutX="391.0" layoutY="265.0" scaleX="2.0" scaleY="2.0" text="Type">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="typeField1" layoutX="208.0" layoutY="243.0" prefHeight="26.0" prefWidth="132.0" />
+            <TextField fx:id="typeField1" layoutX="360.0" layoutY="325.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="clothingAd" disable="true" prefHeight="491.0" prefWidth="527.0" visible="false">
+      <AnchorPane fx:id="clothingAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label alignment="CENTER" layoutX="106.0" layoutY="47.0" prefHeight="51.0" prefWidth="316.0" text="New ad" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="2.0" scaleY="2.0" text="New ad" textAlignment="CENTER">
                <font>
                   <Font size="35.0" />
                </font>
@@ -213,67 +217,67 @@
                   <Cursor fx:constant="NONE" />
                </cursor>
             </Label>
-            <Label layoutX="88.0" layoutY="107.0" text="Title">
+            <Label layoutX="141.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Title">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="216.0" layoutY="322.0" text="Description">
+            <Label layoutX="129.0" layoutY="393.0" scaleX="2.0" scaleY="2.0" text="Description">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="85.0" layoutY="182.0" text="Price">
+            <Label layoutX="143.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Price">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="371.0" layoutY="182.0" text="Condition">
+            <Label layoutX="607.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Condition">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="370.0" layoutY="107.0" text="Category">
+            <Label layoutX="608.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Category">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="titleField2" layoutX="44.0" layoutY="134.0" prefHeight="26.0" prefWidth="125.0" />
-            <TextArea fx:id="descriptionArea2" layoutX="116.0" layoutY="348.0" prefHeight="128.0" prefWidth="296.0" />
-            <CheckBox fx:id="conditionField2" layoutX="382.0" layoutY="220.0" mnemonicParsing="false" text="New?" />
-            <TextField fx:id="priceField2" layoutX="44.0" layoutY="214.0" prefHeight="26.0" prefWidth="125.0" promptText="kr" />
-            <Button fx:id="makeAd2" layoutX="437.0" layoutY="418.0" mnemonicParsing="false" onAction="#makeAd2" prefHeight="51.0" prefWidth="55.0" text="Make ad" textAlignment="CENTER" wrapText="true" />
-            <Label alignment="CENTER" layoutX="385.0" layoutY="138.0" text="Clothing" />
-            <Label alignment="CENTER" layoutX="255.0" layoutY="182.0" text="Type">
+            <TextField fx:id="titleField2" layoutX="110.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <TextArea fx:id="descriptionArea2" layoutX="200.0" layoutY="483.0" prefHeight="128.0" prefWidth="296.0" scaleX="2.0" scaleY="2.0" translateY="10.0" />
+            <CheckBox fx:id="conditionField2" layoutX="620.0" layoutY="243.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="New?" />
+            <TextField fx:id="priceField2" layoutX="110.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="2.0" scaleY="2.0" />
+            <Button fx:id="makeAd2" layoutX="688.0" layoutY="634.0" mnemonicParsing="false" onAction="#makeAd2" prefHeight="20.0" prefWidth="65.0" scaleX="2.0" scaleY="2.0" text="Post ad" textAlignment="CENTER" translateY="10.0" wrapText="true" />
+            <Label alignment="CENTER" layoutX="620.0" layoutY="143.0" scaleX="2.0" scaleY="2.0" text="Clothing" />
+            <Label alignment="CENTER" layoutX="391.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Type">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="typeField2" layoutX="210.0" layoutY="215.0" prefHeight="26.0" prefWidth="132.0" />
-            <Label layoutX="79.0" layoutY="263.0" text="Colour">
+            <TextField fx:id="typeField2" layoutX="360.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <Label layoutX="136.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Colour">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="258.0" layoutY="263.0" text="Size">
+            <Label layoutX="393.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Size">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="397.0" layoutY="280.0" />
-            <TextField fx:id="sizeField2" layoutX="210.0" layoutY="290.0" prefHeight="26.0" prefWidth="132.0" />
-            <Label alignment="CENTER" layoutX="251.0" layoutY="107.0" text="Brand">
+            <Label layoutX="411.0" layoutY="304.0" scaleX="2.0" scaleY="2.0" />
+            <TextField fx:id="sizeField2" layoutX="360.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <Label alignment="CENTER" layoutX="387.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Brand">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="brandField2" layoutX="210.0" layoutY="134.0" prefHeight="26.0" prefWidth="132.0" />
-            <ChoiceBox fx:id="colourChoiceClothing" layoutX="44.0" layoutY="290.0" prefHeight="26.0" prefWidth="125.0" />
+            <TextField fx:id="brandField2" layoutX="360.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <ChoiceBox fx:id="colourChoiceClothing" layoutX="110.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="propertyAd" disable="true" prefHeight="491.0" prefWidth="527.0" visible="false">
+      <AnchorPane fx:id="propertyAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label alignment="CENTER" layoutX="106.0" layoutY="47.0" prefHeight="51.0" prefWidth="316.0" text="New ad" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="2.0" scaleY="2.0" text="New ad" textAlignment="CENTER">
                <font>
                   <Font size="35.0" />
                </font>
@@ -281,67 +285,67 @@
                   <Cursor fx:constant="NONE" />
                </cursor>
             </Label>
-            <Label layoutX="88.0" layoutY="107.0" text="Title">
+            <Label layoutX="141.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Title">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="216.0" layoutY="322.0" text="Description">
+            <Label layoutX="129.0" layoutY="393.0" scaleX="2.0" scaleY="2.0" text="Description">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="85.0" layoutY="182.0" text="Price">
+            <Label layoutX="143.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Price">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="371.0" layoutY="182.0" text="Condition">
+            <Label layoutX="607.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Condition">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="370.0" layoutY="107.0" text="Category">
+            <Label layoutX="608.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Category">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="titleField3" layoutX="44.0" layoutY="134.0" prefHeight="26.0" prefWidth="125.0" />
-            <TextArea fx:id="descriptionArea3" layoutX="116.0" layoutY="348.0" prefHeight="128.0" prefWidth="296.0" />
-            <CheckBox fx:id="conditionField3" layoutX="382.0" layoutY="220.0" mnemonicParsing="false" text="New?" />
-            <TextField fx:id="priceField3" layoutX="44.0" layoutY="214.0" prefHeight="26.0" prefWidth="125.0" promptText="kr" />
-            <Button fx:id="makeAd21" layoutX="437.0" layoutY="418.0" mnemonicParsing="false" onAction="#makeAd3" prefHeight="51.0" prefWidth="55.0" text="Make ad" textAlignment="CENTER" wrapText="true" />
-            <Label alignment="CENTER" layoutX="385.0" layoutY="138.0" text="Property" />
-            <Label alignment="CENTER" layoutX="220.0" layoutY="182.0" text="Property type">
+            <TextField fx:id="titleField3" layoutX="110.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <TextArea fx:id="descriptionArea3" layoutX="200.0" layoutY="493.0" prefHeight="128.0" prefWidth="296.0" scaleX="2.0" scaleY="2.0" />
+            <CheckBox fx:id="conditionField3" layoutX="620.0" layoutY="243.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="New?" />
+            <TextField fx:id="priceField3" layoutX="110.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="2.0" scaleY="2.0" />
+            <Button fx:id="makeAd21" layoutX="688.0" layoutY="644.0" mnemonicParsing="false" onAction="#makeAd3" prefHeight="20.0" prefWidth="65.0" scaleX="2.0" scaleY="2.0" text="Post ad" textAlignment="CENTER" wrapText="true" />
+            <Label alignment="CENTER" layoutX="620.0" layoutY="143.0" scaleX="2.0" scaleY="2.0" text="Property" />
+            <Label alignment="CENTER" layoutX="357.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Property type">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="typeField3" layoutX="210.0" layoutY="215.0" prefHeight="26.0" prefWidth="132.0" />
-            <Label layoutX="67.0" layoutY="263.0" text="Year built">
+            <TextField fx:id="typeField3" layoutX="360.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <Label layoutX="130.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Year built">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="233.0" layoutY="263.0" text="Bedrooms">
+            <Label layoutX="370.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Bedrooms">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="397.0" layoutY="280.0" />
-            <TextField fx:id="yearBuiltField3" layoutX="44.0" layoutY="290.0" prefHeight="26.0" prefWidth="125.0" />
-            <TextField fx:id="bedroomsField3" layoutX="210.0" layoutY="290.0" prefHeight="26.0" prefWidth="132.0" />
-            <Label alignment="CENTER" layoutX="256.0" layoutY="107.0" text="Area">
+            <Label layoutX="411.0" layoutY="304.0" scaleX="2.0" scaleY="2.0" />
+            <TextField fx:id="yearBuiltField3" layoutX="110.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <TextField fx:id="bedroomsField3" layoutX="360.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <Label alignment="CENTER" layoutX="392.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Area">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="areaField3" layoutX="211.0" layoutY="134.0" prefHeight="26.0" prefWidth="132.0" />
+            <TextField fx:id="areaField3" layoutX="360.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="vehiclesAd" disable="true" prefHeight="491.0" prefWidth="527.0" visible="false">
+      <AnchorPane fx:id="vehiclesAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label alignment="CENTER" layoutX="106.0" layoutY="47.0" prefHeight="51.0" prefWidth="316.0" text="New ad" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="2.0" scaleY="2.0" text="New ad" textAlignment="CENTER">
                <font>
                   <Font size="35.0" />
                </font>
@@ -349,67 +353,67 @@
                   <Cursor fx:constant="NONE" />
                </cursor>
             </Label>
-            <Label layoutX="88.0" layoutY="107.0" text="Title">
+            <Label layoutX="141.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Title">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="216.0" layoutY="322.0" text="Description">
+            <Label layoutX="129.0" layoutY="393.0" scaleX="2.0" scaleY="2.0" text="Description">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="85.0" layoutY="182.0" text="Price">
+            <Label layoutX="143.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Price">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="371.0" layoutY="182.0" text="Condition">
+            <Label layoutX="607.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Condition">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="370.0" layoutY="107.0" text="Category">
+            <Label layoutX="608.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Category">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="titleField4" layoutX="44.0" layoutY="134.0" prefHeight="26.0" prefWidth="125.0" />
-            <TextArea fx:id="descriptionArea4" layoutX="116.0" layoutY="348.0" prefHeight="128.0" prefWidth="296.0" />
-            <CheckBox fx:id="conditionField4" layoutX="382.0" layoutY="220.0" mnemonicParsing="false" text="New?" />
-            <TextField fx:id="priceField4" layoutX="44.0" layoutY="214.0" prefHeight="26.0" prefWidth="125.0" promptText="kr" />
-            <Button fx:id="makeAd22" layoutX="437.0" layoutY="418.0" mnemonicParsing="false" onAction="#makeAd4" prefHeight="51.0" prefWidth="55.0" text="Make ad" textAlignment="CENTER" wrapText="true" />
-            <Label alignment="CENTER" layoutX="385.0" layoutY="138.0" text="Vehicles" />
-            <Label alignment="CENTER" layoutX="230.0" layoutY="182.0" text="Model type">
+            <TextField fx:id="titleField4" layoutX="110.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <TextArea fx:id="descriptionArea4" layoutX="200.0" layoutY="493.0" prefHeight="128.0" prefWidth="296.0" scaleX="2.0" scaleY="2.0" />
+            <CheckBox fx:id="conditionField4" layoutX="620.0" layoutY="243.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="New?" />
+            <TextField fx:id="priceField4" layoutX="110.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="2.0" scaleY="2.0" />
+            <Button fx:id="makeAd22" layoutX="688.0" layoutY="644.0" mnemonicParsing="false" onAction="#makeAd4" prefHeight="20.0" prefWidth="65.0" scaleX="2.0" scaleY="2.0" text="Post ad" textAlignment="CENTER" wrapText="true" />
+            <Label alignment="CENTER" layoutX="620.0" layoutY="143.0" scaleX="2.0" scaleY="2.0" text="Vehicles" />
+            <Label alignment="CENTER" layoutX="365.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Model type">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="typeField4" layoutX="210.0" layoutY="215.0" prefHeight="26.0" prefWidth="132.0" />
-            <Label layoutX="79.0" layoutY="263.0" text="Colour">
+            <TextField fx:id="typeField4" layoutX="360.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <Label layoutX="139.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Colour">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="231.0" layoutY="263.0" text="Model year">
+            <Label layoutX="363.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Model year">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="397.0" layoutY="280.0" />
-            <TextField fx:id="yearField4" layoutX="210.0" layoutY="290.0" prefHeight="26.0" prefWidth="132.0" />
-            <Label alignment="CENTER" layoutX="251.0" layoutY="107.0" text="Brand">
+            <Label layoutX="397.0" layoutY="280.0" scaleX="2.0" scaleY="2.0" />
+            <TextField fx:id="yearField4" layoutX="360.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <Label alignment="CENTER" layoutX="390.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Brand">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="brandField4" layoutX="211.0" layoutY="134.0" prefHeight="26.0" prefWidth="132.0" />
-            <ChoiceBox fx:id="colourChoiceVehicles" layoutX="45.0" layoutY="290.0" prefHeight="26.0" prefWidth="125.0" />
+            <TextField fx:id="brandField4" layoutX="360.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <ChoiceBox fx:id="colourChoiceVehicles" layoutX="110.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="booksAd" disable="true" prefHeight="491.0" prefWidth="527.0" visible="false">
+      <AnchorPane fx:id="booksAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label alignment="CENTER" layoutX="106.0" layoutY="47.0" prefHeight="51.0" prefWidth="316.0" text="New ad" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="2.0" scaleY="2.0" text="New ad" textAlignment="CENTER">
                <font>
                   <Font size="35.0" />
                </font>
@@ -417,79 +421,79 @@
                   <Cursor fx:constant="NONE" />
                </cursor>
             </Label>
-            <Label layoutX="88.0" layoutY="107.0" text="Title">
+            <Label layoutX="141.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Title">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="216.0" layoutY="322.0" text="Description">
+            <Label layoutX="129.0" layoutY="393.0" scaleX="2.0" scaleY="2.0" text="Description">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="85.0" layoutY="182.0" text="Price">
+            <Label layoutX="143.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Price">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="371.0" layoutY="182.0" text="Condition">
+            <Label layoutX="607.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Condition">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="370.0" layoutY="107.0" text="Category">
+            <Label layoutX="608.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Category">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="titleField5" layoutX="44.0" layoutY="134.0" prefHeight="26.0" prefWidth="125.0" />
-            <TextArea fx:id="descriptionArea5" layoutX="116.0" layoutY="348.0" prefHeight="128.0" prefWidth="296.0" />
-            <CheckBox fx:id="conditionField5" layoutX="382.0" layoutY="220.0" mnemonicParsing="false" text="New?" />
-            <TextField fx:id="priceField5" layoutX="44.0" layoutY="214.0" prefHeight="26.0" prefWidth="125.0" promptText="kr" />
-            <Button fx:id="makeAd23" layoutX="437.0" layoutY="418.0" mnemonicParsing="false" onAction="#makeAd5" prefHeight="51.0" prefWidth="55.0" text="Make ad" textAlignment="CENTER" wrapText="true" />
-            <Label alignment="CENTER" layoutX="392.0" layoutY="139.0" text="Books" />
-            <Label alignment="CENTER" layoutX="248.0" layoutY="107.0" text="Author">
+            <TextField fx:id="titleField5" layoutX="110.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <TextArea fx:id="descriptionArea5" layoutX="200.0" layoutY="493.0" prefHeight="128.0" prefWidth="296.0" scaleX="2.0" scaleY="2.0" />
+            <CheckBox fx:id="conditionField5" layoutX="620.0" layoutY="243.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="New?" />
+            <TextField fx:id="priceField5" layoutX="110.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="2.0" scaleY="2.0" />
+            <Button fx:id="makeAd23" layoutX="688.0" layoutY="644.0" mnemonicParsing="false" onAction="#makeAd5" prefHeight="20.0" prefWidth="65.0" scaleX="2.0" scaleY="2.0" text="Post ad" textAlignment="CENTER" wrapText="true" />
+            <Label alignment="CENTER" layoutX="627.0" layoutY="143.0" scaleX="2.0" scaleY="2.0" text="Books" />
+            <Label alignment="CENTER" layoutX="386.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Author">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="authorField5" layoutX="210.0" layoutY="135.0" prefHeight="26.0" prefWidth="132.0" />
-            <Label layoutX="79.0" layoutY="263.0" text="Genre">
+            <TextField fx:id="authorField5" layoutX="360.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <Label layoutX="139.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Genre">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="250.0" layoutY="182.0" text="Pages">
+            <Label layoutX="390.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Pages">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="397.0" layoutY="280.0" />
-            <TextField fx:id="genreField5" layoutX="44.0" layoutY="290.0" prefHeight="26.0" prefWidth="125.0" />
-            <TextField fx:id="pagesField5" layoutX="211.0" layoutY="214.0" prefHeight="26.0" prefWidth="132.0" />
-            <Label layoutX="224.0" layoutY="263.0" text="Release year">
+            <Label layoutX="397.0" layoutY="280.0" scaleX="2.0" scaleY="2.0" />
+            <TextField fx:id="genreField5" layoutX="110.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <TextField fx:id="pagesField5" layoutX="360.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <Label layoutX="362.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Release year">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="yearField5" layoutX="214.0" layoutY="289.0" prefHeight="26.0" prefWidth="125.0" />
+            <TextField fx:id="yearField5" layoutX="360.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="buyAd" disable="true" layoutX="10.0" layoutY="10.0" prefHeight="491.0" prefWidth="730.0" visible="false">
+      <AnchorPane fx:id="buyAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label fx:id="titleBuy" alignment="CENTER" contentDisplay="CENTER" layoutX="194.0" layoutY="125.0" prefHeight="26.0" prefWidth="139.0" text="Title" wrapText="true">
+            <Label fx:id="titleBuy" alignment="CENTER" contentDisplay="CENTER" layoutX="336.0" layoutY="58.0" prefHeight="26.0" prefWidth="139.0" scaleX="2.0" scaleY="2.0" text="Title" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="28.0" />
                </font>
             </Label>
-            <Label fx:id="descriptionBuy" alignment="TOP_LEFT" layoutX="90.0" layoutY="281.0" prefHeight="115.0" prefWidth="349.0" style="-fx-border-color: grey;" text="Description" wrapText="true" />
-            <Label fx:id="conditionBuy" alignment="CENTER" layoutX="247.0" layoutY="160.0" text="Used" wrapText="true" />
-            <Label fx:id="priceBuy" alignment="CENTER_RIGHT" layoutX="358.0" layoutY="187.0" prefHeight="43.0" prefWidth="117.0" text="Kr" wrapText="true">
+            <Label fx:id="descriptionBuy" alignment="TOP_LEFT" layoutX="224.0" layoutY="343.0" prefHeight="115.0" prefWidth="349.0" scaleX="2.0" scaleY="2.0" style="-fx-border-color: grey;" text="Description" wrapText="true" />
+            <Label fx:id="conditionBuy" alignment="CENTER" layoutX="387.0" layoutY="124.0" scaleX="2.0" scaleY="2.0" text="Used" wrapText="true" />
+            <Label fx:id="priceBuy" alignment="CENTER_RIGHT" layoutX="503.0" layoutY="113.0" prefHeight="43.0" prefWidth="117.0" scaleX="2.0" scaleY="2.0" text="Kr" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="buyButton" layoutX="207.0" layoutY="422.0" mnemonicParsing="false" onAction="#handleBuyAd" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Buy now">
+            <Button fx:id="buyButton" layoutX="345.0" layoutY="592.0" mnemonicParsing="false" onAction="#handleBuyAd" prefHeight="50.0" prefWidth="108.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Buy now">
                <font>
                   <Font size="15.0" />
                </font>
@@ -497,33 +501,49 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="label21" alignment="CENTER" layoutX="184.0" layoutY="197.0" prefHeight="23.0" prefWidth="160.0" wrapText="true">
+            <Label fx:id="label21" alignment="CENTER" layoutX="328.0" layoutY="197.0" prefHeight="23.0" prefWidth="160.0" scaleX="2.0" scaleY="2.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label11" layoutX="58.0" layoutY="197.0" wrapText="true">
+            <Label fx:id="label11" layoutX="58.0" layoutY="197.0" prefHeight="23.0" prefWidth="5.0" scaleX="2.0" scaleY="2.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label31" layoutX="58.0" layoutY="249.0" prefHeight="23.0" prefWidth="142.0" wrapText="true">
+            <Label fx:id="label31" layoutX="118.0" layoutY="249.0" prefHeight="23.0" prefWidth="142.0" scaleX="2.0" scaleY="2.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label41" alignment="CENTER" layoutX="195.0" layoutY="249.0" prefHeight="23.0" prefWidth="132.0" wrapText="true">
+            <Label fx:id="label41" alignment="CENTER" layoutX="336.0" layoutY="249.0" prefHeight="23.0" prefWidth="132.0" scaleX="2.0" scaleY="2.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label51" alignment="CENTER_RIGHT" layoutX="358.0" layoutY="249.0" prefHeight="23.0" prefWidth="117.0">
+            <Label fx:id="label51" alignment="CENTER_RIGHT" layoutX="572.0" layoutY="249.0" prefHeight="23.0" prefWidth="117.0" scaleX="2.0" scaleY="2.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="areYouSure" layoutX="207.0" layoutY="400.0" prefHeight="19.0" prefWidth="109.0" text="Are you sure?" />
-            <Button fx:id="cancel" layoutX="207.0" layoutY="422.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Cancel">
+            <Label fx:id="areYouSure" alignment="CENTER" layoutX="346.0" layoutY="525.0" prefHeight="19.0" prefWidth="109.0" scaleX="2.0" scaleY="2.0" text="Are you sure?" />
+            <Button fx:id="cancel" layoutX="315.0" layoutY="592.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="50.0" prefWidth="50.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Cancel">
+               <font>
+                  <Font size="11.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="accept" layoutX="433.0" layoutY="592.0" mnemonicParsing="false" onAction="#handleAccept" prefHeight="50.0" prefWidth="50.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Accept">
+               <font>
+                  <Font size="11.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="goBack" layoutX="70.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleGoBack" prefHeight="50.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Go Back">
                <font>
                   <Font size="15.0" />
                </font>
@@ -531,7 +551,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="accept" layoutX="265.0" layoutY="422.0" mnemonicParsing="false" onAction="#handleAccept" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Accept">
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="profilePage" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
+         <children>
+            <Button fx:id="goBack1" layoutX="58.0" layoutY="72.0" mnemonicParsing="false" onAction="#handleGoBack1" prefHeight="50.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Go Back">
                <font>
                   <Font size="15.0" />
                </font>
@@ -539,14 +563,29 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="goBack" layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleGoBack" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Go Back">
+            <Label alignment="CENTER" layoutX="218.0" layoutY="72.0" prefHeight="65.0" prefWidth="357.0" scaleX="1.5" scaleY="1.5" text="Your profile">
                <font>
-                  <Font size="15.0" />
+                  <Font size="45.0" />
                </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+            </Label>
+            <Label alignment="CENTER" layoutX="87.0" layoutY="214.0" prefHeight="17.0" prefWidth="142.0" scaleX="1.5" scaleY="1.5" text="Active ads">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="326.0" layoutY="214.0" prefHeight="17.0" prefWidth="142.0" scaleX="1.5" scaleY="1.5" text="Bought ads">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="563.0" layoutY="214.0" prefHeight="17.0" prefWidth="142.0" scaleX="1.5" scaleY="1.5" text="Sold ads">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ListView fx:id="listActiveAds" layoutX="58.0" layoutY="252.0" prefHeight="330.0" prefWidth="200.0" />
+            <ListView fx:id="listBoughtAds" layoutX="296.0" layoutY="252.0" prefHeight="330.0" prefWidth="200.0" />
+            <ListView fx:id="listSoldAds" layoutX="534.0" layoutY="252.0" prefHeight="330.0" prefWidth="200.0" />
          </children>
       </AnchorPane>
    </children>
