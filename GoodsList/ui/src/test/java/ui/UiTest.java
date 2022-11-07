@@ -8,8 +8,8 @@ import json.Ad;
 import json.Electronics;
 import json.FileOperator;
 import json.User;
-
-
+import java.util.ArrayList;
+import java.io.IOException;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -73,7 +73,7 @@ public class UiTest extends ApplicationTest {
     return mainStage;
   }
 
-  /*
+  /**
    * changes scene to the new homescene for given loginUser
    * 
    * @param fxml
@@ -173,7 +173,7 @@ public class UiTest extends ApplicationTest {
     try {
       if (fileoperator.getAllUsersAsList("..//ui/src/test/resources/ui/uiTest.json").size() == 0) {
         this.setHomePage(
-            new User(regUser.getUsername(), regUser.getPassword(), regUser.getFullName(), new ArrayList<>()));
+            new User(regUser.getUsername(), regUser.getPassword(), regUser.getFullName(), new ArrayList<>(), new ArrayList<>()));
       } else {
         for (User user : fileoperator.getAllUsersAsList("..//ui/src/test/resources/ui/uiTest.json")) {
           if (user.getUsername().equals(regUser.getUsername())) {

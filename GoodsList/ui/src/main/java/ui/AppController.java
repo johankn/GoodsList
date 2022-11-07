@@ -128,13 +128,13 @@ public class AppController {
   @FXML
   private ChoiceBox<String> colourChoiceClothing;
   @FXML
-  private ListView<String> listOfAds;
+  private ListView<Ad> listOfAds;
   @FXML
-  private ListView<String> listActiveAds;
+  private ListView<Ad> listActiveAds;
   @FXML
-  private ListView<String> listBoughtAds;
+  private ListView<Ad> listBoughtAds;
   @FXML
-  private ListView<String> listSoldAds;
+  private ListView<Ad> listSoldAds;
 
   private Ad ad;
 
@@ -638,6 +638,7 @@ public class AppController {
     this.user.addAdToList(ad.getAdID());
     FileOperator fo = new FileOperator();
     fo.updateUserObjectJsonFile(filename, user);
+    fo.addAdToFile(ad);
     first();
 
     // erase electronics

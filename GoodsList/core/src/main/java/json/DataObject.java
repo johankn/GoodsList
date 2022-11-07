@@ -30,6 +30,7 @@ public class DataObject {
   */
   public DataObject(String filename, User user, boolean addUser) {
     this.user = user;
+    System.out.println(this.user);
     this.addUser = addUser;
     objectMapper = new ObjectMapper();
     generateJsonFileAsObject(filename);
