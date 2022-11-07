@@ -8,8 +8,8 @@ Et repo som bruker modules-template som inneholder et javafx-prosjekt, med maven
 Målet med dette prosjektet er å lage en applikasjon der brukere kan kjøpe og selge ting på nettet, tilsvarende finn.no eller craigslist.org. Det ferdige produktet bør ha full implementering av alle nødvendige funksjoner, inkludert et skybasert system som holder styr på klassifiserte annonser og et komplett brukerpåloggingssystem. Brukeren vil kunne opprette, administrere og se annonser samt kjøpe disse. Brukeren vil ha en oversikt over kjøpte og solgte annonser. Det vil også være mulig å sortere annonser på siden etter kategori (nyeste annonse vil komme øverst som standard).
 
 ## Klasse- og arkitekturdiagram 
-[Architecture Diagram](/GoodsList/architectureDiagram.plantuml)
-[Class Diagram](/GoodsList/classDiagram.plantuml)
+- [Arkitekturdiagram](/GoodsList/architectureDiagram.plantuml)
+- [Klassediagram](/GoodsList/classDiagram.plantuml)
 
 
 ## Brukerhistorie 1
