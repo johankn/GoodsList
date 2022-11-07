@@ -143,6 +143,7 @@ public class LoginController {
    */
   @FXML
   private void onRegistration() {
+    System.out.println(filename);
     registrationValidator = new RegistrationValidator();
     try {
       if (registrationValidator.isRegistrationLegal(
