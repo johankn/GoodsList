@@ -205,7 +205,7 @@
                </font>
             </Label>
             <TextField fx:id="typeField1" layoutX="360.0" layoutY="325.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
-            <Button fx:id="goBackFromAd4" layoutX="51.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleGoBack" prefHeight="51.0" prefWidth="63.0" text="Go back" />
+            <Button fx:id="goBackFromAd4" layoutX="51.0" layoutY="25.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="63.0" text="Go back" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="clothingAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
@@ -274,7 +274,7 @@
             </Label>
             <TextField fx:id="brandField2" layoutX="360.0" layoutY="170.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
             <ChoiceBox fx:id="colourChoiceClothing" layoutX="110.0" layoutY="370.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
-            <Button fx:id="goBackFromAd3" layoutX="51.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleGoBack" prefHeight="51.0" prefWidth="63.0" text="Go back" />
+            <Button fx:id="goBackFromAd3" layoutX="51.0" layoutY="25.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="63.0" text="Go back" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="propertyAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
@@ -343,7 +343,7 @@
                </font>
             </Label>
             <TextField fx:id="areaField3" layoutX="360.0" layoutY="170.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
-            <Button fx:id="goBackFromAd2" layoutX="51.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleGoBack" prefHeight="51.0" prefWidth="63.0" text="Go back" />
+            <Button fx:id="goBackFromAd2" layoutX="51.0" layoutY="25.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="63.0" text="Go back" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="vehiclesAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
@@ -412,7 +412,7 @@
             </Label>
             <TextField fx:id="brandField4" layoutX="360.0" layoutY="170.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
             <ChoiceBox fx:id="colourChoiceVehicles" layoutX="110.0" layoutY="370.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
-            <Button fx:id="goBackFromAd1" layoutX="51.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleGoBack" prefHeight="51.0" prefWidth="63.0" text="Go back" />
+            <Button fx:id="goBackFromAd1" layoutX="51.0" layoutY="25.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="63.0" text="Go back" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="booksAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
@@ -481,7 +481,7 @@
                </font>
             </Label>
             <TextField fx:id="yearField5" layoutX="360.0" layoutY="370.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
-            <Button fx:id="goBackFromAd" layoutX="51.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleGoBack" prefHeight="51.0" prefWidth="63.0" text="Go back" />
+            <Button fx:id="goBackFromAd" layoutX="51.0" layoutY="25.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="63.0" text="Go back" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="buyAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
