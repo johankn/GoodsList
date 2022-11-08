@@ -373,7 +373,7 @@ public class AppController {
           setCondition(conditionField1),
           brandField1.getText(),
           typeField1.getText());
-      ad = new Ad(titleField1.getText(), product1, date, descriptionArea1.getText(), adID);
+      ad = new Ad(titleField1.getText(), product1, date, descriptionArea1.getText(), adID, false);
 
       titlePreview.setText(titleField1.getText());
       conditionPreview.setText(setCondition(conditionField1));
@@ -422,7 +422,7 @@ public class AppController {
             typeField2.getText(),
             colourChoiceClothing.getValue().toString(),
             sizeField2.getText());
-        ad = new Ad(titleField2.getText(), product2, date, descriptionArea2.getText(), adID);
+        ad = new Ad(titleField2.getText(), product2, date, descriptionArea2.getText(), adID, false);
 
         titlePreview.setText(titleField2.getText());
         conditionPreview.setText(setCondition(conditionField2));
@@ -475,7 +475,7 @@ public class AppController {
           Integer.parseInt(yearBuiltField3.getText()),
           Integer.parseInt(bedroomsField3.getText()),
           Integer.parseInt(areaField3.getText()));
-      ad = new Ad(titleField3.getText(), product3, date, descriptionArea3.getText(), adID);
+      ad = new Ad(titleField3.getText(), product3, date, descriptionArea3.getText(), adID, false);
 
       titlePreview.setText(titleField3.getText());
       conditionPreview.setText(setCondition(conditionField3));
@@ -525,7 +525,7 @@ public class AppController {
             typeField4.getText(),
             Integer.parseInt(yearField4.getText()),
             colourChoiceVehicles.getValue().toString());
-        ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText(), adID);
+        ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText(), adID, false);
 
         titlePreview.setText(titleField4.getText());
         conditionPreview.setText(setCondition(conditionField4));
@@ -578,7 +578,7 @@ public class AppController {
           genreField5.getText(),
           Integer.parseInt(yearField5.getText()),
           Integer.parseInt(pagesField5.getText()));
-      ad = new Ad(titleField5.getText(), product5, date, descriptionArea5.getText(), adID);
+      ad = new Ad(titleField5.getText(), product5, date, descriptionArea5.getText(), adID, false);
 
       // preview
       titlePreview.setText(titleField5.getText());
@@ -874,11 +874,19 @@ public class AppController {
    */
   @FXML
   private void handleYourProfile() {
+    List<Ad> ads = new FileOperator().getAllAdsInFile(filename);
+    AdSorter adSorter = new AdSorter(ads);
     homePage.setDisable(true);
     homePage.setVisible(false);
     profilePage.setDisable(false);
     profilePage.setVisible(true);
-    //missing to add Ads to listviews (activeAds, boughtAds, soldAds). 
-
+    listActiveAds.getItems().clear();
+    listBoughtAds.getItems().clear();
+    listSoldAds.getItems().clear();
+    //missing to add Ads to listviews (activeAds, boughtAds, soldAds).
+    AdSorter sorterBoughtorSold = new AdSorter(adSorter.getListofAdsFromId(user.getMyAds(), ads));
+    listActiveAds.getItems().addAll(sorterBoughtorSold.sortAds(ad -> ad.getIsSold() == false));
+    listSoldAds.getItems().addAll(sorterBoughtorSold.sortAds(ad -> ad.getIsSold() == true));
+    listBoughtAds.getItems().addAll(adSorter.getListofAdsFromId(user.getBoughtAds(), ads));
   }
 }

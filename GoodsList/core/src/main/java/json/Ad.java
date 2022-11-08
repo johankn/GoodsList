@@ -14,6 +14,7 @@ public class Ad {
   private String description;
   private String adTitle;
   private String adID;
+  private boolean isSold;
 
   /**
    * A constructor for the class Ad We are using Jackson Annotation to create executing rules for
@@ -26,13 +27,15 @@ public class Ad {
       @JsonProperty(value = "product") Product product,
       @JsonProperty(value = "date") String date,
       @JsonProperty(value = "description") String description, 
-      @JsonProperty(value = "adID") String adID)
+      @JsonProperty(value = "adID") String adID, 
+      @JsonProperty(value = "isSold") boolean isSold)
        {
     this.product = product;
     this.adTitle = adTitle;
     this.date = date;
     this.description = description;
     this.adID = adID;
+    this.isSold = isSold;
   }
 
   /**
@@ -142,5 +145,13 @@ public class Ad {
   @Override
   public String toString() {
     return this.adTitle;
+  }
+
+  public boolean getIsSold() {
+    return this.isSold;
+  }
+  
+  public void setIsSold(boolean bool) {
+    this.isSold = bool;
   }
 }
