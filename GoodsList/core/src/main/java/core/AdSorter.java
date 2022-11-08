@@ -78,4 +78,8 @@ public class AdSorter {
   public List<Ad> sortAds(Predicate<Ad> expression) {
     return this.ads.stream().filter(expression).collect(Collectors.toList());
   }
+
+  public List<Ad> getListofAdsFromId(List<String> idList, List<Ad> adList) {
+    return adList.stream().filter(ad -> idList.contains(ad.getAdID())).collect(Collectors.toList());
+  }
 }
