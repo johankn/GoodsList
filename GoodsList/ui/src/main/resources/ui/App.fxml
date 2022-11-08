@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AppController">
    <children>
-      <AnchorPane fx:id="homePage" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" visible="false">
+      <AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0">
          <children>
             <Label fx:id="welcomeText" layoutX="12.0" layoutY="17.0" prefHeight="71.0" prefWidth="589.0" text="Welcome, username" wrapText="true">
                <font>
@@ -63,7 +63,7 @@
             <Button fx:id="yourProfile" alignment="CENTER" layoutX="623.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleYourProfile" prefHeight="51.0" prefWidth="54.0" text="Your Profile" textAlignment="CENTER" wrapText="true" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="adPreview" prefHeight="700.0" prefWidth="800.0">
+      <AnchorPane fx:id="adPreview" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
             <Label layoutX="307.0" layoutY="50.0" prefHeight="43.0" prefWidth="196.0" scaleX="2.0" scaleY="2.0" text="Preview of your new ad" wrapText="true">
                <font>
