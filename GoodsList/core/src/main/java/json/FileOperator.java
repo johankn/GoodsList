@@ -97,7 +97,12 @@ public class FileOperator {
     return ads;
   }
 
-  public void addAdToFile(Ad ad) {
-    
+  public void addAdToFile(String filename, Ad ad, User user) {
+    dataObject = new DataObject(filename, user, ad, true);
+    try {
+      objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   } 
 }

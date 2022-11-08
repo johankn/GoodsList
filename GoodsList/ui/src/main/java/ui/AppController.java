@@ -638,7 +638,7 @@ public class AppController {
     this.user.addAdToList(ad.getAdID());
     FileOperator fo = new FileOperator();
     fo.updateUserObjectJsonFile(filename, user);
-    fo.addAdToFile(ad);
+    fo.addAdToFile(filename, ad, user);
     first();
 
     // erase electronics
@@ -740,28 +740,28 @@ public class AppController {
    */
   @FXML
   private void displaySelected(MouseEvent event) {
-    // Ad selected = listOfAds.getSelectionModel().getSelectedItem();
-    // homePage.setDisable(true);
-    // homePage.setVisible(false);
-    // buyAd.setVisible(true);
-    // buyAd.setDisable(false);
-    // titleBuy.setText(selected.getAdTitle());
-    // descriptionBuy.setText(selected.getDescription());
-    // conditionBuy.setText(selected.getProduct().getCondition());
-    // priceBuy.setText(Integer.toString(selected.getProduct().getPrice()));
-    // String[] splitStr = selected.toString().trim().split("\\s+");
-    // if (!(splitStr[0].equals(null))) {
-    //   label11.setText(splitStr[0]);
-    // }
-    // if (!(splitStr[1].equals(null))) {
-    //   label21.setText(splitStr[1]);
-    // }
-    // if (!(splitStr[2].equals(null))) {
-    //   label31.setText(splitStr[2]);
-    // }
-    // if (!(splitStr[3].equals(null))) {
-    //   label41.setText(splitStr[3]);
-    // }
+    Ad selected = listOfAds.getSelectionModel().getSelectedItem();
+    homePage.setDisable(true);
+    homePage.setVisible(false);
+    buyAd.setVisible(true);
+    buyAd.setDisable(false);
+    titleBuy.setText(selected.getAdTitle());
+    descriptionBuy.setText(selected.getDescription());
+    conditionBuy.setText(selected.getProduct().getCondition());
+    priceBuy.setText(Integer.toString(selected.getProduct().getPrice()));
+    String[] splitStr = selected.toString().trim().split("\\s+");
+    if (!(splitStr[0].equals(null))) {
+      label11.setText(splitStr[0]);
+    }
+    if (!(splitStr[1].equals(null))) {
+      label21.setText(splitStr[1]);
+    }
+    if (!(splitStr[2].equals(null))) {
+      label31.setText(splitStr[2]);
+    }
+    if (!(splitStr[3].equals(null))) {
+      label41.setText(splitStr[3]);
+    }
   }
 
   /*
