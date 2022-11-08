@@ -1,6 +1,6 @@
 # Oppsett av prosjekt
 
-Dette repoet inneholder vårt gruppeprosjekt i kurset IT1901 - Informatikk, Prosjekt I. Konseptet er en side hvor brukeren kan kjøpe og selge forskjellige varer på nett, tilsvarende finn.no eller craigslist.org. Prosjektet er bygget opp av disse tre arkitekturlagene: domenelogikk, brukergrensesnitt og datapersistens. Filene kan finnes i core-mappen (se [README](../GoodsList/core/README.md) (denne linken fungerer i vscode, men ikke i preview) for detaljer om funksjonene til appen), mens fxml-filene (som inneholder JavaFX-grensesnittet), appstarteren og kontrollerene som kobler logikken til brukergrensesnittet, kan finnes i ui-mappen (brukergrensesnitt) ([README](../GoodsList/ui/README.md)). 
+Dette repoet inneholder vårt gruppeprosjekt i kurset IT1901 - Informatikk, Prosjekt I. Konseptet er en side hvor brukeren kan kjøpe og selge forskjellige varer på nett, tilsvarende finn.no eller craigslist.org. Prosjektet er bygget opp av disse tre arkitekturlagene: domenelogikk, brukergrensesnitt og datapersistens. Filene kan finnes i core-mappen (se [README](/GoodsList/core/README.md) (denne linken fungerer i vscode, men ikke i preview) for detaljer om funksjonene til appen), mens fxml-filene (som inneholder JavaFX-grensesnittet), appstarteren og kontrollerene som kobler logikken til brukergrensesnittet, kan finnes i ui-mappen (brukergrensesnitt) ([README](/GoodsList/ui/README.md)). 
 
 ## Prøv å kjøre
 
@@ -18,12 +18,11 @@ Prosjektet kan prøves ut ved å "cd" inn i GoodsList-mappen og bruke `mvn`:
 
 Et repo som bruker modules-template som inneholder et javafx-prosjekt, med maven-oppsett for Java 18.0.1 og JavaFX 18.0.1, og JUnit 5 (Jupiter) og TestFX for testing.
 
-//Skribv om mappestruktur og hvor man finner ting
+Mappestrukturen er ordnet med ulike moduler for klassene med logikk, klassene for brukergrensesnittet og klassene for REST-API. Det ligger readme-filer inne i hver modul som forklarer hva de inneholder og videre mappestruktur inne i modulen. 
 
 ## Tilnærming til testing
 Det er laget egne testklasser som tester hver java-klasse i prosjektet. Vi har brukt JaCoCo-plugin for å sjekke testdekningsgrad. Målet var mellom 80- og 90% testdekningsgrad for alle klassene i prosjektet. Dette har vi klart med over 90% i både core- og ui-testingen. Vi etterstreber å teste klassene etterhvert som de lages.
 
-for å kjøre alle testtilleggen skriv cd GoddsList mvn verify
 
 ## Verktøy for kodekvalitet
 **Checkstyle** brukes for å sjekke Java-koden opp mot Google Java Style - kodestandarden. Den sjekker mye automatisk som gjør det lettere for oss å finne problemer i f.eks. klasse- og metodedesignproblemer, kodelayout eller generelle formateringsproblemer. 
