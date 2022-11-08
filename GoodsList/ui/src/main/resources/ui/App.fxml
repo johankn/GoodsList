@@ -54,13 +54,13 @@
                   <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="newAdButton" alignment="CENTER" layoutX="562.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleNewAd" prefHeight="51.0" prefWidth="54.0" text="New ad" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="newAdButton" alignment="CENTER" layoutX="562.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleNewAd" prefHeight="51.0" prefWidth="54.0" text="New ad" textAlignment="CENTER" wrapText="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
             <ListView fx:id="listOfAds" fixedCellSize="40.0" layoutX="129.0" layoutY="191.0" onMouseClicked="#displaySelected" prefHeight="409.0" prefWidth="560.0" />
-            <Button fx:id="yourProfile" alignment="CENTER" layoutX="623.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleYourProfile" prefHeight="51.0" prefWidth="54.0" text="Your Profile" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="yourProfile" alignment="CENTER" layoutX="623.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleYourProfile" prefHeight="51.0" prefWidth="54.0" text="Your Profile" textAlignment="CENTER" wrapText="true" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="adPreview" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
@@ -154,7 +154,7 @@
       </AnchorPane>
       <AnchorPane fx:id="electronicsAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="2.0" scaleY="2.0" text="New ad " textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="1.5" scaleY="1.5" text="New ad " textAlignment="CENTER">
                <font>
                   <Font size="35.0" />
                </font>
@@ -162,54 +162,54 @@
                   <Cursor fx:constant="NONE" />
                </cursor>
             </Label>
-            <Label layoutX="141.0" layoutY="130.0" scaleX="2.0" scaleY="2.0" text="Title">
+            <Label layoutX="141.0" layoutY="130.0" scaleX="1.5" scaleY="1.5" text="Title">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="129.0" layoutY="380.0" scaleX="2.0" scaleY="2.0" text="Description">
+            <Label layoutX="129.0" layoutY="400.0" scaleX="1.5" scaleY="1.5" text="Description">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="143.0" layoutY="265.0" scaleX="2.0" scaleY="2.0" text="Price">
+            <Label layoutX="143.0" layoutY="265.0" scaleX="1.5" scaleY="1.5" text="Price">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="607.0" layoutY="265.0" scaleX="2.0" scaleY="2.0" text="Condition">
+            <Label layoutX="607.0" layoutY="265.0" scaleX="1.5" scaleY="1.5" text="Condition">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="608.0" layoutY="130.0" scaleX="2.0" scaleY="2.0" text="Category">
+            <Label layoutX="608.0" layoutY="130.0" scaleX="1.5" scaleY="1.5" text="Category">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="titleField1" layoutX="110.0" layoutY="187.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <TextArea fx:id="descriptionArea1" layoutX="200.0" layoutY="483.0" prefHeight="128.0" prefWidth="296.0" scaleX="2.0" scaleY="2.0" />
-            <CheckBox fx:id="conditionField1" layoutX="620.0" layoutY="329.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="New?" />
-            <TextField fx:id="priceField1" layoutX="110.0" layoutY="325.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="2.0" scaleY="2.0" />
-            <Button fx:id="makeAd1" layoutX="688.0" layoutY="634.0" mnemonicParsing="false" onAction="#makeAd1" prefHeight="20.0" prefWidth="65.0" scaleX="2.0" scaleY="2.0" text="Post ad" textAlignment="CENTER" wrapText="true" />
-            <Label alignment="CENTER" layoutX="610.0" layoutY="190.0" prefHeight="17.0" prefWidth="78.0" scaleX="2.0" scaleY="2.0" text="Electronics" />
-            <Label alignment="CENTER" layoutX="387.0" layoutY="130.0" scaleX="2.0" scaleY="2.0" text="Brand">
+            <TextField fx:id="titleField1" layoutX="110.0" layoutY="187.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <TextArea fx:id="descriptionArea1" layoutX="170.0" layoutY="483.0" prefHeight="128.0" prefWidth="350.0" scaleX="1.5" scaleY="1.5" />
+            <CheckBox fx:id="conditionField1" layoutX="620.0" layoutY="329.0" mnemonicParsing="false" scaleX="1.5" scaleY="1.5" text="New?" />
+            <TextField fx:id="priceField1" layoutX="110.0" layoutY="325.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="1.5" scaleY="1.5" />
+            <Button fx:id="makeAd1" layoutX="650.0" layoutY="605.0" mnemonicParsing="false" onAction="#makeAd1" prefHeight="20.0" prefWidth="65.0" scaleX="1.5" scaleY="1.5" text="Post ad" textAlignment="CENTER" wrapText="true" />
+            <Label alignment="CENTER" layoutX="610.0" layoutY="190.0" prefHeight="17.0" prefWidth="78.0" scaleX="1.5" scaleY="1.5" text="Electronics" />
+            <Label alignment="CENTER" layoutX="387.0" layoutY="130.0" scaleX="1.5" scaleY="1.5" text="Brand">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="brandField1" layoutX="360.0" layoutY="187.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <Label alignment="CENTER" layoutX="391.0" layoutY="265.0" scaleX="2.0" scaleY="2.0" text="Type">
+            <TextField fx:id="brandField1" layoutX="360.0" layoutY="187.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <Label alignment="CENTER" layoutX="391.0" layoutY="265.0" scaleX="1.5" scaleY="1.5" text="Type">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="typeField1" layoutX="360.0" layoutY="325.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <TextField fx:id="typeField1" layoutX="360.0" layoutY="325.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="clothingAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="2.0" scaleY="2.0" text="New ad" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="1.5" scaleY="1.5" text="New ad" textAlignment="CENTER">
                <font>
                   <Font size="35.0" />
                </font>
@@ -217,67 +217,67 @@
                   <Cursor fx:constant="NONE" />
                </cursor>
             </Label>
-            <Label layoutX="141.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Title">
+            <Label layoutX="141.0" layoutY="120.0" scaleX="1.5" scaleY="1.5" text="Title">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="129.0" layoutY="393.0" scaleX="2.0" scaleY="2.0" text="Description">
+            <Label layoutX="129.0" layoutY="420.0" scaleX="1.5" scaleY="1.5" text="Description">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="143.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Price">
+            <Label layoutX="143.0" layoutY="220.0" scaleX="1.5" scaleY="1.5" text="Price">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="607.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Condition">
+            <Label layoutX="607.0" layoutY="220.0" scaleX="1.5" scaleY="1.5" text="Condition">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="608.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Category">
+            <Label layoutX="608.0" layoutY="120.0" scaleX="1.5" scaleY="1.5" text="Category">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="titleField2" layoutX="110.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <TextArea fx:id="descriptionArea2" layoutX="200.0" layoutY="483.0" prefHeight="128.0" prefWidth="296.0" scaleX="2.0" scaleY="2.0" translateY="10.0" />
-            <CheckBox fx:id="conditionField2" layoutX="620.0" layoutY="243.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="New?" />
-            <TextField fx:id="priceField2" layoutX="110.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="2.0" scaleY="2.0" />
-            <Button fx:id="makeAd2" layoutX="688.0" layoutY="634.0" mnemonicParsing="false" onAction="#makeAd2" prefHeight="20.0" prefWidth="65.0" scaleX="2.0" scaleY="2.0" text="Post ad" textAlignment="CENTER" translateY="10.0" wrapText="true" />
-            <Label alignment="CENTER" layoutX="620.0" layoutY="143.0" scaleX="2.0" scaleY="2.0" text="Clothing" />
-            <Label alignment="CENTER" layoutX="391.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Type">
+            <TextField fx:id="titleField2" layoutX="110.0" layoutY="170.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <TextArea fx:id="descriptionArea2" layoutX="170.0" layoutY="493.0" prefHeight="128.0" prefWidth="350.0" scaleX="1.5" scaleY="1.5" translateY="10.0" />
+            <CheckBox fx:id="conditionField2" layoutX="620.0" layoutY="273.0" mnemonicParsing="false" scaleX="1.5" scaleY="1.5" text="New?" />
+            <TextField fx:id="priceField2" layoutX="110.0" layoutY="270.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="1.5" scaleY="1.5" />
+            <Button fx:id="makeAd2" layoutX="650.0" layoutY="620.0" mnemonicParsing="false" onAction="#makeAd2" prefHeight="20.0" prefWidth="65.0" scaleX="1.5" scaleY="1.5" text="Post ad" textAlignment="CENTER" translateY="10.0" wrapText="true" />
+            <Label alignment="CENTER" layoutX="620.0" layoutY="173.0" scaleX="1.5" scaleY="1.5" text="Clothing" />
+            <Label alignment="CENTER" layoutX="391.0" layoutY="220.0" scaleX="1.5" scaleY="1.5" text="Type">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="typeField2" layoutX="360.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <Label layoutX="136.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Colour">
+            <TextField fx:id="typeField2" layoutX="360.0" layoutY="270.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <Label layoutX="136.0" layoutY="320.0" scaleX="1.5" scaleY="1.5" text="Colour">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="393.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Size">
+            <Label layoutX="393.0" layoutY="320.0" scaleX="1.5" scaleY="1.5" text="Size">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
             <Label layoutX="411.0" layoutY="304.0" scaleX="2.0" scaleY="2.0" />
-            <TextField fx:id="sizeField2" layoutX="360.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <Label alignment="CENTER" layoutX="387.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Brand">
+            <TextField fx:id="sizeField2" layoutX="360.0" layoutY="370.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <Label alignment="CENTER" layoutX="387.0" layoutY="120.0" scaleX="1.5" scaleY="1.5" text="Brand">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="brandField2" layoutX="360.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <ChoiceBox fx:id="colourChoiceClothing" layoutX="110.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <TextField fx:id="brandField2" layoutX="360.0" layoutY="170.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <ChoiceBox fx:id="colourChoiceClothing" layoutX="110.0" layoutY="370.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="propertyAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="2.0" scaleY="2.0" text="New ad" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="1.5" scaleY="1.5" text="New ad" textAlignment="CENTER">
                <font>
                   <Font size="35.0" />
                </font>
@@ -285,67 +285,67 @@
                   <Cursor fx:constant="NONE" />
                </cursor>
             </Label>
-            <Label layoutX="141.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Title">
+            <Label layoutX="141.0" layoutY="120.0" scaleX="1.5" scaleY="1.5" text="Title">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="129.0" layoutY="393.0" scaleX="2.0" scaleY="2.0" text="Description">
+            <Label layoutX="129.0" layoutY="420.0" scaleX="1.5" scaleY="1.5" text="Description">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="143.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Price">
+            <Label layoutX="143.0" layoutY="220.0" scaleX="1.5" scaleY="1.5" text="Price">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="607.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Condition">
+            <Label layoutX="607.0" layoutY="220.0" scaleX="1.5" scaleY="1.5" text="Condition">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="608.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Category">
+            <Label layoutX="608.0" layoutY="120.0" scaleX="1.5" scaleY="1.5" text="Category">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="titleField3" layoutX="110.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <TextArea fx:id="descriptionArea3" layoutX="200.0" layoutY="493.0" prefHeight="128.0" prefWidth="296.0" scaleX="2.0" scaleY="2.0" />
-            <CheckBox fx:id="conditionField3" layoutX="620.0" layoutY="243.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="New?" />
-            <TextField fx:id="priceField3" layoutX="110.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="2.0" scaleY="2.0" />
-            <Button fx:id="makeAd21" layoutX="688.0" layoutY="644.0" mnemonicParsing="false" onAction="#makeAd3" prefHeight="20.0" prefWidth="65.0" scaleX="2.0" scaleY="2.0" text="Post ad" textAlignment="CENTER" wrapText="true" />
-            <Label alignment="CENTER" layoutX="620.0" layoutY="143.0" scaleX="2.0" scaleY="2.0" text="Property" />
-            <Label alignment="CENTER" layoutX="357.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Property type">
+            <TextField fx:id="titleField3" layoutX="110.0" layoutY="170.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <TextArea fx:id="descriptionArea3" layoutX="170.0" layoutY="493.0" prefHeight="128.0" prefWidth="350.0" scaleX="1.5" scaleY="1.5" />
+            <CheckBox fx:id="conditionField3" layoutX="620.0" layoutY="273.0" mnemonicParsing="false" scaleX="1.5" scaleY="1.5" text="New?" />
+            <TextField fx:id="priceField3" layoutX="110.0" layoutY="270.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="1.5" scaleY="1.5" />
+            <Button fx:id="makeAd21" layoutX="650.0" layoutY="620.0" mnemonicParsing="false" onAction="#makeAd3" prefHeight="20.0" prefWidth="65.0" scaleX="1.5" scaleY="1.5" text="Post ad" textAlignment="CENTER" wrapText="true" />
+            <Label alignment="CENTER" layoutX="620.0" layoutY="173.0" scaleX="1.5" scaleY="1.5" text="Property" />
+            <Label alignment="CENTER" layoutX="357.0" layoutY="220.0" scaleX="1.5" scaleY="1.5" text="Property type">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="typeField3" layoutX="360.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <Label layoutX="130.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Year built">
+            <TextField fx:id="typeField3" layoutX="360.0" layoutY="270.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <Label layoutX="130.0" layoutY="320.0" scaleX="1.5" scaleY="1.5" text="Year built">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="370.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Bedrooms">
+            <Label layoutX="370.0" layoutY="320.0" scaleX="1.5" scaleY="1.5" text="Bedrooms">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
             <Label layoutX="411.0" layoutY="304.0" scaleX="2.0" scaleY="2.0" />
-            <TextField fx:id="yearBuiltField3" layoutX="110.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <TextField fx:id="bedroomsField3" layoutX="360.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <Label alignment="CENTER" layoutX="392.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Area">
+            <TextField fx:id="yearBuiltField3" layoutX="110.0" layoutY="370.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <TextField fx:id="bedroomsField3" layoutX="360.0" layoutY="370.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <Label alignment="CENTER" layoutX="392.0" layoutY="120.0" scaleX="1.5" scaleY="1.5" text="Area">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="areaField3" layoutX="360.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <TextField fx:id="areaField3" layoutX="360.0" layoutY="170.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="vehiclesAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="2.0" scaleY="2.0" text="New ad" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="1.5" scaleY="1.5" text="New ad" textAlignment="CENTER">
                <font>
                   <Font size="35.0" />
                </font>
@@ -353,67 +353,67 @@
                   <Cursor fx:constant="NONE" />
                </cursor>
             </Label>
-            <Label layoutX="141.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Title">
+            <Label layoutX="141.0" layoutY="120.0" scaleX="1.5" scaleY="1.5" text="Title">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="129.0" layoutY="393.0" scaleX="2.0" scaleY="2.0" text="Description">
+            <Label layoutX="129.0" layoutY="420.0" scaleX="1.5" scaleY="1.5" text="Description">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="143.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Price">
+            <Label layoutX="143.0" layoutY="220.0" scaleX="1.5" scaleY="1.5" text="Price">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="607.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Condition">
+            <Label layoutX="607.0" layoutY="220.0" scaleX="1.5" scaleY="1.5" text="Condition">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="608.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Category">
+            <Label layoutX="608.0" layoutY="120.0" scaleX="1.5" scaleY="1.5" text="Category">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="titleField4" layoutX="110.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <TextArea fx:id="descriptionArea4" layoutX="200.0" layoutY="493.0" prefHeight="128.0" prefWidth="296.0" scaleX="2.0" scaleY="2.0" />
-            <CheckBox fx:id="conditionField4" layoutX="620.0" layoutY="243.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="New?" />
-            <TextField fx:id="priceField4" layoutX="110.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="2.0" scaleY="2.0" />
-            <Button fx:id="makeAd22" layoutX="688.0" layoutY="644.0" mnemonicParsing="false" onAction="#makeAd4" prefHeight="20.0" prefWidth="65.0" scaleX="2.0" scaleY="2.0" text="Post ad" textAlignment="CENTER" wrapText="true" />
-            <Label alignment="CENTER" layoutX="620.0" layoutY="143.0" scaleX="2.0" scaleY="2.0" text="Vehicles" />
-            <Label alignment="CENTER" layoutX="365.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Model type">
+            <TextField fx:id="titleField4" layoutX="110.0" layoutY="170.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <TextArea fx:id="descriptionArea4" layoutX="170.0" layoutY="493.0" prefHeight="128.0" prefWidth="350.0" scaleX="1.5" scaleY="1.5" />
+            <CheckBox fx:id="conditionField4" layoutX="620.0" layoutY="273.0" mnemonicParsing="false" scaleX="1.5" scaleY="1.5" text="New?" />
+            <TextField fx:id="priceField4" layoutX="110.0" layoutY="270.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="1.5" scaleY="1.5" />
+            <Button fx:id="makeAd22" layoutX="650.0" layoutY="620.0" mnemonicParsing="false" onAction="#makeAd4" prefHeight="20.0" prefWidth="65.0" scaleX="1.5" scaleY="1.5" text="Post ad" textAlignment="CENTER" wrapText="true" />
+            <Label alignment="CENTER" layoutX="620.0" layoutY="173.0" scaleX="1.5" scaleY="1.5" text="Vehicles" />
+            <Label alignment="CENTER" layoutX="365.0" layoutY="220.0" scaleX="1.5" scaleY="1.5" text="Model type">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="typeField4" layoutX="360.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <Label layoutX="139.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Colour">
+            <TextField fx:id="typeField4" layoutX="360.0" layoutY="270.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <Label layoutX="139.0" layoutY="320.0" scaleX="1.5" scaleY="1.5" text="Colour">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="363.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Model year">
+            <Label layoutX="363.0" layoutY="320.0" scaleX="1.5" scaleY="1.5" text="Model year">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
             <Label layoutX="397.0" layoutY="280.0" scaleX="2.0" scaleY="2.0" />
-            <TextField fx:id="yearField4" layoutX="360.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <Label alignment="CENTER" layoutX="390.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Brand">
+            <TextField fx:id="yearField4" layoutX="360.0" layoutY="370.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <Label alignment="CENTER" layoutX="390.0" layoutY="120.0" scaleX="1.5" scaleY="1.5" text="Brand">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="brandField4" layoutX="360.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <ChoiceBox fx:id="colourChoiceVehicles" layoutX="110.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <TextField fx:id="brandField4" layoutX="360.0" layoutY="170.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <ChoiceBox fx:id="colourChoiceVehicles" layoutX="110.0" layoutY="370.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="booksAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="2.0" scaleY="2.0" text="New ad" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="1.5" scaleY="1.5" text="New ad" textAlignment="CENTER">
                <font>
                   <Font size="35.0" />
                </font>
@@ -421,62 +421,62 @@
                   <Cursor fx:constant="NONE" />
                </cursor>
             </Label>
-            <Label layoutX="141.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Title">
+            <Label layoutX="141.0" layoutY="120.0" scaleX="1.5" scaleY="1.5" text="Title">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="129.0" layoutY="393.0" scaleX="2.0" scaleY="2.0" text="Description">
+            <Label layoutX="129.0" layoutY="420.0" scaleX="1.5" scaleY="1.5" text="Description">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="143.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Price">
+            <Label layoutX="143.0" layoutY="220.0" scaleX="1.5" scaleY="1.5" text="Price">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="607.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Condition">
+            <Label layoutX="607.0" layoutY="220.0" scaleX="1.5" scaleY="1.5" text="Condition">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="608.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Category">
+            <Label layoutX="608.0" layoutY="120.0" scaleX="1.5" scaleY="1.5" text="Category">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="titleField5" layoutX="110.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <TextArea fx:id="descriptionArea5" layoutX="200.0" layoutY="493.0" prefHeight="128.0" prefWidth="296.0" scaleX="2.0" scaleY="2.0" />
-            <CheckBox fx:id="conditionField5" layoutX="620.0" layoutY="243.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="New?" />
-            <TextField fx:id="priceField5" layoutX="110.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="2.0" scaleY="2.0" />
-            <Button fx:id="makeAd23" layoutX="688.0" layoutY="644.0" mnemonicParsing="false" onAction="#makeAd5" prefHeight="20.0" prefWidth="65.0" scaleX="2.0" scaleY="2.0" text="Post ad" textAlignment="CENTER" wrapText="true" />
-            <Label alignment="CENTER" layoutX="627.0" layoutY="143.0" scaleX="2.0" scaleY="2.0" text="Books" />
-            <Label alignment="CENTER" layoutX="386.0" layoutY="90.0" scaleX="2.0" scaleY="2.0" text="Author">
+            <TextField fx:id="titleField5" layoutX="110.0" layoutY="170.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <TextArea fx:id="descriptionArea5" layoutX="170.0" layoutY="493.0" prefHeight="128.0" prefWidth="350.0" scaleX="1.5" scaleY="1.5" />
+            <CheckBox fx:id="conditionField5" layoutX="620.0" layoutY="273.0" mnemonicParsing="false" scaleX="1.5" scaleY="1.5" text="New?" />
+            <TextField fx:id="priceField5" layoutX="110.0" layoutY="270.0" prefHeight="26.0" prefWidth="110.0" promptText="kr" scaleX="1.5" scaleY="1.5" />
+            <Button fx:id="makeAd23" layoutX="650.0" layoutY="620.0" mnemonicParsing="false" onAction="#makeAd5" prefHeight="20.0" prefWidth="65.0" scaleX="1.5" scaleY="1.5" text="Post ad" textAlignment="CENTER" wrapText="true" />
+            <Label alignment="CENTER" layoutX="627.0" layoutY="173.0" scaleX="1.5" scaleY="1.5" text="Books" />
+            <Label alignment="CENTER" layoutX="386.0" layoutY="120.0" scaleX="1.5" scaleY="1.5" text="Author">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="authorField5" layoutX="360.0" layoutY="240.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <Label layoutX="139.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Genre">
+            <TextField fx:id="authorField5" layoutX="360.0" layoutY="170.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <Label layoutX="139.0" layoutY="320.0" scaleX="1.5" scaleY="1.5" text="Genre">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="390.0" layoutY="190.0" scaleX="2.0" scaleY="2.0" text="Pages">
+            <Label layoutX="390.0" layoutY="220.0" scaleX="1.5" scaleY="1.5" text="Pages">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
             <Label layoutX="397.0" layoutY="280.0" scaleX="2.0" scaleY="2.0" />
-            <TextField fx:id="genreField5" layoutX="110.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <TextField fx:id="pagesField5" layoutX="360.0" layoutY="340.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
-            <Label layoutX="362.0" layoutY="290.0" scaleX="2.0" scaleY="2.0" text="Release year">
+            <TextField fx:id="genreField5" layoutX="110.0" layoutY="370.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <TextField fx:id="pagesField5" layoutX="360.0" layoutY="270.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
+            <Label layoutX="362.0" layoutY="320.0" scaleX="1.5" scaleY="1.5" text="Release year">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="yearField5" layoutX="360.0" layoutY="140.0" prefHeight="26.0" prefWidth="110.0" scaleX="2.0" scaleY="2.0" />
+            <TextField fx:id="yearField5" layoutX="360.0" layoutY="370.0" prefHeight="26.0" prefWidth="110.0" scaleX="1.5" scaleY="1.5" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="buyAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
