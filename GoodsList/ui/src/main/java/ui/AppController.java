@@ -50,6 +50,16 @@ public class AppController {
   @FXML
   private Button newAdButton;
   @FXML
+  private Button goBackFromAd;
+  @FXML
+  private Button goBackFromAd1;
+  @FXML
+  private Button goBackFromAd2;
+  @FXML
+  private Button goBackFromAd3;
+  @FXML
+  private Button goBackFromAd4;
+  @FXML
   private Button goBack1;
   @FXML
   private Button yourProfile;
