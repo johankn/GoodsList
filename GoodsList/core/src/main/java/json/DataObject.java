@@ -115,6 +115,7 @@ public class DataObject {
       jsonFileAsObject = objectMapper.readValue(jsonString, JsonFileAsObject.class);
       if (removeAllUsers) {
         removeAllUsersFromFile();
+        removeAllAdsFromFile();
       }
     } catch (JSONException e) {
       e.printStackTrace();
