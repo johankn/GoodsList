@@ -10,6 +10,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -21,7 +23,9 @@ public class DataObject {
 
   private ObjectMapper objectMapper;
   private User user;
+  private Ad ad;
   private boolean addUser;
+  private boolean addAd;
   private boolean removeAllUsers;
   private JsonFileAsObject jsonFileAsObject;
 
@@ -30,8 +34,15 @@ public class DataObject {
   */
   public DataObject(String filename, User user, boolean addUser) {
     this.user = user;
-    System.out.println(this.user);
     this.addUser = addUser;
+    objectMapper = new ObjectMapper();
+    generateJsonFileAsObject(filename);
+  }
+
+  public DataObject(String filename, User user, Ad ad, boolean addAd) {
+    this.user = user;
+    this.ad = ad;
+    this.addAd = addAd;
     objectMapper = new ObjectMapper();
     generateJsonFileAsObject(filename);
   }
@@ -57,6 +68,9 @@ public class DataObject {
         addUserToJsonFileAsObjectUserList(user);
       } else if (!addUser) {
         updateUserActiveAds(user);
+        if (addAd) {
+          addAdToJsonFileAsObject(ad);
+        }
       }
 
     } catch (Exception e) {
@@ -71,6 +85,10 @@ public class DataObject {
    */
   private void addUserToJsonFileAsObjectUserList(User userToBeAdded) {
     jsonFileAsObject.addUser(userToBeAdded);
+  }
+
+  private void addAdToJsonFileAsObject(Ad ad) {
+    jsonFileAsObject.addAd(ad);
   }
 
   /**
@@ -107,6 +125,10 @@ public class DataObject {
 
   private void removeAllUsersFromFile() {
     jsonFileAsObject.setUsers(new ArrayList<>());
+  }
+
+  private void removeAllAdsFromFile() {
+    jsonFileAsObject.setAds(new ArrayList<>());
   }
 
   /**
