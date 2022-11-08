@@ -76,7 +76,7 @@ public class FileOperator {
    *
    * @param filename filename
    */
-  public void removeAllUsers(String filename) {
+  public void removeAllDataFromFile(String filename) {
     dataObject = new DataObject(filename, true);
     try {
       objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
@@ -84,6 +84,7 @@ public class FileOperator {
       e.printStackTrace();
     }
   }
+
 
   /**
    * gets all the ads in the a json-file.

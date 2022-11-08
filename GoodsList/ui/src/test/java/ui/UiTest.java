@@ -124,7 +124,7 @@ public class UiTest extends ApplicationTest {
   @AfterAll
   public void clearTestFile() {
     FileOperator fileOperator = new FileOperator();
-    fileOperator.removeAllUsers("..//ui/src/test/resources/ui/uiTest.json");
+    fileOperator.removeAllDataFromFile("..//ui/src/test/resources/ui/uiTest.json");
   }
 
   @Test
