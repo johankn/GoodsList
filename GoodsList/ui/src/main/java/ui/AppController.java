@@ -27,6 +27,7 @@ import json.Electronics;
 import json.FileOperator;
 import json.Property;
 import json.User;
+import json.UserInfoCollector;
 import json.Vehicles;
 
 /**
@@ -233,9 +234,10 @@ public class AppController {
   private void first() {
     listOfAds.getItems().clear();
     FileOperator fileoperator = new FileOperator();
+    List<Ad> ads = fileoperator.getAllAdsInFile(filename);
     listOfAds
         .getItems()
-        .addAll(fileoperator.getAllAdsInFile(filename));
+        .addAll(ads.stream().filter(ad -> ad.getIsSold() == false).collect(Collectors.toList()));
   }
 
   /**
@@ -750,28 +752,16 @@ public class AppController {
    */
   @FXML
   private void displaySelected(MouseEvent event) {
-    Ad selected = listOfAds.getSelectionModel().getSelectedItem();
+    ad = listOfAds.getSelectionModel().getSelectedItem();
     homePage.setDisable(true);
     homePage.setVisible(false);
     buyAd.setVisible(true);
     buyAd.setDisable(false);
-    titleBuy.setText(selected.getAdTitle());
-    descriptionBuy.setText(selected.getDescription());
-    conditionBuy.setText(selected.getProduct().getCondition());
-    priceBuy.setText(Integer.toString(selected.getProduct().getPrice()));
-    String[] splitStr = selected.toString().trim().split("\\s+");
-    if (!(splitStr[0].equals(null))) {
-      label11.setText(splitStr[0]);
-    }
-    if (!(splitStr[1].equals(null))) {
-      label21.setText(splitStr[1]);
-    }
-    if (!(splitStr[2].equals(null))) {
-      label31.setText(splitStr[2]);
-    }
-    if (!(splitStr[3].equals(null))) {
-      label41.setText(splitStr[3]);
-    }
+    titleBuy.setText(ad.getAdTitle());
+    descriptionBuy.setText(ad.getDescription());
+    conditionBuy.setText(ad.getProduct().getCondition());
+    priceBuy.setText(Integer.toString(ad.getProduct().getPrice()));
+
   }
 
   /*
@@ -820,6 +810,22 @@ public class AppController {
    */
   @FXML
   private void handleAccept() {
+    try {
+      ad.setIsSold(true);
+      user.buyAdd(ad.getAdID());
+      FileOperator fileOperator = new FileOperator();
+      fileOperator.updateUserObjectJsonFile(filename, user);
+      fileOperator.updateAdObjectJsonFile(filename, ad);
+      handleCancel();
+      displayMessage(ad.getAdTitle() + " was succesfully purchased");
+      handleGoBack();
+      first();
+    } catch (IllegalArgumentException e) {
+      // TODO: handle exception
+      handleCancel();
+      displayError(e.getMessage());
+    }
+  
 
   }
 
@@ -836,6 +842,13 @@ public class AppController {
 
     Alert alert = new Alert(AlertType.ERROR);
     alert.setTitle("ERROR");
+    alert.setContentText(message);
+    alert.showAndWait();
+  }
+
+  private void displayMessage(String message) {
+    Alert alert = new Alert(AlertType.INFORMATION);
+    alert.setTitle("Information");
     alert.setContentText(message);
     alert.showAndWait();
   }

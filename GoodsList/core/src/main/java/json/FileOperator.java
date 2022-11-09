@@ -59,6 +59,15 @@ public class FileOperator {
     }
   }
 
+  public void updateAdObjectJsonFile(String filename, Ad ad) {
+    dataObject = new DataObject(filename, ad, false);
+    try {
+      objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
   /**
    * Gets all the users in a json-file. Format: [User1, User2, ..., User_j]
    *
@@ -99,11 +108,11 @@ public class FileOperator {
   }
 
   public void addAdToFile(String filename, Ad ad, User user) {
-    dataObject = new DataObject(filename, user, ad, true);
+    dataObject = new DataObject(filename, ad, true);
     try {
       objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
     } catch (IOException e) {
       e.printStackTrace();
     }
-  } 
+  }
 }

@@ -43,6 +43,15 @@ public class User {
     public void addAdToList(String ad) {
       myAds.add(ad);
     }
+
+    public void buyAdd(String adId) {
+      if (this.myAds.contains(adId)) {
+        throw new IllegalArgumentException("You cannot buy your own Ad!");
+      }
+      else {
+        this.boughtAds.add(adId);
+      }
+    }
   
     /**
      * getter.
