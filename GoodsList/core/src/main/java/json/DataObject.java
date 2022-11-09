@@ -36,15 +36,14 @@ public class DataObject {
     this.user = user;
     this.addUser = addUser;
     objectMapper = new ObjectMapper();
-    generateJsonFileAsObject(filename);
+    generateJsonFileAsObjectForUser(filename);
   }
 
-  public DataObject(String filename, User user, Ad ad, boolean addAd) {
-    this.user = user;
+  public DataObject(String filename, Ad ad, boolean addAd) {
     this.ad = ad;
     this.addAd = addAd;
     objectMapper = new ObjectMapper();
-    generateJsonFileAsObject(filename);
+    generateJsonFileAsObjectForAd(filename);
   }
 
   /**
@@ -60,17 +59,29 @@ public class DataObject {
    *Generates a JsonFileAsObject from the json-file, used for appending a new user or updating
    *an existitng user in dataObjects.json.
    */
-  private void generateJsonFileAsObject(String filename) {
+  private void generateJsonFileAsObjectForUser(String filename) {
     try {
       String jsonString = makeJsonObjectFromJsonFile(filename).toString();
       jsonFileAsObject = objectMapper.readValue(jsonString, JsonFileAsObject.class);
       if (addUser) {
         addUserToJsonFileAsObjectUserList(user);
-      } else if (!addUser) {
+      } else {
         updateUserActiveAds(user);
-        if (addAd) {
-          addAdToJsonFileAsObject(ad);
-        }
+      }
+
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  private void generateJsonFileAsObjectForAd(String filename) {
+    try {
+      String jsonString = makeJsonObjectFromJsonFile(filename).toString();
+      jsonFileAsObject = objectMapper.readValue(jsonString, JsonFileAsObject.class);
+      if (addAd) {
+        addAdToJsonFileAsObject(ad);
+      } else {
+        updateAdInJsonFile(ad);
       }
 
     } catch (Exception e) {
@@ -104,6 +115,17 @@ public class DataObject {
       }
     }
     jsonFileAsObject.setUsers(userList);
+  }
+
+  private void updateAdInJsonFile(Ad ad) {
+    List<Ad> ads = jsonFileAsObject.getAds();
+    for (int i = 0; i < ads.size(); i++) {
+      if (ads.get(i).getAdID().equals(ad.getAdID())) {
+        ads.set(i, ad);
+        System.out.println(ad.getIsSold());
+      }
+    }
+    jsonFileAsObject.setAds(ads);
   }
 
   /**
