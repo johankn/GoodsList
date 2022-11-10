@@ -125,7 +125,8 @@ public class LoginController extends AbstractController {
             loggedInUser = users.get(i);
             // app = new App();
             // app.bringUserInfo(loggedInUser);
-            setUser(this.loggedInUser);
+            super.setUser(this.loggedInUser);
+            super.setFilename(filename);
             Stage stage = (Stage) loginButton.getScene().getWindow();
             setScene(Controllers.APP, stage);
           }

@@ -118,40 +118,6 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="categoriesPane" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
-         <children>
-            <Label alignment="CENTER" layoutX="250.0" layoutY="45.0" prefHeight="40.0" prefWidth="350.0" text="What are you selling?">
-               <font>
-                  <Font size="36.0" />
-               </font></Label>
-            <Button fx:id="ElectronicsButton1" alignment="CENTER" layoutX="250.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="80.0" prefWidth="350.0" text="Electronics">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <Button fx:id="ClothesButton1" layoutX="250.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="80.0" prefWidth="350.0" text="Clothing">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <Button fx:id="VehiclesButton1" layoutX="250.0" layoutY="400.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="80.0" prefWidth="350.0" text="Vehicles">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <Button fx:id="BooksButton1" layoutX="250.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="80.0" prefWidth="350.0" text="Books">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <Button fx:id="PropertyButton1" layoutX="250.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleCategory" prefHeight="80.0" prefWidth="350.0" text="Property">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <Button fx:id="exitButton" layoutX="410.0" layoutY="625.0" mnemonicParsing="false" onAction="#handleExitButton" scaleX="2.0" scaleY="2.0" text="Exit" />
-         </children>
-      </AnchorPane>
       <AnchorPane fx:id="electronicsAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
             <Label alignment="CENTER" layoutX="242.0" layoutY="25.0" prefHeight="51.0" prefWidth="316.0" scaleX="1.5" scaleY="1.5" text="New ad " textAlignment="CENTER">
