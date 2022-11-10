@@ -8,6 +8,7 @@ import json.User;
 import java.io.IOException;
 import java.util.List;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -15,12 +16,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import json.FileOperator;
 
 /**
  * Controller for the login fxml file.
  */
-public class LoginController {
+public class LoginController extends AbstractController {
 
   private RegistrationValidator registrationValidator;
   private LoginValidator loginValidator;
@@ -44,7 +46,7 @@ public class LoginController {
   @FXML
   private Button loginButton;
   @FXML
-  private Button egistrationButton;
+  private Button registrationButton;
   @FXML
   private Text header;
   @FXML
@@ -121,16 +123,20 @@ public class LoginController {
               .getUsername()
               .equals(username.getText())) {
             loggedInUser = users.get(i);
-            app = new App();
-            app.bringUserInfo(loggedInUser);
+            // app = new App();
+            // app.bringUserInfo(loggedInUser);
+            setUser(this.loggedInUser);
+            Stage stage = (Stage) loginButton.getScene().getWindow();
+            setScene(Controllers.APP, stage);
           }
         }
       }
-    } catch (IOException | IllegalArgumentException e) {
+    } catch (RuntimeException e) {
       e.printStackTrace();
       displayError(e.getMessage());
       this.username.clear();
       this.password.clear();
+      System.out.println(("YOOOOOOOOOO"));
     }
   }
 
