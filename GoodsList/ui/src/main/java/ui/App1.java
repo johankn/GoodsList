@@ -11,7 +11,7 @@ import json.User;
 /**
  * JavaFX App.
 */
-public class App extends Application {
+public class App1 extends Application {
 
   private static Stage mainStage;
 
@@ -28,12 +28,9 @@ public class App extends Application {
   @Override
   public void start(Stage stage) throws IOException {
     setMainStage(stage);
-    FXMLLoader fxmlLoader = new FXMLLoader();
-    LoginController li = new LoginController();
-    fxmlLoader.setController(li);
-    fxmlLoader.setLocation(App.class.getResource("Login.fxml"));
+    FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("Login.fxml"));
     Parent parent = fxmlLoader.load();
-    
+    LoginController li = fxmlLoader.getController();
     li.setFilepath(false);
     stage.setScene(new Scene(parent));
     stage.show();
@@ -77,7 +74,6 @@ public class App extends Application {
     }
   }
 
-
   
   /**
    * method for setting the new stage.
@@ -85,8 +81,6 @@ public class App extends Application {
    * @param Stage stage
    */
   private static void setMainStage(Stage mainStage) {
-    App.mainStage = mainStage;
+    App1.mainStage = mainStage;
   }
 }
-
-

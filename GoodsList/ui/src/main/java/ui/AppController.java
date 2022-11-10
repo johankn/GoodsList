@@ -34,7 +34,7 @@ import json.Vehicles;
  * Controller for the app fxml file.
  */
 
-public class AppController {
+public class AppController extends AbstractController {
 
   @FXML
   private Button electronicsButton;
