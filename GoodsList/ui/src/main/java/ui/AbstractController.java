@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import json.Ad;
 import json.User;
 
 /**
@@ -18,6 +19,8 @@ import json.User;
 public abstract class AbstractController {
 
   private User user;
+  private String filename;
+  private Ad ad;
 
   /**
    * Enum for the controllers. We have defined controllers and fxml-files.
@@ -26,7 +29,8 @@ public abstract class AbstractController {
    */
   public enum Controllers {
     LOGIN("Login.fxml", new LoginController()),
-    APP("App.fxml", new AppController());
+    APP("App.fxml", new AppController()),
+    CATEGORIES("Categories.fxml", new CategoriesController());
 
     private final String fxml;
     private final AbstractController abstractController;
@@ -51,7 +55,7 @@ public abstract class AbstractController {
    * both user and accounts. This method is used to log in an user.
    *
    * @param type of wanted scene. Only need to give wanted CONTROLLER type.
-   * @param event when user clicks on a button on existing scene.
+   * @param stage when user clicks on a button on existing scene.
    */
   public void setScene(Controllers type, Stage stage) {
     try {
@@ -63,8 +67,9 @@ public abstract class AbstractController {
       if (controller instanceof AppController) {
         ((AppController) controller).setUsername(this.user);
         ((AppController) controller).setChoiceBox();
-        ((AppController) controller).setFilepath(false);
       } 
+      else if (controller instanceof CategoriesController) {
+      }
     
       Scene newScene = new Scene(parent);
       stage.setScene(newScene);
@@ -80,7 +85,25 @@ public abstract class AbstractController {
   public void setUser(User user) {
     this.user = user;
   }
-  /**
+
+  public String getFilename() {
+    return this.filename;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+  }
+
+  public Ad getAd() {
+    return this.ad;
+  }
+
+  public void setAd(Ad ad) {
+    this.ad = ad;
+  }
+
+
+/**
    * Method that switches out existing AnchorPane with new AnchorPane.
    * Our HomePage.fxml contains Sidebar and Header. To make navigation
    * smoother we have determined to just switch out the content. This method

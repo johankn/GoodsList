@@ -20,6 +20,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import json.Ad;
 import json.Books;
 import json.Clothing;
@@ -231,7 +232,7 @@ public class AppController extends AbstractController {
   private String filename;
   private User user;
 
-  private void first() {
+  public void first() {
     listOfAds.getItems().clear();
     FileOperator fileoperator = new FileOperator();
     List<Ad> ads = fileoperator.getAllAdsInFile(filename);
@@ -251,21 +252,7 @@ public class AppController extends AbstractController {
     this.user = user;
   }
 
-  /**
-   * Method for choosing the filepath and hence which file we are writing and
-   * reading from. If
-   * istest is true it is a test, vice versa.
-   *
-   * @param isTest boolean
-   */
-  public void setFilepath(boolean isTest) {
-    if (isTest) {
-      this.filename = "..//ui/src/test/resources/ui/uiTest.json";
-    } else {
-      this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
-    }
-    first();
-  }
+
 
   /*
    * Method which is called when you press button new ad on the homepage.
@@ -273,87 +260,85 @@ public class AppController extends AbstractController {
    */
   @FXML
   private void handleNewAd() {
-    homePage.setDisable(true);
-    homePage.setVisible(false);
-    categoriesPane.setDisable(false);
-    categoriesPane.setVisible(true);
+    Stage stage = (Stage) newAdButton.getScene().getWindow();
+    super.setScene(Controllers.CATEGORIES, stage);
   }
 
-  /**
-   * Method for handling the different outcomes of the chooseable categories you
-   * get when you want
-   * to make a new ad. Each category has a case with different panes.
-   *
-   * @param event event
-   */
-  @FXML
-  private void handleCategory(ActionEvent event) {
-    Button activatedButton = (Button) event.getSource();
-    String category = activatedButton.getId();
+  // /**
+  //  * Method for handling the different outcomes of the chooseable categories you
+  //  * get when you want
+  //  * to make a new ad. Each category has a case with different panes.
+  //  *
+  //  * @param event event
+  //  */
+  // @FXML
+  // private void handleCategory(ActionEvent event) {
+  //   Button activatedButton = (Button) event.getSource();
+  //   String category = activatedButton.getId();
 
-    switch (category) {
-      case "ElectronicsButton1":
-        categoriesPane.setDisable(true);
-        categoriesPane.setVisible(false);
-        electronicsAd.setDisable(false);
-        electronicsAd.setVisible(true);
+  //   switch (category) {
+  //     case "ElectronicsButton1":
+  //       categoriesPane.setDisable(true);
+  //       categoriesPane.setVisible(false);
+  //       electronicsAd.setDisable(false);
+  //       electronicsAd.setVisible(true);
 
-        categoryId = 1;
+  //       categoryId = 1;
 
-        break;
-      case "ClothesButton1":
-        categoriesPane.setDisable(true);
-        categoriesPane.setVisible(false);
-        clothingAd.setDisable(false);
-        clothingAd.setVisible(true);
+  //       break;
+  //     case "ClothesButton1":
+  //       categoriesPane.setDisable(true);
+  //       categoriesPane.setVisible(false);
+  //       clothingAd.setDisable(false);
+  //       clothingAd.setVisible(true);
 
-        categoryId = 2;
+  //       categoryId = 2;
 
-        break;
-      case "PropertyButton1":
-        categoriesPane.setDisable(true);
-        categoriesPane.setVisible(false);
-        propertyAd.setDisable(false);
-        propertyAd.setVisible(true);
+  //       break;
+  //     case "PropertyButton1":
+  //       categoriesPane.setDisable(true);
+  //       categoriesPane.setVisible(false);
+  //       propertyAd.setDisable(false);
+  //       propertyAd.setVisible(true);
 
-        categoryId = 3;
+  //       categoryId = 3;
 
-        break;
-      case "VehiclesButton1":
-        categoriesPane.setDisable(true);
-        categoriesPane.setVisible(false);
-        vehiclesAd.setDisable(false);
-        vehiclesAd.setVisible(true);
+  //       break;
+  //     case "VehiclesButton1":
+  //       categoriesPane.setDisable(true);
+  //       categoriesPane.setVisible(false);
+  //       vehiclesAd.setDisable(false);
+  //       vehiclesAd.setVisible(true);
 
-        categoryId = 4;
+  //       categoryId = 4;
 
-        break;
-      case "BooksButton1":
-        categoriesPane.setDisable(true);
-        categoriesPane.setVisible(false);
-        booksAd.setDisable(false);
-        booksAd.setVisible(true);
+  //       break;
+  //     case "BooksButton1":
+  //       categoriesPane.setDisable(true);
+  //       categoriesPane.setVisible(false);
+  //       booksAd.setDisable(false);
+  //       booksAd.setVisible(true);
 
-        categoryId = 5;
+  //       categoryId = 5;
 
-        break;
+  //       break;
 
-      default:
-        break;
-    }
-  }
+  //     default:
+  //       break;
+  //   }
+  // }
 
-  /*
-   * This method is called on when you press exit after you press make ad.
-   * This is if you dont want to make an ad afterall.
-   */
-  @FXML
-  private void handleExitButton() {
-    homePage.setDisable(false);
-    homePage.setVisible(true);
-    categoriesPane.setDisable(true);
-    categoriesPane.setVisible(false);
-  }
+  // /*
+  //  * This method is called on when you press exit after you press make ad.
+  //  * This is if you dont want to make an ad afterall.
+  //  */
+  // @FXML
+  // private void handleExitButton() {
+  //   homePage.setDisable(false);
+  //   homePage.setVisible(true);
+  //   categoriesPane.setDisable(true);
+  //   categoriesPane.setVisible(false);
+  // }
 
   /*
    * The necessary field for making an ad.
