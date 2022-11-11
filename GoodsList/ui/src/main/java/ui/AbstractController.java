@@ -33,7 +33,8 @@ public abstract class AbstractController {
     ELECTRONICS("Electronics.fxml", new ElectronicsController()),
     PROPERTY("Property.fxml", new PropertyController()),
     CLOTHING("Clothing.fxml", new ClothingController()),
-    BOOKS("Books.fxml", new BooksController());
+    BOOKS("Books.fxml", new BooksController()),
+    VEHICLES("Vehicles.fxml", new VehiclesController());
 
     private final String fxml;
     private final AbstractController abstractController;
@@ -70,7 +71,6 @@ public abstract class AbstractController {
       Parent parent = loader.load();
       if (controller instanceof AppController) {
         ((AppController) controller).setUsername(this.user);
-        ((AppController) controller).setChoiceBox();
       } else if (controller instanceof CategoriesController) {
         ((CategoriesController) controller).setUser(user);
       } else if (controller instanceof ElectronicsController) {
@@ -89,6 +89,10 @@ public abstract class AbstractController {
         ((LoginController) controller).setFilepath(this.isTest);
       }
 
+      else if (controller instanceof VehiclesController) {
+        ((VehiclesController) controller).setUser(user);
+        ((VehiclesController) controller).setChoiceBox();
+      }
     
       Scene newScene = new Scene(parent);
       stage.setScene(newScene);

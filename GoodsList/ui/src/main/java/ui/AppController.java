@@ -131,10 +131,6 @@ public class AppController extends AbstractController {
   @FXML
   private AnchorPane profilePage;
   @FXML
-  private ChoiceBox<String> colourChoiceVehicles;
-  @FXML
-  private ChoiceBox<String> colourChoiceClothing;
-  @FXML
   private ListView<Ad> listOfAds;
   @FXML
   private ListView<Ad> listActiveAds;
@@ -363,51 +359,51 @@ public class AppController extends AbstractController {
    * change anything.
    * This one is for the vehicles
    */
-  @FXML
-  private void makeAd4() {
-    AdValidator adValidator = new AdValidator();
-    String date = java.time.LocalDate.now().toString();
-    FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
-    if (colourChoiceVehicles.getValue() != null) {
-      try {
-        adValidator.validateVehicles(
-            titleField4.getText(),
-            descriptionArea4.getText(),
-            priceField4.getText(),
-            brandField4.getText(),
-            typeField4.getText(),
-            yearField4.getText());
+  // @FXML
+  // private void makeAd4() {
+  //   AdValidator adValidator = new AdValidator();
+  //   String date = java.time.LocalDate.now().toString();
+  //   FileOperator fileOperator = new FileOperator();
+  //   String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
+  //   if (colourChoiceVehicles.getValue() != null) {
+  //     try {
+  //       adValidator.validateVehicles(
+  //           titleField4.getText(),
+  //           descriptionArea4.getText(),
+  //           priceField4.getText(),
+  //           brandField4.getText(),
+  //           typeField4.getText(),
+  //           yearField4.getText());
 
-        Vehicles product4 = new Vehicles(
-            Integer.parseInt(priceField4.getText()),
-            setCondition(conditionField4),
-            brandField4.getText(),
-            typeField4.getText(),
-            Integer.parseInt(yearField4.getText()),
-            colourChoiceVehicles.getValue().toString());
-        ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText(), adID, false);
+  //       Vehicles product4 = new Vehicles(
+  //           Integer.parseInt(priceField4.getText()),
+  //           setCondition(conditionField4),
+  //           brandField4.getText(),
+  //           typeField4.getText(),
+  //           Integer.parseInt(yearField4.getText()),
+  //           colourChoiceVehicles.getValue().toString());
+  //       ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText(), adID, false);
 
-        titlePreview.setText(titleField4.getText());
-        conditionPreview.setText(setCondition(conditionField4));
-        pricePreview.setText(priceField4.getText() + "Kr");
-        descriptionPreview.setText(descriptionArea4.getText());
-        label1.setText("Brand: " + brandField4.getText());
-        label2.setText("Type: " + typeField4.getText());
-        label3.setText("Colour: " + colourChoiceVehicles.getValue().toString());
-        label4.setText("Year: " + yearField4.getText());
+  //       titlePreview.setText(titleField4.getText());
+  //       conditionPreview.setText(setCondition(conditionField4));
+  //       pricePreview.setText(priceField4.getText() + "Kr");
+  //       descriptionPreview.setText(descriptionArea4.getText());
+  //       label1.setText("Brand: " + brandField4.getText());
+  //       label2.setText("Type: " + typeField4.getText());
+  //       label3.setText("Colour: " + colourChoiceVehicles.getValue().toString());
+  //       label4.setText("Year: " + yearField4.getText());
 
-        vehiclesAd.setDisable(true);
-        vehiclesAd.setVisible(false);
-        adPreview.setDisable(false);
-        adPreview.setVisible(true);
-      } catch (IllegalArgumentException e) {
-        displayError(e.getMessage());
-      }
-    } else {
-      displayError("You have to fill out all of the input fields");
-    }
-  }
+  //       vehiclesAd.setDisable(true);
+  //       vehiclesAd.setVisible(false);
+  //       adPreview.setDisable(false);
+  //       adPreview.setVisible(true);
+  //     } catch (IllegalArgumentException e) {
+  //       displayError(e.getMessage());
+  //     }
+  //   } else {
+  //     displayError("You have to fill out all of the input fields");
+  //   }
+  // }
 
   
 
@@ -416,13 +412,7 @@ public class AppController extends AbstractController {
    * for choosing colours in the clothing and
    * vehicles ad types.
    */
-  public void setChoiceBox() {
-    colourChoiceVehicles.getItems().add("Black");
-    colourChoiceVehicles.getItems().add("White");
-    colourChoiceVehicles.getItems().add("Red");
-    colourChoiceVehicles.getItems().add("Blue");
-    colourChoiceVehicles.getItems().add("Brown");
-  }
+
 
   /*
    * This is the method you can call on when you see the preview of your ad.
@@ -446,25 +436,25 @@ public class AppController extends AbstractController {
     fo.addAdToFile(filename, ad, user);
     first();
 
-    // erase clothing
-    priceField2.setText("");
-    titleField2.setText("");
-    descriptionArea2.setText("");
-    conditionField2.setSelected(false);
-    colourChoiceClothing.setValue(null);
-    brandField2.setText("");
-    typeField2.setText("");
-    sizeField2.setText("");
+    // // erase clothing
+    // priceField2.setText("");
+    // titleField2.setText("");
+    // descriptionArea2.setText("");
+    // conditionField2.setSelected(false);
+    // colourChoiceClothing.setValue(null);
+    // brandField2.setText("");
+    // typeField2.setText("");
+    // sizeField2.setText("");
 
-    // erase vehicles
-    priceField4.setText("");
-    titleField4.setText("");
-    descriptionArea4.setText("");
-    conditionField4.setSelected(false);
-    colourChoiceVehicles.setValue(null);
-    brandField4.setText("");
-    typeField4.setText("");
-    yearField4.setText("");
+    // // erase vehicles
+    // priceField4.setText("");
+    // titleField4.setText("");
+    // descriptionArea4.setText("");
+    // conditionField4.setSelected(false);
+    // colourChoiceVehicles.setValue(null);
+    // brandField4.setText("");
+    // typeField4.setText("");
+    // yearField4.setText("");
 
     ad = new Ad();
   }
