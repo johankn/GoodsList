@@ -183,23 +183,6 @@ public class AppController extends AbstractController {
   @FXML
   private CheckBox conditionField4;
 
-  @FXML
-  private TextField titleField5;
-  @FXML
-  private TextField priceField5;
-  @FXML
-  private TextField genreField5;
-  @FXML
-  private TextField pagesField5;
-  @FXML
-  private TextField yearField5;
-  @FXML
-  private TextField authorField5;
-  @FXML
-  private TextArea descriptionArea5;
-  @FXML
-  private CheckBox conditionField5;
-
   // which category ad is in the making
   private int categoryId;
   private String filename;
@@ -424,57 +407,7 @@ public class AppController extends AbstractController {
     }
   }
 
-  /*
-   * One of the five methods for making an ad. This method validates all the input
-   * field with an advalidator.
-   * It also sends you to a preview state of your ad, and asks if you want to
-   * change anything.
-   * This one is for the Books
-   */
-  @FXML
-  private void makeAd5() {
-    AdValidator adValidator = new AdValidator();
-    String date = java.time.LocalDate.now().toString();
-    FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
-    try {
-      adValidator.validateBooks(
-          titleField5.getText(),
-          descriptionArea5.getText(),
-          priceField5.getText(),
-          authorField5.getText(),
-          genreField5.getText(),
-          yearField5.getText(),
-          pagesField5.getText());
-
-      Books product5 = new Books(
-          Integer.parseInt(priceField5.getText()),
-          setCondition(conditionField5),
-          authorField5.getText(),
-          genreField5.getText(),
-          Integer.parseInt(yearField5.getText()),
-          Integer.parseInt(pagesField5.getText()));
-      ad = new Ad(titleField5.getText(), product5, date, descriptionArea5.getText(), adID, false);
-
-      // preview
-      titlePreview.setText(titleField5.getText());
-      conditionPreview.setText(setCondition(conditionField5));
-      pricePreview.setText(priceField5.getText() + "Kr");
-      descriptionPreview.setText(descriptionArea5.getText());
-      label1.setText("Author: " + authorField5.getText());
-      label2.setText("Genre: " + genreField5.getText());
-      label3.setText("Pages: " + pagesField5.getText());
-      label4.setText("Year: " + yearField5.getText());
-
-      booksAd.setDisable(true);
-      booksAd.setVisible(false);
-      adPreview.setDisable(false);
-      adPreview.setVisible(true);
-
-    } catch (IllegalArgumentException e) {
-      displayError(e.getMessage());
-    }
-  }
+  
 
   /**
    * This methods just sets the colour choices in the to different dropdownboxes
@@ -530,16 +463,6 @@ public class AppController extends AbstractController {
     brandField4.setText("");
     typeField4.setText("");
     yearField4.setText("");
-
-    // erase books
-    priceField5.setText("");
-    titleField5.setText("");
-    descriptionArea5.setText("");
-    conditionField5.setSelected(false);
-    genreField5.setText("");
-    pagesField5.setText("");
-    yearField5.setText("");
-    authorField5.setText("");
 
     ad = new Ad();
   }
