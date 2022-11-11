@@ -19,36 +19,46 @@ import json.User;
 
 public class VehiclesController extends AbstractController{
 
-    @FXML
-    private TextField titleField4;
-    @FXML
-    private TextField priceField4;
-    @FXML
-    private TextField brandField4;
-    @FXML
-    private TextField typeField4;
-    @FXML
-    private TextField yearField4;
-    @FXML
-    private TextField sizeField4;
-    @FXML
-    private TextArea descriptionArea4;
-    @FXML
-    private CheckBox conditionField4;
-    @FXML
-    private ChoiceBox colourChoiceVehicles;
-    @FXML
-    private Button goBackFromAd1;
-    @FXML
-    private Button makeAd4;
+  @FXML
+  private TextField titleField4;
+  @FXML
+  private TextField priceField4;
+  @FXML
+  private TextField brandField4;
+  @FXML
+  private TextField typeField4;
+  @FXML
+  private TextField yearField4;
+  @FXML
+  private TextField sizeField4;
+  @FXML
+  private TextArea descriptionArea4;
+  @FXML
+  private CheckBox conditionField4;
+  @FXML
+  private ChoiceBox colourChoiceVehicles;
+  @FXML
+  private Button goBackFromAd1;
+  @FXML
+  private Button makeAd22;
+
+  private Ad ad;
+  private User user;
+  private String filename;
   
-    private Ad ad;
-    private User user;
-    
 
   public void setUser(User user) {
     this.user = user;
     super.setUser(user);
+  }
+
+  public void setAd(Ad ad) {
+    this.ad = ad;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+    super.setFilename(filename);
   }
 
   public void setChoiceBox() {
@@ -59,12 +69,21 @@ public class VehiclesController extends AbstractController{
     colourChoiceVehicles.getItems().add("Brown");
   }
 
+  public void setOldInfo() {
+    titleField4.getText();
+    descriptionArea4.setText(ad.getDescription());
+    priceField4.setText(String.valueOf(ad.getProduct().getPrice()));
+    brandField4.setText(((Vehicles) ad.getProduct()).getBrand());
+    typeField4.setText(((Vehicles) ad.getProduct()).getModelName());
+    yearField4.setText(String.valueOf(((Vehicles)ad.getProduct()).getModelYear()));
+  }
+
   @FXML
   private void makeAd4() {
     AdValidator adValidator = new AdValidator();
     String date = java.time.LocalDate.now().toString();
     FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(super.getFilename()).size() + 1);
+    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
     if (colourChoiceVehicles.getValue() != null) {
       try {
         adValidator.validateVehicles(
@@ -84,8 +103,9 @@ public class VehiclesController extends AbstractController{
             colourChoiceVehicles.getValue().toString());
         ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText(), adID, false);
         super.setAd(ad);
-         //Stage stage = (Stage) makeAd2.getScene().getWindow();
-        // super.setScene(Controllers.PREVIEW, stage);
+        super.setPreviousController(this);
+        Stage stage = (Stage) makeAd22.getScene().getWindow();
+        super.setScene(Controllers.PREVIEW, stage);
       } catch (IllegalArgumentException e) {
         displayError(e.getMessage());
       }

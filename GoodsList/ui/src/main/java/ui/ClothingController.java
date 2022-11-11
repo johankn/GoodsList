@@ -42,12 +42,23 @@ public class ClothingController extends AbstractController{
   
     private Ad ad;
     private User user;
-    
+    private String filename;
 
   public void setUser(User user) {
     this.user = user;
     super.setUser(user);
   }
+
+  public void setAd(Ad ad) {
+    this.ad = ad;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+    super.setFilename(filename);
+  }
+    
+
 
   public void setChoiceBox() {
     colourChoiceClothing.getItems().add("Black");
@@ -55,6 +66,15 @@ public class ClothingController extends AbstractController{
     colourChoiceClothing.getItems().add("Red");
     colourChoiceClothing.getItems().add("Blue");
     colourChoiceClothing.getItems().add("Brown");
+  }
+
+  public void setOldInfo() {
+    titleField2.getText();
+    descriptionArea2.setText(ad.getDescription());
+    priceField2.setText(String.valueOf(ad.getProduct().getPrice()));
+    brandField2.setText(((Clothing) ad.getProduct()).getBrand());
+    typeField2.setText(((Clothing) ad.getProduct()).getType());
+    sizeField2.setText(((Clothing)ad.getProduct()).getSize());
   }
   
   /*
@@ -73,7 +93,7 @@ public class ClothingController extends AbstractController{
     AdValidator adValidator = new AdValidator();
     String date = java.time.LocalDate.now().toString();
     FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(super.getFilename()).size() + 1);
+    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
     if (colourChoiceClothing.getValue() != null) {
       try {
         adValidator.validateClothing(
@@ -93,8 +113,9 @@ public class ClothingController extends AbstractController{
             sizeField2.getText());
         ad = new Ad(titleField2.getText(), product2, date, descriptionArea2.getText(), adID, false);
         super.setAd(ad);
-        //Stage stage = (Stage) makeAd2.getScene().getWindow();
-        // super.setScene(Controllers.PREVIEW, stage);
+        super.setPreviousController(this);
+        Stage stage = (Stage) makeAd2.getScene().getWindow();
+        super.setScene(Controllers.PREVIEW, stage);
       } catch (IllegalArgumentException e) {
         displayError(e.getMessage());
       }

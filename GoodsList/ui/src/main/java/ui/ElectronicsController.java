@@ -44,15 +44,35 @@ public class ElectronicsController extends AbstractController {
   private Label label1;
   @FXML
   private Label label2;
+  @FXML
+  private Button makeAd1;
 
   private Ad ad;
   private User user;
+  private String filename;
 
 
 
   public void setUser(User user) {
     this.user = user;
     super.setUser(user);
+  }
+
+  public void setAd(Ad ad) {
+    this.ad = ad;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+    super.setFilename(filename);
+  }
+
+  public void setOldInfo() {
+    titleField1.getText();
+    descriptionArea1.setText(ad.getDescription());
+    priceField1.setText(String.valueOf(ad.getProduct().getPrice()));
+    brandField1.setText(((Electronics) ad.getProduct()).getBrand());
+    typeField1.setText(((Electronics) ad.getProduct()).getType());
   }
   
   /*
@@ -67,7 +87,7 @@ public class ElectronicsController extends AbstractController {
     AdValidator adValidator = new AdValidator();
     String date = java.time.LocalDate.now().toString();
     FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(super.getFilename()).size() + 1);
+    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
     try {
       adValidator.validateElectronics(
           titleField1.getText(),
@@ -84,15 +104,15 @@ public class ElectronicsController extends AbstractController {
       ad = new Ad(titleField1.getText(), product1, date, descriptionArea1.getText(), adID, false);
       super.setAd(ad);
 
-      titlePreview.setText(titleField1.getText());
-      conditionPreview.setText(setCondition(conditionField1));
-      pricePreview.setText(priceField1.getText() + "Kr");
-      descriptionPreview.setText(descriptionArea1.getText());
-      label1.setText("Brand: " + brandField1.getText());
-      label2.setText("Type: " + typeField1.getText());
-
-      //Stage stage = (Stage) titleField1.getScene().getWindow();
-      //super.setScene(Controllers.PREVIEW, stage);
+      // titlePreview.setText(titleField1.getText());
+      // conditionPreview.setText(setCondition(conditionField1));
+      // pricePreview.setText(priceField1.getText() + "Kr");
+      // descriptionPreview.setText(descriptionArea1.getText());
+      // label1.setText("Brand: " + brandField1.getText());
+      // label2.setText("Type: " + typeField1.getText());
+      super.setPreviousController(this);
+      Stage stage = (Stage) makeAd1.getScene().getWindow();
+      super.setScene(Controllers.PREVIEW, stage);
 
 
     } catch (IllegalArgumentException e) {
@@ -102,7 +122,7 @@ public class ElectronicsController extends AbstractController {
 
   @FXML
   private void goBack() {
-    Stage stage = (Stage) titleField1.getScene().getWindow();
+    Stage stage = (Stage) makeAd1.getScene().getWindow();
     super.setScene(Controllers.CATEGORIES, stage);
   }
   /**

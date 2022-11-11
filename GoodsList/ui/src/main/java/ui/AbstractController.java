@@ -22,6 +22,7 @@ public abstract class AbstractController {
   private String filename;
   private boolean isTest;
   private Ad ad;
+  private AbstractController previousController;
 
   /**
    * Enum for controllers with their accosiated fxml-files.
@@ -34,7 +35,8 @@ public abstract class AbstractController {
     PROPERTY("Property.fxml", new PropertyController()),
     CLOTHING("Clothing.fxml", new ClothingController()),
     BOOKS("Books.fxml", new BooksController()),
-    VEHICLES("Vehicles.fxml", new VehiclesController());
+    VEHICLES("Vehicles.fxml", new VehiclesController()),
+    PREVIEW("PreviewAd.fxml", new PreviewAdController());
 
     private final String fxml;
     private final AbstractController abstractController;
@@ -56,6 +58,10 @@ public abstract class AbstractController {
   public void setFilepathAbstract(boolean isTest) {
     this.isTest = isTest;
   }
+  public void setPreviousController(AbstractController controller) {
+    this.previousController = controller;
+  }
+
   /**
    * Method for setting a scene and pass data between the controllers.
    *
@@ -69,21 +75,52 @@ public abstract class AbstractController {
       loader.setController(controller);
       loader.setLocation(App.class.getResource(type.getFxmlString()));
       Parent parent = loader.load();
+      // this.setUser(user);
+      // this.setFilename(filename);
       if (controller instanceof AppController) {
         ((AppController) controller).setUsername(this.user);
-      } else if (controller instanceof CategoriesController) {
+        ((AppController) controller).setFilename(filename);
+        ((AppController) controller).first();
+      } 
+      else if (controller instanceof CategoriesController) {
         ((CategoriesController) controller).setUser(user);
-      } else if (controller instanceof ElectronicsController) {
+        ((CategoriesController) controller).setFilename(filename);
+      } 
+      else if (controller instanceof ElectronicsController) {
         ((ElectronicsController) controller).setUser(user);
+        ((ElectronicsController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((ElectronicsController) controller).setAd(ad);
+          ((ElectronicsController) controller).setOldInfo();
+        }
       } else if (controller instanceof BooksController) {
         ((BooksController) controller).setUser(user);
+        ((BooksController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((BooksController) controller).setAd(ad);
+          ((BooksController) controller).setOldInfo();
+        }
       }
       else if (controller instanceof ClothingController) {
         ((ClothingController) controller).setUser(user);
         ((ClothingController) controller).setChoiceBox();
+        ((ClothingController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((ClothingController) controller).setAd(ad);
+          ((ClothingController) controller).setOldInfo();
+        }
       }
       else if (controller instanceof PropertyController) {
         ((PropertyController) controller).setUser(user);
+        ((PropertyController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((PropertyController) controller).setAd(ad);
+          ((PropertyController) controller).setOldInfo();
+        }
       }
       else if (controller instanceof LoginController) {
         ((LoginController) controller).setFilepath(this.isTest);
@@ -92,8 +129,21 @@ public abstract class AbstractController {
       else if (controller instanceof VehiclesController) {
         ((VehiclesController) controller).setUser(user);
         ((VehiclesController) controller).setChoiceBox();
+        ((VehiclesController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((VehiclesController) controller).setAd(ad);
+          ((VehiclesController) controller).setOldInfo();
+        }
       }
-    
+      else if (controller instanceof PreviewAdController) {
+        ((PreviewAdController) controller).setUser(user);
+        ((PreviewAdController) controller).setAd(ad);
+        ((PreviewAdController) controller).setFilename(filename);
+        ((PreviewAdController) controller).setPreview();
+        ((PreviewAdController) controller).setPreviousController(previousController);;
+      }
+
       Scene newScene = new Scene(parent);
       stage.setScene(newScene);
     } catch (IOException e) {

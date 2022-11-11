@@ -35,6 +35,8 @@ public class PropertyController extends AbstractController {
   private TextArea descriptionArea3;
   @FXML
   private CheckBox conditionField3;
+  @FXML
+  private Button makeAd21;
 
   // @FXML
   // private Label titlePreview;
@@ -57,10 +59,31 @@ public class PropertyController extends AbstractController {
 
   private Ad ad;
   private User user;
+  private String filename;
+
 
   public void setUser(User user) {
     this.user = user;
     super.setUser(user);
+  }
+
+  public void setAd(Ad ad) {
+    this.ad = ad;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+    super.setFilename(filename);
+  }
+
+  public void setOldInfo() {
+    titleField3.getText();
+    descriptionArea3.setText(ad.getDescription());
+    priceField3.setText(String.valueOf(ad.getProduct().getPrice()));
+    typeField3.setText(((Property)ad.getProduct()).getPropertyType());
+    yearBuiltField3.setText(String.valueOf(((Property)ad.getProduct()).getYearBuilt()));
+    bedroomsField3.setText(String.valueOf(((Property)ad.getProduct()).getBedrooms()));
+    areaField3.setText(String.valueOf(((Property)ad.getProduct()).getArea()));
   }
 
   /*
@@ -75,7 +98,7 @@ public class PropertyController extends AbstractController {
     AdValidator adValidator = new AdValidator();
     String date = java.time.LocalDate.now().toString();
     FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(super.getFilename()).size() + 1);
+    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
     try {
       adValidator.validateProperty(
           titleField3.getText(),
@@ -95,7 +118,9 @@ public class PropertyController extends AbstractController {
           Integer.parseInt(areaField3.getText()));
       ad = new Ad(titleField3.getText(), product3, date, descriptionArea3.getText(), adID, false);
       super.setAd(ad);
-
+      super.setPreviousController(this);
+      Stage stage = (Stage) makeAd21.getScene().getWindow();
+      super.setScene(Controllers.PREVIEW, stage);
       // titlePreview.setText(titleField3.getText());
       // conditionPreview.setText(setCondition(conditionField3));
       // pricePreview.setText(priceField3.getText() + "Kr");
@@ -113,7 +138,7 @@ public class PropertyController extends AbstractController {
 
   @FXML
   private void goBack() {
-    Stage stage = (Stage) titleField3.getScene().getWindow();
+    Stage stage = (Stage) goBackFromAd2.getScene().getWindow();
     super.setScene(Controllers.CATEGORIES, stage);
   }
 

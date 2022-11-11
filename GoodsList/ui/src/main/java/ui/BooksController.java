@@ -35,13 +35,35 @@ public class BooksController extends AbstractController {
   private CheckBox conditionField5;
   @FXML
   private Button goBack;
+  @FXML
+  private Button makeAd23;
 
   private Ad ad;
   private User user;
+  private String filename;
 
   public void setUser(User user) {
     this.user = user;
     super.setUser(user);
+  }
+
+  public void setAd(Ad ad) {
+    this.ad = ad;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+    super.setFilename(filename);
+  }
+
+  public void setOldInfo() {
+    titleField5.getText();
+    descriptionArea5.setText(ad.getDescription());
+    priceField5.setText(String.valueOf(ad.getProduct().getPrice()));
+    authorField5.setText(((Books) ad.getProduct()).getAuthor());
+    genreField5.setText(((Books) ad.getProduct()).getGenre());
+    yearField5.setText(String.valueOf(((Books) ad.getProduct()).getReleaseYear()));
+    pagesField5.setText(String.valueOf(((Books)ad.getProduct()).getPages()));
   }
 
   /*
@@ -56,7 +78,7 @@ public class BooksController extends AbstractController {
     AdValidator adValidator = new AdValidator();
     String date = java.time.LocalDate.now().toString();
     FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(super.getFilename()).size() + 1);
+    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
     try {
       adValidator.validateBooks(
           titleField5.getText(),
@@ -76,8 +98,9 @@ public class BooksController extends AbstractController {
           Integer.parseInt(pagesField5.getText()));
       ad = new Ad(titleField5.getText(), product5, date, descriptionArea5.getText(), adID, false);
       super.setAd(ad);
-      //Stage stage = (Stage) makeAd5.getScene().getWindow();
-      //super.setScene(Controllers.PREVIEW, stage);
+      super.setPreviousController(this);
+      Stage stage = (Stage) makeAd23.getScene().getWindow();
+      super.setScene(Controllers.PREVIEW, stage);
 
       // preview
       // titlePreview.setText(titleField5.getText());

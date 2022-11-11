@@ -207,6 +207,11 @@ public class AppController extends AbstractController {
     super.setUser(user);
   }
 
+  public void setFilename(String filename) {
+    this.filename = filename;
+    super.setFilename(filename);
+  }
+
 
 
   /*
@@ -414,27 +419,27 @@ public class AppController extends AbstractController {
    */
 
 
-  /*
-   * This is the method you can call on when you see the preview of your ad.
-   * After you see your preview you can either go back and edit, or press post ad.
-   * If post ad i pressed this method runs, which ads the ad to the users list of
-   * ads,
-   * and updates the json file with the latest information
-   */
-  @FXML
-  private void handlePostAd() {
-    adPreview.setDisable(true);
-    adPreview.setVisible(false);
-    homePage.setDisable(false);
-    homePage.setVisible(true);
+  // /*
+  //  * This is the method you can call on when you see the preview of your ad.
+  //  * After you see your preview you can either go back and edit, or press post ad.
+  //  * If post ad i pressed this method runs, which ads the ad to the users list of
+  //  * ads,
+  //  * and updates the json file with the latest information
+  //  */
+  // @FXML
+  // private void handlePostAd() {
+  //   adPreview.setDisable(true);
+  //   adPreview.setVisible(false);
+  //   homePage.setDisable(false);
+  //   homePage.setVisible(true);
 
-    // skrive ad til fil her
-    // gjøre det mulig å browse ad på hjemmesiden
-    this.user.addAdToList(ad.getAdID());
-    FileOperator fo = new FileOperator();
-    fo.updateUserObjectJsonFile(filename, user);
-    fo.addAdToFile(filename, ad, user);
-    first();
+  //   // skrive ad til fil her
+  //   // gjøre det mulig å browse ad på hjemmesiden
+  //   this.user.addAdToList(ad.getAdID());
+  //   FileOperator fo = new FileOperator();
+  //   fo.updateUserObjectJsonFile(filename, user);
+  //   fo.addAdToFile(filename, ad, user);
+  //   first();
 
     // // erase clothing
     // priceField2.setText("");
@@ -446,57 +451,67 @@ public class AppController extends AbstractController {
     // typeField2.setText("");
     // sizeField2.setText("");
 
-    // // erase vehicles
-    // priceField4.setText("");
-    // titleField4.setText("");
-    // descriptionArea4.setText("");
-    // conditionField4.setSelected(false);
-    // colourChoiceVehicles.setValue(null);
-    // brandField4.setText("");
-    // typeField4.setText("");
-    // yearField4.setText("");
+  //   // erase vehicles
+  //   priceField4.setText("");
+  //   titleField4.setText("");
+  //   descriptionArea4.setText("");
+  //   conditionField4.setSelected(false);
+  //   colourChoiceVehicles.setValue(null);
+  //   brandField4.setText("");
+  //   typeField4.setText("");
+  //   yearField4.setText("");
 
-    ad = new Ad();
-  }
+  //   // erase books
+  //   priceField5.setText("");
+  //   titleField5.setText("");
+  //   descriptionArea5.setText("");
+  //   conditionField5.setSelected(false);
+  //   genreField5.setText("");
+  //   pagesField5.setText("");
+  //   yearField5.setText("");
+  //   authorField5.setText("");
 
-  /*
-   * Method for editing after you see your preview. You can go back and change
-   * before you can se a preview of your new ad.
-   */
-  @FXML
-  private void handleEdit() {
+  //   ad = new Ad();
+  // }
 
-    adPreview.setDisable(true);
-    adPreview.setVisible(false);
+  // /*
+  //  * Method for editing after you see your preview. You can go back and change
+  //  * before you can se a preview of your new ad.
+  //  */
+  // @FXML
+  // private void handleEdit() {
 
-    ad = new Ad();
+  //   adPreview.setDisable(true);
+  //   adPreview.setVisible(false);
 
-    switch (categoryId) {
-      case 1:
-        electronicsAd.setDisable(false);
-        electronicsAd.setVisible(true);
-        break;
-      case 2:
-        clothingAd.setDisable(false);
-        clothingAd.setVisible(true);
-        break;
-      case 3:
-        propertyAd.setDisable(false);
-        propertyAd.setVisible(true);
-        break;
-      case 4:
-        vehiclesAd.setDisable(false);
-        vehiclesAd.setVisible(true);
-        break;
-      case 5:
-        booksAd.setDisable(false);
-        booksAd.setVisible(true);
-        break;
+  //   ad = new Ad();
 
-      default:
-        break;
-    }
-  }
+  //   switch (categoryId) {
+  //     case 1:
+  //       electronicsAd.setDisable(false);
+  //       electronicsAd.setVisible(true);
+  //       break;
+  //     case 2:
+  //       clothingAd.setDisable(false);
+  //       clothingAd.setVisible(true);
+  //       break;
+  //     case 3:
+  //       propertyAd.setDisable(false);
+  //       propertyAd.setVisible(true);
+  //       break;
+  //     case 4:
+  //       vehiclesAd.setDisable(false);
+  //       vehiclesAd.setVisible(true);
+  //       break;
+  //     case 5:
+  //       booksAd.setDisable(false);
+  //       booksAd.setVisible(true);
+  //       break;
+
+  //     default:
+  //       break;
+  //   }
+  // }
 
   /**
    * A method that makes it possible to click on an ad in the listview. When
