@@ -3,8 +3,23 @@
     "username" : "1",
     "password" : "2",
     "fullname" : "ADMIN",
-    "myAds" : [],
-    "boughtAds" : []
+    "myAds" : [ "1" ],
+    "boughtAds" : [ ]
   } ],
-  "ads" : []
+  "ads" : [ {
+    "adTitle" : "asdf",
+    "product" : {
+      "@type" : "clothing",
+      "price" : 3242,
+      "condition" : "New",
+      "brand" : "sdfa",
+      "type" : "sd",
+      "color" : "Red",
+      "size" : "M"
+    },
+    "date" : "2022-11-11",
+    "description" : "qe",
+    "adID" : "1",
+    "isSold" : false
+  } ]
 }

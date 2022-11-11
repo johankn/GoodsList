@@ -1,4 +1,4 @@
-package core;
+package json;
 
 import org.junit.jupiter.api.Test;
 
