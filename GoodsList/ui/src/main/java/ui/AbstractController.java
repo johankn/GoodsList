@@ -31,7 +31,8 @@ public abstract class AbstractController {
     CATEGORIES("Categories.fxml", new CategoriesController()),
     ELECTRONICS("Electronics.fxml", new ElectronicsController()),
     PROPERTY("Property.fxml", new PropertyController()),
-    CLOTHING("Clothing.fxml", new ClothingController());
+    CLOTHING("Clothing.fxml", new ClothingController()),
+    BOOKS("Books.fxml", new BooksController());
 
     private final String fxml;
     private final AbstractController abstractController;
@@ -70,6 +71,8 @@ public abstract class AbstractController {
         ((CategoriesController) controller).setUser(user);
       } else if (controller instanceof ElectronicsController) {
         ((ElectronicsController) controller).setUser(user);
+      } else if (controller instanceof BooksController) {
+        ((BooksController) controller).setUser(user);
       }
       else if (controller instanceof ClothingController) {
         ((ClothingController) controller).setUser(user);
