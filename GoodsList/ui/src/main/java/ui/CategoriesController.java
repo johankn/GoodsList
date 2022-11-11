@@ -35,7 +35,7 @@ public class CategoriesController extends AbstractController{
     switch (category) {
       case "electronicsButton":
         Stage stage1 = (Stage) electronicsButton.getScene().getWindow();
-        setScene(Controllers.APP, stage1);
+        setScene(Controllers.ELECTRONICS, stage1);
         break;
       case "clothesButton":
         Stage stage2 = (Stage) clothingButton.getScene().getWindow();
@@ -66,7 +66,7 @@ public class CategoriesController extends AbstractController{
   @FXML
   private void handleExitButton() {
     Stage stage = (Stage) exitButton.getScene().getWindow();
-    // super.setScene(Controllers.APP, stage);
+    super.setScene(Controllers.APP, stage);
   }
 
 

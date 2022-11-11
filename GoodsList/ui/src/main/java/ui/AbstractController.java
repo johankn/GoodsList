@@ -23,14 +23,13 @@ public abstract class AbstractController {
   private Ad ad;
 
   /**
-   * Enum for the controllers. We have defined controllers and fxml-files.
-   * The enum also contains get methods for both controller-instance and
-   * fxml-string.
+   * Enum for controllers with their accosiated fxml-files.
    */
   public enum Controllers {
     LOGIN("Login.fxml", new LoginController()),
     APP("App.fxml", new AppController()),
-    CATEGORIES("Categories.fxml", new CategoriesController());
+    CATEGORIES("Categories.fxml", new CategoriesController()),
+    ELECTRONICS("Electronics.fxml", new ElectronicsController());
 
     private final String fxml;
     private final AbstractController abstractController;
@@ -49,10 +48,7 @@ public abstract class AbstractController {
     }
   }
 
-  /**
-   * Method that set Scene. Based on the event it will switch out with the wanted scene.
-   * The method sets controller and location of wanted scene. Further on it also sets
-   * both user and accounts. This method is used to log in an user.
+  /** Method for setting a scene and pass data between the controllers.
    *
    * @param type of wanted scene. Only need to give wanted CONTROLLER type.
    * @param stage when user clicks on a button on existing scene.
@@ -69,6 +65,9 @@ public abstract class AbstractController {
         ((AppController) controller).setChoiceBox();
       } 
       else if (controller instanceof CategoriesController) {
+      }
+      else if (controller instanceof ElectronicsController) {
+
       }
     
       Scene newScene = new Scene(parent);

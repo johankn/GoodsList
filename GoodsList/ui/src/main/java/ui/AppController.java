@@ -75,14 +75,7 @@ public class AppController extends AbstractController {
   private Button goBack;
   @FXML
   private Label welcomeText;
-  @FXML
-  private Label titlePreview;
-  @FXML
-  private Label pricePreview;
-  @FXML
-  private Label conditionPreview;
-  @FXML
-  private Label descriptionPreview;
+
   @FXML
   private Label titleBuy;
   @FXML
@@ -151,17 +144,14 @@ public class AppController extends AbstractController {
   private Ad ad;
 
   @FXML
-  private TextField titleField1;
+  private Label titlePreview;
   @FXML
-  private TextField priceField1;
+  private Label pricePreview;
   @FXML
-  private TextField brandField1;
+  private Label conditionPreview;
   @FXML
-  private TextField typeField1;
-  @FXML
-  private TextArea descriptionArea1;
-  @FXML
-  private CheckBox conditionField1;
+  private Label descriptionPreview;
+
 
   @FXML
   private TextField titleField2;
@@ -248,8 +238,9 @@ public class AppController extends AbstractController {
    * @param user user
    */
   public void setUsername(User user) {
-    welcomeText.setText("Welcome, " + user.getFullname());
     this.user = user;
+    welcomeText.setText("Welcome, " + user.getFullname());
+    
   }
 
 
@@ -343,51 +334,6 @@ public class AppController extends AbstractController {
   /*
    * The necessary field for making an ad.
    */
-
-  /*
-   * One of the five methods for making an ad. This method validates all the input
-   * field with an advalidator.
-   * It also sends you to a preview state of your ad, and asks if you want to
-   * change anything.
-   * This one is for the electronics
-   */
-  @FXML
-  private void makeAd1() {
-    AdValidator adValidator = new AdValidator();
-    String date = java.time.LocalDate.now().toString();
-    FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
-    try {
-      adValidator.validateElectronics(
-          titleField1.getText(),
-          descriptionArea1.getText(),
-          priceField1.getText(),
-          brandField1.getText(),
-          typeField1.getText());
-
-      Electronics product1 = new Electronics(
-          Integer.parseInt(priceField1.getText()),
-          setCondition(conditionField1),
-          brandField1.getText(),
-          typeField1.getText());
-      ad = new Ad(titleField1.getText(), product1, date, descriptionArea1.getText(), adID, false);
-
-      titlePreview.setText(titleField1.getText());
-      conditionPreview.setText(setCondition(conditionField1));
-      pricePreview.setText(priceField1.getText() + "Kr");
-      descriptionPreview.setText(descriptionArea1.getText());
-      label1.setText("Brand: " + brandField1.getText());
-      label2.setText("Type: " + typeField1.getText());
-
-      electronicsAd.setDisable(true);
-      electronicsAd.setVisible(false);
-      adPreview.setDisable(false);
-      adPreview.setVisible(true);
-
-    } catch (IllegalArgumentException e) {
-      displayError(e.getMessage());
-    }
-  }
 
   /*
    * One of the five methods for making an ad. This method validates all the input
@@ -637,14 +583,6 @@ public class AppController extends AbstractController {
     fo.updateUserObjectJsonFile(filename, user);
     fo.addAdToFile(filename, ad, user);
     first();
-
-    // erase electronics
-    priceField1.setText("");
-    titleField1.setText("");
-    descriptionArea1.setText("");
-    conditionField1.setSelected(false);
-    brandField1.setText("");
-    typeField1.setText("");
 
     // erase clothing
     priceField2.setText("");
