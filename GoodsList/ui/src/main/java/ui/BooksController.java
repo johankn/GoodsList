@@ -33,6 +33,8 @@ public class BooksController extends AbstractController {
   private TextArea descriptionArea5;
   @FXML
   private CheckBox conditionField5;
+  @FXML
+  private Button goBack;
 
   private Ad ad;
   private User user;
@@ -75,7 +77,7 @@ public class BooksController extends AbstractController {
       ad = new Ad(titleField5.getText(), product5, date, descriptionArea5.getText(), adID, false);
       super.setAd(ad);
       //Stage stage = (Stage) makeAd5.getScene().getWindow();
-      // super.setScene(Controllers.PREVIEW, stage);
+      //super.setScene(Controllers.PREVIEW, stage);
 
       // preview
       // titlePreview.setText(titleField5.getText());
@@ -100,7 +102,7 @@ public class BooksController extends AbstractController {
   @FXML
   private void goBack() {
     Stage stage = (Stage) titleField5.getScene().getWindow();
-    super.setScene(Controllers.APP, stage);
+    super.setScene(Controllers.CATEGORIES, stage);
   }
   /**
    * private method for displaying an error with the given param message Is used
