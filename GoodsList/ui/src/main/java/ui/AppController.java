@@ -314,62 +314,62 @@ public class AppController extends AbstractController {
   //   categoriesPane.setVisible(false);
   // }
 
-  /*
-   * The necessary field for making an ad.
-   */
+  // /*
+  //  * The necessary field for making an ad.
+  //  */
 
-  /*
-   * One of the five methods for making an ad. This method validates all the input
-   * field with an advalidator.
-   * It also sends you to a preview state of your ad, and asks if you want to
-   * change anything.
-   * This one is for the clothing
-   */
-  @FXML
-  private void makeAd2() {
-    AdValidator adValidator = new AdValidator();
-    String date = java.time.LocalDate.now().toString();
-    FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
-    if (colourChoiceClothing.getValue() != null) {
-      try {
-        adValidator.validateClothing(
-            titleField2.getText(),
-            descriptionArea2.getText(),
-            priceField2.getText(),
-            brandField2.getText(),
-            typeField2.getText(),
-            sizeField2.getText());
+  // /*
+  //  * One of the five methods for making an ad. This method validates all the input
+  //  * field with an advalidator.
+  //  * It also sends you to a preview state of your ad, and asks if you want to
+  //  * change anything.
+  //  * This one is for the clothing
+  //  */
+  // @FXML
+  // private void makeAd2() {
+  //   AdValidator adValidator = new AdValidator();
+  //   String date = java.time.LocalDate.now().toString();
+  //   FileOperator fileOperator = new FileOperator();
+  //   String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
+  //   if (colourChoiceClothing.getValue() != null) {
+  //     try {
+  //       adValidator.validateClothing(
+  //           titleField2.getText(),
+  //           descriptionArea2.getText(),
+  //           priceField2.getText(),
+  //           brandField2.getText(),
+  //           typeField2.getText(),
+  //           sizeField2.getText());
 
-        Clothing product2 = new Clothing(
-            Integer.parseInt(priceField2.getText()),
-            setCondition(conditionField2),
-            brandField2.getText(),
-            typeField2.getText(),
-            colourChoiceClothing.getValue().toString(),
-            sizeField2.getText());
-        ad = new Ad(titleField2.getText(), product2, date, descriptionArea2.getText(), adID, false);
+  //       Clothing product2 = new Clothing(
+  //           Integer.parseInt(priceField2.getText()),
+  //           setCondition(conditionField2),
+  //           brandField2.getText(),
+  //           typeField2.getText(),
+  //           colourChoiceClothing.getValue().toString(),
+  //           sizeField2.getText());
+  //       ad = new Ad(titleField2.getText(), product2, date, descriptionArea2.getText(), adID, false);
 
-        titlePreview.setText(titleField2.getText());
-        conditionPreview.setText(setCondition(conditionField2));
-        pricePreview.setText(priceField2.getText() + "Kr");
-        descriptionPreview.setText(descriptionArea2.getText());
-        label1.setText("Brand: " + brandField2.getText());
-        label2.setText("Type: " + typeField2.getText());
-        label3.setText("Colour: " + colourChoiceClothing.getValue().toString());
-        label4.setText("Size: " + sizeField2.getText());
+  //       titlePreview.setText(titleField2.getText());
+  //       conditionPreview.setText(setCondition(conditionField2));
+  //       pricePreview.setText(priceField2.getText() + "Kr");
+  //       descriptionPreview.setText(descriptionArea2.getText());
+  //       label1.setText("Brand: " + brandField2.getText());
+  //       label2.setText("Type: " + typeField2.getText());
+  //       label3.setText("Colour: " + colourChoiceClothing.getValue().toString());
+  //       label4.setText("Size: " + sizeField2.getText());
 
-        clothingAd.setDisable(true);
-        clothingAd.setVisible(false);
-        adPreview.setDisable(false);
-        adPreview.setVisible(true);
-      } catch (IllegalArgumentException e) {
-        displayError(e.getMessage());
-      }
-    } else {
-      displayError("You have to fill out all of the input fields");
-    }
-  }
+  //       clothingAd.setDisable(true);
+  //       clothingAd.setVisible(false);
+  //       adPreview.setDisable(false);
+  //       adPreview.setVisible(true);
+  //     } catch (IllegalArgumentException e) {
+  //       displayError(e.getMessage());
+  //     }
+  //   } else {
+  //     displayError("You have to fill out all of the input fields");
+  //   }
+  // }
 
   /*
    * One of the five methods for making an ad. This method validates all the input
@@ -482,12 +482,6 @@ public class AppController extends AbstractController {
    * vehicles ad types.
    */
   public void setChoiceBox() {
-    colourChoiceClothing.getItems().add("Black");
-    colourChoiceClothing.getItems().add("White");
-    colourChoiceClothing.getItems().add("Red");
-    colourChoiceClothing.getItems().add("Blue");
-    colourChoiceClothing.getItems().add("Brown");
-
     colourChoiceVehicles.getItems().add("Black");
     colourChoiceVehicles.getItems().add("White");
     colourChoiceVehicles.getItems().add("Red");
