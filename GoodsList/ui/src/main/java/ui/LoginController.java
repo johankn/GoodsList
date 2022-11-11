@@ -69,7 +69,9 @@ public class LoginController extends AbstractController {
     } else {
       this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
     }
+    super.setFilepathAbstract(isTest);
   }
+
 
   /**
    * private method for displaying an error with the given param message It os used when logging in

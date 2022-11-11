@@ -20,6 +20,7 @@ public abstract class AbstractController {
 
   private User user;
   private String filename;
+  private boolean isTest;
   private Ad ad;
 
   /**
@@ -49,8 +50,11 @@ public abstract class AbstractController {
     public String getFxmlString() {
       return this.fxml;
     }
-  }
 
+  }
+  public void setFilepathAbstract(boolean isTest) {
+    this.isTest = isTest;
+  }
   /**
    * Method for setting a scene and pass data between the controllers.
    *
@@ -81,6 +85,10 @@ public abstract class AbstractController {
       else if (controller instanceof PropertyController) {
         ((PropertyController) controller).setUser(user);
       }
+      else if (controller instanceof LoginController) {
+        ((LoginController) controller).setFilepath(this.isTest);
+      }
+
     
       Scene newScene = new Scene(parent);
       stage.setScene(newScene);

@@ -19,7 +19,7 @@ public class App extends Application {
    * Start method for the app. We have added a method for setting the filepath we
    * are using in
    * controller. If the param for setFilePath is false, we are running the app
-   * normally, and true
+   * normally, and true.
    * means its a test.
    *
    * @param stage stage
