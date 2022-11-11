@@ -60,7 +60,12 @@
                </cursor>
             </Button>
             <ListView fx:id="listOfAds" fixedCellSize="40.0" layoutX="129.0" layoutY="191.0" onMouseClicked="#displaySelected" prefHeight="409.0" prefWidth="560.0" />
-            <Button fx:id="yourProfile" alignment="CENTER" layoutX="623.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleYourProfile" prefHeight="51.0" prefWidth="54.0" text="Your Profile" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="yourProfile" alignment="CENTER" layoutX="503.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleYourProfile" prefHeight="51.0" prefWidth="54.0" text="Your Profile" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="logoutButton" alignment="CENTER" layoutX="622.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="51.0" prefWidth="54.0" text="Log out" textAlignment="CENTER" wrapText="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="adPreview" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">

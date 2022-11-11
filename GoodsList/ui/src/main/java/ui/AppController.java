@@ -74,6 +74,8 @@ public class AppController extends AbstractController {
   @FXML
   private Button goBack;
   @FXML
+  private Button logoutButton;
+  @FXML
   private Label welcomeText;
 
   @FXML
@@ -674,5 +676,13 @@ public class AppController extends AbstractController {
     listActiveAds.getItems().addAll(sorterBoughtorSold.sortAds(ad -> ad.getIsSold() == false));
     listSoldAds.getItems().addAll(sorterBoughtorSold.sortAds(ad -> ad.getIsSold() == true));
     listBoughtAds.getItems().addAll(adSorter.getListofAdsFromId(user.getBoughtAds(), ads));
+  }
+  /*
+   * When you click on log out button, you should return to login page and the user should no longer be logged in.
+   */
+  @FXML
+  private void handleLogout() {
+    Stage stage = (Stage) logoutButton.getScene().getWindow();
+    super.setScene(Controllers.LOGIN, stage);
   }
 }
