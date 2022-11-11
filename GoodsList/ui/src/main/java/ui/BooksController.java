@@ -126,4 +126,13 @@ public class BooksController extends AbstractController {
     }
     return "Used";
   }
+      // // erase books
+      // priceField5.setText("");
+      // titleField5.setText("");
+      // descriptionArea5.setText("");
+      // conditionField5.setSelected(false);
+      // genreField5.setText("");
+      // pagesField5.setText("");
+      // yearField5.setText("");
+      // authorField5.setText("");
 }
