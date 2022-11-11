@@ -3,7 +3,7 @@
     "username" : "1",
     "password" : "2",
     "fullname" : "ADMIN",
-    "myAds" : [ "1", "2", "3", "4" ],
+    "myAds" : [ "1", "2", "3", "4", "5" ],
     "boughtAds" : [ ]
   }, {
     "username" : "test",
@@ -63,6 +63,21 @@
     "date" : "2022-11-11",
     "description" : "fsdfsd",
     "adID" : "4",
+    "isSold" : false
+  }, {
+    "adTitle" : "tittel",
+    "product" : {
+      "@type" : "vehicles",
+      "price" : 33,
+      "condition" : "Used",
+      "brand" : "jjdd",
+      "modelName" : "yh",
+      "modelYear" : 2022,
+      "color" : "Black"
+    },
+    "date" : "2022-11-11",
+    "description" : "jjj\t\t\t",
+    "adID" : "5",
     "isSold" : false
   } ]
 }

@@ -36,11 +36,8 @@ public abstract class AbstractController {
     CLOTHING("Clothing.fxml", new ClothingController()),
     BOOKS("Books.fxml", new BooksController()),
     VEHICLES("Vehicles.fxml", new VehiclesController()),
-<<<<<<< HEAD
-    PREVIEW("PreviewAd.fxml", new PreviewAdController());
-=======
+    PREVIEW("PreviewAd.fxml", new PreviewAdController()),
     PROFILE("Profile.fxml", new ProfileController());
->>>>>>> 5b1549b (controller and fxml for yourProfile page)
 
     private final String fxml;
     private final AbstractController abstractController;
@@ -79,17 +76,13 @@ public abstract class AbstractController {
       loader.setController(controller);
       loader.setLocation(App.class.getResource(type.getFxmlString()));
       Parent parent = loader.load();
-<<<<<<< HEAD
       // this.setUser(user);
       // this.setFilename(filename);
-=======
       System.out.println(controller.getClass().getSimpleName());
->>>>>>> 5b1549b (controller and fxml for yourProfile page)
       if (controller instanceof AppController) {
         ((AppController) controller).setUsername(this.user);
         ((AppController) controller).setFilename(filename);
         ((AppController) controller).first();
-<<<<<<< HEAD
       } 
       else if (controller instanceof CategoriesController) {
         ((CategoriesController) controller).setUser(user);
@@ -103,7 +96,6 @@ public abstract class AbstractController {
           ((ElectronicsController) controller).setAd(ad);
           ((ElectronicsController) controller).setOldInfo();
         }
-=======
 
       } else if (controller instanceof CategoriesController) {
         ((CategoriesController) controller).setUser(user);
@@ -111,7 +103,6 @@ public abstract class AbstractController {
       } else if (controller instanceof ElectronicsController) {
         ((ElectronicsController) controller).setUser(user);
 
->>>>>>> 5b1549b (controller and fxml for yourProfile page)
       } else if (controller instanceof BooksController) {
         ((BooksController) controller).setUser(user);
         ((BooksController) controller).setFilename(filename);
@@ -154,7 +145,6 @@ public abstract class AbstractController {
           ((VehiclesController) controller).setOldInfo();
         }
       }
-<<<<<<< HEAD
       else if (controller instanceof PreviewAdController) {
         ((PreviewAdController) controller).setUser(user);
         ((PreviewAdController) controller).setAd(ad);
@@ -163,14 +153,12 @@ public abstract class AbstractController {
         ((PreviewAdController) controller).setPreviousController(previousController);;
       }
 
-=======
       else if (controller instanceof ProfileController) {
         ((ProfileController) controller).setUser(user);
         ((ProfileController) controller).setFilename(filename);
         ((ProfileController) controller).setDisplayAds();
       }
     
->>>>>>> 5b1549b (controller and fxml for yourProfile page)
       Scene newScene = new Scene(parent);
       stage.setScene(newScene);
     } catch (IOException e) {
