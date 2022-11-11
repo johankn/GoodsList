@@ -169,23 +169,6 @@ public class AppController extends AbstractController {
   private CheckBox conditionField2;
 
   @FXML
-  private TextField titleField3;
-  @FXML
-  private TextField priceField3;
-  @FXML
-  private TextField typeField3;
-  @FXML
-  private TextField areaField3;
-  @FXML
-  private TextField yearBuiltField3;
-  @FXML
-  private TextField bedroomsField3;
-  @FXML
-  private TextArea descriptionArea3;
-  @FXML
-  private CheckBox conditionField3;
-
-  @FXML
   private TextField titleField4;
   @FXML
   private TextField priceField4;
@@ -393,56 +376,6 @@ public class AppController extends AbstractController {
    * field with an advalidator.
    * It also sends you to a preview state of your ad, and asks if you want to
    * change anything.
-   * This one is for the Property
-   */
-  @FXML
-  private void makeAd3() {
-    AdValidator adValidator = new AdValidator();
-    String date = java.time.LocalDate.now().toString();
-    FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
-    try {
-      adValidator.validateProperty(
-          titleField3.getText(),
-          descriptionArea3.getText(),
-          priceField3.getText(),
-          typeField3.getText(),
-          yearBuiltField3.getText(),
-          bedroomsField3.getText(),
-          areaField3.getText());
-
-      Property product3 = new Property(
-          Integer.parseInt(priceField3.getText()),
-          setCondition(conditionField3),
-          typeField3.getText(),
-          Integer.parseInt(yearBuiltField3.getText()),
-          Integer.parseInt(bedroomsField3.getText()),
-          Integer.parseInt(areaField3.getText()));
-      ad = new Ad(titleField3.getText(), product3, date, descriptionArea3.getText(), adID, false);
-
-      titlePreview.setText(titleField3.getText());
-      conditionPreview.setText(setCondition(conditionField3));
-      pricePreview.setText(priceField3.getText() + "Kr");
-      descriptionPreview.setText(descriptionArea3.getText());
-      label1.setText("Area: " + areaField3.getText());
-      label2.setText("Type: " + typeField3.getText());
-      label3.setText("Bedrooms: " + bedroomsField3.getText());
-      label4.setText("Year: " + yearBuiltField3.getText());
-
-      propertyAd.setDisable(true);
-      propertyAd.setVisible(false);
-      adPreview.setDisable(false);
-      adPreview.setVisible(true);
-    } catch (IllegalArgumentException e) {
-      displayError(e.getMessage());
-    }
-  }
-
-  /*
-   * One of the five methods for making an ad. This method validates all the input
-   * field with an advalidator.
-   * It also sends you to a preview state of your ad, and asks if you want to
-   * change anything.
    * This one is for the vehicles
    */
   @FXML
@@ -593,16 +526,6 @@ public class AppController extends AbstractController {
     brandField2.setText("");
     typeField2.setText("");
     sizeField2.setText("");
-
-    // erase property
-    priceField3.setText("");
-    titleField3.setText("");
-    descriptionArea3.setText("");
-    conditionField3.setSelected(false);
-    typeField3.setText("");
-    areaField3.setText("");
-    yearBuiltField3.setText("");
-    bedroomsField3.setText("");
 
     // erase vehicles
     priceField4.setText("");

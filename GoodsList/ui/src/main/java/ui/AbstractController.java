@@ -29,7 +29,8 @@ public abstract class AbstractController {
     LOGIN("Login.fxml", new LoginController()),
     APP("App.fxml", new AppController()),
     CATEGORIES("Categories.fxml", new CategoriesController()),
-    ELECTRONICS("Electronics.fxml", new ElectronicsController());
+    ELECTRONICS("Electronics.fxml", new ElectronicsController()),
+    PROPERTY("Property.fxml", new PropertyController());
 
     private final String fxml;
     private final AbstractController abstractController;
@@ -48,9 +49,10 @@ public abstract class AbstractController {
     }
   }
 
-  /** Method for setting a scene and pass data between the controllers.
+  /**
+   * Method for setting a scene and pass data between the controllers.
    *
-   * @param type of wanted scene. Only need to give wanted CONTROLLER type.
+   * @param type  of wanted scene. Only need to give wanted CONTROLLER type.
    * @param stage when user clicks on a button on existing scene.
    */
   public void setScene(Controllers type, Stage stage) {
@@ -63,14 +65,12 @@ public abstract class AbstractController {
       if (controller instanceof AppController) {
         ((AppController) controller).setUsername(this.user);
         ((AppController) controller).setChoiceBox();
-      } 
-      else if (controller instanceof CategoriesController) {
+      } else if (controller instanceof CategoriesController) {
         ((CategoriesController) controller).setUser(user);
-      }
-      else if (controller instanceof ElectronicsController) {
+      } else if (controller instanceof ElectronicsController) {
         ((ElectronicsController) controller).setUser(user);
       }
-    
+
       Scene newScene = new Scene(parent);
       stage.setScene(newScene);
     } catch (IOException e) {
@@ -102,8 +102,7 @@ public abstract class AbstractController {
     this.ad = ad;
   }
 
-
-/**
+  /**
    * Method that switches out existing AnchorPane with new AnchorPane.
    * Our HomePage.fxml contains Sidebar and Header. To make navigation
    * smoother we have determined to just switch out the content. This method
@@ -112,37 +111,36 @@ public abstract class AbstractController {
    * @param type of wanted scene. Only need to give wanted CONTROLLER type.
    * @param pane that will be switched out with new AnchorPane.
    */
-//   public void setAnchorPane(
-//       Controllers type, AnchorPane pane, SalaryCheckerAccess dataAccess) {
-//     try {
-//       AbstractController controller = type.getControllerInstance();
-//       FXMLLoader loader = new FXMLLoader();
-//       loader.setLocation(SalaryCheckerApp.class.getResource(type.getFxmlString()));
-//       loader.setController(controller);
-//       controller.setDataAccess(dataAccess);
-//       AnchorPane anchorPane = loader.load();
-//       pane.getChildren().clear();
-//       pane.getChildren().setAll(anchorPane);
-//       if (controller instanceof ProfileController) {
-//         ((ProfileController) controller).loadProfileInfo();
-//       } else if (controller instanceof SettingsController) {
-//         ((SettingsController) controller).loadSettingsInfo();
-//       } else if (controller instanceof SalariesController) {
-//         ((SalariesController) controller).loadTableView();
-//       } else if (controller instanceof AdminUserOverviewController) {
-//         ((AdminUserOverviewController) controller).loadTableView();
-//       } else if (controller instanceof CreateUserController) {
-//         ((CreateUserController) controller).loadUserAndAccount();
-//       }
-//     } catch (IOException e) {
-//       e.printStackTrace();
-//     }
+  // public void setAnchorPane(
+  // Controllers type, AnchorPane pane, SalaryCheckerAccess dataAccess) {
+  // try {
+  // AbstractController controller = type.getControllerInstance();
+  // FXMLLoader loader = new FXMLLoader();
+  // loader.setLocation(SalaryCheckerApp.class.getResource(type.getFxmlString()));
+  // loader.setController(controller);
+  // controller.setDataAccess(dataAccess);
+  // AnchorPane anchorPane = loader.load();
+  // pane.getChildren().clear();
+  // pane.getChildren().setAll(anchorPane);
+  // if (controller instanceof ProfileController) {
+  // ((ProfileController) controller).loadProfileInfo();
+  // } else if (controller instanceof SettingsController) {
+  // ((SettingsController) controller).loadSettingsInfo();
+  // } else if (controller instanceof SalariesController) {
+  // ((SalariesController) controller).loadTableView();
+  // } else if (controller instanceof AdminUserOverviewController) {
+  // ((AdminUserOverviewController) controller).loadTableView();
+  // } else if (controller instanceof CreateUserController) {
+  // ((CreateUserController) controller).loadUserAndAccount();
+  // }
+  // } catch (IOException e) {
+  // e.printStackTrace();
+  // }
 
-//   }
+  // }
 
-public static void main(String[] args) {
-  System.out.println(Controllers.APP.getControllerInstance());
-}
-
+  public static void main(String[] args) {
+    System.out.println(Controllers.APP.getControllerInstance());
+  }
 
 }

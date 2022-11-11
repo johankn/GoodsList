@@ -92,7 +92,7 @@ public class ElectronicsController extends AbstractController{
       label2.setText("Type: " + typeField1.getText());
 
       //Stage stage = (Stage) titleField1.getScene().getWindow();
-      // super.setScene(Controllers.PREVIEW, stage);
+      //super.setScene(Controllers.PREVIEW, stage);
 
 
     } catch (IllegalArgumentException e) {
@@ -103,7 +103,7 @@ public class ElectronicsController extends AbstractController{
   @FXML
   private void goBack() {
     Stage stage = (Stage) titleField1.getScene().getWindow();
-    super.setScene(Controllers.APP, stage);
+    super.setScene(Controllers.CATEGORIES, stage);
   }
   /**
    * private method for displaying an error with the given param message Is used
