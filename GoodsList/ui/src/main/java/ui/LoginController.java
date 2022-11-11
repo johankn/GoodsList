@@ -128,7 +128,7 @@ public class LoginController extends AbstractController {
             super.setUser(this.loggedInUser);
             super.setFilename(filename);
             Stage stage = (Stage) loginButton.getScene().getWindow();
-            setScene(Controllers.APP, stage);
+            super.setScene(Controllers.APP, stage);
           }
         }
       }

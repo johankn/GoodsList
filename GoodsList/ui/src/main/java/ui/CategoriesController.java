@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import json.User;
 
 public class CategoriesController extends AbstractController{
 
@@ -20,6 +21,13 @@ public class CategoriesController extends AbstractController{
   @FXML
   private Button exitButton;
 
+  private User user;
+
+  public void setUser(User user) {
+    this.user = user;
+    super.setUser(user);
+  }
+
 
     /**
    * Method for handling the different outcomes of the chooseable categories you
@@ -35,7 +43,7 @@ public class CategoriesController extends AbstractController{
     switch (category) {
       case "electronicsButton":
         Stage stage1 = (Stage) electronicsButton.getScene().getWindow();
-        setScene(Controllers.APP, stage1);
+        setScene(Controllers.ELECTRONICS, stage1);
         break;
       case "clothesButton":
         Stage stage2 = (Stage) clothingButton.getScene().getWindow();
@@ -66,7 +74,7 @@ public class CategoriesController extends AbstractController{
   @FXML
   private void handleExitButton() {
     Stage stage = (Stage) exitButton.getScene().getWindow();
-    // super.setScene(Controllers.APP, stage);
+    super.setScene(Controllers.APP, stage);
   }
 
 
