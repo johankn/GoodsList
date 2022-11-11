@@ -34,7 +34,6 @@ public class App extends Application {
     fxmlLoader.setLocation(App.class.getResource("Login.fxml"));
     Parent parent = fxmlLoader.load();
     li.setFilepath(false);
-    li.setLoginControllerToAbstract();
     stage.setScene(new Scene(parent));
     stage.show();
   }
