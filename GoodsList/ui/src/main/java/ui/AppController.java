@@ -650,7 +650,7 @@ public class AppController extends AbstractController {
     this.user.addAdToList(ad.getAdID());
     FileOperator fo = new FileOperator();
     fo.updateUserObjectJsonFile(filename, user);
-    fo.addAdToFile(filename, ad, user);
+    fo.addAdToFile(filename, ad);
     first();
 
     // erase electronics
