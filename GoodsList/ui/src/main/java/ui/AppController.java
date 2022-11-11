@@ -240,7 +240,7 @@ public class AppController extends AbstractController {
   public void setUsername(User user) {
     this.user = user;
     welcomeText.setText("Welcome, " + user.getFullname());
-    
+    super.setUser(user);
   }
 
 

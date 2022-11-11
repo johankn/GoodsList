@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import json.Ad;
 import json.Electronics;
 import json.FileOperator;
+import json.User;
 
 public class ElectronicsController extends AbstractController{
     
@@ -45,7 +46,15 @@ public class ElectronicsController extends AbstractController{
   private Label label2;
 
   private Ad ad;
+  private User user;
 
+
+
+  public void setUser(User user) {
+    this.user = user;
+    super.setUser(user);
+  }
+  
   /*
    * One of the five methods for making an ad. This method validates all the input
    * field with an advalidator.

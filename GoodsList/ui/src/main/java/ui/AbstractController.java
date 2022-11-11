@@ -65,9 +65,10 @@ public abstract class AbstractController {
         ((AppController) controller).setChoiceBox();
       } 
       else if (controller instanceof CategoriesController) {
+        ((CategoriesController) controller).setUser(user);
       }
       else if (controller instanceof ElectronicsController) {
-
+        ((ElectronicsController) controller).setUser(user);
       }
     
       Scene newScene = new Scene(parent);

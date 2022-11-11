@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import json.User;
 
 public class CategoriesController extends AbstractController{
 
@@ -19,6 +20,13 @@ public class CategoriesController extends AbstractController{
   private Button propertyButton;
   @FXML
   private Button exitButton;
+
+  private User user;
+
+  public void setUser(User user) {
+    this.user = user;
+    super.setUser(user);
+  }
 
 
     /**
