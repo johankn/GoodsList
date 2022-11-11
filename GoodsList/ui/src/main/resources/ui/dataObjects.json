@@ -3,7 +3,7 @@
     "username" : "1",
     "password" : "2",
     "fullname" : "ADMIN",
-    "myAds" : [ "1", "2", "3" ],
+    "myAds" : [ "1", "2", "3", "4" ],
     "boughtAds" : [ ]
   }, {
     "username" : "test",
@@ -50,6 +50,19 @@
     "date" : "2022-11-11",
     "description" : "fsdfdfd",
     "adID" : "3",
+    "isSold" : false
+  }, {
+    "adTitle" : "fdsf",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 1234,
+      "condition" : "Used",
+      "brand" : "fdsfds",
+      "type" : "fsfsfsd"
+    },
+    "date" : "2022-11-11",
+    "description" : "fsdfsd",
+    "adID" : "4",
     "isSold" : false
   } ]
 }

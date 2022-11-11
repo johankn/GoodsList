@@ -74,6 +74,8 @@ public class AppController extends AbstractController {
   @FXML
   private Button goBack;
   @FXML
+  private Button logoutButton;
+  @FXML
   private Label welcomeText;
 
   @FXML
@@ -129,10 +131,6 @@ public class AppController extends AbstractController {
   @FXML
   private AnchorPane profilePage;
   @FXML
-  private ChoiceBox<String> colourChoiceVehicles;
-  @FXML
-  private ChoiceBox<String> colourChoiceClothing;
-  @FXML
   private ListView<Ad> listOfAds;
   @FXML
   private ListView<Ad> listActiveAds;
@@ -182,23 +180,6 @@ public class AppController extends AbstractController {
   private TextArea descriptionArea4;
   @FXML
   private CheckBox conditionField4;
-
-  @FXML
-  private TextField titleField5;
-  @FXML
-  private TextField priceField5;
-  @FXML
-  private TextField genreField5;
-  @FXML
-  private TextField pagesField5;
-  @FXML
-  private TextField yearField5;
-  @FXML
-  private TextField authorField5;
-  @FXML
-  private TextArea descriptionArea5;
-  @FXML
-  private CheckBox conditionField5;
 
   // which category ad is in the making
   private int categoryId;
@@ -383,116 +364,60 @@ public class AppController extends AbstractController {
    * change anything.
    * This one is for the vehicles
    */
-  @FXML
-  private void makeAd4() {
-    AdValidator adValidator = new AdValidator();
-    String date = java.time.LocalDate.now().toString();
-    FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
-    if (colourChoiceVehicles.getValue() != null) {
-      try {
-        adValidator.validateVehicles(
-            titleField4.getText(),
-            descriptionArea4.getText(),
-            priceField4.getText(),
-            brandField4.getText(),
-            typeField4.getText(),
-            yearField4.getText());
+  // @FXML
+  // private void makeAd4() {
+  //   AdValidator adValidator = new AdValidator();
+  //   String date = java.time.LocalDate.now().toString();
+  //   FileOperator fileOperator = new FileOperator();
+  //   String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
+  //   if (colourChoiceVehicles.getValue() != null) {
+  //     try {
+  //       adValidator.validateVehicles(
+  //           titleField4.getText(),
+  //           descriptionArea4.getText(),
+  //           priceField4.getText(),
+  //           brandField4.getText(),
+  //           typeField4.getText(),
+  //           yearField4.getText());
 
-        Vehicles product4 = new Vehicles(
-            Integer.parseInt(priceField4.getText()),
-            setCondition(conditionField4),
-            brandField4.getText(),
-            typeField4.getText(),
-            Integer.parseInt(yearField4.getText()),
-            colourChoiceVehicles.getValue().toString());
-        ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText(), adID, false);
+  //       Vehicles product4 = new Vehicles(
+  //           Integer.parseInt(priceField4.getText()),
+  //           setCondition(conditionField4),
+  //           brandField4.getText(),
+  //           typeField4.getText(),
+  //           Integer.parseInt(yearField4.getText()),
+  //           colourChoiceVehicles.getValue().toString());
+  //       ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText(), adID, false);
 
-        titlePreview.setText(titleField4.getText());
-        conditionPreview.setText(setCondition(conditionField4));
-        pricePreview.setText(priceField4.getText() + "Kr");
-        descriptionPreview.setText(descriptionArea4.getText());
-        label1.setText("Brand: " + brandField4.getText());
-        label2.setText("Type: " + typeField4.getText());
-        label3.setText("Colour: " + colourChoiceVehicles.getValue().toString());
-        label4.setText("Year: " + yearField4.getText());
+  //       titlePreview.setText(titleField4.getText());
+  //       conditionPreview.setText(setCondition(conditionField4));
+  //       pricePreview.setText(priceField4.getText() + "Kr");
+  //       descriptionPreview.setText(descriptionArea4.getText());
+  //       label1.setText("Brand: " + brandField4.getText());
+  //       label2.setText("Type: " + typeField4.getText());
+  //       label3.setText("Colour: " + colourChoiceVehicles.getValue().toString());
+  //       label4.setText("Year: " + yearField4.getText());
 
-        vehiclesAd.setDisable(true);
-        vehiclesAd.setVisible(false);
-        adPreview.setDisable(false);
-        adPreview.setVisible(true);
-      } catch (IllegalArgumentException e) {
-        displayError(e.getMessage());
-      }
-    } else {
-      displayError("You have to fill out all of the input fields");
-    }
-  }
+  //       vehiclesAd.setDisable(true);
+  //       vehiclesAd.setVisible(false);
+  //       adPreview.setDisable(false);
+  //       adPreview.setVisible(true);
+  //     } catch (IllegalArgumentException e) {
+  //       displayError(e.getMessage());
+  //     }
+  //   } else {
+  //     displayError("You have to fill out all of the input fields");
+  //   }
+  // }
 
-  /*
-   * One of the five methods for making an ad. This method validates all the input
-   * field with an advalidator.
-   * It also sends you to a preview state of your ad, and asks if you want to
-   * change anything.
-   * This one is for the Books
-   */
-  @FXML
-  private void makeAd5() {
-    AdValidator adValidator = new AdValidator();
-    String date = java.time.LocalDate.now().toString();
-    FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
-    try {
-      adValidator.validateBooks(
-          titleField5.getText(),
-          descriptionArea5.getText(),
-          priceField5.getText(),
-          authorField5.getText(),
-          genreField5.getText(),
-          yearField5.getText(),
-          pagesField5.getText());
-
-      Books product5 = new Books(
-          Integer.parseInt(priceField5.getText()),
-          setCondition(conditionField5),
-          authorField5.getText(),
-          genreField5.getText(),
-          Integer.parseInt(yearField5.getText()),
-          Integer.parseInt(pagesField5.getText()));
-      ad = new Ad(titleField5.getText(), product5, date, descriptionArea5.getText(), adID, false);
-
-      // preview
-      titlePreview.setText(titleField5.getText());
-      conditionPreview.setText(setCondition(conditionField5));
-      pricePreview.setText(priceField5.getText() + "Kr");
-      descriptionPreview.setText(descriptionArea5.getText());
-      label1.setText("Author: " + authorField5.getText());
-      label2.setText("Genre: " + genreField5.getText());
-      label3.setText("Pages: " + pagesField5.getText());
-      label4.setText("Year: " + yearField5.getText());
-
-      booksAd.setDisable(true);
-      booksAd.setVisible(false);
-      adPreview.setDisable(false);
-      adPreview.setVisible(true);
-
-    } catch (IllegalArgumentException e) {
-      displayError(e.getMessage());
-    }
-  }
+  
 
   /**
    * This methods just sets the colour choices in the to different dropdownboxes
    * for choosing colours in the clothing and
    * vehicles ad types.
    */
-  public void setChoiceBox() {
-    colourChoiceVehicles.getItems().add("Black");
-    colourChoiceVehicles.getItems().add("White");
-    colourChoiceVehicles.getItems().add("Red");
-    colourChoiceVehicles.getItems().add("Blue");
-    colourChoiceVehicles.getItems().add("Brown");
-  }
+
 
   // /*
   //  * This is the method you can call on when you see the preview of your ad.
@@ -516,15 +441,15 @@ public class AppController extends AbstractController {
   //   fo.addAdToFile(filename, ad, user);
   //   first();
 
-  //   // erase clothing
-  //   priceField2.setText("");
-  //   titleField2.setText("");
-  //   descriptionArea2.setText("");
-  //   conditionField2.setSelected(false);
-  //   colourChoiceClothing.setValue(null);
-  //   brandField2.setText("");
-  //   typeField2.setText("");
-  //   sizeField2.setText("");
+    // // erase clothing
+    // priceField2.setText("");
+    // titleField2.setText("");
+    // descriptionArea2.setText("");
+    // conditionField2.setSelected(false);
+    // colourChoiceClothing.setValue(null);
+    // brandField2.setText("");
+    // typeField2.setText("");
+    // sizeField2.setText("");
 
   //   // erase vehicles
   //   priceField4.setText("");
@@ -756,5 +681,13 @@ public class AppController extends AbstractController {
     listActiveAds.getItems().addAll(sorterBoughtorSold.sortAds(ad -> ad.getIsSold() == false));
     listSoldAds.getItems().addAll(sorterBoughtorSold.sortAds(ad -> ad.getIsSold() == true));
     listBoughtAds.getItems().addAll(adSorter.getListofAdsFromId(user.getBoughtAds(), ads));
+  }
+  /*
+   * When you click on log out button, you should return to login page and the user should no longer be logged in.
+   */
+  @FXML
+  private void handleLogout() {
+    Stage stage = (Stage) logoutButton.getScene().getWindow();
+    super.setScene(Controllers.LOGIN, stage);
   }
 }

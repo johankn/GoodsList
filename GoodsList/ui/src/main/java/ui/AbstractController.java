@@ -20,6 +20,7 @@ public abstract class AbstractController {
 
   private User user;
   private String filename;
+  private boolean isTest;
   private Ad ad;
   private AbstractController previousController;
 
@@ -33,6 +34,8 @@ public abstract class AbstractController {
     ELECTRONICS("Electronics.fxml", new ElectronicsController()),
     PROPERTY("Property.fxml", new PropertyController()),
     CLOTHING("Clothing.fxml", new ClothingController()),
+    BOOKS("Books.fxml", new BooksController()),
+    VEHICLES("Vehicles.fxml", new VehiclesController()),
     PREVIEW("PreviewAd.fxml", new PreviewAdController());
 
     private final String fxml;
@@ -50,8 +53,11 @@ public abstract class AbstractController {
     public String getFxmlString() {
       return this.fxml;
     }
-  }
 
+  }
+  public void setFilepathAbstract(boolean isTest) {
+    this.isTest = isTest;
+  }
   public void setPreviousController(AbstractController controller) {
     this.previousController = controller;
   }
@@ -73,7 +79,6 @@ public abstract class AbstractController {
       // this.setFilename(filename);
       if (controller instanceof AppController) {
         ((AppController) controller).setUsername(this.user);
-        ((AppController) controller).setChoiceBox();
         ((AppController) controller).setFilename(filename);
         ((AppController) controller).first();
       } 
@@ -84,17 +89,52 @@ public abstract class AbstractController {
       else if (controller instanceof ElectronicsController) {
         ((ElectronicsController) controller).setUser(user);
         ((ElectronicsController) controller).setFilename(filename);
-        if (this.previousController != null && this.previousController instanceof PreviewAdController) {
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
           ((ElectronicsController) controller).setAd(ad);
           ((ElectronicsController) controller).setOldInfo();
+        }
+      } else if (controller instanceof BooksController) {
+        ((BooksController) controller).setUser(user);
+        ((BooksController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((BooksController) controller).setAd(ad);
+          ((BooksController) controller).setOldInfo();
         }
       }
       else if (controller instanceof ClothingController) {
         ((ClothingController) controller).setUser(user);
         ((ClothingController) controller).setChoiceBox();
+        ((ClothingController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((ClothingController) controller).setAd(ad);
+          ((ClothingController) controller).setOldInfo();
+        }
       }
       else if (controller instanceof PropertyController) {
         ((PropertyController) controller).setUser(user);
+        ((PropertyController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((PropertyController) controller).setAd(ad);
+          ((PropertyController) controller).setOldInfo();
+        }
+      }
+      else if (controller instanceof LoginController) {
+        ((LoginController) controller).setFilepath(this.isTest);
+      }
+
+      else if (controller instanceof VehiclesController) {
+        ((VehiclesController) controller).setUser(user);
+        ((VehiclesController) controller).setChoiceBox();
+        ((VehiclesController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((VehiclesController) controller).setAd(ad);
+          ((VehiclesController) controller).setOldInfo();
+        }
       }
       else if (controller instanceof PreviewAdController) {
         ((PreviewAdController) controller).setUser(user);

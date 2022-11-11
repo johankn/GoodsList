@@ -61,11 +61,11 @@ public class CategoriesController extends AbstractController{
         break;
       case "vehiclesButton":
         Stage stage4 = (Stage) vehiclesButton.getScene().getWindow();
-        setScene(Controllers.APP, stage4);
+        setScene(Controllers.VEHICLES, stage4);
         break;
       case "booksButton":
         Stage stage5 = (Stage) activatedButton.getScene().getWindow();
-        setScene(Controllers.APP, stage5);
+        setScene(Controllers.BOOKS, stage5);
         break;
 
       default:

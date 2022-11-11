@@ -15,7 +15,7 @@ import json.Electronics;
 import json.FileOperator;
 import json.User;
 
-public class ElectronicsController extends AbstractController{
+public class ElectronicsController extends AbstractController {
     
   @FXML
   private Button goBackFromAd4;

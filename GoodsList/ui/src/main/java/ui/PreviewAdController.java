@@ -75,6 +75,26 @@ public class PreviewAdController extends AbstractController{
       Stage stage = (Stage) editButton.getScene().getWindow();
       super.setScene(Controllers.ELECTRONICS, stage);
     }
+    else if (this.previousController instanceof BooksController) {
+      super.setPreviousController(this);
+      Stage stage = (Stage) editButton.getScene().getWindow();
+      super.setScene(Controllers.BOOKS, stage);
+    }
+    else if (this.previousController instanceof VehiclesController) {
+      super.setPreviousController(this);
+      Stage stage = (Stage) editButton.getScene().getWindow();
+      super.setScene(Controllers.VEHICLES, stage);
+    }
+    else if (this.previousController instanceof PropertyController) {
+      super.setPreviousController(this);
+      Stage stage = (Stage) editButton.getScene().getWindow();
+      super.setScene(Controllers.PROPERTY, stage);
+    }
+    else if (this.previousController instanceof ClothingController) {
+      super.setPreviousController(this);
+      Stage stage = (Stage) editButton.getScene().getWindow();
+      super.setScene(Controllers.CLOTHING, stage);
+    }
   }
 
 }
