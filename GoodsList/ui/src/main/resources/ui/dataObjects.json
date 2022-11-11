@@ -3,7 +3,7 @@
     "username" : "1",
     "password" : "2",
     "fullname" : "ADMIN",
-    "myAds" : [ ],
+    "myAds" : [ "1", "2", "3" ],
     "boughtAds" : [ ]
   }, {
     "username" : "test",
@@ -12,5 +12,44 @@
     "myAds" : [ ],
     "boughtAds" : [ ]
   } ],
-  "ads" : [ ]
+  "ads" : [ {
+    "adTitle" : "fd",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 12,
+      "condition" : "Used",
+      "brand" : "fd",
+      "type" : "fd"
+    },
+    "date" : "2022-11-11",
+    "description" : "fd",
+    "adID" : "1",
+    "isSold" : false
+  }, {
+    "adTitle" : "fds",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 1234,
+      "condition" : "Used",
+      "brand" : "fs",
+      "type" : "fsd"
+    },
+    "date" : "2022-11-11",
+    "description" : "fs",
+    "adID" : "2",
+    "isSold" : false
+  }, {
+    "adTitle" : "fdsfds",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 1234,
+      "condition" : "Used",
+      "brand" : "fssdf",
+      "type" : "fdfds"
+    },
+    "date" : "2022-11-11",
+    "description" : "fsdfdfd",
+    "adID" : "3",
+    "isSold" : false
+  } ]
 }

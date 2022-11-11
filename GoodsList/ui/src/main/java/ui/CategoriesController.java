@@ -22,10 +22,16 @@ public class CategoriesController extends AbstractController{
   private Button exitButton;
 
   private User user;
+  private String filename;
 
   public void setUser(User user) {
     this.user = user;
     super.setUser(user);
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+    super.setFilename(filename);
   }
 
 

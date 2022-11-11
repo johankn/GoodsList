@@ -21,6 +21,7 @@ public abstract class AbstractController {
   private User user;
   private String filename;
   private Ad ad;
+  private AbstractController previousController;
 
   /**
    * Enum for controllers with their accosiated fxml-files.
@@ -31,7 +32,8 @@ public abstract class AbstractController {
     CATEGORIES("Categories.fxml", new CategoriesController()),
     ELECTRONICS("Electronics.fxml", new ElectronicsController()),
     PROPERTY("Property.fxml", new PropertyController()),
-    CLOTHING("Clothing.fxml", new ClothingController());
+    CLOTHING("Clothing.fxml", new ClothingController()),
+    PREVIEW("PreviewAd.fxml", new PreviewAdController());
 
     private final String fxml;
     private final AbstractController abstractController;
@@ -50,6 +52,10 @@ public abstract class AbstractController {
     }
   }
 
+  public void setPreviousController(AbstractController controller) {
+    this.previousController = controller;
+  }
+
   /**
    * Method for setting a scene and pass data between the controllers.
    *
@@ -63,13 +69,25 @@ public abstract class AbstractController {
       loader.setController(controller);
       loader.setLocation(App.class.getResource(type.getFxmlString()));
       Parent parent = loader.load();
+      // this.setUser(user);
+      // this.setFilename(filename);
       if (controller instanceof AppController) {
         ((AppController) controller).setUsername(this.user);
         ((AppController) controller).setChoiceBox();
-      } else if (controller instanceof CategoriesController) {
+        ((AppController) controller).setFilename(filename);
+        ((AppController) controller).first();
+      } 
+      else if (controller instanceof CategoriesController) {
         ((CategoriesController) controller).setUser(user);
-      } else if (controller instanceof ElectronicsController) {
+        ((CategoriesController) controller).setFilename(filename);
+      } 
+      else if (controller instanceof ElectronicsController) {
         ((ElectronicsController) controller).setUser(user);
+        ((ElectronicsController) controller).setFilename(filename);
+        if (this.previousController != null && this.previousController instanceof PreviewAdController) {
+          ((ElectronicsController) controller).setAd(ad);
+          ((ElectronicsController) controller).setOldInfo();
+        }
       }
       else if (controller instanceof ClothingController) {
         ((ClothingController) controller).setUser(user);
@@ -78,7 +96,14 @@ public abstract class AbstractController {
       else if (controller instanceof PropertyController) {
         ((PropertyController) controller).setUser(user);
       }
-    
+      else if (controller instanceof PreviewAdController) {
+        ((PreviewAdController) controller).setUser(user);
+        ((PreviewAdController) controller).setAd(ad);
+        ((PreviewAdController) controller).setFilename(filename);
+        ((PreviewAdController) controller).setPreview();
+        ((PreviewAdController) controller).setPreviousController(previousController);;
+      }
+
       Scene newScene = new Scene(parent);
       stage.setScene(newScene);
     } catch (IOException e) {
