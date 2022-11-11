@@ -30,7 +30,8 @@ public abstract class AbstractController {
     APP("App.fxml", new AppController()),
     CATEGORIES("Categories.fxml", new CategoriesController()),
     ELECTRONICS("Electronics.fxml", new ElectronicsController()),
-    PROPERTY("Property.fxml", new PropertyController());
+    PROPERTY("Property.fxml", new PropertyController()),
+    CLOTHING("Clothing.fxml", new ClothingController());
 
     private final String fxml;
     private final AbstractController abstractController;
@@ -70,7 +71,14 @@ public abstract class AbstractController {
       } else if (controller instanceof ElectronicsController) {
         ((ElectronicsController) controller).setUser(user);
       }
-
+      else if (controller instanceof ClothingController) {
+        ((ClothingController) controller).setUser(user);
+        ((ClothingController) controller).setChoiceBox();
+      }
+      else if (controller instanceof PropertyController) {
+        ((PropertyController) controller).setUser(user);
+      }
+    
       Scene newScene = new Scene(parent);
       stage.setScene(newScene);
     } catch (IOException e) {
