@@ -3,8 +3,8 @@
     "username" : "1",
     "password" : "2",
     "fullname" : "ADMIN",
-    "myAds" : [],
-    "boughtAds" : []
+    "myAds" : [ ],
+    "boughtAds" : [ ]
   } ],
-  "ads" : []
+  "ads" : [ ]
 }
