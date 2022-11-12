@@ -1,6 +1,7 @@
 package ui;
 
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import core.AdSorter;
@@ -117,7 +118,7 @@ public class AppController extends AbstractController {
   @FXML
   private AnchorPane booksAd;
   @FXML
-  private AnchorPane buyAd;
+  private AnchorPane displayAd;
   @FXML
   private AnchorPane profilePage;
   @FXML
@@ -517,7 +518,7 @@ public class AppController extends AbstractController {
         ad = this.listOfAds.getSelectionModel().getSelectedItem();
         super.setAd(ad);
         Stage stage = (Stage) listOfAds.getScene().getWindow();
-        super.setScene(Controllers.BUYAD, stage);
+        super.setScene(Controllers.DISPLAYAD, stage);
       }
     }
   }
@@ -560,7 +561,11 @@ public class AppController extends AbstractController {
   @FXML
   private void sortAds(ActionEvent event) {
     FileOperator fileOperator = new FileOperator();
-    AdSorter adsorter = new AdSorter(fileOperator.getAllAdsInFile(filename));
+    AdSorter adsorter = new AdSorter(
+        fileOperator.getAllAdsInFile(filename)
+        .stream()
+        .filter(ad -> ad.getIsSold() == false)
+        .collect(Collectors.toList()));
     Button pressedButton = (Button) event.getSource();
     this.listOfAds.getItems().clear();
     this.listOfAds.getItems().addAll(adsorter

@@ -18,7 +18,7 @@ import json.Electronics;
 import json.FileOperator;
 import json.User;
 
-public class BuyAdController extends AbstractController {
+public class DisplayAdController extends AbstractController {
   @FXML
   private Button buyButton;
   @FXML

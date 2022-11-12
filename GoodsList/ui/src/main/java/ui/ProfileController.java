@@ -77,13 +77,13 @@ public class ProfileController extends AbstractController {
         ad = this.listActiveAds.getSelectionModel().getSelectedItem();
         super.setAd(ad);
         Stage stage = (Stage) listActiveAds.getScene().getWindow();
-        super.setScene(Controllers.BUYAD, stage);
+        super.setScene(Controllers.DISPLAYAD, stage);
       }
       else if (this.listSoldAds.getSelectionModel().isSelected(i)) {
         ad = this.listSoldAds.getSelectionModel().getSelectedItem();
         super.setAd(ad);
         Stage stage = (Stage) listSoldAds.getScene().getWindow();
-        super.setScene(Controllers.BUYAD, stage);
+        super.setScene(Controllers.DISPLAYAD, stage);
       }
     }
     List<Ad> boughtAds = adSorter.getListofAdsFromId(this.user.getBoughtAds(), allAds);
@@ -92,7 +92,7 @@ public class ProfileController extends AbstractController {
         ad = this.listBoughtAds.getSelectionModel().getSelectedItem();
         super.setAd(ad);
         Stage stage = (Stage) listBoughtAds.getScene().getWindow();
-        super.setScene(Controllers.BUYAD, stage);
+        super.setScene(Controllers.DISPLAYAD, stage);
       }
     }
   }
