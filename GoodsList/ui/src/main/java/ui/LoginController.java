@@ -139,7 +139,6 @@ public class LoginController extends AbstractController {
       displayError(e.getMessage());
       this.username.clear();
       this.password.clear();
-      System.out.println(("YOOOOOOOOOO"));
     }
   }
 
@@ -152,7 +151,6 @@ public class LoginController extends AbstractController {
    */
   @FXML
   private void onRegistration() {
-    System.out.println(filename);
     registrationValidator = new RegistrationValidator();
     try {
       if (registrationValidator.isRegistrationLegal(

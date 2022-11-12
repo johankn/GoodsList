@@ -78,6 +78,7 @@ public abstract class AbstractController {
       Parent parent = loader.load();
       // this.setUser(user);
       // this.setFilename(filename);
+      System.out.println(controller.getClass().getSimpleName());
       if (controller instanceof AppController) {
         ((AppController) controller).setUsername(this.user);
         ((AppController) controller).setFilename(filename);
@@ -95,6 +96,13 @@ public abstract class AbstractController {
           ((ElectronicsController) controller).setAd(ad);
           ((ElectronicsController) controller).setOldInfo();
         }
+
+      } else if (controller instanceof CategoriesController) {
+        ((CategoriesController) controller).setUser(user);
+
+      } else if (controller instanceof ElectronicsController) {
+        ((ElectronicsController) controller).setUser(user);
+
       } else if (controller instanceof BooksController) {
         ((BooksController) controller).setUser(user);
         ((BooksController) controller).setFilename(filename);
@@ -150,6 +158,12 @@ public abstract class AbstractController {
         ((BuyAdController) controller).setFilename(filename);
       }
 
+      else if (controller instanceof ProfileController) {
+        ((ProfileController) controller).setUser(user);
+        ((ProfileController) controller).setFilename(filename);
+        ((ProfileController) controller).setDisplayAds();
+      }
+    
       Scene newScene = new Scene(parent);
       stage.setScene(newScene);
     } catch (IOException e) {
@@ -217,9 +231,5 @@ public abstract class AbstractController {
   // }
 
   // }
-
-  public static void main(String[] args) {
-    System.out.println(Controllers.APP.getControllerInstance());
-  }
 
 }

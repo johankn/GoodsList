@@ -566,37 +566,14 @@ public class AppController extends AbstractController {
     this.listOfAds.getItems().addAll(adsorter
         .sortAds(ad -> ad.getProduct().getClass().getSimpleName().equals(pressedButton.getText())));
   }
-  
-  /*
-   * Go back to homepage after being on your profile page
-   */
-  @FXML
-  private void handleGoBack1() {
-    profilePage.setDisable(true);
-    profilePage.setVisible(false);
-    homePage.setDisable(false);
-    homePage.setVisible(true);
-  }
 
   /*
    * When you click on your profile on homepage, you are taken to your profile page
    */
   @FXML
   private void handleYourProfile() {
-    List<Ad> ads = new FileOperator().getAllAdsInFile(filename);
-    AdSorter adSorter = new AdSorter(ads);
-    homePage.setDisable(true);
-    homePage.setVisible(false);
-    profilePage.setDisable(false);
-    profilePage.setVisible(true);
-    listActiveAds.getItems().clear();
-    listBoughtAds.getItems().clear();
-    listSoldAds.getItems().clear();
-    //missing to add Ads to listviews (activeAds, boughtAds, soldAds).
-    AdSorter sorterBoughtorSold = new AdSorter(adSorter.getListofAdsFromId(user.getMyAds(), ads));
-    listActiveAds.getItems().addAll(sorterBoughtorSold.sortAds(ad -> ad.getIsSold() == false));
-    listSoldAds.getItems().addAll(sorterBoughtorSold.sortAds(ad -> ad.getIsSold() == true));
-    listBoughtAds.getItems().addAll(adSorter.getListofAdsFromId(user.getBoughtAds(), ads));
+    Stage stage = (Stage) yourProfile.getScene().getWindow();
+    super.setScene(Controllers.PROFILE, stage);
   }
   /*
    * When you click on log out button, you should return to login page and the user should no longer be logged in.
