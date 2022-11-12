@@ -68,21 +68,9 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="buyAd" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
+      <AnchorPane fx:id="profilePage" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <Label fx:id="titleBuy" alignment="CENTER" contentDisplay="CENTER" layoutX="336.0" layoutY="58.0" prefHeight="26.0" prefWidth="139.0" scaleX="2.0" scaleY="2.0" text="Title" wrapText="true">
-               <font>
-                  <Font name="Tahoma Bold" size="28.0" />
-               </font>
-            </Label>
-            <Label fx:id="descriptionBuy" alignment="TOP_LEFT" layoutX="224.0" layoutY="343.0" prefHeight="115.0" prefWidth="349.0" scaleX="2.0" scaleY="2.0" style="-fx-border-color: grey;" text="Description" wrapText="true" />
-            <Label fx:id="conditionBuy" alignment="CENTER" layoutX="387.0" layoutY="124.0" scaleX="2.0" scaleY="2.0" text="Used" wrapText="true" />
-            <Label fx:id="priceBuy" alignment="CENTER_RIGHT" layoutX="503.0" layoutY="113.0" prefHeight="43.0" prefWidth="117.0" scaleX="2.0" scaleY="2.0" text="Kr" wrapText="true">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Button fx:id="buyButton" layoutX="345.0" layoutY="592.0" mnemonicParsing="false" onAction="#handleBuyAd" prefHeight="50.0" prefWidth="108.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Buy now">
+            <Button fx:id="goBack1" layoutX="58.0" layoutY="72.0" mnemonicParsing="false" onAction="#handleGoBack1" prefHeight="50.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Go Back">
                <font>
                   <Font size="15.0" />
                </font>
@@ -90,56 +78,29 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="label21" alignment="CENTER" layoutX="328.0" layoutY="197.0" prefHeight="23.0" prefWidth="160.0" scaleX="2.0" scaleY="2.0" wrapText="true">
+            <Label alignment="CENTER" layoutX="218.0" layoutY="72.0" prefHeight="65.0" prefWidth="357.0" scaleX="1.5" scaleY="1.5" text="Your profile">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="87.0" layoutY="214.0" prefHeight="17.0" prefWidth="142.0" scaleX="1.5" scaleY="1.5" text="Active ads">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label11" layoutX="58.0" layoutY="197.0" prefHeight="23.0" prefWidth="5.0" scaleX="2.0" scaleY="2.0" wrapText="true">
+            <Label alignment="CENTER" layoutX="326.0" layoutY="214.0" prefHeight="17.0" prefWidth="142.0" scaleX="1.5" scaleY="1.5" text="Bought ads">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label31" layoutX="118.0" layoutY="249.0" prefHeight="23.0" prefWidth="142.0" scaleX="2.0" scaleY="2.0" wrapText="true">
+            <Label alignment="CENTER" layoutX="563.0" layoutY="214.0" prefHeight="17.0" prefWidth="142.0" scaleX="1.5" scaleY="1.5" text="Sold ads">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label41" alignment="CENTER" layoutX="336.0" layoutY="249.0" prefHeight="23.0" prefWidth="132.0" scaleX="2.0" scaleY="2.0" wrapText="true">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="label51" alignment="CENTER_RIGHT" layoutX="572.0" layoutY="249.0" prefHeight="23.0" prefWidth="117.0" scaleX="2.0" scaleY="2.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="areYouSure" alignment="CENTER" layoutX="346.0" layoutY="525.0" prefHeight="19.0" prefWidth="109.0" scaleX="2.0" scaleY="2.0" text="Are you sure?" />
-            <Button fx:id="cancel" disable="true" layoutX="315.0" layoutY="592.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="50.0" prefWidth="50.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Cancel" visible="false">
-               <font>
-                  <Font size="11.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="accept" disable="true" layoutX="433.0" layoutY="592.0" mnemonicParsing="false" onAction="#handleAccept" prefHeight="50.0" prefWidth="50.0" scaleX="2.0" scaleY="2.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Accept" visible="false">
-               <font>
-                  <Font size="11.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="goBack" layoutX="70.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleGoBack" prefHeight="50.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Go Back">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+            <ListView fx:id="listActiveAds" layoutX="58.0" layoutY="252.0" prefHeight="330.0" prefWidth="200.0" />
+            <ListView fx:id="listBoughtAds" layoutX="296.0" layoutY="252.0" prefHeight="330.0" prefWidth="200.0" />
+            <ListView fx:id="listSoldAds" layoutX="534.0" layoutY="252.0" prefHeight="330.0" prefWidth="200.0" />
          </children>
       </AnchorPane>
    </children>

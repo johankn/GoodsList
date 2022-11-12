@@ -37,7 +37,7 @@ public abstract class AbstractController {
     BOOKS("Books.fxml", new BooksController()),
     VEHICLES("Vehicles.fxml", new VehiclesController()),
     PREVIEW("PreviewAd.fxml", new PreviewAdController()),
-    PROFILE("Profile.fxml", new ProfileController());
+    BUYAD("BuyAd.fxml", new BuyAdController());
 
     private final String fxml;
     private final AbstractController abstractController;
@@ -151,6 +151,11 @@ public abstract class AbstractController {
         ((PreviewAdController) controller).setFilename(filename);
         ((PreviewAdController) controller).setPreview();
         ((PreviewAdController) controller).setPreviousController(previousController);;
+      }
+      else if (controller instanceof BuyAdController) {
+        ((BuyAdController) controller).setUser(user);
+        ((BuyAdController) controller).setAd(ad);
+        ((BuyAdController) controller).setFilename(filename);
       }
 
       else if (controller instanceof ProfileController) {

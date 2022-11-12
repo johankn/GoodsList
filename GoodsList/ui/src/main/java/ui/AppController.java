@@ -66,14 +66,6 @@ public class AppController extends AbstractController {
   @FXML
   private Button yourProfile;
   @FXML
-  private Button buyButton;
-  @FXML
-  private Button cancel;
-  @FXML
-  private Button accept;
-  @FXML
-  private Button goBack;
-  @FXML
   private Button logoutButton;
   @FXML
   private Label welcomeText;
@@ -106,8 +98,6 @@ public class AppController extends AbstractController {
   private Label label41;
   @FXML
   private Label label51;
-  @FXML
-  private Label areYouSure;
   @FXML
   private AnchorPane homePage;
   @FXML
@@ -522,81 +512,14 @@ public class AppController extends AbstractController {
    */
   @FXML
   private void displaySelected(MouseEvent event) {
-    ad = listOfAds.getSelectionModel().getSelectedItem();
-    homePage.setDisable(true);
-    homePage.setVisible(false);
-    buyAd.setVisible(true);
-    buyAd.setDisable(false);
-    titleBuy.setText(ad.getAdTitle());
-    descriptionBuy.setText(ad.getDescription());
-    conditionBuy.setText(ad.getProduct().getCondition());
-    priceBuy.setText(Integer.toString(ad.getProduct().getPrice()));
-
-  }
-
-  /*
-   * Method to go back to the home page.
-   */
-  @FXML
-  private void handleGoBack() {
-    homePage.setDisable(false);
-    homePage.setVisible(true);
-    buyAd.setVisible(false);
-    buyAd.setDisable(true);
-  }
-
-  /*
-   * Method to buy an ad.
-   */
-  @FXML
-  private void handleBuyAd() {
-    buyButton.setDisable(true);
-    buyButton.setVisible(false);
-    cancel.setVisible(true);
-    cancel.setDisable(false);
-    accept.setVisible(true);
-    accept.setDisable(false);
-    areYouSure.setDisable(false);
-    areYouSure.setVisible(true);
-  }
-
-  /*
-   * Method to cancel the process of buying an ad.
-   */
-  @FXML
-  private void handleCancel() {
-    buyButton.setDisable(false);
-    buyButton.setVisible(true);
-    cancel.setVisible(false);
-    cancel.setDisable(true);
-    accept.setVisible(false);
-    accept.setDisable(true);
-    areYouSure.setDisable(true);
-    areYouSure.setVisible(false);
-  }
-
-  /*
-   * Method to actually buy an ad.
-   */
-  @FXML
-  private void handleAccept() {
-    try {
-      ad.setIsSold(true);
-      user.buyAdd(ad.getAdID());
-      FileOperator fileOperator = new FileOperator();
-      fileOperator.updateUserObjectJsonFile(filename, user);
-      fileOperator.updateAdObjectJsonFile(filename, ad);
-      handleCancel();
-      displayMessage(ad.getAdTitle() + " was succesfully purchased");
-      handleGoBack();
-      first();
-    } catch (IllegalArgumentException e) {
-      // TODO: handle exception
-      handleCancel();
-      displayError(e.getMessage());
+    for (int i = 0; i < new FileOperator().getAllAdsInFile(filename).size(); i++) {
+      if (this.listOfAds.getSelectionModel().isSelected(i)) {
+        ad = this.listOfAds.getSelectionModel().getSelectedItem();
+        super.setAd(ad);
+        Stage stage = (Stage) listOfAds.getScene().getWindow();
+        super.setScene(Controllers.BUYAD, stage);
+      }
     }
-  
-
   }
 
   /**
@@ -612,13 +535,6 @@ public class AppController extends AbstractController {
 
     Alert alert = new Alert(AlertType.ERROR);
     alert.setTitle("ERROR");
-    alert.setContentText(message);
-    alert.showAndWait();
-  }
-
-  private void displayMessage(String message) {
-    Alert alert = new Alert(AlertType.INFORMATION);
-    alert.setTitle("Information");
     alert.setContentText(message);
     alert.showAndWait();
   }
