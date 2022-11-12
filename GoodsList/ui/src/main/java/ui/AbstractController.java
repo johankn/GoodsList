@@ -81,6 +81,7 @@ public abstract class AbstractController {
       // this.setFilename(filename);
       System.out.println(controller.getClass().getSimpleName());
       if (controller instanceof AppController) {
+
         ((AppController) controller).setUsername(this.user);
         ((AppController) controller).setFilename(filename);
         ((AppController) controller).first();
@@ -156,6 +157,7 @@ public abstract class AbstractController {
       else if (controller instanceof DisplayAdController) {
         ((DisplayAdController) controller).setUser(user);
         ((DisplayAdController) controller).setAd(ad);
+        ((DisplayAdController) controller).setPreviousController(this.previousController);
         ((DisplayAdController) controller).setFilename(filename);
         ((DisplayAdController) controller).setBuyPossible();
       }
