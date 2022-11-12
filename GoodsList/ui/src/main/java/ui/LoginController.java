@@ -69,7 +69,9 @@ public class LoginController extends AbstractController {
     } else {
       this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
     }
+    super.setFilepathAbstract(isTest);
   }
+
 
   /**
    * private method for displaying an error with the given param message It os used when logging in
@@ -125,9 +127,10 @@ public class LoginController extends AbstractController {
             loggedInUser = users.get(i);
             // app = new App();
             // app.bringUserInfo(loggedInUser);
-            setUser(this.loggedInUser);
+            super.setUser(this.loggedInUser);
+            super.setFilename(filename);
             Stage stage = (Stage) loginButton.getScene().getWindow();
-            setScene(Controllers.APP, stage);
+            super.setScene(Controllers.APP, stage);
           }
         }
       }
@@ -136,7 +139,6 @@ public class LoginController extends AbstractController {
       displayError(e.getMessage());
       this.username.clear();
       this.password.clear();
-      System.out.println(("YOOOOOOOOOO"));
     }
   }
 
@@ -149,7 +151,6 @@ public class LoginController extends AbstractController {
    */
   @FXML
   private void onRegistration() {
-    System.out.println(filename);
     registrationValidator = new RegistrationValidator();
     try {
       if (registrationValidator.isRegistrationLegal(

@@ -19,7 +19,7 @@ public class App extends Application {
    * Start method for the app. We have added a method for setting the filepath we
    * are using in
    * controller. If the param for setFilePath is false, we are running the app
-   * normally, and true
+   * normally, and true.
    * means its a test.
    *
    * @param stage stage
@@ -33,7 +33,6 @@ public class App extends Application {
     fxmlLoader.setController(li);
     fxmlLoader.setLocation(App.class.getResource("Login.fxml"));
     Parent parent = fxmlLoader.load();
-    
     li.setFilepath(false);
     stage.setScene(new Scene(parent));
     stage.show();
@@ -57,25 +56,6 @@ public class App extends Application {
     return mainStage;
   }
 
-  /**
-   * Method for bringing the userinfo and filepath boolean tho the new controller
-   * and fxml file.
-   * Also changes the fxml scene.
-   *
-   * @param user user
-   * @throws IOException Exception
-   */
-  public void bringUserInfo(User user) throws IOException {
-    FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("App.fxml"));
-    Parent parent = fxmlLoader.load();
-    AppController appController = fxmlLoader.getController();
-    appController.setFilepath(false);
-    appController.setUsername(user);
-    appController.setChoiceBox();
-    if (mainStage != null) {
-      mainStage.getScene().setRoot(parent);
-    }
-  }
 
 
   

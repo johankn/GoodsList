@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import json.Ad;
 import json.User;
 
 /**
@@ -18,15 +19,26 @@ import json.User;
 public abstract class AbstractController {
 
   private User user;
+  private String filename;
+  private boolean isTest;
+  private Ad ad;
+  private AbstractController previousController;
 
   /**
-   * Enum for the controllers. We have defined controllers and fxml-files.
-   * The enum also contains get methods for both controller-instance and
-   * fxml-string.
+   * Enum for controllers with their accosiated fxml-files.
    */
   public enum Controllers {
     LOGIN("Login.fxml", new LoginController()),
-    APP("App.fxml", new AppController());
+    APP("App.fxml", new AppController()),
+    CATEGORIES("Categories.fxml", new CategoriesController()),
+    ELECTRONICS("Electronics.fxml", new ElectronicsController()),
+    PROPERTY("Property.fxml", new PropertyController()),
+    CLOTHING("Clothing.fxml", new ClothingController()),
+    BOOKS("Books.fxml", new BooksController()),
+    VEHICLES("Vehicles.fxml", new VehiclesController()),
+    PREVIEW("PreviewAd.fxml", new PreviewAdController()),
+    BUYAD("BuyAd.fxml", new BuyAdController()), 
+    PROFILE("Profile.fxml", new ProfileController());
 
     private final String fxml;
     private final AbstractController abstractController;
@@ -43,15 +55,20 @@ public abstract class AbstractController {
     public String getFxmlString() {
       return this.fxml;
     }
+
+  }
+  public void setFilepathAbstract(boolean isTest) {
+    this.isTest = isTest;
+  }
+  public void setPreviousController(AbstractController controller) {
+    this.previousController = controller;
   }
 
   /**
-   * Method that set Scene. Based on the event it will switch out with the wanted scene.
-   * The method sets controller and location of wanted scene. Further on it also sets
-   * both user and accounts. This method is used to log in an user.
+   * Method for setting a scene and pass data between the controllers.
    *
-   * @param type of wanted scene. Only need to give wanted CONTROLLER type.
-   * @param event when user clicks on a button on existing scene.
+   * @param type  of wanted scene. Only need to give wanted CONTROLLER type.
+   * @param stage when user clicks on a button on existing scene.
    */
   public void setScene(Controllers type, Stage stage) {
     try {
@@ -60,11 +77,93 @@ public abstract class AbstractController {
       loader.setController(controller);
       loader.setLocation(App.class.getResource(type.getFxmlString()));
       Parent parent = loader.load();
+      // this.setUser(user);
+      // this.setFilename(filename);
+      System.out.println(controller.getClass().getSimpleName());
       if (controller instanceof AppController) {
         ((AppController) controller).setUsername(this.user);
-        ((AppController) controller).setChoiceBox();
-        ((AppController) controller).setFilepath(false);
+        ((AppController) controller).setFilename(filename);
+        ((AppController) controller).first();
       } 
+      else if (controller instanceof CategoriesController) {
+        ((CategoriesController) controller).setUser(user);
+        ((CategoriesController) controller).setFilename(filename);
+      } 
+      else if (controller instanceof ElectronicsController) {
+        ((ElectronicsController) controller).setUser(user);
+        ((ElectronicsController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((ElectronicsController) controller).setAd(ad);
+          ((ElectronicsController) controller).setOldInfo();
+        }
+
+      } else if (controller instanceof CategoriesController) {
+        ((CategoriesController) controller).setUser(user);
+
+      } else if (controller instanceof ElectronicsController) {
+        ((ElectronicsController) controller).setUser(user);
+
+      } else if (controller instanceof BooksController) {
+        ((BooksController) controller).setUser(user);
+        ((BooksController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((BooksController) controller).setAd(ad);
+          ((BooksController) controller).setOldInfo();
+        }
+      }
+      else if (controller instanceof ClothingController) {
+        ((ClothingController) controller).setUser(user);
+        ((ClothingController) controller).setChoiceBox();
+        ((ClothingController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((ClothingController) controller).setAd(ad);
+          ((ClothingController) controller).setOldInfo();
+        }
+      }
+      else if (controller instanceof PropertyController) {
+        ((PropertyController) controller).setUser(user);
+        ((PropertyController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((PropertyController) controller).setAd(ad);
+          ((PropertyController) controller).setOldInfo();
+        }
+      }
+      else if (controller instanceof LoginController) {
+        ((LoginController) controller).setFilepath(this.isTest);
+      }
+
+      else if (controller instanceof VehiclesController) {
+        ((VehiclesController) controller).setUser(user);
+        ((VehiclesController) controller).setChoiceBox();
+        ((VehiclesController) controller).setFilename(filename);
+        if (this.previousController != null && 
+            this.previousController instanceof PreviewAdController) {
+          ((VehiclesController) controller).setAd(ad);
+          ((VehiclesController) controller).setOldInfo();
+        }
+      }
+      else if (controller instanceof PreviewAdController) {
+        ((PreviewAdController) controller).setUser(user);
+        ((PreviewAdController) controller).setAd(ad);
+        ((PreviewAdController) controller).setFilename(filename);
+        ((PreviewAdController) controller).setPreview();
+        ((PreviewAdController) controller).setPreviousController(previousController);;
+      }
+      else if (controller instanceof BuyAdController) {
+        ((BuyAdController) controller).setUser(user);
+        ((BuyAdController) controller).setAd(ad);
+        ((BuyAdController) controller).setFilename(filename);
+      }
+
+      else if (controller instanceof ProfileController) {
+        ((ProfileController) controller).setUser(user);
+        ((ProfileController) controller).setFilename(filename);
+        ((ProfileController) controller).setDisplayAds();
+      }
     
       Scene newScene = new Scene(parent);
       stage.setScene(newScene);
@@ -80,6 +179,23 @@ public abstract class AbstractController {
   public void setUser(User user) {
     this.user = user;
   }
+
+  public String getFilename() {
+    return this.filename;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+  }
+
+  public Ad getAd() {
+    return this.ad;
+  }
+
+  public void setAd(Ad ad) {
+    this.ad = ad;
+  }
+
   /**
    * Method that switches out existing AnchorPane with new AnchorPane.
    * Our HomePage.fxml contains Sidebar and Header. To make navigation
@@ -89,37 +205,32 @@ public abstract class AbstractController {
    * @param type of wanted scene. Only need to give wanted CONTROLLER type.
    * @param pane that will be switched out with new AnchorPane.
    */
-//   public void setAnchorPane(
-//       Controllers type, AnchorPane pane, SalaryCheckerAccess dataAccess) {
-//     try {
-//       AbstractController controller = type.getControllerInstance();
-//       FXMLLoader loader = new FXMLLoader();
-//       loader.setLocation(SalaryCheckerApp.class.getResource(type.getFxmlString()));
-//       loader.setController(controller);
-//       controller.setDataAccess(dataAccess);
-//       AnchorPane anchorPane = loader.load();
-//       pane.getChildren().clear();
-//       pane.getChildren().setAll(anchorPane);
-//       if (controller instanceof ProfileController) {
-//         ((ProfileController) controller).loadProfileInfo();
-//       } else if (controller instanceof SettingsController) {
-//         ((SettingsController) controller).loadSettingsInfo();
-//       } else if (controller instanceof SalariesController) {
-//         ((SalariesController) controller).loadTableView();
-//       } else if (controller instanceof AdminUserOverviewController) {
-//         ((AdminUserOverviewController) controller).loadTableView();
-//       } else if (controller instanceof CreateUserController) {
-//         ((CreateUserController) controller).loadUserAndAccount();
-//       }
-//     } catch (IOException e) {
-//       e.printStackTrace();
-//     }
+  // public void setAnchorPane(
+  // Controllers type, AnchorPane pane, SalaryCheckerAccess dataAccess) {
+  // try {
+  // AbstractController controller = type.getControllerInstance();
+  // FXMLLoader loader = new FXMLLoader();
+  // loader.setLocation(SalaryCheckerApp.class.getResource(type.getFxmlString()));
+  // loader.setController(controller);
+  // controller.setDataAccess(dataAccess);
+  // AnchorPane anchorPane = loader.load();
+  // pane.getChildren().clear();
+  // pane.getChildren().setAll(anchorPane);
+  // if (controller instanceof ProfileController) {
+  // ((ProfileController) controller).loadProfileInfo();
+  // } else if (controller instanceof SettingsController) {
+  // ((SettingsController) controller).loadSettingsInfo();
+  // } else if (controller instanceof SalariesController) {
+  // ((SalariesController) controller).loadTableView();
+  // } else if (controller instanceof AdminUserOverviewController) {
+  // ((AdminUserOverviewController) controller).loadTableView();
+  // } else if (controller instanceof CreateUserController) {
+  // ((CreateUserController) controller).loadUserAndAccount();
+  // }
+  // } catch (IOException e) {
+  // e.printStackTrace();
+  // }
 
-//   }
-
-public static void main(String[] args) {
-  System.out.println(Controllers.APP.getControllerInstance());
-}
-
+  // }
 
 }
