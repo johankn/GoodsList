@@ -10,7 +10,7 @@
     "password" : "Test1234",
     "fullname" : "Test",
     "myAds" : [ ],
-    "boughtAds" : [ "2", "1", "3" ]
+    "boughtAds" : [ "2", "1", "3", "4" ]
   } ],
   "ads" : [ {
     "adTitle" : "fdsfds",
@@ -56,17 +56,17 @@
     "adID" : "3",
     "isSold" : true
   }, {
-    "adTitle" : "werfg",
+    "adTitle" : "fdsfd",
     "product" : {
       "@type" : "electronics",
-      "price" : 2345,
-      "condition" : "Used",
-      "brand" : "erdfgh",
-      "type" : "esrdfgh"
+      "price" : 321,
+      "condition" : "New",
+      "brand" : "fdsdfs",
+      "type" : "fsdfds"
     },
     "date" : "2022-11-12",
-    "description" : "asdfgh",
+    "description" : "dsfdsfds",
     "adID" : "4",
-    "isSold" : false
+    "isSold" : true
   } ]
 }

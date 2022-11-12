@@ -517,6 +517,7 @@ public class AppController extends AbstractController {
       if (this.listOfAds.getSelectionModel().isSelected(i)) {
         ad = this.listOfAds.getSelectionModel().getSelectedItem();
         super.setAd(ad);
+        super.setPreviousController(this);
         Stage stage = (Stage) listOfAds.getScene().getWindow();
         super.setScene(Controllers.DISPLAYAD, stage);
       }

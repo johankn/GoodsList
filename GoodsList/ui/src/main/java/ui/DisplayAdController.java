@@ -1,5 +1,7 @@
 package ui;
 
+import java.lang.annotation.AnnotationTypeMismatchException;
+
 import core.AdValidator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -35,6 +37,7 @@ public class DisplayAdController extends AbstractController {
   private Ad ad;
   private User user;
   private String filename;
+  private AbstractController previousController;
 
   public void setUser(User user) {
     this.user = user;
@@ -97,8 +100,19 @@ public class DisplayAdController extends AbstractController {
    */
   @FXML
   private void handleGoBack() {
-    Stage stage = (Stage) buyButton.getScene().getWindow();
-    super.setScene(Controllers.APP, stage);
+    if (this.previousController instanceof AppController) {
+      Stage stage = (Stage) buyButton.getScene().getWindow();
+      super.setScene(Controllers.APP, stage);
+    }
+    if (this.previousController instanceof ProfileController) {
+      Stage stage = (Stage) buyButton.getScene().getWindow();
+      super.setScene(Controllers.PROFILE, stage);
+    }
+
+  }
+
+  public void setPreviousController(AbstractController controller) {
+    this.previousController = controller;
   }
 
   /*

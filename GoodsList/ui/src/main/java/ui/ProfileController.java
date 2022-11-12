@@ -72,6 +72,7 @@ public class ProfileController extends AbstractController {
     AdSorter sorterBoughtorSold = new AdSorter(adSorter.getListofAdsFromId(this.user.getMyAds(),
          allAds));
     List<Ad> yourAds = sorterBoughtorSold.getAds();
+    super.setPreviousController(this);
     for (int i = 0; i < yourAds.size(); i++) {
       if (this.listActiveAds.getSelectionModel().isSelected(i)) {
         ad = this.listActiveAds.getSelectionModel().getSelectedItem();
