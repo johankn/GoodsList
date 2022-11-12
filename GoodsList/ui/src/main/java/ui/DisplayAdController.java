@@ -68,6 +68,8 @@ public class DisplayAdController extends AbstractController {
         ifOwner.setText("You own this ad and it is still active");
       }
     } else {
+      ifOwner.setDisable(true);
+      ifOwner.setVisible(false);
       buyButton.setDisable(false);
       buyButton.setVisible(true);
     }
