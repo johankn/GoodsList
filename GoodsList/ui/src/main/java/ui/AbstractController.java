@@ -37,7 +37,8 @@ public abstract class AbstractController {
     BOOKS("Books.fxml", new BooksController()),
     VEHICLES("Vehicles.fxml", new VehiclesController()),
     PREVIEW("PreviewAd.fxml", new PreviewAdController()),
-    BUYAD("BuyAd.fxml", new BuyAdController());
+    BUYAD("BuyAd.fxml", new BuyAdController()), 
+    PROFILE("Profile.fxml", new ProfileController());
 
     private final String fxml;
     private final AbstractController abstractController;

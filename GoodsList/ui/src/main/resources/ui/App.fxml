@@ -68,40 +68,5 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="profilePage" disable="true" prefHeight="700.0" prefWidth="800.0" visible="false">
-         <children>
-            <Button fx:id="goBack1" layoutX="58.0" layoutY="72.0" mnemonicParsing="false" onAction="#handleGoBack1" prefHeight="50.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" style="-fx-background-color: lightgrey; -fx-border-color: black;" text="Go Back">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Label alignment="CENTER" layoutX="218.0" layoutY="72.0" prefHeight="65.0" prefWidth="357.0" scaleX="1.5" scaleY="1.5" text="Your profile">
-               <font>
-                  <Font size="45.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="87.0" layoutY="214.0" prefHeight="17.0" prefWidth="142.0" scaleX="1.5" scaleY="1.5" text="Active ads">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="326.0" layoutY="214.0" prefHeight="17.0" prefWidth="142.0" scaleX="1.5" scaleY="1.5" text="Bought ads">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="563.0" layoutY="214.0" prefHeight="17.0" prefWidth="142.0" scaleX="1.5" scaleY="1.5" text="Sold ads">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <ListView fx:id="listActiveAds" layoutX="58.0" layoutY="252.0" prefHeight="330.0" prefWidth="200.0" />
-            <ListView fx:id="listBoughtAds" layoutX="296.0" layoutY="252.0" prefHeight="330.0" prefWidth="200.0" />
-            <ListView fx:id="listSoldAds" layoutX="534.0" layoutY="252.0" prefHeight="330.0" prefWidth="200.0" />
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>
