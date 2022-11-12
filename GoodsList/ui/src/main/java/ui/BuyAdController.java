@@ -29,6 +29,8 @@ public class BuyAdController extends AbstractController {
   private Button goBack;
   @FXML
   private Label areYouSure;
+  @FXML
+  private Label ifOwner;
 
   private Ad ad;
   private User user;
@@ -47,6 +49,31 @@ public class BuyAdController extends AbstractController {
   public void setFilename(String filename) {
     this.filename = filename;
     super.setFilename(filename);
+  }
+
+  public void setBuyPossible() {
+    if (user.getBoughtAds().contains(ad.getAdID())) {
+      buyButton.setDisable(true);
+      buyButton.setVisible(false);
+      ifOwner.setText("You have bought this ad");
+    } else if (user.getMyAds().contains(ad.getAdID())) {
+      buyButton.setDisable(true);
+      buyButton.setVisible(false);
+      if (ad.getIsSold()) {
+        ifOwner.setText("You have sold this ad");
+      } else {
+        ifOwner.setText("You own this ad and it is still active");
+      }
+    } else {
+      buyButton.setDisable(false);
+      buyButton.setVisible(true);
+    }
+    cancel.setVisible(false);
+    cancel.setDisable(true);
+    accept.setVisible(false);
+    accept.setDisable(true);
+    areYouSure.setDisable(true);
+    areYouSure.setVisible(false);
   }
 
   private void displayMessage(String message) {

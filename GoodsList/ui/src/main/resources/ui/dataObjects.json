@@ -3,8 +3,57 @@
     "username" : "1",
     "password" : "2",
     "fullname" : "ADMIN",
-    "myAds" : [ ],
+    "myAds" : [ "1", "2", "3" ],
     "boughtAds" : [ ]
+  }, {
+    "username" : "test",
+    "password" : "Test1234",
+    "fullname" : "Test",
+    "myAds" : [ ],
+    "boughtAds" : [ "2", "1", "3" ]
   } ],
-  "ads" : [ ]
+  "ads" : [ {
+    "adTitle" : "fdsfds",
+    "product" : {
+      "@type" : "clothing",
+      "price" : 12,
+      "condition" : "Used",
+      "brand" : "fdsfds",
+      "type" : "fdsfsd",
+      "color" : "Blue",
+      "size" : "fsdfds"
+    },
+    "date" : "2022-11-12",
+    "description" : "sdfdsfds",
+    "adID" : "1",
+    "isSold" : true
+  }, {
+    "adTitle" : "fsdfs",
+    "product" : {
+      "@type" : "vehicles",
+      "price" : 1221,
+      "condition" : "Used",
+      "brand" : "fdsfds",
+      "modelName" : "fdfds",
+      "modelYear" : 2019,
+      "color" : "Red"
+    },
+    "date" : "2022-11-12",
+    "description" : "fdsfdsfdsfdsfdsfsd",
+    "adID" : "2",
+    "isSold" : true
+  }, {
+    "adTitle" : "fds",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 213,
+      "condition" : "Used",
+      "brand" : "fsd",
+      "type" : "fsd"
+    },
+    "date" : "2022-11-12",
+    "description" : "fds",
+    "adID" : "3",
+    "isSold" : true
+  } ]
 }
