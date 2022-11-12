@@ -17,7 +17,7 @@
             <Cursor fx:constant="HAND" />
         </cursor>
     </Button>
-    <Label alignment="CENTER" layoutX="218.0" layoutY="72.0" prefHeight="65.0" prefWidth="357.0" scaleX="1.5" scaleY="1.5" text="Your profile">
+    <Label alignment="CENTER" layoutX="273.0" layoutY="66.0" prefHeight="65.0" prefWidth="239.0" scaleX="1.5" scaleY="1.5" text="Your profile">
         <font>
             <Font size="45.0" />
         </font>
