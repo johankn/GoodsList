@@ -3,7 +3,7 @@
     "username" : "1",
     "password" : "2",
     "fullname" : "ADMIN",
-    "myAds" : [ "1", "2", "3" ],
+    "myAds" : [ "1", "2", "3", "4" ],
     "boughtAds" : [ ]
   }, {
     "username" : "test",
@@ -55,5 +55,18 @@
     "description" : "fds",
     "adID" : "3",
     "isSold" : true
+  }, {
+    "adTitle" : "werfg",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 2345,
+      "condition" : "Used",
+      "brand" : "erdfgh",
+      "type" : "esrdfgh"
+    },
+    "date" : "2022-11-12",
+    "description" : "asdfgh",
+    "adID" : "4",
+    "isSold" : false
   } ]
 }
