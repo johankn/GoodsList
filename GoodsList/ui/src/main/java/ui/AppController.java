@@ -117,7 +117,7 @@ public class AppController extends AbstractController {
   @FXML
   private AnchorPane booksAd;
   @FXML
-  private AnchorPane buyAd;
+  private AnchorPane displayAd;
   @FXML
   private AnchorPane profilePage;
   @FXML
@@ -517,7 +517,7 @@ public class AppController extends AbstractController {
         ad = this.listOfAds.getSelectionModel().getSelectedItem();
         super.setAd(ad);
         Stage stage = (Stage) listOfAds.getScene().getWindow();
-        super.setScene(Controllers.BUYAD, stage);
+        super.setScene(Controllers.DISPLAYAD, stage);
       }
     }
   }
