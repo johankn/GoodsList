@@ -157,10 +157,12 @@ public abstract class AbstractController {
         ((DisplayAdController) controller).setUser(user);
         ((DisplayAdController) controller).setAd(ad);
         ((DisplayAdController) controller).setFilename(filename);
+        ((DisplayAdController) controller).setBuyPossible();
       }
 
       else if (controller instanceof ProfileController) {
         ((ProfileController) controller).setUser(user);
+        ((ProfileController) controller).setAd(ad);
         ((ProfileController) controller).setFilename(filename);
         ((ProfileController) controller).setDisplayAds();
       }

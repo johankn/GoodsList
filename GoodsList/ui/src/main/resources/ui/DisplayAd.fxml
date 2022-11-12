@@ -78,5 +78,10 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+      <Label fx:id="ifOwner" layoutX="254.0" layoutY="607.0" prefHeight="20.0" prefWidth="284.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
          </children>
       </AnchorPane>

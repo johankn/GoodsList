@@ -31,14 +31,14 @@ import core.RegisteredUser;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class UiTest extends ApplicationTest {
 
-  private final String regUsername = "#registrationUsername";
-  private final String fullName = "#fullName";
-  private final String regPassword = "#registrationPassword";
-  private final String repeatedRegPassword = "#repeatedRegistrationPassword";
-  private final String registerButton = "#registrationButton";
-  private final String loginButton = "#loginButton";
-  private final String usernameField = "#username";
-  private final String passwordField = "#password";
+  //private final String regUsername = "#registrationUsername";
+  // private final String fullName = "#fullName";
+  // private final String regPassword = "#registrationPassword";
+  // private final String repeatedRegPassword = "#repeatedRegistrationPassword";
+  // private final String registerButton = "#registrationButton";
+  // private final String loginButton = "#loginButton";
+  // private final String usernameField = "#username";
+  // private final String passwordField = "#password";
 
   // private RegisteredUser regUser;
   // private RegisteredUser invalidUser;

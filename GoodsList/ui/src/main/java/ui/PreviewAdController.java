@@ -63,7 +63,7 @@ public class PreviewAdController extends AbstractController{
     this.user.addAdToList(ad.getAdID());
     FileOperator fileOperator = new FileOperator();
     fileOperator.updateUserObjectJsonFile(filename, user);
-    fileOperator.addAdToFile(filename, ad, user);
+    fileOperator.addAdToFile(filename, ad);
     Stage stage = (Stage) postButton.getScene().getWindow();
     super.setScene(Controllers.APP, stage);
   }

@@ -24,6 +24,8 @@ public class ProfileController extends AbstractController {
 
   private String filename;
 
+  private Ad ad;
+
   public void setUser(User user) {
     this.user = user;
     super.setUser(user);
@@ -34,10 +36,14 @@ public class ProfileController extends AbstractController {
     super.setFilename(filename);
   }
 
+  public void setAd(Ad ad) {
+    this.ad = ad;
+    super.setAd(ad);
+  }
+
   public void setDisplayAds() {
     List<Ad> ads = new FileOperator().getAllAdsInFile(filename);
     AdSorter adSorter = new AdSorter(ads);
-    //missing to add Ads to listviews (activeAds, boughtAds, soldAds).
     AdSorter sorterBoughtorSold = new AdSorter(adSorter.getListofAdsFromId(this.user.getMyAds(),
          ads));
     listActiveAds.getItems().addAll(sorterBoughtorSold.sortAds(ad -> ad.getIsSold() == false));
@@ -61,7 +67,33 @@ public class ProfileController extends AbstractController {
    */
   @FXML
   private void displaySelected(MouseEvent event) {
-    Stage stage = (Stage) listBoughtAds.getScene().getWindow();
-    super.setScene(Controllers.DISPLAYAD, stage);
+    List<Ad> allAds = new FileOperator().getAllAdsInFile(filename);
+    AdSorter adSorter = new AdSorter(allAds);
+    AdSorter sorterBoughtorSold = new AdSorter(adSorter.getListofAdsFromId(this.user.getMyAds(),
+         allAds));
+    List<Ad> yourAds = sorterBoughtorSold.getAds();
+    for (int i = 0; i < yourAds.size(); i++) {
+      if (this.listActiveAds.getSelectionModel().isSelected(i)) {
+        ad = this.listActiveAds.getSelectionModel().getSelectedItem();
+        super.setAd(ad);
+        Stage stage = (Stage) listActiveAds.getScene().getWindow();
+        super.setScene(Controllers.DISPLAYAD, stage);
+      }
+      else if (this.listSoldAds.getSelectionModel().isSelected(i)) {
+        ad = this.listSoldAds.getSelectionModel().getSelectedItem();
+        super.setAd(ad);
+        Stage stage = (Stage) listSoldAds.getScene().getWindow();
+        super.setScene(Controllers.DISPLAYAD, stage);
+      }
+    }
+    List<Ad> boughtAds = adSorter.getListofAdsFromId(this.user.getBoughtAds(), allAds);
+    for (int i = 0; i < boughtAds.size(); i++) {
+      if (this.listBoughtAds.getSelectionModel().isSelected(i)) {
+        ad = this.listBoughtAds.getSelectionModel().getSelectedItem();
+        super.setAd(ad);
+        Stage stage = (Stage) listBoughtAds.getScene().getWindow();
+        super.setScene(Controllers.DISPLAYAD, stage);
+      }
+    }
   }
 }

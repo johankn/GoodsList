@@ -1,6 +1,7 @@
 package ui;
 
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import core.AdSorter;
@@ -278,17 +279,17 @@ public class AppController extends AbstractController {
   //   }
   // }
 
-  // /*
-  //  * This method is called on when you press exit after you press make ad.
-  //  * This is if you dont want to make an ad afterall.
-  //  */
-  // @FXML
-  // private void handleExitButton() {
-  //   homePage.setDisable(false);
-  //   homePage.setVisible(true);
-  //   categoriesPane.setDisable(true);
-  //   categoriesPane.setVisible(false);
-  // }
+  /*
+   * This method is called on when you press exit after you press make ad.
+   * This is if you dont want to make an ad afterall.
+   */
+  @FXML
+  private void handleExitButton() {
+    homePage.setDisable(false);
+    homePage.setVisible(true);
+    categoriesPane.setDisable(true);
+    categoriesPane.setVisible(false);
+  }
 
   // /*
   //  * The necessary field for making an ad.
@@ -550,6 +551,7 @@ public class AppController extends AbstractController {
       return "New";
     }
     return "Used";
+    
   }
 
   /**
@@ -560,7 +562,11 @@ public class AppController extends AbstractController {
   @FXML
   private void sortAds(ActionEvent event) {
     FileOperator fileOperator = new FileOperator();
-    AdSorter adsorter = new AdSorter(fileOperator.getAllAdsInFile(filename));
+    AdSorter adsorter = new AdSorter(
+        fileOperator.getAllAdsInFile(filename)
+        .stream()
+        .filter(ad -> ad.getIsSold() == false)
+        .collect(Collectors.toList()));
     Button pressedButton = (Button) event.getSource();
     this.listOfAds.getItems().clear();
     this.listOfAds.getItems().addAll(adsorter
