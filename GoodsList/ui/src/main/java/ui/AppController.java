@@ -70,107 +70,12 @@ public class AppController extends AbstractController {
   private Button logoutButton;
   @FXML
   private Label welcomeText;
-
-  @FXML
-  private Label titleBuy;
-  @FXML
-  private Label priceBuy;
-  @FXML
-  private Label conditionBuy;
-  @FXML
-  private Label descriptionBuy;
-  @FXML
-  private Label label1;
-  @FXML
-  private Label label2;
-  @FXML
-  private Label label3;
-  @FXML
-  private Label label4;
-  @FXML
-  private Label label5;
-  @FXML
-  private Label label11;
-  @FXML
-  private Label label21;
-  @FXML
-  private Label label31;
-  @FXML
-  private Label label41;
-  @FXML
-  private Label label51;
   @FXML
   private AnchorPane homePage;
   @FXML
-  private AnchorPane newAdPage;
-  @FXML
-  private AnchorPane adPreview;
-  @FXML
-  private AnchorPane categoriesPane;
-  @FXML
-  private AnchorPane electronicsAd;
-  @FXML
-  private AnchorPane clothingAd;
-  @FXML
-  private AnchorPane propertyAd;
-  @FXML
-  private AnchorPane vehiclesAd;
-  @FXML
-  private AnchorPane booksAd;
-  @FXML
-  private AnchorPane displayAd;
-  @FXML
-  private AnchorPane profilePage;
-  @FXML
   private ListView<Ad> listOfAds;
-  @FXML
-  private ListView<Ad> listActiveAds;
-  @FXML
-  private ListView<Ad> listBoughtAds;
-  @FXML
-  private ListView<Ad> listSoldAds;
 
   private Ad ad;
-
-  @FXML
-  private Label titlePreview;
-  @FXML
-  private Label pricePreview;
-  @FXML
-  private Label conditionPreview;
-  @FXML
-  private Label descriptionPreview;
-
-
-  @FXML
-  private TextField titleField2;
-  @FXML
-  private TextField priceField2;
-  @FXML
-  private TextField brandField2;
-  @FXML
-  private TextField typeField2;
-  @FXML
-  private TextField sizeField2;
-  @FXML
-  private TextArea descriptionArea2;
-  @FXML
-  private CheckBox conditionField2;
-
-  @FXML
-  private TextField titleField4;
-  @FXML
-  private TextField priceField4;
-  @FXML
-  private TextField brandField4;
-  @FXML
-  private TextField typeField4;
-  @FXML
-  private TextField yearField4;
-  @FXML
-  private TextArea descriptionArea4;
-  @FXML
-  private CheckBox conditionField4;
 
   // which category ad is in the making
   private int categoryId;
@@ -278,18 +183,6 @@ public class AppController extends AbstractController {
   //       break;
   //   }
   // }
-
-  /*
-   * This method is called on when you press exit after you press make ad.
-   * This is if you dont want to make an ad afterall.
-   */
-  @FXML
-  private void handleExitButton() {
-    homePage.setDisable(false);
-    homePage.setVisible(true);
-    categoriesPane.setDisable(true);
-    categoriesPane.setVisible(false);
-  }
 
   // /*
   //  * The necessary field for making an ad.
