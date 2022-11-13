@@ -17,7 +17,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import json.FileOperator;
 
 /**
  * Controller for the login fxml file.
@@ -27,9 +26,7 @@ public class LoginController extends AbstractController {
   private RegistrationValidator registrationValidator;
   private LoginValidator loginValidator;
   private User loggedInUser;
-  private App app;
   private String filename;
-  private FileOperator fileOperator;
 
   @FXML
   private PasswordField password;
@@ -112,8 +109,7 @@ public class LoginController extends AbstractController {
   @FXML
   private void onLogin() {
     try {
-      fileOperator = new FileOperator();
-      List<User> users = fileOperator.getAllUsersAsList(filename);
+      List<User> users = getDataAccess().getAllUsers(filename);
       loginValidator = new LoginValidator();
       if (loginValidator.isLoginLegal(
           username.getText(),
@@ -130,7 +126,7 @@ public class LoginController extends AbstractController {
             super.setUser(this.loggedInUser);
             super.setFilename(filename);
             Stage stage = (Stage) loginButton.getScene().getWindow();
-            super.setScene(Controllers.APP, stage);
+            super.setScene(Controllers.APP, stage, getDataAccess());
           }
         }
       }
@@ -158,7 +154,7 @@ public class LoginController extends AbstractController {
           registrationPassword.getText(),
           repeatedRegistrationPassword.getText(),
           fullName.getText(),
-          registrationValidator.getFileOperator().getAllUsersAsList(filename))) {
+          getDataAccess().getAllUsers(filename))) {
         RegisteredUser regUser =
             new RegisteredUser(
                 registrationUsername.getText(),
@@ -166,7 +162,7 @@ public class LoginController extends AbstractController {
                 fullName.getText(),
                 repeatedRegistrationPassword.getText());
         this.displayMessage("You have been succesfully registered!");
-        registrationValidator.getFileOperator().writeNewUserDataToFile(filename, regUser);
+        getDataAccess().newUser(filename, regUser);
         this.registrationUsername.clear();
         this.registrationPassword.clear();
         this.repeatedRegistrationPassword.clear();

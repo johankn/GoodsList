@@ -211,7 +211,7 @@ public class AppController extends AbstractController {
   @FXML
   private void handleNewAd() {
     Stage stage = (Stage) newAdButton.getScene().getWindow();
-    super.setScene(Controllers.CATEGORIES, stage);
+    super.setScene(Controllers.CATEGORIES, stage, getDataAccess());
   }
 
   // /**
@@ -517,7 +517,7 @@ public class AppController extends AbstractController {
         ad = this.listOfAds.getSelectionModel().getSelectedItem();
         super.setAd(ad);
         Stage stage = (Stage) listOfAds.getScene().getWindow();
-        super.setScene(Controllers.BUYAD, stage);
+        super.setScene(Controllers.BUYAD, stage, getDataAccess());
       }
     }
   }
@@ -573,7 +573,7 @@ public class AppController extends AbstractController {
   @FXML
   private void handleYourProfile() {
     Stage stage = (Stage) yourProfile.getScene().getWindow();
-    super.setScene(Controllers.PROFILE, stage);
+    super.setScene(Controllers.PROFILE, stage, getDataAccess());
   }
   /*
    * When you click on log out button, you should return to login page and the user should no longer be logged in.
@@ -581,6 +581,6 @@ public class AppController extends AbstractController {
   @FXML
   private void handleLogout() {
     Stage stage = (Stage) logoutButton.getScene().getWindow();
-    super.setScene(Controllers.LOGIN, stage);
+    super.setScene(Controllers.LOGIN, stage, getDataAccess());
   }
 }

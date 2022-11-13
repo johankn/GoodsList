@@ -120,7 +120,7 @@ public class PropertyController extends AbstractController {
       super.setAd(ad);
       super.setPreviousController(this);
       Stage stage = (Stage) makeAd21.getScene().getWindow();
-      super.setScene(Controllers.PREVIEW, stage);
+      super.setScene(Controllers.PREVIEW, stage, getDataAccess());
       // titlePreview.setText(titleField3.getText());
       // conditionPreview.setText(setCondition(conditionField3));
       // pricePreview.setText(priceField3.getText() + "Kr");
@@ -139,7 +139,7 @@ public class PropertyController extends AbstractController {
   @FXML
   private void goBack() {
     Stage stage = (Stage) goBackFromAd2.getScene().getWindow();
-    super.setScene(Controllers.CATEGORIES, stage);
+    super.setScene(Controllers.CATEGORIES, stage, getDataAccess());
   }
 
   /**

@@ -1,6 +1,8 @@
 package ui;
 
 import java.io.IOException;
+
+import dataaccess.GoodsListAccess;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -23,6 +25,7 @@ public abstract class AbstractController {
   private boolean isTest;
   private Ad ad;
   private AbstractController previousController;
+  protected GoodsListAccess dataAccess;
 
   /**
    * Enum for controllers with their accosiated fxml-files.
@@ -64,18 +67,27 @@ public abstract class AbstractController {
     this.previousController = controller;
   }
 
+  public void setDataAccess(GoodsListAccess dataAccess) {
+    this.dataAccess = dataAccess;
+  }
+
+  public GoodsListAccess getDataAccess() {
+    return this.dataAccess;
+  }
+
   /**
    * Method for setting a scene and pass data between the controllers.
    *
    * @param type  of wanted scene. Only need to give wanted CONTROLLER type.
    * @param stage when user clicks on a button on existing scene.
    */
-  public void setScene(Controllers type, Stage stage) {
+  public void setScene(Controllers type, Stage stage, GoodsListAccess dataAccess) {
     try {
       AbstractController controller = type.getControllerInstance();
       FXMLLoader loader = new FXMLLoader();
       loader.setController(controller);
       loader.setLocation(App.class.getResource(type.getFxmlString()));
+      controller.setDataAccess(dataAccess);
       Parent parent = loader.load();
       // this.setUser(user);
       // this.setFilename(filename);

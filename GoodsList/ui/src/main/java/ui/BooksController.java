@@ -100,7 +100,7 @@ public class BooksController extends AbstractController {
       super.setAd(ad);
       super.setPreviousController(this);
       Stage stage = (Stage) makeAd23.getScene().getWindow();
-      super.setScene(Controllers.PREVIEW, stage);
+      super.setScene(Controllers.PREVIEW, stage, getDataAccess());
 
       // preview
       // titlePreview.setText(titleField5.getText());
@@ -125,7 +125,7 @@ public class BooksController extends AbstractController {
   @FXML
   private void goBack() {
     Stage stage = (Stage) titleField5.getScene().getWindow();
-    super.setScene(Controllers.CATEGORIES, stage);
+    super.setScene(Controllers.CATEGORIES, stage, getDataAccess());
   }
   /**
    * private method for displaying an error with the given param message Is used

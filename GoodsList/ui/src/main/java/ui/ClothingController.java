@@ -115,7 +115,7 @@ public class ClothingController extends AbstractController{
         super.setAd(ad);
         super.setPreviousController(this);
         Stage stage = (Stage) makeAd2.getScene().getWindow();
-        super.setScene(Controllers.PREVIEW, stage);
+        super.setScene(Controllers.PREVIEW, stage, getDataAccess());
       } catch (IllegalArgumentException e) {
         displayError(e.getMessage());
       }
@@ -127,7 +127,7 @@ public class ClothingController extends AbstractController{
   @FXML
   private void goBack() {
     Stage stage = (Stage) goBackFromAd3.getScene().getWindow();
-    super.setScene(Controllers.CATEGORIES, stage);
+    super.setScene(Controllers.CATEGORIES, stage, getDataAccess());
   }
   /**
    * private method for displaying an error with the given param message Is used

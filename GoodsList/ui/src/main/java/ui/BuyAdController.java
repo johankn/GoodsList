@@ -69,7 +69,7 @@ public class BuyAdController extends AbstractController {
   @FXML
   private void handleGoBack() {
     Stage stage = (Stage) buyButton.getScene().getWindow();
-    super.setScene(Controllers.APP, stage);
+    super.setScene(Controllers.APP, stage, getDataAccess());
   }
 
   /*

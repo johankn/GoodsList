@@ -49,7 +49,7 @@ public class ProfileController extends AbstractController {
   @FXML
   private void goBack() {
     Stage stage = (Stage) listBoughtAds.getScene().getWindow();
-    super.setScene(Controllers.APP, stage);
+    super.setScene(Controllers.APP, stage, getDataAccess());
   }
 
     /**
@@ -62,6 +62,6 @@ public class ProfileController extends AbstractController {
   @FXML
   private void displaySelected(MouseEvent event) {
     Stage stage = (Stage) listBoughtAds.getScene().getWindow();
-    super.setScene(Controllers.BUYAD, stage);
+    super.setScene(Controllers.BUYAD, stage, getDataAccess());
   }
 }

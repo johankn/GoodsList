@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import json.DataObject;
 import json.FileOperator;
 
-//mport core.DataObject;
+//import core.DataObject;
 
 @RestController
 public class GoodsListController {
