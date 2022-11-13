@@ -74,6 +74,8 @@ public class AppController extends AbstractController {
   private AnchorPane homePage;
   @FXML
   private ListView<Ad> listOfAds;
+  @FXML
+  private Button removeFilters;
 
   private Ad ad;
 
@@ -106,6 +108,11 @@ public class AppController extends AbstractController {
   public void setFilename(String filename) {
     this.filename = filename;
     super.setFilename(filename);
+  }
+
+  @FXML
+  private void removeFilters() {
+    this.first();
   }
 
 
