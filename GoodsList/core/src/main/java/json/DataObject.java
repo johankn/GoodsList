@@ -39,6 +39,7 @@ public class DataObject {
     generateJsonFileAsObjectForUser(filename);
   }
 
+
   public DataObject(String filename, Ad ad, boolean addAd) {
     this.ad = ad;
     this.addAd = addAd;
