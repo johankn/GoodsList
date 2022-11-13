@@ -110,6 +110,11 @@ public class AppController extends AbstractController {
     super.setFilename(filename);
   }
 
+  @FXML
+  private void removeFilters() {
+    this.first();
+  }
+
 
 
   /*
