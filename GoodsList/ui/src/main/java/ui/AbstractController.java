@@ -152,7 +152,7 @@ public abstract class AbstractController {
         ((PreviewAdController) controller).setAd(ad);
         ((PreviewAdController) controller).setFilename(filename);
         ((PreviewAdController) controller).setPreview();
-        ((PreviewAdController) controller).setPreviousController(previousController);;
+        ((PreviewAdController) controller).setPreviousController(previousController);
       }
       else if (controller instanceof DisplayAdController) {
         ((DisplayAdController) controller).setUser(user);

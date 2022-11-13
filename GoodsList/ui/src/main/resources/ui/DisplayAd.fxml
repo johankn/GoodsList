@@ -14,12 +14,8 @@
                </font>
             </Label>
             <Label fx:id="descriptionBuy" alignment="TOP_LEFT" layoutX="224.0" layoutY="343.0" prefHeight="115.0" prefWidth="349.0" scaleX="2.0" scaleY="2.0" style="-fx-border-color: grey;" text="Description" wrapText="true" />
-            <Label fx:id="conditionBuy" alignment="CENTER" layoutX="387.0" layoutY="124.0" scaleX="2.0" scaleY="2.0" text="Used" wrapText="true" />
-            <Label fx:id="priceBuy" alignment="CENTER_RIGHT" layoutX="503.0" layoutY="113.0" prefHeight="43.0" prefWidth="117.0" scaleX="2.0" scaleY="2.0" text="Kr" wrapText="true">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
+            <Label fx:id="conditionBuy" layoutX="525.0" layoutY="245.0" prefHeight="25.0" prefWidth="150.0" scaleX="2.0" scaleY="2.0" text="Condition" wrapText="true" />
+            <Label fx:id="priceBuy" layoutX="125.0" layoutY="245.0" prefHeight="25.0" prefWidth="150.0" scaleX="2.0" scaleY="2.0" text="Price" wrapText="true" />
             <Button fx:id="buyButton" layoutX="345.0" layoutY="592.0" mnemonicParsing="false" onAction="#handleBuyAd" prefHeight="50.0" prefWidth="108.0" scaleX="2.0" scaleY="2.0" text="Buy now">
                <font>
                   <Font size="15.0" />
@@ -28,31 +24,10 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="label21" alignment="CENTER" layoutX="328.0" layoutY="197.0" prefHeight="23.0" prefWidth="160.0" scaleX="2.0" scaleY="2.0" wrapText="true">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="label11" layoutX="58.0" layoutY="197.0" prefHeight="23.0" prefWidth="5.0" scaleX="2.0" scaleY="2.0" wrapText="true">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="label31" layoutX="118.0" layoutY="249.0" prefHeight="23.0" prefWidth="142.0" scaleX="2.0" scaleY="2.0" wrapText="true">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="label41" alignment="CENTER" layoutX="336.0" layoutY="249.0" prefHeight="23.0" prefWidth="132.0" scaleX="2.0" scaleY="2.0" wrapText="true">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="label51" alignment="CENTER_RIGHT" layoutX="572.0" layoutY="249.0" prefHeight="23.0" prefWidth="117.0" scaleX="2.0" scaleY="2.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
+            <Label fx:id="label21" layoutX="125.0" layoutY="194.0" prefHeight="25.0" prefWidth="150.0" scaleX="2.0" scaleY="2.0" text="Label 2" wrapText="true" />
+            <Label fx:id="label11" layoutX="125.0" layoutY="143.0" prefHeight="25.0" prefWidth="150.0" scaleX="2.0" scaleY="2.0" text="Label 1" wrapText="true" />
+            <Label fx:id="label31" layoutX="525.0" layoutY="143.0" prefHeight="25.0" prefWidth="150.0" scaleX="2.0" scaleY="2.0" text="Label 3" wrapText="true" />
+            <Label fx:id="label41" layoutX="525.0" layoutY="194.0" prefHeight="25.0" prefWidth="150.0" scaleX="2.0" scaleY="2.0" text="Label 4" wrapText="true" />
             <Label fx:id="areYouSure" alignment="CENTER" layoutX="346.0" layoutY="525.0" prefHeight="19.0" prefWidth="109.0" scaleX="2.0" scaleY="2.0" text="Are you sure?" />
             <Button fx:id="cancel" disable="true" layoutX="315.0" layoutY="592.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="50.0" prefWidth="50.0" scaleX="2.0" scaleY="2.0" text="Cancel" visible="false">
                <font>
