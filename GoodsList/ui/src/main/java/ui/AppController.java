@@ -75,7 +75,7 @@ public class AppController extends AbstractController {
   @FXML
   private ListView<Ad> listOfAds;
   @FXML
-  private Button removeFilters;
+  private TextField searchBar;
 
   private Ad ad;
 
@@ -472,6 +472,27 @@ public class AppController extends AbstractController {
     this.listOfAds.getItems().clear();
     this.listOfAds.getItems().addAll(adsorter
         .sortAds(ad -> ad.getProduct().getClass().getSimpleName().equals(pressedButton.getText())));
+  }
+
+  /**
+   * Method that sorts ads based on different events (which button is clicked)
+   * 
+   * @param event k
+   */
+  @FXML
+  private void filterSearch() {
+    FileOperator fileOperator = new FileOperator();
+    AdSorter adsorter = new AdSorter(
+        fileOperator.getAllAdsInFile(filename)
+        .stream()
+        .filter(ad -> ad.getIsSold() == false)
+        .collect(Collectors.toList()));
+    this.listOfAds.getItems().clear();
+    this.listOfAds.getItems()
+        .addAll(adsorter.sortAds(ad -> ad.getDescription()
+        .toLowerCase().contains(searchBar.getText().toLowerCase()) || ad.getAdTitle()
+        .toLowerCase().contains(searchBar.getText().toLowerCase())));
+
   }
 
   /*

@@ -22,7 +22,7 @@
                   <Font name="AppleGothic Regular" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="SearchBar" layoutX="128.0" layoutY="140.0" promptText="What are you looking for?">
+            <TextField fx:id="searchBar" layoutX="128.0" layoutY="140.0" onKeyTyped="#filterSearch" promptText="What are you looking for?">
                <font>
                   <Font size="18.0" />
                </font></TextField>
