@@ -160,6 +160,7 @@ public abstract class AbstractController {
         ((DisplayAdController) controller).setPreviousController(this.previousController);
         ((DisplayAdController) controller).setFilename(filename);
         ((DisplayAdController) controller).setBuyPossible();
+        ((DisplayAdController) controller).setInfo();
       }
 
       else if (controller instanceof ProfileController) {

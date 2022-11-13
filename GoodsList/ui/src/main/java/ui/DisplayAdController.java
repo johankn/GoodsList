@@ -14,10 +14,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import json.Ad;
+import json.Books;
+import json.Clothing;
 import json.Vehicles;
 import ui.AbstractController.Controllers;
 import json.Electronics;
 import json.FileOperator;
+import json.Property;
 import json.User;
 
 public class DisplayAdController extends AbstractController {
@@ -33,6 +36,24 @@ public class DisplayAdController extends AbstractController {
   private Label areYouSure;
   @FXML
   private Label ifOwner;
+  @FXML
+  private Label titleBuy;
+  @FXML
+  private Label descriptionBuy;
+  @FXML
+  private Label conditionBuy;
+  @FXML
+  private Label priceBuy;
+  @FXML
+  private Label label21;
+  @FXML
+  private Label label11;
+  @FXML
+  private Label label31;
+  @FXML
+  private Label label51;
+  @FXML
+  private Label label41;
 
   private Ad ad;
   private User user;
@@ -52,6 +73,42 @@ public class DisplayAdController extends AbstractController {
   public void setFilename(String filename) {
     this.filename = filename;
     super.setFilename(filename);
+  }
+
+  public void setInfo() {
+    this.titleBuy.setText(ad.getAdTitle());
+    this.descriptionBuy.setText(ad.getDescription());
+    this.conditionBuy.setText("Condition: "+ad.getProduct().getCondition());
+    this.priceBuy.setText("Price: "+String.valueOf(ad.getProduct().getPrice()));
+    if (ad.getProduct() instanceof Electronics) {
+      label21.setText(((Electronics)ad.getProduct()).getType());
+      label31.setText(((Electronics)ad.getProduct()).getBrand());
+    }
+    if (ad.getProduct() instanceof Books) {
+      label21.setText("Pages: "+((Books)ad.getProduct()).getPages());
+      label11.setText("Author: "+((Books)ad.getProduct()).getAuthor());
+      label31.setText("Genre: "+((Books)ad.getProduct()).getGenre());
+      label41.setText("Released in "+((Books)ad.getProduct()).getReleaseYear());
+    }
+    if (ad.getProduct() instanceof Clothing) {
+      label21.setText(((Clothing)ad.getProduct()).getType());
+      label11.setText(((Clothing)ad.getProduct()).getBrand());
+      label31.setText("Color: "+((Clothing)ad.getProduct()).getColor());
+      label41.setText("Size: "+((Clothing)ad.getProduct()).getSize());
+    }
+    if (ad.getProduct() instanceof Property) {
+      label21.setText(((Property)ad.getProduct()).getPropertyType());
+      label11.setText("Bedrooms: "+((Property)ad.getProduct()).getBedrooms());
+      label31.setText("Built in "+((Property)ad.getProduct()).getYearBuilt());
+      label41.setText("Area: "+((Property)ad.getProduct()).getArea()+"m^2");
+    }
+    if (ad.getProduct() instanceof Vehicles) {
+      label21.setText(((Vehicles)ad.getProduct()).getModelName());
+      label11.setText(((Vehicles)ad.getProduct()).getBrand());
+      label31.setText("From "+((Vehicles)ad.getProduct()).getModelYear());
+      label41.setText("Color: "+((Vehicles)ad.getProduct()).getColor());
+    }
+    
   }
 
   public void setBuyPossible() {
