@@ -2,72 +2,81 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0">
          <children>
-            <Label fx:id="welcomeText" layoutX="12.0" layoutY="17.0" prefHeight="71.0" prefWidth="589.0" text="Welcome, username" wrapText="true">
+            <Label fx:id="welcomeText" layoutX="51.0" layoutY="73.0" prefHeight="57.0" prefWidth="404.0" text="Welcome, username" wrapText="true">
                <font>
-                  <Font size="52.0" />
+                  <Font size="23.0" />
                </font>
             </Label>
-            <Label layoutX="686.0" layoutY="35.0" prefHeight="40.0" prefWidth="90.0" text="GoodsList">
+            <Label layoutX="48.0" layoutY="25.0" prefHeight="40.0" prefWidth="157.0" text="GoodsList">
                <font>
-                  <Font name="AppleGothic Regular" size="18.0" />
+                  <Font name="AppleGothic Regular" size="32.0" />
                </font>
             </Label>
-            <TextField fx:id="searchBar" layoutX="128.0" layoutY="140.0" onKeyTyped="#filterSearch" promptText="What are you looking for?">
+            <TextField fx:id="searchBar" layoutX="291.0" layoutY="184.0" onKeyTyped="#filterSearch" prefHeight="35.0" prefWidth="310.0" promptText="What are you looking for?">
                <font>
                   <Font size="18.0" />
                </font></TextField>
-            <Button fx:id="electronicsButton" alignment="CENTER" layoutX="366.0" layoutY="137.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="40.0" prefWidth="60.0" text="Electronics">
+            <Button fx:id="newAdButton" alignment="CENTER" layoutX="615.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleNewAd" prefHeight="51.0" prefWidth="128.0" text="New ad" textAlignment="CENTER" wrapText="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <font>
-                  <Font size="10.0" />
+                  <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="clothesButton" layoutX="431.0" layoutY="137.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="40.0" prefWidth="60.0" text="Clothing">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Button>
-            <Button fx:id="vehiclesButton" layoutX="497.0" layoutY="137.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="40.0" prefWidth="60.0" text="Vehicles">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Button>
-            <Button fx:id="booksButton" layoutX="563.0" layoutY="137.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="40.0" prefWidth="60.0" text="Books">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Button>
-            <Button fx:id="propertyButton" layoutX="628.0" layoutY="137.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="40.0" prefWidth="60.0" text="Property">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Button>
-            <Button fx:id="newAdButton" alignment="CENTER" layoutX="562.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleNewAd" prefHeight="51.0" prefWidth="54.0" text="New ad" textAlignment="CENTER" wrapText="true">
+            <ListView fx:id="listOfAds" fixedCellSize="40.0" layoutX="288.0" layoutY="240.0" onMouseClicked="#displaySelected" prefHeight="409.0" prefWidth="458.0" />
+            <Button fx:id="yourProfile" alignment="CENTER" layoutX="540.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleYourProfile" prefHeight="50.0" prefWidth="100.0" text="Your profile" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="logoutButton" alignment="CENTER" layoutX="644.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="50.0" prefWidth="100.0" text="Log out" textAlignment="CENTER" wrapText="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ListView fx:id="listOfAds" fixedCellSize="40.0" layoutX="129.0" layoutY="191.0" onMouseClicked="#displaySelected" prefHeight="409.0" prefWidth="560.0" />
-            <Button fx:id="yourProfile" alignment="CENTER" layoutX="503.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleYourProfile" prefHeight="51.0" prefWidth="54.0" text="Your Profile" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="logoutButton" alignment="CENTER" layoutX="622.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="51.0" prefWidth="54.0" text="Log out" textAlignment="CENTER" wrapText="true">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="removeFilters" layoutX="704.0" layoutY="136.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Remove filters" onAction="#removeFilters">
+            <Button fx:id="removeFilters" layoutX="101.0" layoutY="534.0" mnemonicParsing="false" onAction="#removeFilters" prefHeight="27.0" prefWidth="105.0" text="Remove filters">
                <font>
-                  <Font size="10.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
+            <Label layoutX="72.0" layoutY="240.0" text="Filter by product types:">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="electronicsButton" layoutX="71.0" layoutY="273.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="47.0" prefWidth="162.0" text="Electronics">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="clothingButton" layoutX="71.0" layoutY="323.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="47.0" prefWidth="162.0" text="Clothing">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="propertyButton" layoutX="71.0" layoutY="373.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="47.0" prefWidth="162.0" text="Property">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="vehiclesButton" layoutX="71.0" layoutY="423.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="47.0" prefWidth="162.0" text="Vehicles">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="booksButton" layoutX="71.0" layoutY="473.0" mnemonicParsing="false" onAction="#sortAds" prefHeight="47.0" prefWidth="162.0" text="Books">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </CheckBox>
          </children>
       </AnchorPane>
    </children>
