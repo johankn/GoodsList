@@ -103,47 +103,47 @@ public class UiTest extends ApplicationTest {
     user2 = new RegisteredUser("example2", "Test1234", "Example Two", "Test1234");
   }
 
-  // /*
-  //  * clears all users from testfile
-  //  */
-  // @AfterAll
-  // public void clearTestFile() {
-  //   FileOperator fileOperator = new FileOperator();
-  //   fileOperator.removeAllDataFromFile("..//ui/src/test/resources/ui/uiTest.json");
-  // }
+  /*
+   * clears all users from testfile
+   */
+  @AfterAll
+  public void clearTestFile() {
+    FileOperator fileOperator = new FileOperator();
+    fileOperator.removeAllDataFromFile("..//ui/src/test/resources/ui/uiTest.json");
+  }
 
   @Test
   @DisplayName("Tests login whit a user that is not registrated")
   @Order(1)
   public void TestLoginWithoutRegistration() {
-    // robot.clickOn(loginButton);
-    // this.closeAlert();
-    // robot.clickOn(usernameField).write(regUser.getUsername(), 5);
-    // robot.clickOn(passwordField).write(regUser.getPassword(), 5);
-    // robot.clickOn(loginButton);
-    // this.closeAlert();
+    robot.clickOn(loginButton);
+    this.closeAlert();
+    robot.clickOn(usernameField).write(regUser.getUsername(), 5);
+    robot.clickOn(passwordField).write(regUser.getPassword(), 5);
+    robot.clickOn(loginButton);
+    this.closeAlert();
   }
 
   @Test
   @DisplayName("Test registration of a user.")
   @Order(2)
   public void TestRegistration() {
-    // robot.clickOn(registerButton);
-    // this.closeAlert();
+    robot.clickOn(registerButton);
+    this.closeAlert();
 
-    // robot.clickOn(regUsername).write(invalidUser.getUsername(), 5);
-    // robot.clickOn(fullName).write(invalidUser.getFullName(), 5);
-    // robot.clickOn(regPassword).write(invalidUser.getPassword(), 5);
-    // robot.clickOn(repeatedRegPassword).write(invalidUser.getRepeatedPassword(), 5);
-    // robot.clickOn(registerButton);
-    // this.closeAlert();
+    robot.clickOn(regUsername).write(invalidUser.getUsername(), 5);
+    robot.clickOn(fullName).write(invalidUser.getFullName(), 5);
+    robot.clickOn(regPassword).write(invalidUser.getPassword(), 5);
+    robot.clickOn(repeatedRegPassword).write(invalidUser.getRepeatedPassword(), 5);
+    robot.clickOn(registerButton);
+    this.closeAlert();
 
-    // robot.clickOn(regUsername).write(regUser.getUsername(), 5);
-    // robot.clickOn(fullName).write(regUser.getFullName(), 5);
-    // robot.clickOn(regPassword).write(regUser.getPassword(), 5);
-    // robot.clickOn(repeatedRegPassword).write(regUser.getRepeatedPassword(), 5);
-    // robot.clickOn(registerButton);
-    // this.closeAlert();
+    robot.clickOn(regUsername).write(regUser.getUsername(), 5);
+    robot.clickOn(fullName).write(regUser.getFullName(), 5);
+    robot.clickOn(regPassword).write(regUser.getPassword(), 5);
+    robot.clickOn(repeatedRegPassword).write(regUser.getRepeatedPassword(), 5);
+    robot.clickOn(registerButton);
+    this.closeAlert();
   }
 
   /*
@@ -152,169 +152,183 @@ public class UiTest extends ApplicationTest {
   @Test
   @Order(3)
   public void LogInAndMakeAds() {
-    // robot.clickOn(usernameField).write(regUser.getUsername(), 5);
-    // robot.clickOn(passwordField).write(regUser.getPassword(), 5);
-    // robot.clickOn(loginButton);
-    // sleep(1000);
-    // this.TestMakeElectronicsAd();
-    // this.TestMakeClothingAd();
-    // this.TestMakePropertyAd();
-    // this.TestMakeVehicleAd();
-    // this.TestMakeBookAd();
-    // this.TestYourProfile();
-    // this.LogOut();
+    robot.clickOn(usernameField).write(regUser.getUsername(), 5);
+    robot.clickOn(passwordField).write(regUser.getPassword(), 5);
+    robot.clickOn(loginButton);
+    sleep(1000);
+    this.TestMakeElectronicsAd();
+    this.TestMakeClothingAd();
+    this.TestMakePropertyAd();
+    this.TestMakeVehicleAd();
+    this.TestMakeBookAd();
+    this.TestYourProfile();
+    this.LogOut();
   }
 
 
   private void TestMakeElectronicsAd() {
-    // this.makeAd();
-    // robot.clickOn("#electronicsButton");
+    this.makeAd();
+    robot.clickOn("#electronicsButton");
 
-    // String adTitle = "MacBook Pro 2022";
-    // String adDescription = "Brand new MacBook Pro 2022";
-    // String invalidPrice = "twenty thousand";
-    // String validAdPrice = "20000";
-    // String adBrand = "Apple";
-    // String adType = "Laptop";
+    String adTitle = "MacBook Pro 2022";
+    String adDescription = "Brand new MacBook Pro 2022";
+    String invalidPrice = "twenty thousand";
+    String validAdPrice = "20000";
+    String adBrand = "Apple";
+    String adType = "Laptop";
 
-    // robot.clickOn("#titleField1").write(adTitle, 5);
-    // robot.clickOn("#descriptionArea1").write(adDescription, 5);
-    // robot.clickOn("#conditionField1");
-    // robot.clickOn("#priceField1").write(invalidPrice, 5);
-    // robot.clickOn("#brandField1").write(adBrand, 5);
-    // robot.clickOn("#typeField1").write(adType, 5);
-    // robot.clickOn("#makeAd1");
-    // this.closeAlert();
+    robot.clickOn("#titleField1").write(adTitle, 5);
+    robot.clickOn("#descriptionArea1").write(adDescription, 5);
+    robot.clickOn("#conditionField1");
+    robot.clickOn("#priceField1").write(invalidPrice, 5);
+    robot.clickOn("#brandField1").write(adBrand, 5);
+    robot.clickOn("#typeField1").write(adType, 5);
+    robot.clickOn("#makeAd1");
+    this.closeAlert();
 
-    // robot.doubleClickOn("#priceField1").eraseText(invalidPrice.length()).write(validAdPrice, 5);
-    // robot.clickOn("#makeAd1");
-    // this.postAd();
+    robot.doubleClickOn("#priceField1").eraseText(invalidPrice.length()).write(validAdPrice, 5);
+    robot.clickOn("#makeAd1");
+    robot.clickOn("#editButton");
+    robot.clickOn("#makeAd1");
+    this.postAd();
 
-    // sleep(500);
+    sleep(500);
 
   }
 
   private void TestMakeClothingAd() {
-    // this.makeAd();
-    // robot.clickOn("#clothingButton");
+    this.makeAd();
+    robot.clickOn("#clothingButton");
 
-    // String adTitle = "Gucci pants";
-    // String adDescription = "Used gucci pants for sale";
-    // String adPrice = "5000";
-    // String adType = "Sweater";
-    // String validSize = "M";
-    // String adBrand = "Gucci";
+    String adTitle = "Gucci pants";
+    String adDescription = "Used gucci pants for sale";
+    String adPrice = "5000";
+    String adType = "Sweater";
+    String validSize = "M";
+    String adBrand = "Gucci";
 
-    // robot.clickOn("#titleField2").write(adTitle, 5);
-    // robot.clickOn("#descriptionArea2").write(adDescription, 5);
-    // robot.clickOn("#priceField2").write(adPrice, 5);
-    // robot.clickOn("#typeField2").write(adType, 5);
-    // robot.clickOn("#brandField2").write(adBrand, 5);
-    // robot.clickOn("#colourChoiceClothing");
-    // robot.clickOn("Black");
-    // robot.clickOn("#makeAd2");
-    // this.closeAlert();
+    robot.clickOn("#titleField2").write(adTitle, 5);
+    robot.clickOn("#descriptionArea2").write(adDescription, 5);
+    robot.clickOn("#priceField2").write(adPrice, 5);
+    robot.clickOn("#typeField2").write(adType, 5);
+    robot.clickOn("#brandField2").write(adBrand, 5);
+    robot.clickOn("#colourChoiceClothing");
+    robot.clickOn("Black");
+    robot.clickOn("#makeAd2");
+    this.closeAlert();
 
-    // robot.clickOn("#sizeField2").write(validSize, 5);
-    // robot.clickOn("#makeAd2");
-    // this.postAd();
+    robot.clickOn("#sizeField2").write(validSize, 5);
+    robot.clickOn("#makeAd2");
+    robot.clickOn("#editButton");
+    robot.clickOn("#colourChoiceClothing");
+    robot.clickOn("Red");
+    robot.clickOn("#makeAd2");
+    this.postAd();
 
-    // sleep(500);
+    sleep(500);
   }
 
   private void TestMakePropertyAd() {
-    // this.makeAd();
-    // robot.clickOn("#propertyButton");
+    this.makeAd();
+    robot.clickOn("#propertyButton");
 
-    // String adTitle = "House for sale";
-    // String adDescription = "4 bedroom house in Oslo";
-    // String adPrice = "4250000";
-    // String validType = "House";
-    // String adYearBuilt = "2004";
-    // String adBedrooms = "4";
-    // String invalidadArea = "hundred";
-    // String validArea = "100";
+    String adTitle = "House for sale";
+    String adDescription = "4 bedroom house in Oslo";
+    String adPrice = "4250000";
+    String validType = "House";
+    String adYearBuilt = "2004";
+    String adBedrooms = "4";
+    String invalidadArea = "hundred";
+    String validArea = "100";
 
-    // robot.clickOn("#titleField3").write(adTitle, 5);
-    // robot.clickOn("#descriptionArea3").write(adDescription, 5);
-    // robot.clickOn("#priceField3").write(adPrice, 5);
-    // robot.clickOn("#typeField3").write(validType, 5);
-    // robot.clickOn("#yearBuiltField3").write(adYearBuilt, 5);
-    // robot.clickOn("#bedroomsField3").write(adBedrooms, 5);
-    // robot.clickOn("#areaField3").write(invalidadArea, 5);
-    // robot.clickOn("#makeAd21");
-    // this.closeAlert();
+    robot.clickOn("#titleField3").write(adTitle, 5);
+    robot.clickOn("#descriptionArea3").write(adDescription, 5);
+    robot.clickOn("#priceField3").write(adPrice, 5);
+    robot.clickOn("#typeField3").write(validType, 5);
+    robot.clickOn("#yearBuiltField3").write(adYearBuilt, 5);
+    robot.clickOn("#bedroomsField3").write(adBedrooms, 5);
+    robot.clickOn("#areaField3").write(invalidadArea, 5);
+    robot.clickOn("#makeAd21");
+    this.closeAlert();
 
-    // robot.doubleClickOn("#areaField3").eraseText(invalidadArea.length()).write(validArea, 5);
-    // robot.clickOn("#makeAd21");
-    // this.postAd();
+    robot.doubleClickOn("#areaField3").eraseText(invalidadArea.length()).write(validArea, 5);
+    robot.clickOn("#makeAd21");
+    robot.clickOn("#editButton");
+    robot.clickOn("#priceField3").write("0", 5);
+    robot.clickOn("#makeAd21");
+    this.postAd();
 
-    // sleep(500);
+    sleep(500);
   }
 
 
   private void TestMakeVehicleAd() {
-    // this.makeAd();
-    // robot.clickOn("#vehiclesButton");
+    this.makeAd();
+    robot.clickOn("#vehiclesButton");
 
-    // String adTitle = "Volvo XC90";
-    // String adDescription = "new Volvo for sale";
-    // String adPrice = "900000";
-    // String adType = "XC 90";
-    // String adYear = "2022";
-    // String adBrand = "Volvo";
+    String adTitle = "Volvo XC90";
+    String adDescription = "new Volvo for sale";
+    String adPrice = "900000";
+    String adType = "XC 90";
+    String adYear = "2022";
+    String adBrand = "Volvo";
 
-    // robot.clickOn("#titleField4").write(adTitle, 5);
-    // robot.clickOn("#descriptionArea4").write(adDescription, 5);
-    // robot.clickOn("#priceField4").write(adPrice, 5);
-    // robot.clickOn("#conditionField4");
-    // robot.clickOn("#typeField4").write(adType, 5);
-    // robot.clickOn("#yearField4").write(adYear, 5);
-    // robot.clickOn("#brandField4").write(adBrand, 5);
-    // robot.clickOn("#makeAd22");
-    // this.closeAlert();
+    robot.clickOn("#titleField4").write(adTitle, 5);
+    robot.clickOn("#descriptionArea4").write(adDescription, 5);
+    robot.clickOn("#priceField4").write(adPrice, 5);
+    robot.clickOn("#typeField4").write(adType, 5);
+    robot.clickOn("#yearField4").write(adYear, 5);
+    robot.clickOn("#brandField4").write(adBrand, 5);
+    robot.clickOn("#makeAd22");
+    this.closeAlert();
 
-    // robot.clickOn("#colourChoiceVehicles");
-    // robot.clickOn("White");
-    // robot.clickOn("#makeAd22");
-    // this.postAd();
+    robot.clickOn("#colourChoiceVehicles");
+    robot.clickOn("White");
+    robot.clickOn("#makeAd22");
+    robot.clickOn("#editButton");
+    robot.clickOn("#conditionField4");
+    robot.clickOn("#makeAd22");
+    this.postAd();
 
-    // sleep(500);
+    sleep(500);
   }
 
 
   private void TestMakeBookAd() {
-    // this.makeAd();
-    // robot.clickOn("#booksButton");
+    this.makeAd();
+    robot.clickOn("#booksButton");
 
-    // String adTitle = "George Orwell 1984";
-    // String adDescription = "The best-selling classic from George Orwell.";
-    // String adPrice = "149";
-    // String validPages = "328";
-    // String adAuthor = "George Orwell";
-    // String adGenre = "Sci-fi";
-    // String adYear = "1949";
+    String adTitle = "George Orwell 1984";
+    String adDescription = "The best-selling classic from George Orwell.";
+    String adPrice = "149";
+    String validPages = "328";
+    String adAuthor = "George Orwell";
+    String adGenre = "Sci-fi";
+    String adYear = "1949";
 
-    // robot.clickOn("#titleField5").write(adTitle, 5);
-    // robot.clickOn("#descriptionArea5").write(adDescription, 5);
-    // robot.clickOn("#priceField5").write(adPrice, 5);
-    // robot.clickOn("#genreField5").write(adGenre, 5);
-    // robot.clickOn("#pagesField5").write(validPages, 5);
-    // robot.clickOn("#yearField5").write(adYear, 5);
-    // robot.clickOn("#makeAd23");
-    // this.closeAlert();
+    robot.clickOn("#titleField5").write(adTitle, 5);
+    robot.clickOn("#descriptionArea5").write(adDescription, 5);
+    robot.clickOn("#priceField5").write(adPrice, 5);
+    robot.clickOn("#genreField5").write(adGenre, 5);
+    robot.clickOn("#pagesField5").write(validPages, 5);
+    robot.clickOn("#yearField5").write(adYear, 5);
+    robot.clickOn("#makeAd23");
+    this.closeAlert();
 
-    // robot.clickOn("#authorField5").write(adAuthor, 5);
-    // robot.clickOn("#makeAd23");
-    // this.postAd();
+    robot.clickOn("#authorField5").write(adAuthor, 5);
+    robot.clickOn("#makeAd23");
+    robot.clickOn("#editButton");
+    robot.clickOn("#pagesField5").write("0", 5);
+    robot.clickOn("#makeAd23");
+    this.postAd();
 
-    // sleep(500);
+    sleep(500);
   }
 
   private void TestYourProfile() {
     robot.clickOn("#yourProfile");
     sleep(500);
-    robot.clickOn("House for sale");
+    robot.clickOn("Gucci pants");
     sleep(500);
     robot.clickOn("#goBack");
     sleep(500);
@@ -330,19 +344,21 @@ public class UiTest extends ApplicationTest {
   @Test
   @Order(4)
   public void TestBuyAndFilterAds() {
-    // robot.clickOn(regUsername).write(user1.getUsername(), 5);
-    // robot.clickOn(fullName).write(user1.getFullName(), 5);
-    // robot.clickOn(regPassword).write(user1.getPassword(), 5);
-    // robot.clickOn(repeatedRegPassword).write(user1.getRepeatedPassword(), 5);
-    // robot.clickOn(registerButton);
-    // this.closeAlert();
+    robot.clickOn(regUsername).write(user1.getUsername(), 5);
+    robot.clickOn(fullName).write(user1.getFullName(), 5);
+    robot.clickOn(regPassword).write(user1.getPassword(), 5);
+    robot.clickOn(repeatedRegPassword).write(user1.getRepeatedPassword(), 5);
+    robot.clickOn(registerButton);
+    this.closeAlert();
 
     robot.clickOn(usernameField).write(user1.getUsername(), 5);
     robot.clickOn(passwordField).write(user1.getPassword(), 5);
     robot.clickOn(loginButton);
-    robot.clickOn("#clothesButton");
+    robot.clickOn("#clothingButton");
     robot.clickOn("#vehiclesButton");
     robot.clickOn("#electronicsButton");
+    robot.clickOn("#clothingButton");
+    robot.clickOn("#vehiclesButton");
     sleep(500);
     robot.clickOn("MacBook Pro 2022");
     sleep(500);
@@ -360,13 +376,37 @@ public class UiTest extends ApplicationTest {
     this.closeAlert();
     sleep(500);
     robot.clickOn("#propertyButton");
-    sleep(500);
+    sleep(300);
+    robot.clickOn("#removeFilters");
     robot.clickOn("#yourProfile");
     robot.clickOn("House for sale");
     robot.sleep(600);
     robot.clickOn("#goBack");
     sleep(300);
     robot.clickOn("#goBack1");
+  }
+
+  @Test
+  @Order(5)
+  public void TestBuyAndSearchforAds() {
+    robot.clickOn(regUsername).write(user2.getUsername(), 5);
+    robot.clickOn(fullName).write(user2.getFullName(), 5);
+    robot.clickOn(regPassword).write(user2.getPassword(), 5);
+    robot.clickOn(repeatedRegPassword).write(user2.getRepeatedPassword(), 5);
+    robot.clickOn(registerButton);
+    this.closeAlert();
+
+    robot.clickOn(usernameField).write(user2.getUsername(), 5);
+    robot.clickOn(passwordField).write(user2.getPassword(), 5);
+    robot.clickOn(loginButton);
+
+    robot.clickOn("#searchBar").write("volvo", 5);
+    robot.clickOn("Volvo XC90");
+    sleep(500);
+    robot.clickOn("#buyButton");
+    robot.clickOn("#accept");
+    this.closeAlert();
+    sleep(500);
   }
 
 }
