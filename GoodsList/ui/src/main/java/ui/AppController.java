@@ -1,5 +1,7 @@
 package ui;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -27,6 +29,7 @@ import json.Books;
 import json.Clothing;
 import json.Electronics;
 import json.FileOperator;
+import json.Product;
 import json.Property;
 import json.User;
 import json.UserInfoCollector;
@@ -39,15 +42,15 @@ import json.Vehicles;
 public class AppController extends AbstractController {
 
   @FXML
-  private Button electronicsButton;
+  private CheckBox electronicsButton;
   @FXML
-  private Button clothingButton;
+  private CheckBox clothingButton;
   @FXML
-  private Button vehiclesButton;
+  private CheckBox propertyButton;
   @FXML
-  private Button booksButton;
+  private CheckBox booksButton;
   @FXML
-  private Button propertyButton;
+  private CheckBox vehiclesButton;
   @FXML
   private Button postButton;
   @FXML
@@ -112,6 +115,11 @@ public class AppController extends AbstractController {
 
   @FXML
   private void removeFilters() {
+    electronicsButton.setSelected(false);
+    clothingButton.setSelected(false);
+    propertyButton.setSelected(false);
+    vehiclesButton.setSelected(false);
+    booksButton.setSelected(false);
     this.first();
   }
 
@@ -463,15 +471,40 @@ public class AppController extends AbstractController {
   @FXML
   private void sortAds(ActionEvent event) {
     FileOperator fileOperator = new FileOperator();
+    List<Ad> ads = fileOperator.getAllAdsInFile(filename)
+    .stream()
+    .filter(ad -> ad.getIsSold() == false)
+    .collect(Collectors.toList());
     AdSorter adsorter = new AdSorter(
         fileOperator.getAllAdsInFile(filename)
         .stream()
         .filter(ad -> ad.getIsSold() == false)
         .collect(Collectors.toList()));
-    Button pressedButton = (Button) event.getSource();
+    //Find checked boxes
+    int size = ads.size();
     this.listOfAds.getItems().clear();
-    this.listOfAds.getItems().addAll(adsorter
-        .sortAds(ad -> ad.getProduct().getClass().getSimpleName().equals(pressedButton.getText())));
+
+    List<CheckBox> checkBoxes = Arrays
+        .asList(electronicsButton, clothingButton, vehiclesButton, propertyButton, booksButton);
+
+    List<String> products = Arrays
+        .asList("Electronics", "Clothing", "Vehicles", "Property", "Books");
+    
+    List<String> checkedProducts = new ArrayList<>();
+
+    for (int i = 0; i < 5; i++) {
+      if (checkBoxes.get(i).isSelected()) {
+        checkedProducts.add(products.get(i));
+      }
+    }
+    for (int i = 0; i < size; i++) {
+      if (checkedProducts.size() == 0) {
+        this.removeFilters();
+      }
+      else if (checkedProducts.contains(ads.get(i).getProduct().getClass().getSimpleName())) {
+        this.listOfAds.getItems().add(ads.get(i));
+      }
+    }
   }
 
   /**
