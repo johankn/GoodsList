@@ -1,9 +1,11 @@
 package ui;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import core.AdSorter;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -19,6 +21,12 @@ public class ProfileController extends AbstractController {
   private ListView<Ad> listBoughtAds;
   @FXML
   private ListView<Ad> listSoldAds;
+  @FXML
+  private Label fullName;
+  @FXML
+  private Label username;
+  @FXML
+  private Label money;
 
   private User user;
 
@@ -39,6 +47,27 @@ public class ProfileController extends AbstractController {
   public void setAd(Ad ad) {
     this.ad = ad;
     super.setAd(ad);
+  }
+
+  public void setInfo(User user) {
+    this.fullName.setText("Full name: " + user.getFullname());
+    this.username.setText("Username: @" + user.getUsername());
+    int sum = 0;
+    String word = "earned";
+    List<Ad> allAds = new AdSorter() .getListofAdsFromId(this.user.getMyAds(), new FileOperator() .getAllAdsInFile(filename));
+    List<Ad> sold = new AdSorter(allAds) .sortAds(ad -> ad.getIsSold() == true);
+    List<Ad> boughtAds = new AdSorter() .getListofAdsFromId(this.user.getBoughtAds(), new FileOperator() .getAllAdsInFile(filename));
+    for (int i = 0; i < sold.size(); i++) {
+      sum += sold.get(i).getProduct().getPrice();
+    }
+    for (int j = 0; j < boughtAds.size(); j++) {
+      sum -= boughtAds.get(j).getProduct().getPrice();
+    }
+    if (sum < 0) {
+      word = "spent";
+      sum *= (-1);
+    }
+    this.money.setText("Total money " + word + ": " + sum);
   }
 
   public void setDisplayAds() {

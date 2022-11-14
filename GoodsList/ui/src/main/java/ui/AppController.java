@@ -472,9 +472,9 @@ public class AppController extends AbstractController {
   private void sortAds(ActionEvent event) {
     FileOperator fileOperator = new FileOperator();
     List<Ad> ads = fileOperator.getAllAdsInFile(filename)
-    .stream()
-    .filter(ad -> ad.getIsSold() == false)
-    .collect(Collectors.toList());
+        .stream()
+        .filter(ad -> ad.getIsSold() == false)
+        .collect(Collectors.toList());
     AdSorter adsorter = new AdSorter(
         fileOperator.getAllAdsInFile(filename)
         .stream()
