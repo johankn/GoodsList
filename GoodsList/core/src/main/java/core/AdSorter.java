@@ -28,6 +28,8 @@ public class AdSorter {
     this.ads = ads;
   }
 
+  public AdSorter() {}
+
   /**
    * sorts the list and returs the sortedlist by date.
    *
