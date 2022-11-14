@@ -1,4 +1,89 @@
 {
-  "users" : [ ],
-  "ads" : [ ]
+  "users" : [ {
+    "username" : "test",
+    "password" : "Test1234",
+    "fullname" : "Test",
+    "myAds" : [ "1", "2", "3", "4", "5" ],
+    "boughtAds" : [ ]
+  }, {
+    "username" : "example1",
+    "password" : "Test1234",
+    "fullname" : "Example One",
+    "myAds" : [ ],
+    "boughtAds" : [  ]
+  } ],
+  "ads" : [ {
+    "adTitle" : "MacBook Pro 2022",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 20000,
+      "condition" : "New",
+      "brand" : "Apple",
+      "type" : "Laptop"
+    },
+    "date" : "2022-11-14",
+    "description" : "Brand new MacBook Pro 2022",
+    "adID" : "1",
+    "isSold" : false
+  }, {
+    "adTitle" : "Gucci pants",
+    "product" : {
+      "@type" : "clothing",
+      "price" : 5000,
+      "condition" : "Used",
+      "brand" : "Gucci",
+      "type" : "Sweater",
+      "color" : "Black",
+      "size" : "M"
+    },
+    "date" : "2022-11-14",
+    "description" : "Used gucci pants for sale",
+    "adID" : "2",
+    "isSold" : false
+  }, {
+    "adTitle" : "House for sale",
+    "product" : {
+      "@type" : "property",
+      "price" : 4250000,
+      "condition" : "Used",
+      "propertyType" : "House",
+      "yearBuilt" : 2004,
+      "bedrooms" : 4,
+      "area" : 100
+    },
+    "date" : "2022-11-14",
+    "description" : "4 bedroom house in Oslo",
+    "adID" : "3",
+    "isSold" : false
+  }, {
+    "adTitle" : "Volvo XC90",
+    "product" : {
+      "@type" : "vehicles",
+      "price" : 900000,
+      "condition" : "New",
+      "brand" : "Volvo",
+      "modelName" : "XC 90",
+      "modelYear" : 2022,
+      "color" : "White"
+    },
+    "date" : "2022-11-14",
+    "description" : "new Volvo for sale",
+    "adID" : "4",
+    "isSold" : false
+  }, {
+    "adTitle" : "George Orwell 1984",
+    "product" : {
+      "@type" : "book",
+      "price" : 149,
+      "condition" : "Used",
+      "author" : "George Orwell",
+      "genre" : "Sci-fi",
+      "releaseYear" : 1949,
+      "pages" : 328
+    },
+    "date" : "2022-11-14",
+    "description" : "The best-selling classic from George Orwell.",
+    "adID" : "5",
+    "isSold" : false
+  } ]
 }
