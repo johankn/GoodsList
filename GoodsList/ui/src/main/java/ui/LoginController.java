@@ -135,7 +135,6 @@ public class LoginController extends AbstractController {
         }
       }
     } catch (RuntimeException e) {
-      e.printStackTrace();
       displayError(e.getMessage());
       this.username.clear();
       this.password.clear();

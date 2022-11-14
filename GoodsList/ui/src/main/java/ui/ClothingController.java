@@ -69,7 +69,8 @@ public class ClothingController extends AbstractController{
   }
 
   public void setOldInfo() {
-    titleField2.getText();
+    titleField2.setText(ad.getAdTitle());
+    colourChoiceClothing.setValue(((Clothing)ad.getProduct()).getColor());
     descriptionArea2.setText(ad.getDescription());
     priceField2.setText(String.valueOf(ad.getProduct().getPrice()));
     brandField2.setText(((Clothing) ad.getProduct()).getBrand());

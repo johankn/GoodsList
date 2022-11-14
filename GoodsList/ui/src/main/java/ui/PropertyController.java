@@ -77,7 +77,7 @@ public class PropertyController extends AbstractController {
   }
 
   public void setOldInfo() {
-    titleField3.getText();
+    titleField3.setText(ad.getAdTitle());
     descriptionArea3.setText(ad.getDescription());
     priceField3.setText(String.valueOf(ad.getProduct().getPrice()));
     typeField3.setText(((Property)ad.getProduct()).getPropertyType());

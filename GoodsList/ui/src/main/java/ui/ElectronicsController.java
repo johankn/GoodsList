@@ -68,7 +68,7 @@ public class ElectronicsController extends AbstractController {
   }
 
   public void setOldInfo() {
-    titleField1.getText();
+    titleField1.setText(ad.getAdTitle());;
     descriptionArea1.setText(ad.getDescription());
     priceField1.setText(String.valueOf(ad.getProduct().getPrice()));
     brandField1.setText(((Electronics) ad.getProduct()).getBrand());

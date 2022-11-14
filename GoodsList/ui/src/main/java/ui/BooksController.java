@@ -57,7 +57,7 @@ public class BooksController extends AbstractController {
   }
 
   public void setOldInfo() {
-    titleField5.getText();
+    titleField5.setText(ad.getAdTitle());
     descriptionArea5.setText(ad.getDescription());
     priceField5.setText(String.valueOf(ad.getProduct().getPrice()));
     authorField5.setText(((Books) ad.getProduct()).getAuthor());
