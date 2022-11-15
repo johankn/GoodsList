@@ -127,7 +127,7 @@ public class DataObject {
   private void updateAdInJsonFile(Ad ad) {
     List<Ad> ads = jsonFileAsObject.getAds();
     for (int i = 0; i < ads.size(); i++) {
-      if (ads.get(i).getAdID().equals(ad.getAdID())) {
+      if (ads.get(i).getAdId().equals(ad.getAdId())) {
         ads.set(i, ad);
         System.out.println(ad.getIsSold());
       }

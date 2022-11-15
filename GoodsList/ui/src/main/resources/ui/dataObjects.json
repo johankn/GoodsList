@@ -3,7 +3,7 @@
     "username" : "1",
     "password" : "2",
     "fullname" : "ADMIN",
-    "myAds" : [ "1", "2", "3", "4", "5", "6" ],
+    "myAds" : [ "1", "2", "3", "4", "5", "6", "7" ],
     "boughtAds" : [ ]
   }, {
     "username" : "test",
@@ -29,6 +29,12 @@
     "fullname" : "Johan",
     "myAds" : [ ],
     "boughtAds" : [ ]
+  }, {
+    "username" : "johanboy",
+    "password" : "Halla123",
+    "fullname" : "Johan",
+    "myAds" : [ ],
+    "boughtAds" : [ "5", "2", "6" ]
   } ],
   "ads" : [ {
     "adTitle" : "Nice phone",
@@ -41,7 +47,7 @@
     },
     "date" : "2022-11-12",
     "description" : "Works fine",
-    "adID" : "1",
+    "adId" : "1",
     "isSold" : false
   }, {
     "adTitle" : "BOK",
@@ -56,8 +62,8 @@
     },
     "date" : "2022-11-13",
     "description" : "nice read",
-    "adID" : "2",
-    "isSold" : false
+    "adId" : "2",
+    "isSold" : true
   }, {
     "adTitle" : "Flott hus",
     "product" : {
@@ -71,7 +77,7 @@
     },
     "date" : "2022-11-13",
     "description" : "På snæssbru",
-    "adID" : "3",
+    "adId" : "3",
     "isSold" : true
   }, {
     "adTitle" : "supercar",
@@ -86,7 +92,7 @@
     },
     "date" : "2022-11-13",
     "description" : "Awesome car!!!!!",
-    "adID" : "4",
+    "adId" : "4",
     "isSold" : false
   }, {
     "adTitle" : "Gucci sweater",
@@ -101,8 +107,8 @@
     },
     "date" : "2022-11-13",
     "description" : "Pussy guarantee, no CAP",
-    "adID" : "5",
-    "isSold" : false
+    "adId" : "5",
+    "isSold" : true
   }, {
     "adTitle" : "electronics",
     "product" : {
@@ -114,7 +120,20 @@
     },
     "date" : "2022-11-15",
     "description" : "nice one",
-    "adID" : "6",
+    "adId" : "6",
+    "isSold" : true
+  }, {
+    "adTitle" : "samsung tv",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 2000,
+      "condition" : "New",
+      "brand" : "samsyng",
+      "type" : "tv"
+    },
+    "date" : "2022-11-15",
+    "description" : "brand new tv",
+    "adId" : "7",
     "isSold" : false
   } ]
 }

@@ -21,6 +21,7 @@ public class GoodsListService {
   private List<User> users;
   private List<Ad> ads;
   private JsonFileAsObject jsonFile;
+  private User activeUser;
 
   public GoodsListService(String filename) {
     this.fileOperator = new FileOperator();
@@ -82,5 +83,9 @@ public class GoodsListService {
 
   public List<Ad> getAllAds() {
     return new ArrayList<Ad>(this.ads);
+  }
+
+  public void updateUser(User user) {
+    new FileOperator().updateUserObjectJsonFile(filename, user);
   }
 }
