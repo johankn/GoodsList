@@ -11,6 +11,24 @@
     "fullname" : "Test",
     "myAds" : [ ],
     "boughtAds" : [ "1" ]
+  }, {
+    "username" : "Johan",
+    "password" : "Halla123",
+    "fullname" : "Johan",
+    "myAds" : [ ],
+    "boughtAds" : [ ]
+  }, {
+    "username" : "Gstyle",
+    "password" : "Halla123",
+    "fullname" : "Gstyle",
+    "myAds" : [ ],
+    "boughtAds" : [ ]
+  }, {
+    "username" : "johangutt",
+    "password" : "Halla123",
+    "fullname" : "Johan",
+    "myAds" : [ ],
+    "boughtAds" : [ ]
   } ],
   "ads" : [ {
     "adTitle" : "fsdfds",

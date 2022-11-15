@@ -11,8 +11,10 @@ import json.User;
 public class LocalGoodsListAccess implements GoodsListAccess {
 
   private FileOperator fileOperator;
+  private String filename;
 
-  public LocalGoodsListAccess() {
+  public LocalGoodsListAccess(String filename) {
+    this.filename = filename;
     this.fileOperator = new FileOperator();
   }
 
@@ -29,19 +31,25 @@ public class LocalGoodsListAccess implements GoodsListAccess {
   }
 
   @Override
-  public void newUser(String filename, RegisteredUser registeredUser) {
+  public void newUser(RegisteredUser registeredUser) {
     fileOperator.writeNewUserDataToFile(filename, registeredUser);
     
   }
 
   @Override
-  public List<Ad> getAllAdsInFile(String filename) throws IOException {
+  public List<Ad> getAllAdsInFile() throws IOException {
     return fileOperator.getAllAdsInFile(filename);
   }
 
   @Override
-  public List<User> getAllUsers(String filename) {
+  public List<User> getAllUsers() {
     return fileOperator.getAllUsersAsList(filename);
+  }
+
+  @Override
+  public User userLogin(User user) {
+    // TODO Auto-generated method stub
+    return null;
   }
   
 }

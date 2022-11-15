@@ -66,4 +66,29 @@ public class JsonFileAsObject {
   public void addAd(Ad ad) {
     this.ads.add(ad);
   }
+
+  public User getUser(User user) {
+    if (this.users.contains(user)) {
+      return user;
+    } else {
+      throw new IllegalStateException();
+    }
+  }
+
+  public User getUserByUsername(String username) {
+    return getUsers().stream().filter(u -> u.getUsername().equals(username)).findAny()
+    .orElse(null);
+  }
+
+  public boolean checkValidUserLogin(String username, String password) {
+    User user = null;
+
+    for (User u : getUsers()) {
+      if (u.getUsername().equals(username)) {
+        user = u;
+      }
+    }
+    return user != null && user.getPassword().equals(password);
+  }
+  
 }

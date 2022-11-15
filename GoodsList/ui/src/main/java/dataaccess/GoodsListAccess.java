@@ -11,11 +11,13 @@ public interface GoodsListAccess {
   
   public List<Ad> getAdsFromUser(String username) throws IOException;
       
-  public void newAdToUser(Ad ad, User user) throws IOException;
+  public void newAdToUser(Ad ad, User username) throws IOException;
 
-  public void newUser(String filename, RegisteredUser registeredUser);
+  public void newUser(RegisteredUser registeredUser) throws Exception;
 
-  public List<Ad> getAllAdsInFile(String filename) throws IOException;
+  public List<Ad> getAllAdsInFile() throws IOException;
 
-  public List<User> getAllUsers(String filename);
+  public List<User> getAllUsers();
+
+  public User userLogin(User user);
 }

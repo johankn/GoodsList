@@ -172,7 +172,7 @@ public class DataObject {
    *
    * @return String
    */
-  private String readFileAsString(String filename) throws Exception {
+  public static String readFileAsString(String filename) throws Exception {
     String string = """
         
         """;
