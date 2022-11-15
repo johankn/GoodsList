@@ -74,6 +74,10 @@ public class ProfileController extends AbstractController {
     this.money.setText("Total money " + word + ": " + sum);
   }
 
+  /**
+   * MEthod for displaying the ads you own. 
+   * Bought ads, sold ads and active listed ads. 
+   */
   public void setDisplayAds() {
     List<Ad> ads = new FileOperator().getAllAdsInFile(filename);
     AdSorter adSorter = new AdSorter(ads);
