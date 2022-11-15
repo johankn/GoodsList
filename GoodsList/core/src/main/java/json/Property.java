@@ -110,14 +110,4 @@ public class Property extends Product {
   public void setArea(int area) {
     this.area = area;
   }
-
-  /**
-   * A toString() for the Property class.
-   * 
-   * @return String
-   */
-  @Override
-  public String toString() {
-    return getArea() + " " + getPropertyType() + " " + getBedrooms() + " " + getYearBuilt();
-  }
 }

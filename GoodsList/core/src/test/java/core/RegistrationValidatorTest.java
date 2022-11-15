@@ -89,7 +89,7 @@ public class RegistrationValidatorTest {
     }
 
     @Test
-    public void TestCheckExcistingUsername() { // this method checks if a username is in a given list. Because our
+    public void TestcheckExistingUsername() { // this method checks if a username is in a given list. Because our
                                                // structure is Username, password, fullname it should only check every
                                                // third index.
         // it should throw when if the username already is in the list (taken)
@@ -102,20 +102,20 @@ public class RegistrationValidatorTest {
         testlist.add(user3);
 
         assertThrows(IllegalArgumentException.class, () -> {
-            regValidator1.checkExcistingUsername(testlist, "username"); // testing the first index (username)
+            regValidator1.checkExistingUsername(testlist, "username"); // testing the first index (username)
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            regValidator1.checkExcistingUsername(testlist, "username2"); // Testing the fourth index (username2)
+            regValidator1.checkExistingUsername(testlist, "username2"); // Testing the fourth index (username2)
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            regValidator1.checkExcistingUsername(testlist, "username3"); // Testing the seventh index (username3)
+            regValidator1.checkExistingUsername(testlist, "username3"); // Testing the seventh index (username3)
         });
-        assertTrue(regValidator1.checkExcistingUsername(testlist, "username4")); // tests a random username that isnt in
+        assertTrue(regValidator1.checkExistingUsername(testlist, "username4")); // tests a random username that isnt in
                                                                                  // the list.
-        assertTrue(regValidator1.checkExcistingUsername(testlist, "password")); // checks that it doesnt accepts
+        assertTrue(regValidator1.checkExistingUsername(testlist, "password")); // checks that it doesnt accepts
                                                                                 // anything other than usernames from
                                                                                 // the list
-        assertTrue(regValidator1.checkExcistingUsername(testlist, "fullname")); // checks that it doesnt accepts
+        assertTrue(regValidator1.checkExistingUsername(testlist, "fullname")); // checks that it doesnt accepts
                                                                                 // anything other than usernames from
                                                                                 // the list
     }

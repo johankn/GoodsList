@@ -4,25 +4,21 @@ import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import core.RegisteredUser;
-
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class that handles all operations connected to the json file. 
+ * Class that handles all operations connected to the json file. Reads from and writes to the json
+ * file.
  */
 public class FileOperator {
-
-  /*
-   * This Class read from and writes to a json file.
-   */
 
   private ObjectMapper objectMapper;
   private ObjectWriter objectWriter;
   private DataObject dataObject;
 
+  /** A constructor that initializes the FileOperator object. */
   public FileOperator() {
     objectMapper = new ObjectMapper();
     objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
@@ -63,6 +59,12 @@ public class FileOperator {
     }
   }
 
+  /**
+   * Writes an object to json file.
+   *
+   * @param filename filename
+   * @param ad ad
+   */
   public void updateAdObjectJsonFile(String filename, Ad ad) {
     dataObject = new DataObject(filename, ad, false);
     try {
@@ -76,7 +78,7 @@ public class FileOperator {
    * Gets all the users in a json-file. Format: [User1, User2, ..., User_j]
    *
    * @param filename filename
-   * @return user
+   * @return list of users from file
    */
   public List<User> getAllUsersAsList(String filename) {
     dataObject = new DataObject(filename, false);
@@ -85,7 +87,7 @@ public class FileOperator {
   }
 
   /**
-   * Removes all users from a json file. 
+   * Removes all users from a json file.
    *
    * @param filename filename
    */
@@ -98,12 +100,11 @@ public class FileOperator {
     }
   }
 
-
   /**
-   * gets all the ads in the a json-file.
+   * Gets all the ads in the a json-file.
    *
    * @param filename filename
-   * @return ad
+   * @return list of ads from file
    */
   public List<Ad> getAllAdsInFile(String filename) {
     dataObject = new DataObject(filename, false);
@@ -111,6 +112,12 @@ public class FileOperator {
     return ads;
   }
 
+  /**
+   * Adds the ad to the file.
+   *
+   * @param filename filename
+   * @param ad ad
+   */
   public void addAdToFile(String filename, Ad ad) {
     dataObject = new DataObject(filename, ad, true);
     try {

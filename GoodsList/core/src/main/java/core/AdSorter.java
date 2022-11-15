@@ -5,35 +5,29 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-
 import json.Ad;
 
-/**
- * class for sorting list of ads in different ways.
+/** 
+ * A class for sorting a list of ads in different ways.
  */
 public class AdSorter {
 
-  /*
-   * This class sorts ads by different preferences.
-   */
-
   private List<Ad> ads;
 
+  /** Constructor that has a list of ads as parameter. */
   public AdSorter(List<Ad> ads) {
     this.ads = ads;
   }
-
+  
+  /** Empty constructor. */
   public AdSorter() {}
 
   /**
-   * sorts the list and returs the sortedlist by date.
+   * Sorts the list of ads by date and returs it.
    *
-   * @return ads
+   * @return sortedAdsByDate 
    */
   public List<Ad> sortAdsByDate() {
     List<Ad> sortedAdsByDate = ads;
@@ -47,20 +41,8 @@ public class AdSorter {
     return sortedAdsByDate;
   }
 
-  
-  // /**
-  //  * sorts the list and returs the sortedlist by date.
-  //  *
-  //  * @param function funtion to sort
-  //  * @param listOfAds list of ads
-  //  * @return ads
-  //  */
-  // public List<String> getAdAttributeInFile(List<Ad> listOfAds, Function<Ad, String> function) {
-  //   return listOfAds.stream().map(function).toList();
-  // }
-
   /**
-   * get all ads.
+   * Get all ads.
    *
    * @return ads
    */
@@ -69,7 +51,7 @@ public class AdSorter {
   }
 
   /**
-   * sets new ads. 
+   * Sets new ads.
    *
    * @param ads ads
    */
@@ -77,11 +59,22 @@ public class AdSorter {
     this.ads = ads;
   }
 
+  /**
+   * Returns a list of ads sorted with a predicate.
+   *
+   * @param expression a predicate for sorting ads
+   */
   public List<Ad> sortAds(Predicate<Ad> expression) {
     return this.ads.stream().filter(expression).collect(Collectors.toList());
   }
 
+  /**
+   * Returns a list of ads where the id of the ad matched the ids in idList.
+   *
+   * @param idList a list of ad ids
+   * @param adList a list of ads
+   */
   public List<Ad> getListofAdsFromId(List<String> idList, List<Ad> adList) {
-    return adList.stream().filter(ad -> idList.contains(ad.getAdID())).collect(Collectors.toList());
+    return adList.stream().filter(ad -> idList.contains(ad.getAdId())).collect(Collectors.toList());
   }
 }
