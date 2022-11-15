@@ -3,8 +3,13 @@ package ui;
 import core.AdSorter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import core.AdSorter;
+import core.AdValidator;
+import dataaccess.GoodsListAccess;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -48,11 +53,12 @@ public class AppController extends AbstractController {
    */
   public void first() {
     listOfAds.getItems().clear();
-    FileOperator fileoperator = new FileOperator();
-    List<Ad> ads = fileoperator.getAllAdsInFile(filename);
-    listOfAds
-        .getItems()
-        .addAll(ads.stream().filter(ad -> ad.getIsSold() == false).collect(Collectors.toList()));
+    try {
+      listOfAds.getItems().addAll(dataAccess.getAllActiveAdsInFile());
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -88,7 +94,7 @@ public class AppController extends AbstractController {
   @FXML
   private void handleNewAd() {
     Stage stage = (Stage) newAdButton.getScene().getWindow();
-    super.setScene(Controllers.CATEGORIES, stage);
+    super.setScene(Controllers.CATEGORIES, stage, getDataAccess());
   }
 
 
@@ -110,7 +116,7 @@ public class AppController extends AbstractController {
         super.setAd(ad);
         super.setPreviousController(this);
         Stage stage = (Stage) listOfAds.getScene().getWindow();
-        super.setScene(Controllers.DISPLAYAD, stage);
+        super.setScene(Controllers.DISPLAYAD, stage, getDataAccess());
       }
     }
   }
@@ -205,7 +211,7 @@ public class AppController extends AbstractController {
   @FXML
   private void handleYourProfile() {
     Stage stage = (Stage) yourProfile.getScene().getWindow();
-    super.setScene(Controllers.PROFILE, stage);
+    super.setScene(Controllers.PROFILE, stage, getDataAccess());
   }
 
   /*
@@ -215,6 +221,6 @@ public class AppController extends AbstractController {
   @FXML
   private void handleLogout() {
     Stage stage = (Stage) logoutButton.getScene().getWindow();
-    super.setScene(Controllers.LOGIN, stage);
+    super.setScene(Controllers.LOGIN, stage, getDataAccess());
   }
 }

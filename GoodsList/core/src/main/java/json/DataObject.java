@@ -39,6 +39,7 @@ public class DataObject {
     generateJsonFileAsObjectForUser(filename);
   }
 
+
   public DataObject(String filename, Ad ad, boolean addAd) {
     this.ad = ad;
     this.addAd = addAd;
@@ -171,7 +172,7 @@ public class DataObject {
    *
    * @return String
    */
-  private String readFileAsString(String filename) throws Exception {
+  public static String readFileAsString(String filename) throws Exception {
     String string = """
         
         """;

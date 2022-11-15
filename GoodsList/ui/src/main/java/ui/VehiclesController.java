@@ -102,7 +102,7 @@ public class VehiclesController extends AbstractController {
         super.setAd(ad);
         super.setPreviousController(this);
         Stage stage = (Stage) makeAd22.getScene().getWindow();
-        super.setScene(Controllers.PREVIEW, stage);
+        super.setScene(Controllers.PREVIEW, stage, getDataAccess());
       } catch (IllegalArgumentException e) {
         displayError(e.getMessage());
       }
@@ -114,7 +114,7 @@ public class VehiclesController extends AbstractController {
   @FXML
   private void goBack() {
     Stage stage = (Stage) goBackFromAd1.getScene().getWindow();
-    super.setScene(Controllers.CATEGORIES, stage);
+    super.setScene(Controllers.CATEGORIES, stage, getDataAccess());
   }
 
   /**
