@@ -2,7 +2,9 @@ package dataaccess;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.function.Predicate;
 
+import core.AdSorter;
 import core.RegisteredUser;
 import json.Ad;
 import json.FileOperator;
@@ -31,14 +33,14 @@ public class LocalGoodsListAccess implements GoodsListAccess {
   }
 
   @Override
-  public void newUser(RegisteredUser registeredUser) {
-    fileOperator.writeNewUserDataToFile(filename, registeredUser);
+  public void newUser(User user) {
+    fileOperator.writeNewUserDataToFile(filename, user);
     
   }
 
   @Override
-  public List<Ad> getAllAdsInFile() throws IOException {
-    return fileOperator.getAllAdsInFile(filename);
+  public List<Ad> getAllActiveAdsInFile() throws IOException {
+    return new AdSorter(fileOperator.getAllAdsInFile(filename)).sortAds(ad -> ad.getIsSold() == false);
   }
 
   @Override
@@ -46,8 +48,9 @@ public class LocalGoodsListAccess implements GoodsListAccess {
     return fileOperator.getAllUsersAsList(filename);
   }
 
+
   @Override
-  public User userLogin(User user) {
+  public List<Ad> getAllActiveAdsWithPredicate(Predicate expression) throws IOException {
     // TODO Auto-generated method stub
     return null;
   }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import core.AdSorter;
 import core.RegisteredUser;
 import json.Ad;
 import json.FileOperator;
@@ -30,14 +31,14 @@ public class GoodsListService {
   }
 
   private void autoSave(RegisteredUser registeredUser) {
-    try {
-      fileOperator.writeNewUserDataToFile(filename, registeredUser);
-      users = fileOperator.getAllUsersAsList(filename);
-      ads = fileOperator.getAllAdsInFile(filename);
-      jsonFile = fileOperator.getJsonFileAsObject(filename);
-    } catch (IllegalStateException e) {
-      System.err.println(e);
-    }
+    // try {
+    //   fileOperator.writeNewUserDataToFile(filename, registeredUser);
+    //   users = fileOperator.getAllUsersAsList(filename);
+    //   ads = fileOperator.getAllAdsInFile(filename);
+    //   jsonFile = fileOperator.getJsonFileAsObject(filename);
+    // } catch (IllegalStateException e) {
+    //   System.err.println(e);
+    // }
   }
 
   public List<User> getUsers() {
@@ -48,31 +49,28 @@ public class GoodsListService {
     this.users = users;
   }
 
-  public void addUser(RegisteredUser user) {
-    this.users.add(user.generateUser());
-    autoSave(user);
+  public void addUser(User user) {
+    // this.users.add(user.generateUser());
+    // autoSave(user);
+    new FileOperator().writeNewUserDataToFile(filename, user);
+    users = fileOperator.getAllUsersAsList(filename);
   }
   
   public List<Ad> getAds() {
     return this.ads;
   }
 
+  public List<Ad> getActiveAds() {
+    return new AdSorter(this.ads).sortAds(ad -> ad.getIsSold() == false);
+  }
+
   public JsonFileAsObject getJsonFileAsObject() {
     return this.jsonFile;
   }
 
-    /**
-   * Method to check if the user exists.
-   *
-   * @param username username
-   * @param password password
-   * @return true if exists
-   */
-  public boolean userLogin(String username, String password) {
-    return jsonFile.checkValidUserLogin(username, password);
-  }
 
-    public User getUserByUsername(String username) {
-      return jsonFile.getUserByUsername(username);
-    }
+
+  public User getUserByUsername(String username) {
+    return jsonFile.getUserByUsername(username);
+  }
 }

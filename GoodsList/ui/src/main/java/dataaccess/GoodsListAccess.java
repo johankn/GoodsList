@@ -2,6 +2,7 @@ package dataaccess;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.function.Predicate;
 
 import core.RegisteredUser;
 import json.Ad;
@@ -13,11 +14,11 @@ public interface GoodsListAccess {
       
   public void newAdToUser(Ad ad, User username) throws IOException;
 
-  public void newUser(RegisteredUser registeredUser) throws Exception;
+  public void newUser(User user) throws Exception;
 
-  public List<Ad> getAllAdsInFile() throws IOException;
+  public List<Ad> getAllActiveAdsInFile() throws IOException;
+
+  public List<Ad> getAllActiveAdsWithPredicate(Predicate expression) throws IOException;
 
   public List<User> getAllUsers();
-
-  public User userLogin(User user);
 }

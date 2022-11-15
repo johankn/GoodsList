@@ -1,10 +1,12 @@
 package ui;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import core.AdSorter;
 import core.AdValidator;
+import dataaccess.GoodsListAccess;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -178,11 +180,12 @@ public class AppController extends AbstractController {
 
   public void first() {
     listOfAds.getItems().clear();
-    FileOperator fileoperator = new FileOperator();
-    List<Ad> ads = fileoperator.getAllAdsInFile(filename);
-    listOfAds
-        .getItems()
-        .addAll(ads.stream().filter(ad -> ad.getIsSold() == false).collect(Collectors.toList()));
+    try {
+      listOfAds.getItems().addAll(dataAccess.getAllActiveAdsInFile());
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
   /**

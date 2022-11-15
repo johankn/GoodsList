@@ -39,8 +39,8 @@ public class FileOperator {
    * @param registeredUser user
    */
   // Writes a user to the json-file
-  public void writeNewUserDataToFile(String filename, RegisteredUser registeredUser) {
-    dataObject = new DataObject(filename, registeredUser.generateUser(), true);
+  public void writeNewUserDataToFile(String filename, User user) {
+    dataObject = new DataObject(filename, user, true);
     try {
       objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
     } catch (IOException e) {
