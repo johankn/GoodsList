@@ -11,7 +11,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import json.Ad;
-import json.FileOperator;
 import json.User;
 
 /**
@@ -58,9 +57,12 @@ public class ProfileController extends AbstractController {
     this.username.setText("Username: @" + user.getUsername());
     int sum = 0;
     String word = "earned";
-    List<Ad> allAds = new AdSorter() .getListofAdsFromId(this.user.getMyAds(), new FileOperator() .getAllAdsInFile(filename));
-    List<Ad> sold = new AdSorter(allAds) .sortAds(ad -> ad.getIsSold() == true);
-    List<Ad> boughtAds = new AdSorter() .getListofAdsFromId(this.user.getBoughtAds(), new FileOperator() .getAllAdsInFile(filename));
+    List<Ad> allAds = new AdSorter()
+        .getListofAdsFromId(this.user.getMyAds(), dataAccess.getAllAdsInFile());
+    List<Ad> sold = new AdSorter(allAds).sortAds(ad -> ad.getIsSold() == true);
+    List<Ad> boughtAds = new AdSorter()
+        .getListofAdsFromId(this.user.getBoughtAds(), 
+        dataAccess.getAllAdsInFile());
     for (int i = 0; i < sold.size(); i++) {
       sum += sold.get(i).getProduct().getPrice();
     }
@@ -79,7 +81,7 @@ public class ProfileController extends AbstractController {
    * Bought ads, sold ads and active listed ads. 
    */
   public void setDisplayAds() {
-    List<Ad> ads = new FileOperator().getAllAdsInFile(filename);
+    List<Ad> ads = dataAccess.getAllAdsInFile();
     AdSorter adSorter = new AdSorter(ads);
     AdSorter sorterBoughtorSold =
         new AdSorter(adSorter.getListofAdsFromId(this.user.getMyAds(), ads));
@@ -103,7 +105,7 @@ public class ProfileController extends AbstractController {
    */
   @FXML
   private void displaySelected(MouseEvent event) {
-    List<Ad> allAds = new FileOperator().getAllAdsInFile(filename);
+    List<Ad> allAds = dataAccess.getAllAdsInFile();
     AdSorter adSorter = new AdSorter(allAds);
     AdSorter sorterBoughtorSold =
         new AdSorter(adSorter.getListofAdsFromId(this.user.getMyAds(), allAds));
