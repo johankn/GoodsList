@@ -151,6 +151,7 @@ public abstract class AbstractController {
         ((ProfileController) controller).setUser(user);
         ((ProfileController) controller).setAd(ad);
         ((ProfileController) controller).setFilename(filename);
+        ((ProfileController) controller).setInfo(user);
         ((ProfileController) controller).setDisplayAds();
       }
 

@@ -142,6 +142,12 @@ public class AppController extends AbstractController {
         .stream()
         .filter(ad -> ad.getIsSold() == false)
         .collect(Collectors.toList());
+    AdSorter adsorter = new AdSorter(
+        fileOperator.getAllAdsInFile(filename)
+        .stream()
+        .filter(ad -> ad.getIsSold() == false)
+        .collect(Collectors.toList()));
+    //Find checked boxes
     int size = ads.size();
     this.listOfAds.getItems().clear();
 
