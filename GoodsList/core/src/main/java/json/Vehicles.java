@@ -110,14 +110,4 @@ public class Vehicles extends Product {
   public void setColor(String color) {
     this.color = color;
   }
-
-  /**
-   * A toString() for the Vehicles class.
-   * 
-   * @return String
-   */
-  @Override
-  public String toString() {
-    return getBrand() + " " + getModelName() + " " + getColor() + " " + getModelYear();
-  }
 }

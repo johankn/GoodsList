@@ -66,8 +66,10 @@ public class DisplayAdController extends AbstractController {
     this.conditionBuy.setText("Condition: " + ad.getProduct().getCondition());
     this.priceBuy.setText("Price: " + String.valueOf(ad.getProduct().getPrice()));
     if (ad.getProduct() instanceof Electronics) {
+      label11.setText(((Electronics) ad.getProduct()).getBrand());
       label21.setText(((Electronics) ad.getProduct()).getType());
-      label31.setText(((Electronics) ad.getProduct()).getBrand());
+      label31.setVisible(false);
+      label41.setVisible(false);
     }
     if (ad.getProduct() instanceof Books) {
       label21.setText("Pages: " + ((Books) ad.getProduct()).getPages());
@@ -196,7 +198,7 @@ public class DisplayAdController extends AbstractController {
   private void handleAccept() {
     try {
       ad.setIsSold(true);
-      user.buyAdd(ad.getAdID());
+      user.buyAd(ad.getAdID());
       FileOperator fileOperator = new FileOperator();
       fileOperator.updateUserObjectJsonFile(filename, user);
       fileOperator.updateAdObjectJsonFile(filename, ad);

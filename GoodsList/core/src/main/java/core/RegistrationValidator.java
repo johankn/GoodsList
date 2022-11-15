@@ -27,7 +27,7 @@ public class RegistrationValidator {
   }
 
   /**
-   * checks if the username is valid. if not it throws IllegalArgumentException
+   * Checks if the username is valid, if not it throws IllegalArgumentException.
    *
    * @param username username
    * @return boolean
@@ -42,7 +42,7 @@ public class RegistrationValidator {
   }
 
   /**
-   * checks if the password is valid. if not it throws IllegalArgumentException
+   * Checks if the password is valid, if not it throws IllegalArgumentException.
    *
    * @param password password
    * @return boolean
@@ -57,7 +57,7 @@ public class RegistrationValidator {
   }
 
   /**
-   * checks if the full name is valid. if not it throws IllegalArgumentException
+   * Checks if the full name is valid, if not it throws IllegalArgumentException.
    *
    * @param fullname fullname
    * @return boolean
@@ -72,15 +72,15 @@ public class RegistrationValidator {
   }
 
   /**
-   * checks if the username already exist. If true it throws IllegalArgumentException
+   * Checks if the username already exist. If true it throws IllegalArgumentException.
    *
-   * @param excistingUsers excisting users
+   * @param existingUsers existing users
    * @param username username
    * @return boolean
    */
-  public boolean checkExcistingUsername(List<User> excistingUsers, String username) {
-    for (int i = 0; i < excistingUsers.size(); i++) {
-      if (username.equals(excistingUsers.get(i).getUsername())) {
+  public boolean checkExistingUsername(List<User> existingUsers, String username) {
+    for (int i = 0; i < existingUsers.size(); i++) {
+      if (username.equals(existingUsers.get(i).getUsername())) {
         throw new IllegalArgumentException("This username is already taken.");
       }
     }
@@ -88,7 +88,7 @@ public class RegistrationValidator {
   }
 
   /**
-   * checks if the the two passwords matches. If not it throws IllegalArgumentException
+   * Checks if the the two passwords matches. If not it throws IllegalArgumentException.
    *
    * @param password1 password 
    * @param password2 repeated password
@@ -103,7 +103,7 @@ public class RegistrationValidator {
   }
 
   /**
-   * checks if the username is valid with regex. if not it throws IllegalArgumentException
+   * Checks if the username is valid with regex. If not it throws IllegalArgumentException.
    *
    * @param username username
    * @return boolean
@@ -113,7 +113,7 @@ public class RegistrationValidator {
   }
 
   /**
-   * checks if the password is valid with regex. if not it throws IllegalArgumentException
+   * Checks if the password is valid with regex. If not it throws IllegalArgumentException
    *
    * @param password password
    * @return boolean
@@ -124,7 +124,7 @@ public class RegistrationValidator {
   }
 
   /**
-   * checks if the fullname is valid with regex. if not it throws IllegalArgumentException
+   * Checks if the fullname is valid with regex. If not it throws IllegalArgumentException
    *
    * @param fullname fullname
    * @return boolean
@@ -143,7 +143,7 @@ public class RegistrationValidator {
    * @param password password
    * @param repeatedpassword repeated password
    * @param fullname fullname
-   * @param excistingUsers excisting users
+   * @param existingUsers existing users
    * @return boolean
    */
   public boolean isRegistrationLegal(
@@ -151,7 +151,7 @@ public class RegistrationValidator {
       String password,
       String repeatedpassword,
       String fullname,
-      List<User> excistingUsers) {
+      List<User> existingUsers) {
     if (username.isBlank()
         || password.isBlank()
         || repeatedpassword.isBlank()
@@ -162,7 +162,7 @@ public class RegistrationValidator {
           && isFullNameValid(fullname)
           && isPasswordValid(password)
           && equalPasswords(password, repeatedpassword)
-          && checkExcistingUsername(excistingUsers, username);
+          && checkExistingUsername(existingUsers, username);
     }
   }
 }
