@@ -73,9 +73,9 @@ public class PreviewAdController extends AbstractController {
     pricePreview.setText("Price: " + String.valueOf(ad.getProduct().getPrice()));
     descriptionPreview.setText(ad.getDescription());
     if (ad.getProduct() instanceof Electronics) {
-      label4.setText(((Electronics) ad.getProduct()).getType());
-      label2.setText(((Electronics) ad.getProduct()).getBrand());
-      label1.setVisible(false);
+      label2.setText(((Electronics) ad.getProduct()).getType());
+      label1.setText(((Electronics) ad.getProduct()).getBrand());
+      label4.setVisible(false);
       label3.setVisible(false);
     }
     if (ad.getProduct() instanceof Books) {

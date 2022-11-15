@@ -3,7 +3,7 @@
     "username" : "1",
     "password" : "2",
     "fullname" : "ADMIN",
-    "myAds" : [ "1", "2", "3", "4", "5" ],
+    "myAds" : [ "1", "2", "3", "4", "5", "6" ],
     "boughtAds" : [ ]
   }, {
     "username" : "test",
@@ -102,6 +102,19 @@
     "date" : "2022-11-13",
     "description" : "Pussy guarantee, no CAP",
     "adID" : "5",
+    "isSold" : false
+  }, {
+    "adTitle" : "sdfg",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 123,
+      "condition" : "Used",
+      "brand" : "xcv",
+      "type" : "sdf"
+    },
+    "date" : "2022-11-15",
+    "description" : "sfdsfds",
+    "adID" : "6",
     "isSold" : false
   } ]
 }

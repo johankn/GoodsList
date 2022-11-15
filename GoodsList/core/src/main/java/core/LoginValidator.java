@@ -11,12 +11,13 @@ public class LoginValidator {
 
   private FileOperator fileOperator;
 
+  /** A constructor that initializes the LoginValidator object. */
   public LoginValidator() {
     this.fileOperator = new FileOperator();
   }
 
   /**
-   * getter method.
+   * Getter method.
    *
    * @return FileOperator
    */
@@ -28,7 +29,7 @@ public class LoginValidator {
    * Checks if the username exist and throws IllegalArgumentException if not.
    *
    * @param username username
-   * @param listOfExistingUsers list of users already excisting
+   * @param listOfExistingUsers list of users already existing
    * @return boolean
    */
   private boolean doesUserNameExist(String username, List<User> listOfExistingUsers) {
@@ -46,7 +47,7 @@ public class LoginValidator {
    *
    * @param username username
    * @param password password
-   * @param listOfExistingUsers list of already excisting users
+   * @param listOfExistingUsers list of already existing users
    * @return boolean
    */
   private boolean doesUserNameAndPasswordMatch(
@@ -65,7 +66,7 @@ public class LoginValidator {
    *
    * @param username username
    * @param password password
-   * @param exsitingUsers list of already excisting users
+   * @param exsitingUsers list of already existing users
    * @return boolean
    */
   public boolean isLoginLegal(String username, String password, List<User> exsitingUsers) {

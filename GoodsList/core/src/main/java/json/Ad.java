@@ -3,17 +3,16 @@ package json;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * A class "Ad" that represents an ad that can be posted to our site. 
+/** 
+ * A class "Ad" that represents an ad that can be posted to our site.
  */
-
 public class Ad {
 
   private Product product;
   private String date;
   private String description;
   private String adTitle;
-  private String adID;
+  private String adId;
   private boolean isSold;
 
   /**
@@ -26,21 +25,18 @@ public class Ad {
       @JsonProperty(value = "adTitle") String adTitle,
       @JsonProperty(value = "product") Product product,
       @JsonProperty(value = "date") String date,
-      @JsonProperty(value = "description") String description, 
-      @JsonProperty(value = "adID") String adID, 
-      @JsonProperty(value = "isSold") boolean isSold)
-       {
+      @JsonProperty(value = "description") String description,
+      @JsonProperty(value = "adId") String adId,
+      @JsonProperty(value = "isSold") boolean isSold) {
     this.product = product;
     this.adTitle = adTitle;
     this.date = date;
     this.description = description;
-    this.adID = adID;
+    this.adId = adId;
     this.isSold = isSold;
   }
 
-  /**
-   * Empty constructor to make a preview of an ad.
-   */
+  /** Empty constructor to make a preview of an ad. */
   public Ad() {}
 
   /**
@@ -116,41 +112,52 @@ public class Ad {
   }
 
   /**
-   * A method that adds this adID to a users list of its active ads.
+   * A method that adds this adId to a users list of its active ads.
    *
    * @param user user
    */
   public void publishAd(User user) {
-    user.addAdToList(this.adID);
+    user.addAdToList(this.adId);
   }
 
   /**
-   * Gets the adID of the ad.
+   * Gets the adId of the ad.
    *
    * @return Integer
    */
-  public String getAdID() {
-    return adID;
+  public String getAdId() {
+    return adId;
   }
 
   /**
-   * Sets the adID of the ad.
+   * Sets the adId of the ad.
    *
-   * @param Integer adID
+   * @param adId adId
    */
-  public void setAdID(String adID) {
-    this.adID = adID;
+  public void setAdId(String adId) {
+    this.adId = adId;
   }
-  
+
+  /**
+   * A toString() for the Ad class, makes the title show up in the listView.
+   */
   @Override
   public String toString() {
     return this.adTitle;
   }
 
+  /**
+   * Getter.
+   */
   public boolean getIsSold() {
     return this.isSold;
   }
-  
+
+  /**
+   * Sets the boolean setIsSold.
+   * 
+   * @param bool boolean
+   */
   public void setIsSold(boolean bool) {
     this.isSold = bool;
   }
