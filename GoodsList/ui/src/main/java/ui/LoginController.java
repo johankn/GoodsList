@@ -22,7 +22,6 @@ public class LoginController extends AbstractController {
   private LoginValidator loginValidator;
   private User loggedInUser;
   private String filename;
-  private FileOperator fileOperator;
 
   @FXML private PasswordField password;
   @FXML private PasswordField registrationPassword;
@@ -50,6 +49,8 @@ public class LoginController extends AbstractController {
       this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
     }
     super.setFilepathAbstract(isTest);
+    super.setFilename(this.filename);
+
   }
 
   /**
@@ -91,8 +92,7 @@ public class LoginController extends AbstractController {
   @FXML
   private void onLogin() {
     try {
-      fileOperator = new FileOperator();
-      List<User> users = fileOperator.getAllUsersAsList(filename);
+      List<User> users = getDataAccess().getAllUsers();
       loginValidator = new LoginValidator();
       if (loginValidator.isLoginLegal(username.getText(), password.getText(), users)) {
         for (int i = 0; i < users.size(); i++) {
@@ -100,10 +100,11 @@ public class LoginController extends AbstractController {
             loggedInUser = users.get(i);
             // app = new App();
             // app.bringUserInfo(loggedInUser);
+            // getDataAccess().userLogin(loggedInUser);
             super.setUser(this.loggedInUser);
             super.setFilename(filename);
             Stage stage = (Stage) loginButton.getScene().getWindow();
-            super.setScene(Controllers.APP, stage);
+            super.setScene(Controllers.APP, stage, getDataAccess());
           }
         }
       }
@@ -122,7 +123,7 @@ public class LoginController extends AbstractController {
    * user.
    */
   @FXML
-  private void onRegistration() {
+  private void onRegistration() throws Exception {
     registrationValidator = new RegistrationValidator();
     try {
       if (registrationValidator.isRegistrationLegal(
@@ -130,7 +131,7 @@ public class LoginController extends AbstractController {
           registrationPassword.getText(),
           repeatedRegistrationPassword.getText(),
           fullName.getText(),
-          registrationValidator.getFileOperator().getAllUsersAsList(filename))) {
+          getDataAccess().getAllUsers())) {
         RegisteredUser regUser =
             new RegisteredUser(
                 registrationUsername.getText(),
@@ -138,7 +139,8 @@ public class LoginController extends AbstractController {
                 fullName.getText(),
                 repeatedRegistrationPassword.getText());
         this.displayMessage("You have been succesfully registered!");
-        registrationValidator.getFileOperator().writeNewUserDataToFile(filename, regUser);
+        User user = regUser.generateUser();
+        getDataAccess().newUser(user);
         this.registrationUsername.clear();
         this.registrationPassword.clear();
         this.repeatedRegistrationPassword.clear();

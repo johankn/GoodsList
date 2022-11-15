@@ -111,7 +111,7 @@ public class PreviewAdController extends AbstractController {
     fileOperator.updateUserObjectJsonFile(filename, user);
     fileOperator.addAdToFile(filename, ad);
     Stage stage = (Stage) postButton.getScene().getWindow();
-    super.setScene(Controllers.APP, stage);
+    super.setScene(Controllers.APP, stage, getDataAccess());
   }
 
   @FXML
@@ -119,23 +119,23 @@ public class PreviewAdController extends AbstractController {
     if (this.previousController instanceof ElectronicsController) {
       super.setPreviousController(this);
       Stage stage = (Stage) editButton.getScene().getWindow();
-      super.setScene(Controllers.ELECTRONICS, stage);
+      super.setScene(Controllers.ELECTRONICS, stage, getDataAccess());
     } else if (this.previousController instanceof BooksController) {
       super.setPreviousController(this);
       Stage stage = (Stage) editButton.getScene().getWindow();
-      super.setScene(Controllers.BOOKS, stage);
+      super.setScene(Controllers.BOOKS, stage, getDataAccess());
     } else if (this.previousController instanceof VehiclesController) {
       super.setPreviousController(this);
       Stage stage = (Stage) editButton.getScene().getWindow();
-      super.setScene(Controllers.VEHICLES, stage);
+      super.setScene(Controllers.VEHICLES, stage, getDataAccess());
     } else if (this.previousController instanceof PropertyController) {
       super.setPreviousController(this);
       Stage stage = (Stage) editButton.getScene().getWindow();
-      super.setScene(Controllers.PROPERTY, stage);
+      super.setScene(Controllers.PROPERTY, stage, getDataAccess());
     } else if (this.previousController instanceof ClothingController) {
       super.setPreviousController(this);
       Stage stage = (Stage) editButton.getScene().getWindow();
-      super.setScene(Controllers.CLOTHING, stage);
+      super.setScene(Controllers.CLOTHING, stage, getDataAccess());
     }
   }
 }

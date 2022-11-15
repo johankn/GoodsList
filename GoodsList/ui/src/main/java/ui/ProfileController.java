@@ -91,7 +91,7 @@ public class ProfileController extends AbstractController {
   @FXML
   private void goBack() {
     Stage stage = (Stage) listBoughtAds.getScene().getWindow();
-    super.setScene(Controllers.APP, stage);
+    super.setScene(Controllers.APP, stage, getDataAccess());
   }
 
   /**
@@ -114,12 +114,12 @@ public class ProfileController extends AbstractController {
         ad = this.listActiveAds.getSelectionModel().getSelectedItem();
         super.setAd(ad);
         Stage stage = (Stage) listActiveAds.getScene().getWindow();
-        super.setScene(Controllers.DISPLAYAD, stage);
+        super.setScene(Controllers.DISPLAYAD, stage, getDataAccess());
       } else if (this.listSoldAds.getSelectionModel().isSelected(i)) {
         ad = this.listSoldAds.getSelectionModel().getSelectedItem();
         super.setAd(ad);
         Stage stage = (Stage) listSoldAds.getScene().getWindow();
-        super.setScene(Controllers.DISPLAYAD, stage);
+        super.setScene(Controllers.DISPLAYAD, stage, getDataAccess());
       }
     }
     List<Ad> boughtAds = adSorter.getListofAdsFromId(this.user.getBoughtAds(), allAds);
@@ -128,7 +128,7 @@ public class ProfileController extends AbstractController {
         ad = this.listBoughtAds.getSelectionModel().getSelectedItem();
         super.setAd(ad);
         Stage stage = (Stage) listBoughtAds.getScene().getWindow();
-        super.setScene(Controllers.DISPLAYAD, stage);
+        super.setScene(Controllers.DISPLAYAD, stage, getDataAccess());
       }
     }
   }

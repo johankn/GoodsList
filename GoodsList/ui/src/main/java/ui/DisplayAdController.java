@@ -149,11 +149,11 @@ public class DisplayAdController extends AbstractController {
   private void handleGoBack() {
     if (this.previousController instanceof AppController) {
       Stage stage = (Stage) buyButton.getScene().getWindow();
-      super.setScene(Controllers.APP, stage);
+      super.setScene(Controllers.APP, stage, getDataAccess());
     }
     if (this.previousController instanceof ProfileController) {
       Stage stage = (Stage) buyButton.getScene().getWindow();
-      super.setScene(Controllers.PROFILE, stage);
+      super.setScene(Controllers.PROFILE, stage, getDataAccess());
     }
   }
 

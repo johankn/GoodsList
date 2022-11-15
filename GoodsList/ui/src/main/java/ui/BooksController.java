@@ -96,7 +96,7 @@ public class BooksController extends AbstractController {
       super.setAd(ad);
       super.setPreviousController(this);
       Stage stage = (Stage) makeAd23.getScene().getWindow();
-      super.setScene(Controllers.PREVIEW, stage);
+      super.setScene(Controllers.PREVIEW, stage, getDataAccess());
 
     } catch (IllegalArgumentException e) {
       displayError(e.getMessage());
@@ -106,7 +106,7 @@ public class BooksController extends AbstractController {
   @FXML
   private void goBack() {
     Stage stage = (Stage) titleField5.getScene().getWindow();
-    super.setScene(Controllers.CATEGORIES, stage);
+    super.setScene(Controllers.CATEGORIES, stage, getDataAccess());
   }
 
   /**

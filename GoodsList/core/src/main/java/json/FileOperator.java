@@ -24,14 +24,19 @@ public class FileOperator {
     objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
   }
 
+  public ObjectMapper getObjectMapper() {
+    return this.objectMapper;
+  }
+
   /**
    * Writes a new user to json file.
    *
    * @param filename filename
    * @param registeredUser user
    */
-  public void writeNewUserDataToFile(String filename, RegisteredUser registeredUser) {
-    dataObject = new DataObject(filename, registeredUser.generateUser(), true);
+  // Writes a user to the json-file
+  public void writeNewUserDataToFile(String filename, User user) {
+    dataObject = new DataObject(filename, user, true);
     try {
       objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
     } catch (IOException e) {
@@ -120,5 +125,15 @@ public class FileOperator {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  public JsonFileAsObject getJsonFileAsObject(String filename) {
+    dataObject = new DataObject(filename, false);
+    return dataObject.getJsonFileAsObject();
+  }
+
+  public String getJsonFileAsString(String filename) throws Exception {
+    dataObject = new DataObject(filename, false);
+    return dataObject.readFileAsString(filename);
   }
 }

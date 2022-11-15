@@ -104,7 +104,7 @@ public class ElectronicsController extends AbstractController {
       // label2.setText("Type: " + typeField1.getText());
       super.setPreviousController(this);
       Stage stage = (Stage) makeAd1.getScene().getWindow();
-      super.setScene(Controllers.PREVIEW, stage);
+      super.setScene(Controllers.PREVIEW, stage, getDataAccess());
 
     } catch (IllegalArgumentException e) {
       displayError(e.getMessage());
@@ -114,7 +114,7 @@ public class ElectronicsController extends AbstractController {
   @FXML
   private void goBack() {
     Stage stage = (Stage) makeAd1.getScene().getWindow();
-    super.setScene(Controllers.CATEGORIES, stage);
+    super.setScene(Controllers.CATEGORIES, stage, getDataAccess());
   }
 
   /**

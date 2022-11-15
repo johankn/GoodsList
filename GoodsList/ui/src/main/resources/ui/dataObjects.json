@@ -10,7 +10,25 @@
     "password" : "Test1234",
     "fullname" : "Test",
     "myAds" : [ ],
-    "boughtAds" : [ "3" ]
+    "boughtAds" : [ "1" ]
+  }, {
+    "username" : "Johan",
+    "password" : "Halla123",
+    "fullname" : "Johan",
+    "myAds" : [ ],
+    "boughtAds" : [ ]
+  }, {
+    "username" : "Gstyle",
+    "password" : "Halla123",
+    "fullname" : "Gstyle",
+    "myAds" : [ ],
+    "boughtAds" : [ ]
+  }, {
+    "username" : "johangutt",
+    "password" : "Halla123",
+    "fullname" : "Johan",
+    "myAds" : [ ],
+    "boughtAds" : [ ]
   } ],
   "ads" : [ {
     "adTitle" : "Nice phone",
