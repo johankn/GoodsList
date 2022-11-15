@@ -1,34 +1,24 @@
 package ui;
 
+import core.RegisteredUser;
+import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import json.Ad;
-import json.Electronics;
 import json.FileOperator;
-import json.User;
-import ui.AbstractController.Controllers;
-
-import java.util.ArrayList;
-import java.io.IOException;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationTest;
 
-import core.RegisteredUser;
-
-/**
- * TestFX App test
- */
+/** TestFX App test */
 @TestMethodOrder(OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class UiTest extends ApplicationTest {
@@ -50,11 +40,10 @@ public class UiTest extends ApplicationTest {
   private AbstractController abstractController;
 
   /**
-   * Start method for the app. We have added a method for setting the filepath we
-   * are using in controller.
-   * If the param for setFilePath is false, we are running the app normally, and
-   * true means its a test.
-   * 
+   * Start method for the app. We have added a method for setting the filepath we are using in
+   * controller. If the param for setFilePath is false, we are running the app normally, and true
+   * means its a test.
+   *
    * @param stage
    * @throws IOException
    */
@@ -165,7 +154,6 @@ public class UiTest extends ApplicationTest {
     this.LogOut();
   }
 
-
   private void TestMakeElectronicsAd() {
     this.makeAd();
     robot.clickOn("#electronicsButton");
@@ -193,7 +181,6 @@ public class UiTest extends ApplicationTest {
     this.postAd();
 
     sleep(500);
-
   }
 
   private void TestMakeClothingAd() {
@@ -261,7 +248,6 @@ public class UiTest extends ApplicationTest {
     sleep(500);
   }
 
-
   private void TestMakeVehicleAd() {
     this.makeAd();
     robot.clickOn("#vehiclesButton");
@@ -292,7 +278,6 @@ public class UiTest extends ApplicationTest {
 
     sleep(500);
   }
-
 
   private void TestMakeBookAd() {
     this.makeAd();
@@ -408,5 +393,4 @@ public class UiTest extends ApplicationTest {
     this.closeAlert();
     sleep(500);
   }
-
 }

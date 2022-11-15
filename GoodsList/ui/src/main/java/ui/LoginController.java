@@ -3,12 +3,7 @@ package ui;
 import core.LoginValidator;
 import core.RegisteredUser;
 import core.RegistrationValidator;
-import json.User;
-
-import java.io.IOException;
 import java.util.List;
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -18,10 +13,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import json.FileOperator;
+import json.User;
 
-/**
- * Controller for the login fxml file.
- */
+/** Controller for the login fxml file. */
 public class LoginController extends AbstractController {
 
   private RegistrationValidator registrationValidator;
@@ -30,34 +24,21 @@ public class LoginController extends AbstractController {
   private String filename;
   private FileOperator fileOperator;
 
-  @FXML
-  private PasswordField password;
-  @FXML
-  private PasswordField registrationPassword;
-  @FXML
-  private PasswordField repeatedRegistrationPassword;
-  @FXML
-  private TextField username;
-  @FXML
-  private TextField registrationUsername;
-  @FXML
-  private TextField fullName;
-  @FXML
-  private Button loginButton;
-  @FXML
-  private Button registrationButton;
-  @FXML
-  private Text header;
-  @FXML
-  private Text loginHeader;
-  @FXML
-  private Text registrationHeader;
-  @FXML
-  private Text feedback;
+  @FXML private PasswordField password;
+  @FXML private PasswordField registrationPassword;
+  @FXML private PasswordField repeatedRegistrationPassword;
+  @FXML private TextField username;
+  @FXML private TextField registrationUsername;
+  @FXML private TextField fullName;
+  @FXML private Button loginButton;
+  @FXML private Button registrationButton;
+  @FXML private Text header;
+  @FXML private Text loginHeader;
+  @FXML private Text registrationHeader;
+  @FXML private Text feedback;
 
   /**
-   * Method for choosing the filepath and hence which file we are writing and
-   * reading from. If
+   * Method for choosing the filepath and hence which file we are writing and reading from. If
    * istest is true it is a test, vice versa.
    *
    * @param isTest boolean for checking if it is a test
@@ -70,7 +51,6 @@ public class LoginController extends AbstractController {
     }
     super.setFilepathAbstract(isTest);
   }
-
 
   /**
    * private method for displaying an error with the given param message It os used when logging in
@@ -114,15 +94,9 @@ public class LoginController extends AbstractController {
       fileOperator = new FileOperator();
       List<User> users = fileOperator.getAllUsersAsList(filename);
       loginValidator = new LoginValidator();
-      if (loginValidator.isLoginLegal(
-          username.getText(),
-          password.getText(),
-          users)) {
+      if (loginValidator.isLoginLegal(username.getText(), password.getText(), users)) {
         for (int i = 0; i < users.size(); i++) {
-          if (users
-              .get(i)
-              .getUsername()
-              .equals(username.getText())) {
+          if (users.get(i).getUsername().equals(username.getText())) {
             loggedInUser = users.get(i);
             // app = new App();
             // app.bringUserInfo(loggedInUser);
