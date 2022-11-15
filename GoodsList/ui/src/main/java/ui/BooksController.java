@@ -44,7 +44,7 @@ public class BooksController extends AbstractController {
 
   public void setUser(User user) {
     this.user = user;
-    super.setUser(user);
+    super.setUser(this.user);
   }
 
   public void setAd(Ad ad) {
@@ -102,21 +102,6 @@ public class BooksController extends AbstractController {
       Stage stage = (Stage) makeAd23.getScene().getWindow();
       super.setScene(Controllers.PREVIEW, stage);
 
-      // preview
-      // titlePreview.setText(titleField5.getText());
-      // conditionPreview.setText(setCondition(conditionField5));
-      // pricePreview.setText(priceField5.getText() + "Kr");
-      // descriptionPreview.setText(descriptionArea5.getText());
-      // label1.setText("Author: " + authorField5.getText());
-      // label2.setText("Genre: " + genreField5.getText());
-      // label3.setText("Pages: " + pagesField5.getText());
-      // label4.setText("Year: " + yearField5.getText());
-
-      // booksAd.setDisable(true);
-      // booksAd.setVisible(false);
-      // adPreview.setDisable(false);
-      // adPreview.setVisible(true);
-
     } catch (IllegalArgumentException e) {
       displayError(e.getMessage());
     }
@@ -149,13 +134,4 @@ public class BooksController extends AbstractController {
     }
     return "Used";
   }
-      // // erase books
-      // priceField5.setText("");
-      // titleField5.setText("");
-      // descriptionArea5.setText("");
-      // conditionField5.setSelected(false);
-      // genreField5.setText("");
-      // pagesField5.setText("");
-      // yearField5.setText("");
-      // authorField5.setText("");
 }
