@@ -6,20 +6,17 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import json.User;
 
-public class CategoriesController extends AbstractController{
+/**
+ * Controller for Categories. Is displayed when youa re choosing what ad to make. 
+ */
+public class CategoriesController extends AbstractController {
 
-  @FXML
-  private Button electronicsButton;
-  @FXML
-  private Button clothingButton;
-  @FXML
-  private Button vehiclesButton;
-  @FXML
-  private Button booksButton;
-  @FXML
-  private Button propertyButton;
-  @FXML
-  private Button exitButton;
+  @FXML private Button electronicsButton;
+  @FXML private Button clothingButton;
+  @FXML private Button vehiclesButton;
+  @FXML private Button booksButton;
+  @FXML private Button propertyButton;
+  @FXML private Button exitButton;
 
   private User user;
   private String filename;
@@ -34,10 +31,8 @@ public class CategoriesController extends AbstractController{
     super.setFilename(this.filename);
   }
 
-
-    /**
-   * Method for handling the different outcomes of the chooseable categories you
-   * get when you want
+  /**
+   * Method for handling the different outcomes of the chooseable categories you get when you want
    * to make a new ad. Each category has a case with different panes.
    *
    * @param event event
@@ -82,6 +77,4 @@ public class CategoriesController extends AbstractController{
     Stage stage = (Stage) exitButton.getScene().getWindow();
     super.setScene(Controllers.APP, stage);
   }
-
-
 }
