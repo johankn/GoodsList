@@ -102,11 +102,11 @@ public class DisplayAdController extends AbstractController {
    * The info depends wether the user is able to buy, or owns the ad. 
    */
   public void setBuyPossible() {
-    if (user.getBoughtAds().contains(ad.getAdID())) {
+    if (user.getBoughtAds().contains(ad.getAdId())) {
       buyButton.setDisable(true);
       buyButton.setVisible(false);
       ifOwner.setText("You have bought this ad");
-    } else if (user.getMyAds().contains(ad.getAdID())) {
+    } else if (user.getMyAds().contains(ad.getAdId())) {
       buyButton.setDisable(true);
       buyButton.setVisible(false);
       if (ad.getIsSold()) {
@@ -198,7 +198,7 @@ public class DisplayAdController extends AbstractController {
   private void handleAccept() {
     try {
       ad.setIsSold(true);
-      user.buyAd(ad.getAdID());
+      user.buyAd(ad.getAdId());
       FileOperator fileOperator = new FileOperator();
       fileOperator.updateUserObjectJsonFile(filename, user);
       fileOperator.updateAdObjectJsonFile(filename, ad);

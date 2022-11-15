@@ -106,7 +106,7 @@ public class PreviewAdController extends AbstractController {
 
   @FXML
   private void handlePostAd() {
-    this.user.addAdToList(ad.getAdID());
+    this.user.addAdToList(ad.getAdId());
     FileOperator fileOperator = new FileOperator();
     fileOperator.updateUserObjectJsonFile(filename, user);
     fileOperator.addAdToFile(filename, ad);
