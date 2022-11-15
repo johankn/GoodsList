@@ -1,70 +1,41 @@
 package ui;
 
+import core.AdSorter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-
-import core.AdSorter;
-import core.AdValidator;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import json.Ad;
-import json.Books;
-import json.Clothing;
-import json.Electronics;
 import json.FileOperator;
-import json.Product;
-import json.Property;
 import json.User;
-import json.UserInfoCollector;
-import json.Vehicles;
 
-/**
- * Controller for the app fxml file.
- */
-
+/** Controller for the app fxml file. */
 public class AppController extends AbstractController {
 
-  @FXML
-  private CheckBox electronicsButton;
-  @FXML
-  private CheckBox clothingButton;
-  @FXML
-  private CheckBox propertyButton;
-  @FXML
-  private CheckBox booksButton;
-  @FXML
-  private CheckBox vehiclesButton;
-  @FXML
-  private Button newAdButton;
-  @FXML
-  private Button yourProfile;
-  @FXML
-  private Button logoutButton;
-  @FXML
-  private Label welcomeText;
-  @FXML
-  private AnchorPane homePage;
-  @FXML
-  private ListView<Ad> listOfAds;
-  @FXML
-  private TextField searchBar;
+  @FXML private CheckBox electronicsButton;
+  @FXML private CheckBox clothingButton;
+  @FXML private CheckBox propertyButton;
+  @FXML private CheckBox booksButton;
+  @FXML private CheckBox vehiclesButton;
+  @FXML private Button newAdButton;
+  @FXML private Button yourProfile;
+  @FXML private Button logoutButton;
+  @FXML private Label welcomeText;
+  @FXML private AnchorPane homePage;
+  @FXML private ListView<Ad> listOfAds;
+  @FXML private TextField searchBar;
 
   private Ad ad;
 
@@ -73,6 +44,9 @@ public class AppController extends AbstractController {
   private String filename;
   private User user;
 
+  /**
+   * MEthod for displaying all default ads, that are up for sale.
+   */
   public void first() {
     listOfAds.getItems().clear();
     FileOperator fileoperator = new FileOperator();
@@ -83,8 +57,7 @@ public class AppController extends AbstractController {
   }
 
   /**
-   * Method for setting the username after logging in, Shows welcome "fullname" in
-   * display.
+   * Method for setting the username after logging in, Shows welcome "fullname" in display.
    *
    * @param user user
    */
@@ -108,8 +81,6 @@ public class AppController extends AbstractController {
     booksButton.setSelected(false);
     this.first();
   }
-
-
 
   /*
    * Method which is called when you press button new ad on the homepage.
@@ -219,7 +190,8 @@ public class AppController extends AbstractController {
   //           typeField2.getText(),
   //           colourChoiceClothing.getValue().toString(),
   //           sizeField2.getText());
-  //       ad = new Ad(titleField2.getText(), product2, date, descriptionArea2.getText(), adID, false);
+  //       ad = new Ad(titleField2.getText(), product2, date, descriptionArea2.getText(), adID,
+  // false);
 
   //       titlePreview.setText(titleField2.getText());
   //       conditionPreview.setText(setCondition(conditionField2));
@@ -272,7 +244,8 @@ public class AppController extends AbstractController {
   //           typeField4.getText(),
   //           Integer.parseInt(yearField4.getText()),
   //           colourChoiceVehicles.getValue().toString());
-  //       ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText(), adID, false);
+  //       ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText(), adID,
+  // false);
 
   //       titlePreview.setText(titleField4.getText());
   //       conditionPreview.setText(setCondition(conditionField4));
@@ -295,14 +268,10 @@ public class AppController extends AbstractController {
   //   }
   // }
 
-  
-
   /**
-   * This methods just sets the colour choices in the to different dropdownboxes
-   * for choosing colours in the clothing and
-   * vehicles ad types.
+   * This methods just sets the colour choices in the to different dropdownboxes for choosing
+   * colours in the clothing and vehicles ad types.
    */
-
 
   // /*
   //  * This is the method you can call on when you see the preview of your ad.
@@ -326,15 +295,15 @@ public class AppController extends AbstractController {
   //   fo.addAdToFile(filename, ad, user);
   //   first();
 
-    // // erase clothing
-    // priceField2.setText("");
-    // titleField2.setText("");
-    // descriptionArea2.setText("");
-    // conditionField2.setSelected(false);
-    // colourChoiceClothing.setValue(null);
-    // brandField2.setText("");
-    // typeField2.setText("");
-    // sizeField2.setText("");
+  // // erase clothing
+  // priceField2.setText("");
+  // titleField2.setText("");
+  // descriptionArea2.setText("");
+  // conditionField2.setSelected(false);
+  // colourChoiceClothing.setValue(null);
+  // brandField2.setText("");
+  // typeField2.setText("");
+  // sizeField2.setText("");
 
   //   // erase vehicles
   //   priceField4.setText("");
@@ -399,10 +368,10 @@ public class AppController extends AbstractController {
   // }
 
   /**
-   * A method that makes it possible to click on an ad in the listview. When
-   * clicked, the user should see a preview of the ad, and will have a choice to
-   * buy the product. The user can also return to the home page.
-   * 
+   * A method that makes it possible to click on an ad in the listview. When clicked, the user
+   * should see a preview of the ad, and will have a choice to buy the product. The user can also
+   * return to the home page.
+   *
    * @param event when the user clicks on an ad
    */
   @FXML
@@ -419,10 +388,8 @@ public class AppController extends AbstractController {
   }
 
   /**
-   * private method for displaying an error with the given param message Is used
-   * when making an ad,
-   * if something is wrong in the inout fields. It gets the message from the
-   * exception that is
+   * private method for displaying an error with the given param message Is used when making an ad,
+   * if something is wrong in the inout fields. It gets the message from the exception that is
    * thrown The exceptions are thrown by advalidator class.
    *
    * @param message message
@@ -435,47 +402,35 @@ public class AppController extends AbstractController {
     alert.showAndWait();
   }
 
-  /**
-   * Method for "checking" the checkbox, to set if something is used or new.
-   *
-   * @param field field
-   * @return String
-   */
-  private String setCondition(CheckBox field) {
-    if (field.isSelected()) {
-      return "New";
-    }
-    return "Used";
-    
-  }
 
   /**
-   * Method that sorts ads based on different events (which button is clicked)
-   * 
+   * Method that sorts ads based on different events (which button is clicked).
+   *
    * @param event
    */
   @FXML
   private void sortAds(ActionEvent event) {
     FileOperator fileOperator = new FileOperator();
-    List<Ad> ads = fileOperator.getAllAdsInFile(filename)
-    .stream()
-    .filter(ad -> ad.getIsSold() == false)
-    .collect(Collectors.toList());
-    AdSorter adsorter = new AdSorter(
-        fileOperator.getAllAdsInFile(filename)
-        .stream()
-        .filter(ad -> ad.getIsSold() == false)
-        .collect(Collectors.toList()));
-    //Find checked boxes
+    List<Ad> ads =
+        fileOperator.getAllAdsInFile(filename).stream()
+            .filter(ad -> ad.getIsSold() == false)
+            .collect(Collectors.toList());
+    AdSorter adsorter =
+        new AdSorter(
+            fileOperator.getAllAdsInFile(filename).stream()
+                .filter(ad -> ad.getIsSold() == false)
+                .collect(Collectors.toList()));
+    // Find checked boxes
     int size = ads.size();
     this.listOfAds.getItems().clear();
 
-    List<CheckBox> checkBoxes = Arrays
-        .asList(electronicsButton, clothingButton, vehiclesButton, propertyButton, booksButton);
+    List<CheckBox> checkBoxes =
+        Arrays.asList(
+            electronicsButton, clothingButton, vehiclesButton, propertyButton, booksButton);
 
-    List<String> products = Arrays
-        .asList("Electronics", "Clothing", "Vehicles", "Property", "Books");
-    
+    List<String> products =
+        Arrays.asList("Electronics", "Clothing", "Vehicles", "Property", "Books");
+
     List<String> checkedProducts = new ArrayList<>();
 
     for (int i = 0; i < 5; i++) {
@@ -486,32 +441,35 @@ public class AppController extends AbstractController {
     for (int i = 0; i < size; i++) {
       if (checkedProducts.size() == 0) {
         this.removeFilters();
-      }
-      else if (checkedProducts.contains(ads.get(i).getProduct().getClass().getSimpleName())) {
+      } else if (checkedProducts.contains(ads.get(i).getProduct().getClass().getSimpleName())) {
         this.listOfAds.getItems().add(ads.get(i));
       }
     }
   }
 
   /**
-   * Method that sorts ads based on different events (which button is clicked)
-   * 
+   * Method that sorts ads based on different events (which button is clicked).
+   *
    * @param event k
    */
   @FXML
   private void filterSearch() {
     FileOperator fileOperator = new FileOperator();
-    AdSorter adsorter = new AdSorter(
-        fileOperator.getAllAdsInFile(filename)
-        .stream()
-        .filter(ad -> ad.getIsSold() == false)
-        .collect(Collectors.toList()));
+    AdSorter adsorter =
+        new AdSorter(
+            fileOperator.getAllAdsInFile(filename).stream()
+                .filter(ad -> ad.getIsSold() == false)
+                .collect(Collectors.toList()));
     this.listOfAds.getItems().clear();
-    this.listOfAds.getItems()
-        .addAll(adsorter.sortAds(ad -> ad.getDescription()
-        .toLowerCase().contains(searchBar.getText().toLowerCase()) || ad.getAdTitle()
-        .toLowerCase().contains(searchBar.getText().toLowerCase())));
-
+    this.listOfAds
+        .getItems()
+        .addAll(
+            adsorter.sortAds(
+                ad ->
+                    ad.getDescription().toLowerCase().contains(searchBar.getText().toLowerCase())
+                        || ad.getAdTitle()
+                            .toLowerCase()
+                            .contains(searchBar.getText().toLowerCase())));
   }
 
   /*
@@ -522,8 +480,10 @@ public class AppController extends AbstractController {
     Stage stage = (Stage) yourProfile.getScene().getWindow();
     super.setScene(Controllers.PROFILE, stage);
   }
+
   /*
-   * When you click on log out button, you should return to login page and the user should no longer be logged in.
+   * When you click on log out button, 
+   * you should return to login page and the user should no longer be logged in.
    */
   @FXML
   private void handleLogout() {

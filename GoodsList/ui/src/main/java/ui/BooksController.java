@@ -3,12 +3,11 @@ package ui;
 import core.AdValidator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import json.Ad;
 import json.Books;
@@ -17,26 +16,16 @@ import json.User;
 
 public class BooksController extends AbstractController {
 
-  @FXML
-  private TextField titleField5;
-  @FXML
-  private TextField priceField5;
-  @FXML
-  private TextField genreField5;
-  @FXML
-  private TextField pagesField5;
-  @FXML
-  private TextField yearField5;
-  @FXML
-  private TextField authorField5;
-  @FXML
-  private TextArea descriptionArea5;
-  @FXML
-  private CheckBox conditionField5;
-  @FXML
-  private Button goBack;
-  @FXML
-  private Button makeAd23;
+  @FXML private TextField titleField5;
+  @FXML private TextField priceField5;
+  @FXML private TextField genreField5;
+  @FXML private TextField pagesField5;
+  @FXML private TextField yearField5;
+  @FXML private TextField authorField5;
+  @FXML private TextArea descriptionArea5;
+  @FXML private CheckBox conditionField5;
+  @FXML private Button goBack;
+  @FXML private Button makeAd23;
 
   private Ad ad;
   private User user;
@@ -63,7 +52,7 @@ public class BooksController extends AbstractController {
     authorField5.setText(((Books) ad.getProduct()).getAuthor());
     genreField5.setText(((Books) ad.getProduct()).getGenre());
     yearField5.setText(String.valueOf(((Books) ad.getProduct()).getReleaseYear()));
-    pagesField5.setText(String.valueOf(((Books)ad.getProduct()).getPages()));
+    pagesField5.setText(String.valueOf(((Books) ad.getProduct()).getPages()));
   }
 
   /*
@@ -89,13 +78,14 @@ public class BooksController extends AbstractController {
           yearField5.getText(),
           pagesField5.getText());
 
-      Books product5 = new Books(
-          Integer.parseInt(priceField5.getText()),
-          setCondition(conditionField5),
-          authorField5.getText(),
-          genreField5.getText(),
-          Integer.parseInt(yearField5.getText()),
-          Integer.parseInt(pagesField5.getText()));
+      Books product5 =
+          new Books(
+              Integer.parseInt(priceField5.getText()),
+              setCondition(conditionField5),
+              authorField5.getText(),
+              genreField5.getText(),
+              Integer.parseInt(yearField5.getText()),
+              Integer.parseInt(pagesField5.getText()));
       ad = new Ad(titleField5.getText(), product5, date, descriptionArea5.getText(), adID, false);
       super.setAd(ad);
       super.setPreviousController(this);
@@ -128,10 +118,8 @@ public class BooksController extends AbstractController {
     super.setScene(Controllers.CATEGORIES, stage);
   }
   /**
-   * private method for displaying an error with the given param message Is used
-   * when making an ad,
-   * if something is wrong in the inout fields. It gets the message from the
-   * exception that is
+   * private method for displaying an error with the given param message Is used when making an ad,
+   * if something is wrong in the inout fields. It gets the message from the exception that is
    * thrown The exceptions are thrown by advalidator class.
    *
    * @param message message
@@ -149,13 +137,13 @@ public class BooksController extends AbstractController {
     }
     return "Used";
   }
-      // // erase books
-      // priceField5.setText("");
-      // titleField5.setText("");
-      // descriptionArea5.setText("");
-      // conditionField5.setSelected(false);
-      // genreField5.setText("");
-      // pagesField5.setText("");
-      // yearField5.setText("");
-      // authorField5.setText("");
+  // // erase books
+  // priceField5.setText("");
+  // titleField5.setText("");
+  // descriptionArea5.setText("");
+  // conditionField5.setSelected(false);
+  // genreField5.setText("");
+  // pagesField5.setText("");
+  // yearField5.setText("");
+  // authorField5.setText("");
 }

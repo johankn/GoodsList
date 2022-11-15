@@ -1,6 +1,5 @@
 package ui;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,20 +9,14 @@ import json.Ad;
 import json.FileOperator;
 import json.User;
 
-public class PreviewAdController extends AbstractController{
+public class PreviewAdController extends AbstractController {
 
-  @FXML
-  private Label titlePreview;
-  @FXML
-  private Label pricePreview;
-  @FXML
-  private Label conditionPreview;
-  @FXML
-  private Label descriptionPreview;
-  @FXML
-  private Button postButton;
-  @FXML
-  private Button editButton;
+  @FXML private Label titlePreview;
+  @FXML private Label pricePreview;
+  @FXML private Label conditionPreview;
+  @FXML private Label descriptionPreview;
+  @FXML private Button postButton;
+  @FXML private Button editButton;
 
   private Ad ad;
   private User user;
@@ -57,7 +50,6 @@ public class PreviewAdController extends AbstractController{
     descriptionPreview.setText(ad.getDescription());
   }
 
-
   @FXML
   private void handlePostAd() {
     this.user.addAdToList(ad.getAdID());
@@ -74,27 +66,22 @@ public class PreviewAdController extends AbstractController{
       super.setPreviousController(this);
       Stage stage = (Stage) editButton.getScene().getWindow();
       super.setScene(Controllers.ELECTRONICS, stage);
-    }
-    else if (this.previousController instanceof BooksController) {
+    } else if (this.previousController instanceof BooksController) {
       super.setPreviousController(this);
       Stage stage = (Stage) editButton.getScene().getWindow();
       super.setScene(Controllers.BOOKS, stage);
-    }
-    else if (this.previousController instanceof VehiclesController) {
+    } else if (this.previousController instanceof VehiclesController) {
       super.setPreviousController(this);
       Stage stage = (Stage) editButton.getScene().getWindow();
       super.setScene(Controllers.VEHICLES, stage);
-    }
-    else if (this.previousController instanceof PropertyController) {
+    } else if (this.previousController instanceof PropertyController) {
       super.setPreviousController(this);
       Stage stage = (Stage) editButton.getScene().getWindow();
       super.setScene(Controllers.PROPERTY, stage);
-    }
-    else if (this.previousController instanceof ClothingController) {
+    } else if (this.previousController instanceof ClothingController) {
       super.setPreviousController(this);
       Stage stage = (Stage) editButton.getScene().getWindow();
       super.setScene(Controllers.CLOTHING, stage);
     }
   }
-
 }

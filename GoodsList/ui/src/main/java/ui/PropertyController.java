@@ -3,40 +3,29 @@ package ui;
 import core.AdValidator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import json.Ad;
-import json.Property;
 import json.FileOperator;
+import json.Property;
 import json.User;
 
 public class PropertyController extends AbstractController {
 
-  @FXML
-  private Button goBackFromAd2;
-  @FXML
-  private TextField titleField3;
-  @FXML
-  private TextField priceField3;
-  @FXML
-  private TextField typeField3;
-  @FXML
-  private TextField areaField3;
-  @FXML
-  private TextField yearBuiltField3;
-  @FXML
-  private TextField bedroomsField3;
-  @FXML
-  private TextArea descriptionArea3;
-  @FXML
-  private CheckBox conditionField3;
-  @FXML
-  private Button makeAd21;
+  @FXML private Button goBackFromAd2;
+  @FXML private TextField titleField3;
+  @FXML private TextField priceField3;
+  @FXML private TextField typeField3;
+  @FXML private TextField areaField3;
+  @FXML private TextField yearBuiltField3;
+  @FXML private TextField bedroomsField3;
+  @FXML private TextArea descriptionArea3;
+  @FXML private CheckBox conditionField3;
+  @FXML private Button makeAd21;
 
   // @FXML
   // private Label titlePreview;
@@ -55,12 +44,9 @@ public class PropertyController extends AbstractController {
   // @FXML
   // private Label label4;
 
-
-
   private Ad ad;
   private User user;
   private String filename;
-
 
   public void setUser(User user) {
     this.user = user;
@@ -80,10 +66,10 @@ public class PropertyController extends AbstractController {
     titleField3.setText(ad.getAdTitle());
     descriptionArea3.setText(ad.getDescription());
     priceField3.setText(String.valueOf(ad.getProduct().getPrice()));
-    typeField3.setText(((Property)ad.getProduct()).getPropertyType());
-    yearBuiltField3.setText(String.valueOf(((Property)ad.getProduct()).getYearBuilt()));
-    bedroomsField3.setText(String.valueOf(((Property)ad.getProduct()).getBedrooms()));
-    areaField3.setText(String.valueOf(((Property)ad.getProduct()).getArea()));
+    typeField3.setText(((Property) ad.getProduct()).getPropertyType());
+    yearBuiltField3.setText(String.valueOf(((Property) ad.getProduct()).getYearBuilt()));
+    bedroomsField3.setText(String.valueOf(((Property) ad.getProduct()).getBedrooms()));
+    areaField3.setText(String.valueOf(((Property) ad.getProduct()).getArea()));
   }
 
   /*
@@ -109,13 +95,14 @@ public class PropertyController extends AbstractController {
           bedroomsField3.getText(),
           areaField3.getText());
 
-      Property product3 = new Property(
-          Integer.parseInt(priceField3.getText()),
-          setCondition(conditionField3),
-          typeField3.getText(),
-          Integer.parseInt(yearBuiltField3.getText()),
-          Integer.parseInt(bedroomsField3.getText()),
-          Integer.parseInt(areaField3.getText()));
+      Property product3 =
+          new Property(
+              Integer.parseInt(priceField3.getText()),
+              setCondition(conditionField3),
+              typeField3.getText(),
+              Integer.parseInt(yearBuiltField3.getText()),
+              Integer.parseInt(bedroomsField3.getText()),
+              Integer.parseInt(areaField3.getText()));
       ad = new Ad(titleField3.getText(), product3, date, descriptionArea3.getText(), adID, false);
       super.setAd(ad);
       super.setPreviousController(this);
@@ -130,7 +117,6 @@ public class PropertyController extends AbstractController {
       // label3.setText("Bedrooms: " + bedroomsField3.getText());
       // label4.setText("Year: " + yearBuiltField3.getText());
 
-
     } catch (IllegalArgumentException e) {
       displayError(e.getMessage());
     }
@@ -143,10 +129,8 @@ public class PropertyController extends AbstractController {
   }
 
   /**
-   * private method for displaying an error with the given param message Is used
-   * when making an ad,
-   * if something is wrong in the inout fields. It gets the message from the
-   * exception that is
+   * private method for displaying an error with the given param message Is used when making an ad,
+   * if something is wrong in the inout fields. It gets the message from the exception that is
    * thrown The exceptions are thrown by advalidator class.
    *
    * @param message message
@@ -164,14 +148,14 @@ public class PropertyController extends AbstractController {
     }
     return "Used";
   }
-    //  // erase property
-    //  priceField3.setText("");
-    //  titleField3.setText("");
-    //  descriptionArea3.setText("");
-    //  conditionField3.setSelected(false);
-    //  typeField3.setText("");
-    //  areaField3.setText("");
-    //  yearBuiltField3.setText("");
-    //  bedroomsField3.setText("");
+  //  // erase property
+  //  priceField3.setText("");
+  //  titleField3.setText("");
+  //  descriptionArea3.setText("");
+  //  conditionField3.setSelected(false);
+  //  typeField3.setText("");
+  //  areaField3.setText("");
+  //  yearBuiltField3.setText("");
+  //  bedroomsField3.setText("");
 
 }

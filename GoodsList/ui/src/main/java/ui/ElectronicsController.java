@@ -3,12 +3,12 @@ package ui;
 import core.AdValidator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import json.Ad;
 import json.Electronics;
@@ -16,42 +16,26 @@ import json.FileOperator;
 import json.User;
 
 public class ElectronicsController extends AbstractController {
-    
-  @FXML
-  private Button goBackFromAd4;
-  @FXML
-  private TextField titleField1;
-  @FXML
-  private TextField priceField1;
-  @FXML
-  private TextField brandField1;
-  @FXML
-  private TextField typeField1;
-  @FXML
-  private TextArea descriptionArea1;
-  @FXML
-  private CheckBox conditionField1;
 
-  @FXML
-  private Label titlePreview;
-  @FXML
-  private Label pricePreview;
-  @FXML
-  private Label conditionPreview;
-  @FXML
-  private Label descriptionPreview;
-  @FXML
-  private Label label1;
-  @FXML
-  private Label label2;
-  @FXML
-  private Button makeAd1;
+  @FXML private Button goBackFromAd4;
+  @FXML private TextField titleField1;
+  @FXML private TextField priceField1;
+  @FXML private TextField brandField1;
+  @FXML private TextField typeField1;
+  @FXML private TextArea descriptionArea1;
+  @FXML private CheckBox conditionField1;
+
+  @FXML private Label titlePreview;
+  @FXML private Label pricePreview;
+  @FXML private Label conditionPreview;
+  @FXML private Label descriptionPreview;
+  @FXML private Label label1;
+  @FXML private Label label2;
+  @FXML private Button makeAd1;
 
   private Ad ad;
   private User user;
   private String filename;
-
-
 
   public void setUser(User user) {
     this.user = user;
@@ -68,13 +52,14 @@ public class ElectronicsController extends AbstractController {
   }
 
   public void setOldInfo() {
-    titleField1.setText(ad.getAdTitle());;
+    titleField1.setText(ad.getAdTitle());
+    ;
     descriptionArea1.setText(ad.getDescription());
     priceField1.setText(String.valueOf(ad.getProduct().getPrice()));
     brandField1.setText(((Electronics) ad.getProduct()).getBrand());
     typeField1.setText(((Electronics) ad.getProduct()).getType());
   }
-  
+
   /*
    * One of the five methods for making an ad. This method validates all the input
    * field with an advalidator.
@@ -96,11 +81,12 @@ public class ElectronicsController extends AbstractController {
           brandField1.getText(),
           typeField1.getText());
 
-      Electronics product1 = new Electronics(
-          Integer.parseInt(priceField1.getText()),
-          setCondition(conditionField1),
-          brandField1.getText(),
-          typeField1.getText());
+      Electronics product1 =
+          new Electronics(
+              Integer.parseInt(priceField1.getText()),
+              setCondition(conditionField1),
+              brandField1.getText(),
+              typeField1.getText());
       ad = new Ad(titleField1.getText(), product1, date, descriptionArea1.getText(), adID, false);
       super.setAd(ad);
 
@@ -114,7 +100,6 @@ public class ElectronicsController extends AbstractController {
       Stage stage = (Stage) makeAd1.getScene().getWindow();
       super.setScene(Controllers.PREVIEW, stage);
 
-
     } catch (IllegalArgumentException e) {
       displayError(e.getMessage());
     }
@@ -126,10 +111,8 @@ public class ElectronicsController extends AbstractController {
     super.setScene(Controllers.CATEGORIES, stage);
   }
   /**
-   * private method for displaying an error with the given param message Is used
-   * when making an ad,
-   * if something is wrong in the inout fields. It gets the message from the
-   * exception that is
+   * private method for displaying an error with the given param message Is used when making an ad,
+   * if something is wrong in the inout fields. It gets the message from the exception that is
    * thrown The exceptions are thrown by advalidator class.
    *
    * @param message message
@@ -147,5 +130,4 @@ public class ElectronicsController extends AbstractController {
     }
     return "Used";
   }
-
 }
