@@ -85,8 +85,8 @@ public class ClothingController extends AbstractController {
   private void makeAd2() {
     AdValidator adValidator = new AdValidator();
     String date = java.time.LocalDate.now().toString();
-    FileOperator fileOperator = new FileOperator();
-    String adId = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
+    String adId = String.valueOf(getDataAccess().getAllAdsInFile().size() + 1);
+
     if (colourChoiceClothing.getValue() != null) {
       try {
         adValidator.validateClothing(

@@ -46,14 +46,29 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
   }
 
   @Override
-  public List<Ad> getAdsFromUser(String username) throws IOException {
+  public List<Ad> getAdsFromUser(User username) throws IOException {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public void newAdToUser(Ad ad, User username) throws IOException {
-    // TODO Auto-generated method stub
+  public void newAd(Ad ad) throws IOException {
+    String putMappingPath = "/newAd";
+    try {
+      String json = objectMapper.writeValueAsString(ad);
+      HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI(putMappingPath))
+                    .header("Accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .PUT(BodyPublishers.ofString(json))
+                    .build();
+
+      HttpClient.newBuilder()
+                .build()
+                .send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            
+    } catch (IOException | InterruptedException e) {
+      throw new RuntimeException(e);
+    }
     
   }
 
@@ -79,7 +94,7 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
     
 
   @Override
-  public List<Ad> getAllActiveAdsInFile() throws IOException {
+  public List<Ad> getAllActiveAdsInFile() {
     HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI("/ads"))
                                                 .header("Accept", "application/json")
                                                 .GET()
@@ -150,6 +165,27 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
       throw new RuntimeException(e);
     }
     return new AdSorter(ads).sortAds(expression);
+  }
+
+  @Override
+  public List<Ad> getAllAdsInFile() {
+    HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI("/allAds"))
+                                                .header("Accept", "application/json")
+                                                .GET()
+                                                .build();
+    try {
+      final HttpResponse<String> httpResponse = 
+                HttpClient.newBuilder()
+                        .build()
+                        .send(httpRequest, HttpResponse.BodyHandlers.ofString());
+      // JsonFileAsObject jsonObject = objectMapper.readValue(httpResponse.body()
+      //       .substring(1, httpResponse.body().length() - 1),
+      //       JsonFileAsObject.class);
+      ads = objectMapper.readValue(httpResponse.body(), new TypeReference<List<Ad>>() {});
+    } catch (IOException | InterruptedException e) {
+      throw new RuntimeException(e);
+    }
+    return ads;
   }
   
 }

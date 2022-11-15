@@ -10,13 +10,15 @@ import json.User;
 
 public interface GoodsListAccess {
   
-  public List<Ad> getAdsFromUser(String username) throws IOException;
+  public List<Ad> getAdsFromUser(User username) throws IOException;
       
-  public void newAdToUser(Ad ad, User username) throws IOException;
+  public void newAd(Ad ad) throws IOException;
 
   public void newUser(User user) throws Exception;
 
-  public List<Ad> getAllActiveAdsInFile() throws IOException;
+  public List<Ad> getAllActiveAdsInFile();
+
+  public List<Ad> getAllAdsInFile();
 
   public List<Ad> getAllActiveAdsWithPredicate(Predicate expression) throws IOException;
 
