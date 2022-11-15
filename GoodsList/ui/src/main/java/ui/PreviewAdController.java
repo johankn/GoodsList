@@ -106,10 +106,9 @@ public class PreviewAdController extends AbstractController {
 
   @FXML
   private void handlePostAd() {
-    this.user.addAdToList(ad.getAdID());
-    FileOperator fileOperator = new FileOperator();
-    fileOperator.updateUserObjectJsonFile(filename, user);
-    fileOperator.addAdToFile(filename, ad);
+    this.user.addAdToList(ad.getAdId());
+    getDataAccess().newAd(ad);
+    getDataAccess().updateUser(this.user);
     Stage stage = (Stage) postButton.getScene().getWindow();
     super.setScene(Controllers.APP, stage, getDataAccess());
   }
