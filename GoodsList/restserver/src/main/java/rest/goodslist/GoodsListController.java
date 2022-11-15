@@ -38,6 +38,11 @@ public class GoodsListController {
     return service.getActiveAds();
   }
 
+  @GetMapping("/allAds")
+  public List<Ad> getAllAds() {
+    return service.getAllAds();
+  }
+
   @GetMapping("/ads-sorted")
   public List<Ad> getAdsSorted() {
     return service.getActiveAds();
@@ -48,5 +53,9 @@ public class GoodsListController {
     service.addUser(user);
   }
 
+  @PutMapping("/newAd")
+  public void registerNewAd(@RequestBody Ad ad) {
+    service.addAd(ad);
+  }
 
 }

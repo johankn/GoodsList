@@ -53,12 +53,7 @@ public class AppController extends AbstractController {
    */
   public void first() {
     listOfAds.getItems().clear();
-    try {
-      listOfAds.getItems().addAll(dataAccess.getAllActiveAdsInFile());
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
+    listOfAds.getItems().addAll(dataAccess.getAllActiveAdsInFile());
   }
 
   /**

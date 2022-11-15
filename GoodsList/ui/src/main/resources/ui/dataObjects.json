@@ -104,16 +104,16 @@
     "adID" : "5",
     "isSold" : false
   }, {
-    "adTitle" : "sdfg",
+    "adTitle" : "electronics",
     "product" : {
       "@type" : "electronics",
-      "price" : 123,
-      "condition" : "Used",
-      "brand" : "xcv",
-      "type" : "sdf"
+      "price" : 2000,
+      "condition" : "New",
+      "brand" : "samsung",
+      "type" : "pc"
     },
     "date" : "2022-11-15",
-    "description" : "sfdsfds",
+    "description" : "nice one",
     "adID" : "6",
     "isSold" : false
   } ]
