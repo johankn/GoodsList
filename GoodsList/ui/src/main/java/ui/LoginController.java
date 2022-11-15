@@ -21,7 +21,6 @@ public class LoginController extends AbstractController {
   private RegistrationValidator registrationValidator;
   private LoginValidator loginValidator;
   private User loggedInUser;
-  private App app;
   private String filename;
   private FileOperator fileOperator;
 

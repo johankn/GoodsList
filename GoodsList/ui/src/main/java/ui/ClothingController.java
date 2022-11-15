@@ -37,7 +37,7 @@ public class ClothingController extends AbstractController {
 
   public void setUser(User user) {
     this.user = user;
-    super.setUser(user);
+    super.setUser(this.user);
   }
 
   public void setAd(Ad ad) {
@@ -49,6 +49,9 @@ public class ClothingController extends AbstractController {
     super.setFilename(filename);
   }
 
+  /**
+   * Method for setting the different colors of the choicebox.
+   */
   public void setChoiceBox() {
     colourChoiceClothing.getItems().add("Black");
     colourChoiceClothing.getItems().add("White");

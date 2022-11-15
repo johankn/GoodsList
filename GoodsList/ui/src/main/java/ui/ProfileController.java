@@ -10,6 +10,9 @@ import json.Ad;
 import json.FileOperator;
 import json.User;
 
+/**
+ * Controller for the profile page. 
+ */
 public class ProfileController extends AbstractController {
 
   @FXML private ListView<Ad> listActiveAds;
@@ -37,6 +40,10 @@ public class ProfileController extends AbstractController {
     super.setAd(ad);
   }
 
+  /**
+   * MEthod for displaying the ads you own. 
+   * Bought ads, sold ads and active listed ads. 
+   */
   public void setDisplayAds() {
     List<Ad> ads = new FileOperator().getAllAdsInFile(filename);
     AdSorter adSorter = new AdSorter(ads);

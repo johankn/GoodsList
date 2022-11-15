@@ -175,7 +175,7 @@ public class DataObject {
     String string = """
         
         """;
-    string += new String(Files.readAllBytes(Paths.get(filename)));
+    string += new String(Files.readAllBytes(Paths.get(filename)), Charset.forName("UTF-8"));
     return string;
   }
 

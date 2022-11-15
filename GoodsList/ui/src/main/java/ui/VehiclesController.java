@@ -15,6 +15,9 @@ import json.FileOperator;
 import json.User;
 import json.Vehicles;
 
+/**
+ * Controller for the vehicle ads. 
+ */
 public class VehiclesController extends AbstractController {
 
   @FXML private TextField titleField4;
@@ -35,7 +38,7 @@ public class VehiclesController extends AbstractController {
 
   public void setUser(User user) {
     this.user = user;
-    super.setUser(user);
+    super.setUser(this.user);
   }
 
   public void setAd(Ad ad) {
@@ -47,6 +50,9 @@ public class VehiclesController extends AbstractController {
     super.setFilename(filename);
   }
 
+  /**
+   * Method for setting the different colors in choicebox. 
+   */
   public void setChoiceBox() {
     colourChoiceVehicles.getItems().add("Black");
     colourChoiceVehicles.getItems().add("White");
@@ -55,6 +61,9 @@ public class VehiclesController extends AbstractController {
     colourChoiceVehicles.getItems().add("Brown");
   }
 
+  /**
+   * Method for setting the old info, if you are coming back from the preview ad. 
+   */
   public void setOldInfo() {
     titleField4.setText(ad.getAdTitle());
     colourChoiceVehicles.setValue(((Vehicles) ad.getProduct()).getColor());
@@ -70,7 +79,7 @@ public class VehiclesController extends AbstractController {
     AdValidator adValidator = new AdValidator();
     String date = java.time.LocalDate.now().toString();
     FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
+    String adId = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
     if (colourChoiceVehicles.getValue() != null) {
       try {
         adValidator.validateVehicles(
@@ -89,7 +98,7 @@ public class VehiclesController extends AbstractController {
                 typeField4.getText(),
                 Integer.parseInt(yearField4.getText()),
                 colourChoiceVehicles.getValue().toString());
-        ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText(), adID, false);
+        ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText(), adId, false);
         super.setAd(ad);
         super.setPreviousController(this);
         Stage stage = (Stage) makeAd22.getScene().getWindow();
@@ -107,6 +116,7 @@ public class VehiclesController extends AbstractController {
     Stage stage = (Stage) goBackFromAd1.getScene().getWindow();
     super.setScene(Controllers.CATEGORIES, stage);
   }
+
   /**
    * private method for displaying an error with the given param message Is used when making an ad,
    * if something is wrong in the inout fields. It gets the message from the exception that is

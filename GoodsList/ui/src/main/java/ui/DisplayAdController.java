@@ -17,6 +17,9 @@ import json.User;
 import json.Vehicles;
 import ui.AbstractController.Controllers;
 
+/**
+ * Controller for displaying an ad. 
+ */
 public class DisplayAdController extends AbstractController {
   @FXML private Button buyButton;
   @FXML private Button cancel;
@@ -54,6 +57,9 @@ public class DisplayAdController extends AbstractController {
     super.setFilename(filename);
   }
 
+  /**
+   * Method for setting the info of the ad that is displayed. 
+   */
   public void setInfo() {
     this.titleBuy.setText(ad.getAdTitle());
     this.descriptionBuy.setText(ad.getDescription());
@@ -89,6 +95,10 @@ public class DisplayAdController extends AbstractController {
     }
   }
 
+  /**
+   * Method for setting different info. 
+   * The info depends wether the user is able to buy, or owns the ad. 
+   */
   public void setBuyPossible() {
     if (user.getBoughtAds().contains(ad.getAdID())) {
       buyButton.setDisable(true);

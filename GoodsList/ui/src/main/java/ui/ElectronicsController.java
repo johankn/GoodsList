@@ -15,6 +15,9 @@ import json.Electronics;
 import json.FileOperator;
 import json.User;
 
+/**
+ * Controller for the electronic ads. 
+ */
 public class ElectronicsController extends AbstractController {
 
   @FXML private Button goBackFromAd4;
@@ -39,7 +42,7 @@ public class ElectronicsController extends AbstractController {
 
   public void setUser(User user) {
     this.user = user;
-    super.setUser(user);
+    super.setUser(this.user);
   }
 
   public void setAd(Ad ad) {
@@ -51,6 +54,9 @@ public class ElectronicsController extends AbstractController {
     super.setFilename(filename);
   }
 
+  /**
+   * Method for setting the old info from ad, if you are coming back from preview state. 
+   */
   public void setOldInfo() {
     titleField1.setText(ad.getAdTitle());
     ;
@@ -72,7 +78,7 @@ public class ElectronicsController extends AbstractController {
     AdValidator adValidator = new AdValidator();
     String date = java.time.LocalDate.now().toString();
     FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
+    String adId = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
     try {
       adValidator.validateElectronics(
           titleField1.getText(),
@@ -87,7 +93,7 @@ public class ElectronicsController extends AbstractController {
               setCondition(conditionField1),
               brandField1.getText(),
               typeField1.getText());
-      ad = new Ad(titleField1.getText(), product1, date, descriptionArea1.getText(), adID, false);
+      ad = new Ad(titleField1.getText(), product1, date, descriptionArea1.getText(), adId, false);
       super.setAd(ad);
 
       // titlePreview.setText(titleField1.getText());
@@ -110,6 +116,7 @@ public class ElectronicsController extends AbstractController {
     Stage stage = (Stage) makeAd1.getScene().getWindow();
     super.setScene(Controllers.CATEGORIES, stage);
   }
+
   /**
    * private method for displaying an error with the given param message Is used when making an ad,
    * if something is wrong in the inout fields. It gets the message from the exception that is

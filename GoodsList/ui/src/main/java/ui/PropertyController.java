@@ -14,6 +14,9 @@ import json.FileOperator;
 import json.Property;
 import json.User;
 
+/**
+ * Controller for the property ads. 
+ */
 public class PropertyController extends AbstractController {
 
   @FXML private Button goBackFromAd2;
@@ -50,7 +53,7 @@ public class PropertyController extends AbstractController {
 
   public void setUser(User user) {
     this.user = user;
-    super.setUser(user);
+    super.setUser(this.user);
   }
 
   public void setAd(Ad ad) {
@@ -62,6 +65,9 @@ public class PropertyController extends AbstractController {
     super.setFilename(filename);
   }
 
+  /**
+   * Method for setting the old info, if you are coming back from the preview ad. 
+   */
   public void setOldInfo() {
     titleField3.setText(ad.getAdTitle());
     descriptionArea3.setText(ad.getDescription());
@@ -84,7 +90,7 @@ public class PropertyController extends AbstractController {
     AdValidator adValidator = new AdValidator();
     String date = java.time.LocalDate.now().toString();
     FileOperator fileOperator = new FileOperator();
-    String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
+    String adId = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
     try {
       adValidator.validateProperty(
           titleField3.getText(),
@@ -103,7 +109,7 @@ public class PropertyController extends AbstractController {
               Integer.parseInt(yearBuiltField3.getText()),
               Integer.parseInt(bedroomsField3.getText()),
               Integer.parseInt(areaField3.getText()));
-      ad = new Ad(titleField3.getText(), product3, date, descriptionArea3.getText(), adID, false);
+      ad = new Ad(titleField3.getText(), product3, date, descriptionArea3.getText(), adId, false);
       super.setAd(ad);
       super.setPreviousController(this);
       Stage stage = (Stage) makeAd21.getScene().getWindow();

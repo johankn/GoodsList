@@ -40,7 +40,6 @@ public class AppController extends AbstractController {
   private Ad ad;
 
   // which category ad is in the making
-  private int categoryId;
   private String filename;
   private User user;
 
@@ -64,7 +63,7 @@ public class AppController extends AbstractController {
   public void setUsername(User user) {
     this.user = user;
     welcomeText.setText("Welcome, " + user.getFullname());
-    super.setUser(user);
+    super.setUser(this.user);
   }
 
   public void setFilename(String filename) {
@@ -92,280 +91,9 @@ public class AppController extends AbstractController {
     super.setScene(Controllers.CATEGORIES, stage);
   }
 
-  // /**
-  //  * Method for handling the different outcomes of the chooseable categories you
-  //  * get when you want
-  //  * to make a new ad. Each category has a case with different panes.
-  //  *
-  //  * @param event event
-  //  */
-  // @FXML
-  // private void handleCategory(ActionEvent event) {
-  //   Button activatedButton = (Button) event.getSource();
-  //   String category = activatedButton.getId();
 
-  //   switch (category) {
-  //     case "ElectronicsButton1":
-  //       categoriesPane.setDisable(true);
-  //       categoriesPane.setVisible(false);
-  //       electronicsAd.setDisable(false);
-  //       electronicsAd.setVisible(true);
 
-  //       categoryId = 1;
 
-  //       break;
-  //     case "ClothesButton1":
-  //       categoriesPane.setDisable(true);
-  //       categoriesPane.setVisible(false);
-  //       clothingAd.setDisable(false);
-  //       clothingAd.setVisible(true);
-
-  //       categoryId = 2;
-
-  //       break;
-  //     case "PropertyButton1":
-  //       categoriesPane.setDisable(true);
-  //       categoriesPane.setVisible(false);
-  //       propertyAd.setDisable(false);
-  //       propertyAd.setVisible(true);
-
-  //       categoryId = 3;
-
-  //       break;
-  //     case "VehiclesButton1":
-  //       categoriesPane.setDisable(true);
-  //       categoriesPane.setVisible(false);
-  //       vehiclesAd.setDisable(false);
-  //       vehiclesAd.setVisible(true);
-
-  //       categoryId = 4;
-
-  //       break;
-  //     case "BooksButton1":
-  //       categoriesPane.setDisable(true);
-  //       categoriesPane.setVisible(false);
-  //       booksAd.setDisable(false);
-  //       booksAd.setVisible(true);
-
-  //       categoryId = 5;
-
-  //       break;
-
-  //     default:
-  //       break;
-  //   }
-  // }
-
-  // /*
-  //  * The necessary field for making an ad.
-  //  */
-
-  // /*
-  //  * One of the five methods for making an ad. This method validates all the input
-  //  * field with an advalidator.
-  //  * It also sends you to a preview state of your ad, and asks if you want to
-  //  * change anything.
-  //  * This one is for the clothing
-  //  */
-  // @FXML
-  // private void makeAd2() {
-  //   AdValidator adValidator = new AdValidator();
-  //   String date = java.time.LocalDate.now().toString();
-  //   FileOperator fileOperator = new FileOperator();
-  //   String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
-  //   if (colourChoiceClothing.getValue() != null) {
-  //     try {
-  //       adValidator.validateClothing(
-  //           titleField2.getText(),
-  //           descriptionArea2.getText(),
-  //           priceField2.getText(),
-  //           brandField2.getText(),
-  //           typeField2.getText(),
-  //           sizeField2.getText());
-
-  //       Clothing product2 = new Clothing(
-  //           Integer.parseInt(priceField2.getText()),
-  //           setCondition(conditionField2),
-  //           brandField2.getText(),
-  //           typeField2.getText(),
-  //           colourChoiceClothing.getValue().toString(),
-  //           sizeField2.getText());
-  //       ad = new Ad(titleField2.getText(), product2, date, descriptionArea2.getText(), adID,
-  // false);
-
-  //       titlePreview.setText(titleField2.getText());
-  //       conditionPreview.setText(setCondition(conditionField2));
-  //       pricePreview.setText(priceField2.getText() + "Kr");
-  //       descriptionPreview.setText(descriptionArea2.getText());
-  //       label1.setText("Brand: " + brandField2.getText());
-  //       label2.setText("Type: " + typeField2.getText());
-  //       label3.setText("Colour: " + colourChoiceClothing.getValue().toString());
-  //       label4.setText("Size: " + sizeField2.getText());
-
-  //       clothingAd.setDisable(true);
-  //       clothingAd.setVisible(false);
-  //       adPreview.setDisable(false);
-  //       adPreview.setVisible(true);
-  //     } catch (IllegalArgumentException e) {
-  //       displayError(e.getMessage());
-  //     }
-  //   } else {
-  //     displayError("You have to fill out all of the input fields");
-  //   }
-  // }
-
-  /*
-   * One of the five methods for making an ad. This method validates all the input
-   * field with an advalidator.
-   * It also sends you to a preview state of your ad, and asks if you want to
-   * change anything.
-   * This one is for the vehicles
-   */
-  // @FXML
-  // private void makeAd4() {
-  //   AdValidator adValidator = new AdValidator();
-  //   String date = java.time.LocalDate.now().toString();
-  //   FileOperator fileOperator = new FileOperator();
-  //   String adID = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
-  //   if (colourChoiceVehicles.getValue() != null) {
-  //     try {
-  //       adValidator.validateVehicles(
-  //           titleField4.getText(),
-  //           descriptionArea4.getText(),
-  //           priceField4.getText(),
-  //           brandField4.getText(),
-  //           typeField4.getText(),
-  //           yearField4.getText());
-
-  //       Vehicles product4 = new Vehicles(
-  //           Integer.parseInt(priceField4.getText()),
-  //           setCondition(conditionField4),
-  //           brandField4.getText(),
-  //           typeField4.getText(),
-  //           Integer.parseInt(yearField4.getText()),
-  //           colourChoiceVehicles.getValue().toString());
-  //       ad = new Ad(titleField4.getText(), product4, date, descriptionArea4.getText(), adID,
-  // false);
-
-  //       titlePreview.setText(titleField4.getText());
-  //       conditionPreview.setText(setCondition(conditionField4));
-  //       pricePreview.setText(priceField4.getText() + "Kr");
-  //       descriptionPreview.setText(descriptionArea4.getText());
-  //       label1.setText("Brand: " + brandField4.getText());
-  //       label2.setText("Type: " + typeField4.getText());
-  //       label3.setText("Colour: " + colourChoiceVehicles.getValue().toString());
-  //       label4.setText("Year: " + yearField4.getText());
-
-  //       vehiclesAd.setDisable(true);
-  //       vehiclesAd.setVisible(false);
-  //       adPreview.setDisable(false);
-  //       adPreview.setVisible(true);
-  //     } catch (IllegalArgumentException e) {
-  //       displayError(e.getMessage());
-  //     }
-  //   } else {
-  //     displayError("You have to fill out all of the input fields");
-  //   }
-  // }
-
-  /**
-   * This methods just sets the colour choices in the to different dropdownboxes for choosing
-   * colours in the clothing and vehicles ad types.
-   */
-
-  // /*
-  //  * This is the method you can call on when you see the preview of your ad.
-  //  * After you see your preview you can either go back and edit, or press post ad.
-  //  * If post ad i pressed this method runs, which ads the ad to the users list of
-  //  * ads,
-  //  * and updates the json file with the latest information
-  //  */
-  // @FXML
-  // private void handlePostAd() {
-  //   adPreview.setDisable(true);
-  //   adPreview.setVisible(false);
-  //   homePage.setDisable(false);
-  //   homePage.setVisible(true);
-
-  //   // skrive ad til fil her
-  //   // gjøre det mulig å browse ad på hjemmesiden
-  //   this.user.addAdToList(ad.getAdID());
-  //   FileOperator fo = new FileOperator();
-  //   fo.updateUserObjectJsonFile(filename, user);
-  //   fo.addAdToFile(filename, ad, user);
-  //   first();
-
-  // // erase clothing
-  // priceField2.setText("");
-  // titleField2.setText("");
-  // descriptionArea2.setText("");
-  // conditionField2.setSelected(false);
-  // colourChoiceClothing.setValue(null);
-  // brandField2.setText("");
-  // typeField2.setText("");
-  // sizeField2.setText("");
-
-  //   // erase vehicles
-  //   priceField4.setText("");
-  //   titleField4.setText("");
-  //   descriptionArea4.setText("");
-  //   conditionField4.setSelected(false);
-  //   colourChoiceVehicles.setValue(null);
-  //   brandField4.setText("");
-  //   typeField4.setText("");
-  //   yearField4.setText("");
-
-  //   // erase books
-  //   priceField5.setText("");
-  //   titleField5.setText("");
-  //   descriptionArea5.setText("");
-  //   conditionField5.setSelected(false);
-  //   genreField5.setText("");
-  //   pagesField5.setText("");
-  //   yearField5.setText("");
-  //   authorField5.setText("");
-
-  //   ad = new Ad();
-  // }
-
-  // /*
-  //  * Method for editing after you see your preview. You can go back and change
-  //  * before you can se a preview of your new ad.
-  //  */
-  // @FXML
-  // private void handleEdit() {
-
-  //   adPreview.setDisable(true);
-  //   adPreview.setVisible(false);
-
-  //   ad = new Ad();
-
-  //   switch (categoryId) {
-  //     case 1:
-  //       electronicsAd.setDisable(false);
-  //       electronicsAd.setVisible(true);
-  //       break;
-  //     case 2:
-  //       clothingAd.setDisable(false);
-  //       clothingAd.setVisible(true);
-  //       break;
-  //     case 3:
-  //       propertyAd.setDisable(false);
-  //       propertyAd.setVisible(true);
-  //       break;
-  //     case 4:
-  //       vehiclesAd.setDisable(false);
-  //       vehiclesAd.setVisible(true);
-  //       break;
-  //     case 5:
-  //       booksAd.setDisable(false);
-  //       booksAd.setVisible(true);
-  //       break;
-
-  //     default:
-  //       break;
-  //   }
-  // }
 
   /**
    * A method that makes it possible to click on an ad in the listview. When clicked, the user
@@ -406,21 +134,14 @@ public class AppController extends AbstractController {
   /**
    * Method that sorts ads based on different events (which button is clicked).
    *
-   * @param event
    */
   @FXML
-  private void sortAds(ActionEvent event) {
+  private void sortAds() {
     FileOperator fileOperator = new FileOperator();
-    List<Ad> ads =
-        fileOperator.getAllAdsInFile(filename).stream()
-            .filter(ad -> ad.getIsSold() == false)
-            .collect(Collectors.toList());
-    AdSorter adsorter =
-        new AdSorter(
-            fileOperator.getAllAdsInFile(filename).stream()
-                .filter(ad -> ad.getIsSold() == false)
-                .collect(Collectors.toList()));
-    // Find checked boxes
+    List<Ad> ads = fileOperator.getAllAdsInFile(filename)
+        .stream()
+        .filter(ad -> ad.getIsSold() == false)
+        .collect(Collectors.toList());
     int size = ads.size();
     this.listOfAds.getItems().clear();
 
