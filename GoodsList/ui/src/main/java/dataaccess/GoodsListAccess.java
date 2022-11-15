@@ -16,9 +16,9 @@ public interface GoodsListAccess {
 
   public void newUser(User user) throws Exception;
 
-  public List<Ad> getAllActiveAdsInFile() throws IOException;
+  public List<Ad> getAllActiveAdsInFile();
 
-  public List<Ad> getAllActiveAdsWithPredicate(Predicate expression) throws IOException;
+  public List<Ad> getAllActiveAdsWithPredicate(Predicate<Ad> expression) throws IOException;
 
   public List<User> getAllUsers();
 }

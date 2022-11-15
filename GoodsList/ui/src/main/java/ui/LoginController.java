@@ -131,7 +131,7 @@ public class LoginController extends AbstractController {
           registrationPassword.getText(),
           repeatedRegistrationPassword.getText(),
           fullName.getText(),
-          getDataAccess().getAllUsers())) {
+          dataAccess.getAllUsers())) {
         RegisteredUser regUser =
             new RegisteredUser(
                 registrationUsername.getText(),

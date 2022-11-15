@@ -23,7 +23,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import json.Ad;
-import json.FileOperator;
 import json.User;
 
 /** Controller for the app fxml file. */
@@ -53,12 +52,7 @@ public class AppController extends AbstractController {
    */
   public void first() {
     listOfAds.getItems().clear();
-    try {
-      listOfAds.getItems().addAll(dataAccess.getAllActiveAdsInFile());
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
+    listOfAds.getItems().addAll(dataAccess.getAllActiveAdsInFile());
   }
 
   /**
@@ -110,7 +104,7 @@ public class AppController extends AbstractController {
    */
   @FXML
   private void displaySelected(MouseEvent event) {
-    for (int i = 0; i < new FileOperator().getAllAdsInFile(filename).size(); i++) {
+    for (int i = 0; i < dataAccess.getAllActiveAdsInFile().size(); i++) {
       if (this.listOfAds.getSelectionModel().isSelected(i)) {
         ad = this.listOfAds.getSelectionModel().getSelectedItem();
         super.setAd(ad);
@@ -143,17 +137,8 @@ public class AppController extends AbstractController {
    */
   @FXML
   private void sortAds() {
-    FileOperator fileOperator = new FileOperator();
-    List<Ad> ads = fileOperator.getAllAdsInFile(filename)
-        .stream()
-        .filter(ad -> ad.getIsSold() == false)
-        .collect(Collectors.toList());
-    AdSorter adsorter = new AdSorter(
-        fileOperator.getAllAdsInFile(filename)
-        .stream()
-        .filter(ad -> ad.getIsSold() == false)
-        .collect(Collectors.toList()));
     //Find checked boxes
+    List<Ad> ads = dataAccess.getAllActiveAdsInFile();
     int size = ads.size();
     this.listOfAds.getItems().clear();
 
@@ -187,12 +172,8 @@ public class AppController extends AbstractController {
    */
   @FXML
   private void filterSearch() {
-    FileOperator fileOperator = new FileOperator();
     AdSorter adsorter =
-        new AdSorter(
-            fileOperator.getAllAdsInFile(filename).stream()
-                .filter(ad -> ad.getIsSold() == false)
-                .collect(Collectors.toList()));
+        new AdSorter(dataAccess.getAllActiveAdsInFile());
     this.listOfAds.getItems().clear();
     this.listOfAds
         .getItems()

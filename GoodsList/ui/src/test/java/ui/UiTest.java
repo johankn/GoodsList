@@ -1,6 +1,8 @@
 package ui;
 
 import core.RegisteredUser;
+import dataaccess.LocalGoodsListAccess;
+
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -55,6 +57,7 @@ public class UiTest extends ApplicationTest {
     fxmlLoader.setLocation(App.class.getResource("Login.fxml"));
     Parent parent = fxmlLoader.load();
     li.setFilepath(true);
+    li.setDataAccess(new LocalGoodsListAccess(li.getFilename()));
     stage.setScene(new Scene(parent));
     stage.show();
   }

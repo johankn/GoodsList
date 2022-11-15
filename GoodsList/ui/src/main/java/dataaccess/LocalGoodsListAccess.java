@@ -39,7 +39,7 @@ public class LocalGoodsListAccess implements GoodsListAccess {
   }
 
   @Override
-  public List<Ad> getAllActiveAdsInFile() throws IOException {
+  public List<Ad> getAllActiveAdsInFile() {
     return new AdSorter(fileOperator.getAllAdsInFile(filename)).sortAds(ad -> ad.getIsSold() == false);
   }
 
@@ -50,7 +50,7 @@ public class LocalGoodsListAccess implements GoodsListAccess {
 
 
   @Override
-  public List<Ad> getAllActiveAdsWithPredicate(Predicate expression) throws IOException {
+  public List<Ad> getAllActiveAdsWithPredicate(Predicate<Ad> expression) throws IOException {
     // TODO Auto-generated method stub
     return null;
   }
