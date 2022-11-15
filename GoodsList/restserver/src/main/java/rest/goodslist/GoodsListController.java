@@ -58,4 +58,9 @@ public class GoodsListController {
     service.addAd(ad);
   }
 
+  @PutMapping("/updateUser")
+  public void updateUser(@RequestBody User user) {
+    service.updateUser(user);
+  }
+
 }

@@ -46,13 +46,13 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
   }
 
   @Override
-  public List<Ad> getAdsFromUser(User username) throws IOException {
+  public List<Ad> getAdsFromUser(User username) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public void newAd(Ad ad) throws IOException {
+  public void newAd(Ad ad) {
     String putMappingPath = "/newAd";
     try {
       String json = objectMapper.writeValueAsString(ad);
@@ -73,7 +73,7 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
   }
 
   @Override
-  public void newUser(User user) throws Exception {
+  public void newUser(User user) {
     String postMappingPath = "/newuser";
     try {
       String json = objectMapper.writeValueAsString(user);
@@ -146,24 +146,8 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
   }
 
   @Override
-  public List<Ad> getAllActiveAdsWithPredicate(Predicate expression) throws IOException {
-    // TODO Auto-generated method stub
-    HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI("/ads"))
-                                                .header("Accept", "application/json")
-                                                .GET()
-                                                .build();
-    try {
-      final HttpResponse<String> httpResponse = 
-                HttpClient.newBuilder()
-                        .build()
-                        .send(httpRequest, HttpResponse.BodyHandlers.ofString());
-      // JsonFileAsObject jsonObject = objectMapper.readValue(httpResponse.body()
-      //       .substring(1, httpResponse.body().length() - 1),
-      //       JsonFileAsObject.class);
-      ads = objectMapper.readValue(httpResponse.body(), new TypeReference<List<Ad>>() {});
-    } catch (IOException | InterruptedException e) {
-      throw new RuntimeException(e);
-    }
+  public List<Ad> getAllActiveAdsWithPredicate(Predicate<Ad> expression) throws IOException {
+    ads = this.getAllActiveAdsInFile();
     return new AdSorter(ads).sortAds(expression);
   }
 
@@ -186,6 +170,26 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
       throw new RuntimeException(e);
     }
     return ads;
+  }
+
+  @Override
+  public void updateUser(User user) {
+    String postMappingPath = "/updateUser";
+    try {
+      String json = objectMapper.writeValueAsString(user);
+      HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI(postMappingPath))
+                    .header("Accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .PUT(BodyPublishers.ofString(json))
+                    .build();
+
+      HttpClient.newBuilder()
+                .build()
+                .send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            
+    } catch (IOException | InterruptedException e) {
+      throw new RuntimeException(e);
+    }
   }
   
 }
