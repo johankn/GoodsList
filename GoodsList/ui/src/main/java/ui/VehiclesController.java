@@ -49,7 +49,7 @@ public class VehiclesController extends AbstractController{
 
   public void setUser(User user) {
     this.user = user;
-    super.setUser(user);
+    super.setUser(this.user);
   }
 
   public void setAd(Ad ad) {
@@ -70,7 +70,8 @@ public class VehiclesController extends AbstractController{
   }
 
   public void setOldInfo() {
-    titleField4.getText();
+    titleField4.setText(ad.getAdTitle());
+    colourChoiceVehicles.setValue(((Vehicles)ad.getProduct()).getColor());
     descriptionArea4.setText(ad.getDescription());
     priceField4.setText(String.valueOf(ad.getProduct().getPrice()));
     brandField4.setText(((Vehicles) ad.getProduct()).getBrand());

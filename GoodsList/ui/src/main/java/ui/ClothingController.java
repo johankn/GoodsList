@@ -46,7 +46,7 @@ public class ClothingController extends AbstractController{
 
   public void setUser(User user) {
     this.user = user;
-    super.setUser(user);
+    super.setUser(this.user);
   }
 
   public void setAd(Ad ad) {
@@ -69,7 +69,8 @@ public class ClothingController extends AbstractController{
   }
 
   public void setOldInfo() {
-    titleField2.getText();
+    titleField2.setText(ad.getAdTitle());
+    colourChoiceClothing.setValue(((Clothing)ad.getProduct()).getColor());
     descriptionArea2.setText(ad.getDescription());
     priceField2.setText(String.valueOf(ad.getProduct().getPrice()));
     brandField2.setText(((Clothing) ad.getProduct()).getBrand());
