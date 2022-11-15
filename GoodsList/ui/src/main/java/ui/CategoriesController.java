@@ -26,12 +26,12 @@ public class CategoriesController extends AbstractController{
 
   public void setUser(User user) {
     this.user = user;
-    super.setUser(user);
+    super.setUser(this.user);
   }
 
   public void setFilename(String filename) {
     this.filename = filename;
-    super.setFilename(filename);
+    super.setFilename(this.filename);
   }
 
 

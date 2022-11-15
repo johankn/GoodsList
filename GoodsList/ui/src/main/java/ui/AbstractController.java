@@ -201,40 +201,7 @@ public abstract class AbstractController {
     this.ad = ad;
   }
 
-  /**
-   * Method that switches out existing AnchorPane with new AnchorPane.
-   * Our HomePage.fxml contains Sidebar and Header. To make navigation
-   * smoother we have determined to just switch out the content. This method
-   * does that by getting the new pane from the given type.
-   *
-   * @param type of wanted scene. Only need to give wanted CONTROLLER type.
-   * @param pane that will be switched out with new AnchorPane.
-   */
-  // public void setAnchorPane(
-  // Controllers type, AnchorPane pane, SalaryCheckerAccess dataAccess) {
-  // try {
-  // AbstractController controller = type.getControllerInstance();
-  // FXMLLoader loader = new FXMLLoader();
-  // loader.setLocation(SalaryCheckerApp.class.getResource(type.getFxmlString()));
-  // loader.setController(controller);
-  // controller.setDataAccess(dataAccess);
-  // AnchorPane anchorPane = loader.load();
-  // pane.getChildren().clear();
-  // pane.getChildren().setAll(anchorPane);
-  // if (controller instanceof ProfileController) {
-  // ((ProfileController) controller).loadProfileInfo();
-  // } else if (controller instanceof SettingsController) {
-  // ((SettingsController) controller).loadSettingsInfo();
-  // } else if (controller instanceof SalariesController) {
-  // ((SalariesController) controller).loadTableView();
-  // } else if (controller instanceof AdminUserOverviewController) {
-  // ((AdminUserOverviewController) controller).loadTableView();
-  // } else if (controller instanceof CreateUserController) {
-  // ((CreateUserController) controller).loadUserAndAccount();
-  // }
-  // } catch (IOException e) {
-  // e.printStackTrace();
-  // }
+
 
   // }
 

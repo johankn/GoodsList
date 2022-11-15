@@ -55,7 +55,7 @@ public class ElectronicsController extends AbstractController {
 
   public void setUser(User user) {
     this.user = user;
-    super.setUser(user);
+    super.setUser(this.user);
   }
 
   public void setAd(Ad ad) {
