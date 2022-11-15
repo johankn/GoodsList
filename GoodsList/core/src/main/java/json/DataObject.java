@@ -1,23 +1,17 @@
 package json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * This class makes a jsonFileAsObject from the json-file
- *  and initiates various operations on the JsonFileAsObject.
+ * This class makes a jsonFileAsObject from the json-file and initiates various operations on the
+ * JsonFileAsObject.
  */
 public class DataObject {
 
@@ -29,9 +23,7 @@ public class DataObject {
   private boolean removeAllUsers;
   private JsonFileAsObject jsonFileAsObject;
 
-  /**
-   *Constructor used when wrinting to a file.
-  */
+  /** Constructor used when writing a user to file. */
   public DataObject(String filename, User user, boolean addUser) {
     this.user = user;
     this.addUser = addUser;
@@ -39,7 +31,7 @@ public class DataObject {
     generateJsonFileAsObjectForUser(filename);
   }
 
-
+  /** Constructor used when writing an ad to file. */
   public DataObject(String filename, Ad ad, boolean addAd) {
     this.ad = ad;
     this.addAd = addAd;
@@ -47,9 +39,7 @@ public class DataObject {
     generateJsonFileAsObjectForAd(filename);
   }
 
-  /**
-   * Constructor used when reading a file.
-   */
+  /** Constructor used when reading a file. */
   public DataObject(String filename, boolean removeAllUsers) {
     this.removeAllUsers = removeAllUsers;
     objectMapper = new ObjectMapper();
@@ -57,8 +47,8 @@ public class DataObject {
   }
 
   /**
-   *Generates a JsonFileAsObject from the json-file, used for appending a new user or updating
-   *an existitng user in dataObjects.json.
+   * Generates a JsonFileAsObject from the json-file, used for appending a new user or updating an
+   * existitng user in dataObjects.json.
    */
   private void generateJsonFileAsObjectForUser(String filename) {
     try {
@@ -75,6 +65,12 @@ public class DataObject {
     }
   }
 
+  /**
+   * Generates a JsonFileAsObject from the json-file, used for appending a new ad or updating an
+   * existitng ad in dataObjects.json.
+   *
+   * @param filename filename
+   */
   private void generateJsonFileAsObjectForAd(String filename) {
     try {
       String jsonString = makeJsonObjectFromJsonFile(filename).toString();
@@ -99,6 +95,11 @@ public class DataObject {
     jsonFileAsObject.addUser(userToBeAdded);
   }
 
+  /**
+   * Add an ad to the jsonFileAsObject.
+   *
+   * @param ad ad
+   */
   private void addAdToJsonFileAsObject(Ad ad) {
     jsonFileAsObject.addAd(ad);
   }
@@ -118,6 +119,11 @@ public class DataObject {
     jsonFileAsObject.setUsers(userList);
   }
 
+  /**
+   * Updates an ad to be sold when someone buys it, updates the list of ads as well.
+   *
+   * @param ad ad
+   */
   private void updateAdInJsonFile(Ad ad) {
     List<Ad> ads = jsonFileAsObject.getAds();
     for (int i = 0; i < ads.size(); i++) {
@@ -147,16 +153,18 @@ public class DataObject {
     }
   }
 
+  /** Removes all users from the file. */
   private void removeAllUsersFromFile() {
     jsonFileAsObject.setUsers(new ArrayList<>());
   }
 
+  /** Removes all ads from the file. */
   private void removeAllAdsFromFile() {
     jsonFileAsObject.setAds(new ArrayList<>());
   }
 
   /**
-   * Help methood to make a JsonObject from a json-file as a string.
+   * Helping method to make a JsonObject from a json-file as a string.
    *
    * @return JSONObject
    * @throws JSONException exception
@@ -168,13 +176,13 @@ public class DataObject {
   }
 
   /**
-   * Help method to convert a file to a string.
+   * Helping method to convert a file to a string.
    *
    * @return String
    */
   public static String readFileAsString(String filename) throws Exception {
     String string = """
-        
+
         """;
     string += new String(Files.readAllBytes(Paths.get(filename)), Charset.forName("UTF-8"));
     return string;

@@ -21,14 +21,14 @@ public class LocalGoodsListAccess implements GoodsListAccess {
   }
 
   @Override
-  public List<Ad> getAdsFromUser(String username) throws IOException {
+  public List<Ad> getAdsFromUser(User username) throws IOException {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public void newAdToUser(Ad ad, User user) throws IOException {
-    // TODO Auto-generated method stub
+  public void newAd(Ad ad) throws IOException {
+    fileOperator.addAdToFile(filename, ad);
     
   }
 
@@ -53,6 +53,12 @@ public class LocalGoodsListAccess implements GoodsListAccess {
   public List<Ad> getAllActiveAdsWithPredicate(Predicate<Ad> expression) throws IOException {
     // TODO Auto-generated method stub
     return null;
+  }
+
+  @Override
+  public List<Ad> getAllAdsInFile() {
+    // TODO Auto-generated method stub
+    return fileOperator.getAllAdsInFile(filename);
   }
   
 }

@@ -1,11 +1,11 @@
 package core;
 
 import java.util.ArrayList;
-
 import json.User;
 
 /**
- * This class represents a registered user in the app.
+ * This class represents a user object that has been registeredin the app.
+ * It will then create a user object with the same information that will be used in the app.
  */
 public class RegisteredUser {
 
@@ -15,7 +15,7 @@ public class RegisteredUser {
   private String repeatedPassword;
 
   /**
-   * constructor.
+   * Constructor for creating a new RegisteredUser object.
    *
    * @param username username
    * @param password password
@@ -31,7 +31,7 @@ public class RegisteredUser {
   }
 
   /**
-   * getter.
+   * Getter.
    *
    * @return boolean
    */
@@ -40,7 +40,7 @@ public class RegisteredUser {
   }
 
   /**
-   * getter.
+   * Getter.
    *
    * @return boolean
    */
@@ -49,7 +49,7 @@ public class RegisteredUser {
   }
 
   /**
-   * getter.
+   * Getter.
    *
    * @return boolean
    */
@@ -58,7 +58,7 @@ public class RegisteredUser {
   }
 
   /**
-   * getter.
+   * Getter.
    *
    * @return boolean
    */
@@ -67,11 +67,16 @@ public class RegisteredUser {
   }
 
   /**
-   * generates new user.
+   * Generates new user object.
    *
    * @return boolean
    */
   public User generateUser() {
-    return new User(this.getUsername(), this.getPassword(), this.getFullName(), new ArrayList<>(), new ArrayList<>());
+    return new User(
+        this.getUsername(),
+        this.getPassword(),
+        this.getFullName(),
+        new ArrayList<>(),
+        new ArrayList<>());
   }
 }

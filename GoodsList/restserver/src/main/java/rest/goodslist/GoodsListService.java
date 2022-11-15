@@ -1,6 +1,7 @@
 package rest.goodslist;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -72,5 +73,14 @@ public class GoodsListService {
 
   public User getUserByUsername(String username) {
     return jsonFile.getUserByUsername(username);
+  }
+
+  public void addAd(Ad ad) {
+    new FileOperator().addAdToFile(filename, ad);
+    ads = fileOperator.getAllAdsInFile(filename);
+  }
+
+  public List<Ad> getAllAds() {
+    return new ArrayList<Ad>(this.ads);
   }
 }

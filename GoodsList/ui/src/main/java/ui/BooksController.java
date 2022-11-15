@@ -72,8 +72,8 @@ public class BooksController extends AbstractController {
   private void makeAd5() {
     AdValidator adValidator = new AdValidator();
     String date = java.time.LocalDate.now().toString();
-    FileOperator fileOperator = new FileOperator();
-    String adId = String.valueOf(fileOperator.getAllAdsInFile(filename).size() + 1);
+    String adId = String.valueOf(getDataAccess().getAllAdsInFile().size() + 1);
+
     try {
       adValidator.validateBooks(
           titleField5.getText(),
