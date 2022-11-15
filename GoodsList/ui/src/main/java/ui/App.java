@@ -8,20 +8,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import json.User;
 
-/**
- * JavaFX App.
-*/
+/** JavaFX App. */
 public class App extends Application {
 
   private static Stage mainStage;
 
   /**
-   * Start method for the app. We have added a method for setting the filepath we
-   * are using in
-   * controller. If the param for setFilePath is false, we are running the app
-   * normally, and true.
+   * Start method for the app. We have added a method for setting the filepath we are using in
+   * controller. If the param for setFilePath is false, we are running the app normally, and true.
    * means its a test.
    *
    * @param stage stage
@@ -42,7 +37,7 @@ public class App extends Application {
   }
 
   /**
-   * launching the app. 
+   * launching the app.
    *
    * @param args args
    */
@@ -59,9 +54,6 @@ public class App extends Application {
     return mainStage;
   }
 
-
-
-  
   /**
    * method for setting the new stage.
    *
@@ -71,5 +63,3 @@ public class App extends Application {
     App.mainStage = mainStage;
   }
 }
-
-

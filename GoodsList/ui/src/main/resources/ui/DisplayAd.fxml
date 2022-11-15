@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="displayAd" disable="false" prefHeight="700.0" prefWidth="800.0" visible="true" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+         <children>
+            <Label fx:id="titleBuy" alignment="CENTER" contentDisplay="CENTER" layoutX="336.0" layoutY="58.0" prefHeight="26.0" prefWidth="139.0" scaleX="2.0" scaleY="2.0" text="Title" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="descriptionBuy" alignment="TOP_LEFT" layoutX="224.0" layoutY="343.0" prefHeight="115.0" prefWidth="349.0" scaleX="2.0" scaleY="2.0" style="-fx-border-color: grey;" text="Description" wrapText="true" />
+            <Label fx:id="conditionBuy" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="525.0" layoutY="245.0" prefHeight="25.0" prefWidth="150.0" scaleX="2.0" scaleY="2.0" text="Condition" wrapText="true" />
+            <Label fx:id="priceBuy" layoutX="125.0" layoutY="245.0" prefHeight="25.0" prefWidth="150.0" scaleX="2.0" scaleY="2.0" text="Price" wrapText="true" />
+            <Button fx:id="buyButton" layoutX="345.0" layoutY="592.0" mnemonicParsing="false" onAction="#handleBuyAd" prefHeight="50.0" prefWidth="108.0" scaleX="2.0" scaleY="2.0" text="Buy now">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="label21" layoutX="125.0" layoutY="194.0" prefHeight="25.0" prefWidth="150.0" scaleX="2.0" scaleY="2.0" text="Label 2" wrapText="true" />
+            <Label fx:id="label11" layoutX="125.0" layoutY="143.0" prefHeight="25.0" prefWidth="150.0" scaleX="2.0" scaleY="2.0" text="Label 1" wrapText="true" />
+            <Label fx:id="label31" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="525.0" layoutY="143.0" prefHeight="25.0" prefWidth="150.0" scaleX="2.0" scaleY="2.0" text="Label 3" wrapText="true" />
+            <Label fx:id="label41" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="525.0" layoutY="194.0" prefHeight="25.0" prefWidth="150.0" scaleX="2.0" scaleY="2.0" text="Label 4" wrapText="true" />
+            <Label fx:id="areYouSure" alignment="CENTER" layoutX="346.0" layoutY="525.0" prefHeight="19.0" prefWidth="109.0" scaleX="2.0" scaleY="2.0" text="Are you sure?" />
+            <Button fx:id="cancel" disable="true" layoutX="315.0" layoutY="592.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="50.0" prefWidth="50.0" scaleX="2.0" scaleY="2.0" text="Cancel" visible="false">
+               <font>
+                  <Font size="11.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="accept" disable="true" layoutX="433.0" layoutY="592.0" mnemonicParsing="false" onAction="#handleAccept" prefHeight="50.0" prefWidth="50.0" scaleX="2.0" scaleY="2.0" style=": ;" text="Accept" visible="false">
+               <font>
+                  <Font size="11.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="goBack" layoutX="70.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleGoBack" prefHeight="50.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" text="Go Back">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+      <Label fx:id="ifOwner" layoutX="254.0" layoutY="607.0" prefHeight="20.0" prefWidth="284.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+         </children>
+      </AnchorPane>

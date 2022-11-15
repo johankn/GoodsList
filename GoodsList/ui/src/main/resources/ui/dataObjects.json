@@ -3,7 +3,7 @@
     "username" : "1",
     "password" : "2",
     "fullname" : "ADMIN",
-    "myAds" : [ "1" ],
+    "myAds" : [ "1", "2", "3", "4", "5" ],
     "boughtAds" : [ ]
   }, {
     "username" : "test",
@@ -31,17 +31,77 @@
     "boughtAds" : [ ]
   } ],
   "ads" : [ {
-    "adTitle" : "fsdfds",
+    "adTitle" : "Nice phone",
     "product" : {
       "@type" : "electronics",
-      "price" : 123,
-      "condition" : "New",
-      "brand" : "fsdfsd",
-      "type" : "fsfsd"
+      "price" : 7000,
+      "condition" : "Used",
+      "brand" : "Apple",
+      "type" : "12 pro"
     },
     "date" : "2022-11-12",
-    "description" : "fdsfds",
+    "description" : "Works fine",
     "adID" : "1",
+    "isSold" : false
+  }, {
+    "adTitle" : "BOK",
+    "product" : {
+      "@type" : "book",
+      "price" : 123,
+      "condition" : "New",
+      "author" : "mathias",
+      "genre" : "Scifi",
+      "releaseYear" : 1999,
+      "pages" : 123
+    },
+    "date" : "2022-11-13",
+    "description" : "nice read",
+    "adID" : "2",
+    "isSold" : false
+  }, {
+    "adTitle" : "Flott hus",
+    "product" : {
+      "@type" : "property",
+      "price" : 10000000,
+      "condition" : "Used",
+      "propertyType" : "hus",
+      "yearBuilt" : 2005,
+      "bedrooms" : 4,
+      "area" : 200
+    },
+    "date" : "2022-11-13",
+    "description" : "På snæssbru",
+    "adID" : "3",
     "isSold" : true
+  }, {
+    "adTitle" : "supercar",
+    "product" : {
+      "@type" : "vehicles",
+      "price" : 30000000,
+      "condition" : "New",
+      "brand" : "Lambo",
+      "modelName" : "Aventador",
+      "modelYear" : 2022,
+      "color" : "Red"
+    },
+    "date" : "2022-11-13",
+    "description" : "Awesome car!!!!!",
+    "adID" : "4",
+    "isSold" : false
+  }, {
+    "adTitle" : "Gucci sweater",
+    "product" : {
+      "@type" : "clothing",
+      "price" : 2000,
+      "condition" : "Used",
+      "brand" : "GUCCI",
+      "type" : "pants",
+      "color" : "Blue",
+      "size" : "XL"
+    },
+    "date" : "2022-11-13",
+    "description" : "Pussy guarantee, no CAP",
+    "adID" : "5",
+    "isSold" : false
   } ]
 }
