@@ -199,9 +199,8 @@ public class DisplayAdController extends AbstractController {
     try {
       ad.setIsSold(true);
       user.buyAd(ad.getAdId());
-      FileOperator fileOperator = new FileOperator();
-      fileOperator.updateUserObjectJsonFile(filename, user);
-      fileOperator.updateAdObjectJsonFile(filename, ad);
+      getDataAccess().updateUser(user);
+      getDataAccess().updateAd(ad);
       handleCancel();
       displayMessage(ad.getAdTitle() + " was succesfully purchased");
       handleGoBack();

@@ -26,4 +26,6 @@ public interface GoodsListAccess {
 
   public void updateUser(User user);
 
+  public void updateAd(Ad ad);
+
 }

@@ -23,9 +23,9 @@ public class GoodsListService {
   private JsonFileAsObject jsonFile;
   private User activeUser;
 
-  public GoodsListService(String filename) {
+  public GoodsListService() {
     this.fileOperator = new FileOperator();
-    this.filename = filename;
+    this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
     //this.objectMapper = fileOperator.getObjectMapper();
     users = fileOperator.getAllUsersAsList(filename);
     ads = fileOperator.getAllAdsInFile(filename);
@@ -49,6 +49,10 @@ public class GoodsListService {
 
   public void setUsers(List<User> users) {
     this.users = users;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
   }
 
   public void addUser(User user) {
@@ -87,5 +91,9 @@ public class GoodsListService {
 
   public void updateUser(User user) {
     new FileOperator().updateUserObjectJsonFile(filename, user);
+  }
+
+  public void updateAd(Ad ad) {
+    new FileOperator().updateAdObjectJsonFile(filename, ad);
   }
 }
