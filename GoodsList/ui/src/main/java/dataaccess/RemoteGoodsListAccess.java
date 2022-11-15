@@ -146,24 +146,8 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
   }
 
   @Override
-  public List<Ad> getAllActiveAdsWithPredicate(Predicate expression) throws IOException {
-    // TODO Auto-generated method stub
-    HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI("/ads"))
-                                                .header("Accept", "application/json")
-                                                .GET()
-                                                .build();
-    try {
-      final HttpResponse<String> httpResponse = 
-                HttpClient.newBuilder()
-                        .build()
-                        .send(httpRequest, HttpResponse.BodyHandlers.ofString());
-      // JsonFileAsObject jsonObject = objectMapper.readValue(httpResponse.body()
-      //       .substring(1, httpResponse.body().length() - 1),
-      //       JsonFileAsObject.class);
-      ads = objectMapper.readValue(httpResponse.body(), new TypeReference<List<Ad>>() {});
-    } catch (IOException | InterruptedException e) {
-      throw new RuntimeException(e);
-    }
+  public List<Ad> getAllActiveAdsWithPredicate(Predicate<Ad> expression) throws IOException {
+    ads = this.getAllActiveAdsInFile();
     return new AdSorter(ads).sortAds(expression);
   }
 

@@ -20,7 +20,7 @@ public interface GoodsListAccess {
 
   public List<Ad> getAllAdsInFile();
 
-  public List<Ad> getAllActiveAdsWithPredicate(Predicate expression) throws IOException;
+  public List<Ad> getAllActiveAdsWithPredicate(Predicate<Ad> expression) throws IOException;
 
   public List<User> getAllUsers();
 }
