@@ -59,22 +59,22 @@ public class GoodsListService {
     // this.users.add(user.generateUser());
     // autoSave(user);
     new FileOperator().writeNewUserDataToFile(filename, user);
-    users = fileOperator.getAllUsersAsList(filename);
+    this.users = fileOperator.getAllUsersAsList(filename);
   }
   
   public List<Ad> getAds() {
+    this.ads = fileOperator.getAllAdsInFile(this.filename);
     return this.ads;
   }
 
   public List<Ad> getActiveAds() {
+    this.ads = fileOperator.getAllAdsInFile(this.filename);
     return new AdSorter(this.ads).sortAds(ad -> ad.getIsSold() == false);
   }
 
   public JsonFileAsObject getJsonFileAsObject() {
     return this.jsonFile;
   }
-
-
 
   public User getUserByUsername(String username) {
     return jsonFile.getUserByUsername(username);
@@ -86,6 +86,7 @@ public class GoodsListService {
   }
 
   public List<Ad> getAllAds() {
+    this.ads = fileOperator.getAllAdsInFile(this.filename);
     return new ArrayList<Ad>(this.ads);
   }
 

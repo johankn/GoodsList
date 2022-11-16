@@ -3,8 +3,8 @@
     "username" : "1",
     "password" : "2",
     "fullname" : "ADMIN",
-    "myAds" : [ "1", "2", "3", "4", "5", "6", "7" ],
-    "boughtAds" : [ ]
+    "myAds" : [ "1", "2", "3", "4", "5", "6", "7", "8", "11" ],
+    "boughtAds" : [ "10" ]
   }, {
     "username" : "test",
     "password" : "Test1234",
@@ -16,7 +16,7 @@
     "password" : "Halla123",
     "fullname" : "Johan",
     "myAds" : [ ],
-    "boughtAds" : [ ]
+    "boughtAds" : [ "11" ]
   }, {
     "username" : "Gstyle",
     "password" : "Halla123",
@@ -28,7 +28,7 @@
     "password" : "Halla123",
     "fullname" : "Johan",
     "myAds" : [ ],
-    "boughtAds" : [ ]
+    "boughtAds" : [ "4", "8", "1", "10" ]
   }, {
     "username" : "johanboy",
     "password" : "Halla123",
@@ -48,7 +48,7 @@
     "date" : "2022-11-12",
     "description" : "Works fine",
     "adId" : "1",
-    "isSold" : false
+    "isSold" : true
   }, {
     "adTitle" : "BOK",
     "product" : {
@@ -93,7 +93,7 @@
     "date" : "2022-11-13",
     "description" : "Awesome car!!!!!",
     "adId" : "4",
-    "isSold" : false
+    "isSold" : true
   }, {
     "adTitle" : "Gucci sweater",
     "product" : {
@@ -106,7 +106,7 @@
       "size" : "XL"
     },
     "date" : "2022-11-13",
-    "description" : "Pussy guarantee, no CAP",
+    "description" : "no CAP",
     "adId" : "5",
     "isSold" : true
   }, {
@@ -134,6 +134,60 @@
     "date" : "2022-11-15",
     "description" : "brand new tv",
     "adId" : "7",
-    "isSold" : false
+    "isSold" : true
+  }, {
+    "adTitle" : "huawei",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 100000,
+      "condition" : "New",
+      "brand" : "huawei",
+      "type" : "clean"
+    },
+    "date" : "2022-11-15",
+    "description" : "clean phone",
+    "adId" : "8",
+    "isSold" : true
+  }, {
+    "adTitle" : "volvo car",
+    "product" : {
+      "@type" : "vehicles",
+      "price" : 100000,
+      "condition" : "Used",
+      "brand" : "volvo",
+      "modelName" : "sedan",
+      "modelYear" : 2022,
+      "color" : "White"
+    },
+    "date" : "2022-11-16",
+    "description" : "nice car for family",
+    "adId" : "9",
+    "isSold" : true
+  }, {
+    "adTitle" : "jjjjjj",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 500,
+      "condition" : "Used",
+      "brand" : "jjjjj",
+      "type" : "jjjjjj"
+    },
+    "date" : "2022-11-16",
+    "description" : "jjj",
+    "adId" : "10",
+    "isSold" : true
+  }, {
+    "adTitle" : "electronic",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 22,
+      "condition" : "Used",
+      "brand" : "dd",
+      "type" : "dd"
+    },
+    "date" : "2022-11-16",
+    "description" : "dd",
+    "adId" : "11",
+    "isSold" : true
   } ]
 }
