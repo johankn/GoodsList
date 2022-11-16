@@ -35,6 +35,18 @@
     "fullname" : "Johan",
     "myAds" : [ ],
     "boughtAds" : [ "5", "2", "6" ]
+  }, {
+    "username" : "bruker3",
+    "password" : "Password123",
+    "fullname" : "Harald",
+    "myAds" : [ ],
+    "boughtAds" : [ ]
+  }, {
+    "username" : "bruker3",
+    "password" : "Password123",
+    "fullname" : "Harald",
+    "myAds" : [ ],
+    "boughtAds" : [ ]
   } ],
   "ads" : [ {
     "adTitle" : "Nice phone",
@@ -189,5 +201,32 @@
     "description" : "dd",
     "adId" : "11",
     "isSold" : true
+  }, {
+    "adTitle" : null,
+    "product" : null,
+    "date" : null,
+    "description" : null,
+    "adId" : null,
+    "isSold" : false
+  }, {
+    "adTitle" : null,
+    "product" : null,
+    "date" : null,
+    "description" : null,
+    "adId" : null,
+    "isSold" : false
+  }, {
+    "adTitle" : "New airpods!",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 1200,
+      "condition" : "new",
+      "brand" : "Apple",
+      "type" : "Airpods"
+    },
+    "date" : "2022-11-12",
+    "description" : "Works fine description",
+    "adId" : "1",
+    "isSold" : false
   } ]
 }

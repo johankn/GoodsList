@@ -23,9 +23,9 @@ public class GoodsListService {
   private JsonFileAsObject jsonFile;
   private User activeUser;
 
-  public GoodsListService() {
+  public GoodsListService(String filename) {
     this.fileOperator = new FileOperator();
-    this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
+    this.filename = filename;
     //this.objectMapper = fileOperator.getObjectMapper();
     users = fileOperator.getAllUsersAsList(filename);
     ads = fileOperator.getAllAdsInFile(filename);

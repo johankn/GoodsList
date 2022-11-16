@@ -26,7 +26,7 @@ public class GoodsListController {
 
   // ./mvnw spring-boot:run
 
-  GoodsListService service = new GoodsListService();
+  GoodsListService service = new GoodsListService("..//ui/src/main/resources/ui/dataObjects.json");
 
   @GetMapping("/users")
   public List<User> getJsonFileAsObject() {
@@ -41,11 +41,6 @@ public class GoodsListController {
   @GetMapping("/allAds")
   public List<Ad> getAllAds() {
     return service.getAllAds();
-  }
-
-  @GetMapping("/ads-sorted")
-  public List<Ad> getAdsSorted() {
-    return service.getActiveAds();
   }
 
   @PutMapping("/newuser")

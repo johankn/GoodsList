@@ -77,7 +77,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <argLine>
-                    @{jaCoCoArgLine} --add-opens GoodsList.restserver/GoodsList.restserver=ALL-UNNAMED
+                    @{jaCoCoArgLine} --add-opens app.restserver/rest.goodslist=ALL-UNNAMED
                     </argLine>
                 </configuration>
             </plugin>
@@ -92,6 +92,26 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
+            </plugin>
+            <!-- SPOTBUGS -->
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.7.2.1</version>
+                <configuration>
+                    <xmlOutput>false</xmlOutput>
+                    <htmlOutput>true</htmlOutput>
+                    <excludeFilterFile>..//config/spotbugs/exclude.xml</excludeFilterFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>spotbugs-check</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <!-- Jacoco  -->
@@ -112,7 +132,7 @@
 				<executions>
                     <execution>
                         <configuration>
-                            <mainClass>GoodsList.restserver.GoodslistApplication</mainClass>
+                            <mainClass>rest.goodslist.GoodsListApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>
