@@ -191,5 +191,26 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
       throw new RuntimeException(e);
     }
   }
+
+  @Override
+  public void updateAd(Ad ad) {
+    String postMappingPath = "/updateAd";
+    try {
+      String json = objectMapper.writeValueAsString(ad);
+      HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI(postMappingPath))
+                    .header("Accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .PUT(BodyPublishers.ofString(json))
+                    .build();
+
+      HttpClient.newBuilder()
+                .build()
+                .send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            
+    } catch (IOException | InterruptedException e) {
+      throw new RuntimeException(e);
+    }
+    
+  }
   
 }

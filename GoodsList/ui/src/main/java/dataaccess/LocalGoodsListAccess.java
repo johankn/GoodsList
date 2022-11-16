@@ -66,5 +66,11 @@ public class LocalGoodsListAccess implements GoodsListAccess {
     fileOperator.updateUserObjectJsonFile(filename, user);
     
   }
+
+  @Override
+  public void updateAd(Ad ad) {
+    fileOperator.updateAdObjectJsonFile(filename, ad);
+    
+  }
   
 }

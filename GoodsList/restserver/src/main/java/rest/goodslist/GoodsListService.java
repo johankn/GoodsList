@@ -23,9 +23,9 @@ public class GoodsListService {
   private JsonFileAsObject jsonFile;
   private User activeUser;
 
-  public GoodsListService(String filename) {
+  public GoodsListService() {
     this.fileOperator = new FileOperator();
-    this.filename = filename;
+    this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
     //this.objectMapper = fileOperator.getObjectMapper();
     users = fileOperator.getAllUsersAsList(filename);
     ads = fileOperator.getAllAdsInFile(filename);
@@ -51,26 +51,30 @@ public class GoodsListService {
     this.users = users;
   }
 
+  public void setFilename(String filename) {
+    this.filename = filename;
+  }
+
   public void addUser(User user) {
     // this.users.add(user.generateUser());
     // autoSave(user);
     new FileOperator().writeNewUserDataToFile(filename, user);
-    users = fileOperator.getAllUsersAsList(filename);
+    this.users = fileOperator.getAllUsersAsList(filename);
   }
   
   public List<Ad> getAds() {
+    this.ads = fileOperator.getAllAdsInFile(this.filename);
     return this.ads;
   }
 
   public List<Ad> getActiveAds() {
+    this.ads = fileOperator.getAllAdsInFile(this.filename);
     return new AdSorter(this.ads).sortAds(ad -> ad.getIsSold() == false);
   }
 
   public JsonFileAsObject getJsonFileAsObject() {
     return this.jsonFile;
   }
-
-
 
   public User getUserByUsername(String username) {
     return jsonFile.getUserByUsername(username);
@@ -82,10 +86,15 @@ public class GoodsListService {
   }
 
   public List<Ad> getAllAds() {
+    this.ads = fileOperator.getAllAdsInFile(this.filename);
     return new ArrayList<Ad>(this.ads);
   }
 
   public void updateUser(User user) {
     new FileOperator().updateUserObjectJsonFile(filename, user);
+  }
+
+  public void updateAd(Ad ad) {
+    new FileOperator().updateAdObjectJsonFile(filename, ad);
   }
 }
