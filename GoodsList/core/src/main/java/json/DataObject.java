@@ -16,71 +16,25 @@ import org.json.JSONObject;
 public class DataObject {
 
   private ObjectMapper objectMapper;
-  private User user;
-  private Ad ad;
-  private boolean addUser;
-  private boolean addAd;
-  private boolean removeAllUsers;
   private JsonFileAsObject jsonFileAsObject;
 
   /** Constructor used when writing a user to file. */
-  public DataObject(String filename, User user, boolean addUser) {
-    this.user = user;
-    this.addUser = addUser;
+  
+  public DataObject(String filename) {
     objectMapper = new ObjectMapper();
-    generateJsonFileAsObjectForUser(filename);
-  }
-
-  /** Constructor used when writing an ad to file. */
-  public DataObject(String filename, Ad ad, boolean addAd) {
-    this.ad = ad;
-    this.addAd = addAd;
-    objectMapper = new ObjectMapper();
-    generateJsonFileAsObjectForAd(filename);
-  }
-
-  /** Constructor used when reading a file. */
-  public DataObject(String filename, boolean removeAllUsers) {
-    this.removeAllUsers = removeAllUsers;
-    objectMapper = new ObjectMapper();
-    generateJsonFileAsObjectForReadingAndRemoving(filename);
+    generateJsonFileAsObject(filename);
   }
 
   /**
-   * Generates a JsonFileAsObject from the json-file, used for appending a new user or updating an
-   * existitng user in dataObjects.json.
+   * Generates a jsonFileAsObject.java object from the jsonfil
+   * using objectMapper.
+   * 
+   * @param filename
    */
-  private void generateJsonFileAsObjectForUser(String filename) {
+  private void generateJsonFileAsObject(String filename) {
     try {
       String jsonString = makeJsonObjectFromJsonFile(filename).toString();
       jsonFileAsObject = objectMapper.readValue(jsonString, JsonFileAsObject.class);
-      if (addUser) {
-        addUserToJsonFileAsObjectUserList(user);
-      } else {
-        updateUserActiveAds(user);
-      }
-
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-  }
-
-  /**
-   * Generates a JsonFileAsObject from the json-file, used for appending a new ad or updating an
-   * existitng ad in dataObjects.json.
-   *
-   * @param filename filename
-   */
-  private void generateJsonFileAsObjectForAd(String filename) {
-    try {
-      String jsonString = makeJsonObjectFromJsonFile(filename).toString();
-      jsonFileAsObject = objectMapper.readValue(jsonString, JsonFileAsObject.class);
-      if (addAd) {
-        addAdToJsonFileAsObject(ad);
-      } else {
-        updateAdInJsonFile(ad);
-      }
-
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -91,7 +45,7 @@ public class DataObject {
    *
    * @param userToBeAdded user
    */
-  private void addUserToJsonFileAsObjectUserList(User userToBeAdded) {
+  public void addUserToJsonFileAsObjectUserList(User userToBeAdded) {
     jsonFileAsObject.addUser(userToBeAdded);
   }
 
@@ -100,7 +54,7 @@ public class DataObject {
    *
    * @param ad ad
    */
-  private void addAdToJsonFileAsObject(Ad ad) {
+  public void addAdToJsonFileAsObject(Ad ad) {
     jsonFileAsObject.addAd(ad);
   }
 
@@ -109,7 +63,7 @@ public class DataObject {
    *
    * @param userToBeUpdated user
    */
-  private void updateUserActiveAds(User userToBeUpdated) {
+  public void updateUserActiveAds(User userToBeUpdated) {
     List<User> userList = jsonFileAsObject.getUsers();
     for (int i = 0; i < jsonFileAsObject.getUsers().size(); i++) {
       if (jsonFileAsObject.getUsers().get(i).getUsername().equals(userToBeUpdated.getUsername())) {
@@ -124,7 +78,7 @@ public class DataObject {
    *
    * @param ad ad
    */
-  private void updateAdInJsonFile(Ad ad) {
+  public void updateAdInJsonFile(Ad ad) {
     List<Ad> ads = jsonFileAsObject.getAds();
     for (int i = 0; i < ads.size(); i++) {
       if (ads.get(i).getAdId().equals(ad.getAdId())) {
@@ -135,22 +89,9 @@ public class DataObject {
     jsonFileAsObject.setAds(ads);
   }
 
-  /**
-   * Generates a JsonFileAsObject from the json-file, used for reading content of dataObjects.json.
-   */
-  private void generateJsonFileAsObjectForReadingAndRemoving(String filename) {
-    try {
-      String jsonString = makeJsonObjectFromJsonFile(filename).toString();
-      jsonFileAsObject = objectMapper.readValue(jsonString, JsonFileAsObject.class);
-      if (removeAllUsers) {
-        removeAllUsersFromFile();
-        removeAllAdsFromFile();
-      }
-    } catch (JSONException e) {
-      e.printStackTrace();
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+  public void removeUsersAndAdsFromFile() {
+    removeAllUsersFromFile();
+    removeAllAdsFromFile();
   }
 
   /** Removes all users from the file. */

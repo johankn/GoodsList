@@ -3,7 +3,6 @@ package json;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import core.RegisteredUser;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
@@ -32,11 +31,11 @@ public class FileOperator {
    * Writes a new user to json file.
    *
    * @param filename filename
-   * @param registeredUser user
    */
   // Writes a user to the json-file
   public void writeNewUserDataToFile(String filename, User user) {
-    dataObject = new DataObject(filename, user, true);
+    dataObject = new DataObject(filename);
+    dataObject.addUserToJsonFileAsObjectUserList(user);
     try {
       objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
     } catch (IOException e) {
@@ -51,7 +50,8 @@ public class FileOperator {
    * @param user user
    */
   public void updateUserObjectJsonFile(String filename, User user) {
-    dataObject = new DataObject(filename, user, false);
+    dataObject = new DataObject(filename);
+    dataObject.updateUserActiveAds(user);
     try {
       objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
     } catch (IOException e) {
@@ -66,7 +66,8 @@ public class FileOperator {
    * @param ad ad
    */
   public void updateAdObjectJsonFile(String filename, Ad ad) {
-    dataObject = new DataObject(filename, ad, false);
+    dataObject = new DataObject(filename);
+    dataObject.updateAdInJsonFile(ad);
     try {
       objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
     } catch (IOException e) {
@@ -81,7 +82,7 @@ public class FileOperator {
    * @return list of users from file
    */
   public List<User> getAllUsersAsList(String filename) {
-    dataObject = new DataObject(filename, false);
+    dataObject = new DataObject(filename);
     List<User> list = dataObject.getJsonFileAsObject().getUsers();
     return list;
   }
@@ -92,7 +93,8 @@ public class FileOperator {
    * @param filename filename
    */
   public void removeAllDataFromFile(String filename) {
-    dataObject = new DataObject(filename, true);
+    dataObject = new DataObject(filename);
+    dataObject.removeUsersAndAdsFromFile();
     try {
       objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
     } catch (IOException e) {
@@ -107,7 +109,7 @@ public class FileOperator {
    * @return list of ads from file
    */
   public List<Ad> getAllAdsInFile(String filename) {
-    dataObject = new DataObject(filename, false);
+    dataObject = new DataObject(filename);
     List<Ad> ads = dataObject.getJsonFileAsObject().getAds();
     return ads;
   }
@@ -119,7 +121,8 @@ public class FileOperator {
    * @param ad ad
    */
   public void addAdToFile(String filename, Ad ad) {
-    dataObject = new DataObject(filename, ad, true);
+    dataObject = new DataObject(filename);
+    dataObject.addAdToJsonFileAsObject(ad);
     try {
       objectWriter.writeValue(Paths.get(filename).toFile(), dataObject.getJsonFileAsObject());
     } catch (IOException e) {
@@ -128,12 +131,12 @@ public class FileOperator {
   }
 
   public JsonFileAsObject getJsonFileAsObject(String filename) {
-    dataObject = new DataObject(filename, false);
+    dataObject = new DataObject(filename);
     return dataObject.getJsonFileAsObject();
   }
 
   public String getJsonFileAsString(String filename) throws Exception {
-    dataObject = new DataObject(filename, false);
-    return dataObject.readFileAsString(filename);
+    dataObject = new DataObject(filename);
+    return DataObject.readFileAsString(filename);
   }
 }
