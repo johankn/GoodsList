@@ -28,7 +28,7 @@ public class GoodsListController {
   //"..//ui/src/main/resources/ui/dataObjects.json"
   @GetMapping("/users")
   public List<User> getJsonFileAsObject() {
-    return service.getJsonFileAsObject().getUsers();
+    return service.getUsers();
   }
 
   @GetMapping("/ads")
@@ -59,6 +59,11 @@ public class GoodsListController {
   @PutMapping("/updateAd")
   public void updateAd(@RequestBody Ad ad) {
     service.updateAd(ad);
+  }
+
+  @PutMapping("/setFilename")
+  public void setFilename(@RequestBody String filename) {
+    service.setFilename(filename);
   }
 
 }

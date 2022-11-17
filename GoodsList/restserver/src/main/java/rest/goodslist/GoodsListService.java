@@ -33,15 +33,16 @@ public class GoodsListService {
   }
 
   public List<User> getUsers() {
-    return this.users;
-  }
-
-  public void setUsers(List<User> users) {
-    this.users = users;
+    this.users = new FileOperator().getJsonFileAsObject(filename).getUsers();
+    return new ArrayList<User>(this.users);
   }
 
   public void setFilename(String filename) {
     this.filename = filename;
+  }
+
+  public String getFilename() {
+    return this.filename;
   }
 
   public void addUser(User user) {
@@ -51,22 +52,9 @@ public class GoodsListService {
     this.users = fileOperator.getAllUsersAsList(filename);
   }
   
-  public List<Ad> getAds() {
-    this.ads = fileOperator.getAllAdsInFile(this.filename);
-    return this.ads;
-  }
-
   public List<Ad> getActiveAds() {
     this.ads = fileOperator.getAllAdsInFile(this.filename);
     return new AdSorter(this.ads).sortAds(ad -> ad.getIsSold() == false);
-  }
-
-  public JsonFileAsObject getJsonFileAsObject() {
-    return this.jsonFile;
-  }
-
-  public User getUserByUsername(String username) {
-    return jsonFile.getUserByUsername(username);
   }
 
   public void addAd(Ad ad) {
