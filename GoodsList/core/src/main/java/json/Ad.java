@@ -154,10 +154,10 @@ public class Ad {
   }
 
   /**
-   * Sets the boolean setIsSold.
-   * 
-   * @param bool boolean
-   */
+    * Sets the boolean setIsSold.
+    *
+    * @param bool boolean
+    */
   public void setIsSold(boolean bool) {
     this.isSold = bool;
   }
