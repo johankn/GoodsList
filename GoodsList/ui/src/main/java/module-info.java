@@ -1,4 +1,6 @@
 module app.ui {
+    exports dataaccess;
+    exports ui;
     requires transitive app.core;
     requires javafx.controls;
     requires javafx.fxml;
@@ -11,7 +13,5 @@ module app.ui {
 
 
     opens ui to javafx.graphics, javafx.fxml;
-    
     opens dataaccess;
-    exports dataaccess;
 }

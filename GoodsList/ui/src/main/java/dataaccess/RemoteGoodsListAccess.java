@@ -131,7 +131,8 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
       // String responseString = EntityUtils.toString(entity, "UTF-8");
       this.users = objectMapper.readValue(httpResponse.body(), new TypeReference<List<User>>() {});
     } catch (IOException | InterruptedException e) {
-      throw new RuntimeException(e);
+      System.out.println("halla noob");
+      System.out.println(this.users);
     }
     return users;
   }
