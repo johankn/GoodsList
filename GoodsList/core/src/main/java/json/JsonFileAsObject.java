@@ -54,18 +54,40 @@ public class JsonFileAsObject {
     users.add(user);
   }
 
+  /**
+   * Setter for ads.
+   *
+   * @param ads ads
+   */
   public void setAds(List<Ad> ads) {
     this.ads = ads;
   }
 
+  /**
+   * Getter for ads.
+   *
+   * @return ads
+   */
   public List<Ad> getAds() {
     return new ArrayList<>(this.ads);
   }
 
+  
+  /**
+   * Adding an Ad to ads-list.
+   *
+   * @param ad ad
+   */
   public void addAd(Ad ad) {
     this.ads.add(ad);
   }
 
+  /**
+   * Gets a user in users-list.
+   *
+   * @param user user
+   * @return User
+   */
   public User getUser(User user) {
     if (this.users.contains(user)) {
       return user;
@@ -74,11 +96,24 @@ public class JsonFileAsObject {
     }
   }
 
+  /**
+   * Gets a user by its username.
+   *
+   * @param username username
+   * @return User
+   */
   public User getUserByUsername(String username) {
     return getUsers().stream().filter(u -> u.getUsername().equals(username)).findAny()
     .orElse(null);
   }
 
+  /** 
+   * Checks if user can login.
+   *
+   * @param username username
+   * @param password password
+   * @return boolean
+   */
   public boolean checkValidUserLogin(String username, String password) {
     User user = null;
 

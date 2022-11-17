@@ -26,10 +26,10 @@ public class DataObject {
   }
 
   /**
-   * Generates a jsonFileAsObject.java object from the jsonfil
+   * Generates a jsonFileAsObject.java object from the jsonfile
    * using objectMapper.
-   * 
-   * @param filename
+   *
+   * @param filename filename
    */
   private void generateJsonFileAsObject(String filename) {
     try {
