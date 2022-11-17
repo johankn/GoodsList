@@ -32,17 +32,6 @@ public class GoodsListService {
     jsonFile = fileOperator.getJsonFileAsObject(filename);
   }
 
-  private void autoSave(RegisteredUser registeredUser) {
-    // try {
-    //   fileOperator.writeNewUserDataToFile(filename, registeredUser);
-    //   users = fileOperator.getAllUsersAsList(filename);
-    //   ads = fileOperator.getAllAdsInFile(filename);
-    //   jsonFile = fileOperator.getJsonFileAsObject(filename);
-    // } catch (IllegalStateException e) {
-    //   System.err.println(e);
-    // }
-  }
-
   public List<User> getUsers() {
     return this.users;
   }

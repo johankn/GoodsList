@@ -35,45 +35,33 @@
     "fullname" : "Johan",
     "myAds" : [ ],
     "boughtAds" : [ "5", "2", "6" ]
-  }, {
-    "username" : "bruker3",
-    "password" : "Password123",
-    "fullname" : "Harald",
-    "myAds" : [ ],
-    "boughtAds" : [ ]
-  }, {
-    "username" : "bruker3",
-    "password" : "Password123",
-    "fullname" : "Harald",
-    "myAds" : [ ],
-    "boughtAds" : [ ]
   } ],
   "ads" : [ {
-    "adTitle" : "Nice phone",
+    "adTitle" : "Volvo family car",
+    "product" : {
+      "@type" : "vehicles",
+      "price" : 30000,
+      "condition" : "Used",
+      "brand" : "Volvo",
+      "modelName" : "sedan",
+      "modelYear" : 2000,
+      "color" : "Brown"
+    },
+    "date" : "2022-11-16",
+    "description" : "Well used family car",
+    "adId" : "1",
+    "isSold" : false
+  }, {
+    "adTitle" : "New airpods!",
     "product" : {
       "@type" : "electronics",
-      "price" : 7000,
-      "condition" : "Used",
+      "price" : 1200,
+      "condition" : "new",
       "brand" : "Apple",
-      "type" : "12 pro"
+      "type" : "Airpods"
     },
-    "date" : "2022-11-12",
-    "description" : "Works fine",
-    "adId" : "1",
-    "isSold" : true
-  }, {
-    "adTitle" : "BOK",
-    "product" : {
-      "@type" : "book",
-      "price" : 123,
-      "condition" : "New",
-      "author" : "mathias",
-      "genre" : "Scifi",
-      "releaseYear" : 1999,
-      "pages" : 123
-    },
-    "date" : "2022-11-13",
-    "description" : "nice read",
+    "date" : "2022-11-16",
+    "description" : "Works fine description",
     "adId" : "2",
     "isSold" : true
   }, {
@@ -201,32 +189,5 @@
     "description" : "dd",
     "adId" : "11",
     "isSold" : true
-  }, {
-    "adTitle" : null,
-    "product" : null,
-    "date" : null,
-    "description" : null,
-    "adId" : null,
-    "isSold" : false
-  }, {
-    "adTitle" : null,
-    "product" : null,
-    "date" : null,
-    "description" : null,
-    "adId" : null,
-    "isSold" : false
-  }, {
-    "adTitle" : "New airpods!",
-    "product" : {
-      "@type" : "electronics",
-      "price" : 1200,
-      "condition" : "new",
-      "brand" : "Apple",
-      "type" : "Airpods"
-    },
-    "date" : "2022-11-12",
-    "description" : "Works fine description",
-    "adId" : "1",
-    "isSold" : false
   } ]
 }

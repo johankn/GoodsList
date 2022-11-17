@@ -53,11 +53,6 @@ public class GoodsListApplicationTest {
 
   private ObjectMapper objectMapper;
 
-  private User user1;
-  private User user2;
-
-  private Vehicles product1;
-  private Ad ad1;
 
   @Test
   public void contextLoads() throws Exception {
@@ -69,13 +64,13 @@ public class GoodsListApplicationTest {
     objectMapper = new ObjectMapper();
     service = new GoodsListService("..//ui/src/test/resources/ui/uiTest.json");
 
-    this.user1 = new User("bruker1","Password123","Kjell",new ArrayList<>(),
-    new ArrayList<>());
-    this.user2 = new User("bruker2","Password123","Mari",new ArrayList<>(),
-    new ArrayList<>());
-    this.product1 = new Vehicles(30000, "Used", "Volvo", "sedan", 2000, "Brown");
-    this.ad1 = new Ad("Volvo family car", product1, "2022-11-16", "Well used family car", 
-    "1", false);
+    final User user1 = new User("bruker1","Password123","Kjell",new ArrayList<>(),
+        new ArrayList<>());
+    final User user2 = new User("bruker2","Password123","Mari",new ArrayList<>(),
+        new ArrayList<>());
+    final Vehicles product1 = new Vehicles(30000, "Used", "Volvo", "sedan", 2000, "Brown");
+    final Ad ad1 = new Ad("Volvo family car", product1, "2022-11-16", "Well used family car", 
+        "1", false);
 
     this.service.addUser(user1);
     this.service.addUser(user2);
@@ -135,8 +130,8 @@ public class GoodsListApplicationTest {
     final Electronics product1 = new Electronics(1200, "new", "Apple", "Airpods");
     final Ad ad1 = new Ad("New airpods!", product1, "2022-11-16", "Works fine description", 
         "2", false);
-    this.user1.addAdToList(ad1.getAdId());
-    this.service.updateUser(user1);
+    // this.user1.addAdToList(ad1.getAdId());
+    // this.service.updateUser(user1);
     this.service.addAd(ad1);
 
     String json = objectMapper.writeValueAsString(ad1);
@@ -149,9 +144,14 @@ public class GoodsListApplicationTest {
 
   @Test
   public void updateUser() throws Exception {
-    this.user2.addAdToList(this.ad1.getAdId());
-    this.service.updateUser(user2);
-    String json = objectMapper.writeValueAsString(user2);
+    final User user3 = new User("bruker3","Password123","Harald", new ArrayList<>(),
+        new ArrayList<>());
+    final Electronics product1 = new Electronics(1200, "new", "Apple", "Airpods");
+    final Ad ad1 = new Ad("New airpods!", product1, "2022-11-16", "Works fine description", 
+        "2", false);
+    user3.addAdToList(ad1.getAdId());
+    this.service.updateUser(user3);
+    String json = objectMapper.writeValueAsString(user3);
 
     mockMvc.perform(MockMvcRequestBuilders.put(getUrl("updateUser"))
         .contentType(MediaType.APPLICATION_JSON).characterEncoding("UTF-8")
@@ -165,6 +165,9 @@ public class GoodsListApplicationTest {
     // this.user1.buyAd(this.ad1.getAdId());
     // this.service.updateUser(user1);
     // this.service.updateAd(this.ad1);
+    final Electronics product1 = new Electronics(1200, "new", "Apple", "Airpods");
+    final Ad ad1 = new Ad("New airpods!", product1, "2022-11-16", "Works fine description", 
+        "2", true);
 
     String json = objectMapper.writeValueAsString(ad1);
 

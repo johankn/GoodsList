@@ -24,10 +24,8 @@ import json.User;
 @RestController
 public class GoodsListController {
 
-  // ./mvnw spring-boot:run
-
   GoodsListService service = new GoodsListService("..//ui/src/main/resources/ui/dataObjects.json");
-
+  //"..//ui/src/main/resources/ui/dataObjects.json"
   @GetMapping("/users")
   public List<User> getJsonFileAsObject() {
     return service.getJsonFileAsObject().getUsers();
