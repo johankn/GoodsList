@@ -33,8 +33,6 @@ public class ProfileController extends AbstractController {
 
   private User user;
 
-  private String filename;
-
   private Ad ad;
 
   public void setUser(User user) {
@@ -43,7 +41,6 @@ public class ProfileController extends AbstractController {
   }
 
   public void setFilename(String filename) {
-    this.filename = filename;
     super.setFilename(filename);
   }
 

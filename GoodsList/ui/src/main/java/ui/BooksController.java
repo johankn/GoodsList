@@ -32,7 +32,6 @@ public class BooksController extends AbstractController {
 
   private Ad ad;
   private User user;
-  private String filename;
 
   public void setUser(User user) {
     this.user = user;
@@ -44,7 +43,6 @@ public class BooksController extends AbstractController {
   }
 
   public void setFilename(String filename) {
-    this.filename = filename;
     super.setFilename(filename);
   }
 
