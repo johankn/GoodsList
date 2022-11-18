@@ -1,72 +1,193 @@
 {
   "users" : [ {
-    "username" : "johan",
-    "password" : "Halla123",
-    "fullname" : "Johan Knudsen",
-    "myAds" : [ "1", "2" ],
-    "boughtAds" : [ "4" ]
+    "username" : "1",
+    "password" : "2",
+    "fullname" : "ADMIN",
+    "myAds" : [ "1", "2", "3", "4", "5", "6", "7", "8", "11" ],
+    "boughtAds" : [ "10" ]
   }, {
-    "username" : "yo",
+    "username" : "test",
+    "password" : "Test1234",
+    "fullname" : "Test",
+    "myAds" : [ ],
+    "boughtAds" : [ "1" ]
+  }, {
+    "username" : "Johan",
     "password" : "Halla123",
-    "fullname" : "Halla",
-    "myAds" : [ "3", "4" ],
-    "boughtAds" : [ "2" ]
+    "fullname" : "Johan",
+    "myAds" : [ ],
+    "boughtAds" : [ "11" ]
+  }, {
+    "username" : "Gstyle",
+    "password" : "Halla123",
+    "fullname" : "Gstyle",
+    "myAds" : [ ],
+    "boughtAds" : [ ]
+  }, {
+    "username" : "johangutt",
+    "password" : "Halla123",
+    "fullname" : "Johan",
+    "myAds" : [ ],
+    "boughtAds" : [ "4", "8", "1", "10" ]
+  }, {
+    "username" : "johanboy",
+    "password" : "Halla123",
+    "fullname" : "Johan",
+    "myAds" : [ ],
+    "boughtAds" : [ "5", "2", "6" ]
   } ],
   "ads" : [ {
-    "adTitle" : "samsung tv",
+    "adTitle" : "Nice phone",
     "product" : {
       "@type" : "electronics",
-      "price" : 300,
+      "price" : 7000,
       "condition" : "Used",
-      "brand" : "nokia",
-      "type" : "tv"
+      "brand" : "Apple",
+      "type" : "12 pro"
     },
-    "date" : "2022-11-17",
-    "description" : "description",
+    "date" : "2022-11-12",
+    "description" : "Works fine",
     "adId" : "1",
-    "isSold" : false
+    "isSold" : true
   }, {
-    "adTitle" : "house",
+    "adTitle" : "BOK",
     "product" : {
-      "@type" : "property",
-      "price" : 200000,
-      "condition" : "Used",
-      "propertyType" : "apartment",
-      "yearBuilt" : 2021,
-      "bedrooms" : 10,
-      "area" : 200
+      "@type" : "book",
+      "price" : 123,
+      "condition" : "New",
+      "author" : "mathias",
+      "genre" : "Scifi",
+      "releaseYear" : 1999,
+      "pages" : 123
     },
-    "date" : "2022-11-17",
-    "description" : "description",
+    "date" : "2022-11-13",
+    "description" : "nice read",
     "adId" : "2",
     "isSold" : true
   }, {
-    "adTitle" : "nokia phone",
-    "product" : {
-      "@type" : "electronics",
-      "price" : 4000,
-      "condition" : "Used",
-      "brand" : "huawei",
-      "type" : "phone"
-    },
-    "date" : "2022-11-17",
-    "description" : "desc",
-    "adId" : "3",
-    "isSold" : false
-  }, {
-    "adTitle" : "yo house for sale",
+    "adTitle" : "Flott hus",
     "product" : {
       "@type" : "property",
-      "price" : 20111,
+      "price" : 10000000,
       "condition" : "Used",
-      "propertyType" : "convo",
-      "yearBuilt" : 2000,
-      "bedrooms" : 3,
-      "area" : 100
+      "propertyType" : "hus",
+      "yearBuilt" : 2005,
+      "bedrooms" : 4,
+      "area" : 200
     },
-    "date" : "2022-11-17",
-    "description" : "desc",
+    "date" : "2022-11-13",
+    "description" : "På snæssbru",
+    "adId" : "3",
+    "isSold" : true
+  }, {
+    "adTitle" : "supercar",
+    "product" : {
+      "@type" : "vehicles",
+      "price" : 30000000,
+      "condition" : "New",
+      "brand" : "Lambo",
+      "modelName" : "Aventador",
+      "modelYear" : 2022,
+      "color" : "Red"
+    },
+    "date" : "2022-11-13",
+    "description" : "Awesome car!!!!!",
     "adId" : "4",
+    "isSold" : true
+  }, {
+    "adTitle" : "Gucci sweater",
+    "product" : {
+      "@type" : "clothing",
+      "price" : 2000,
+      "condition" : "Used",
+      "brand" : "GUCCI",
+      "type" : "pants",
+      "color" : "Blue",
+      "size" : "XL"
+    },
+    "date" : "2022-11-13",
+    "description" : "no CAP",
+    "adId" : "5",
+    "isSold" : true
+  }, {
+    "adTitle" : "electronics",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 2000,
+      "condition" : "New",
+      "brand" : "samsung",
+      "type" : "pc"
+    },
+    "date" : "2022-11-15",
+    "description" : "nice one",
+    "adId" : "6",
+    "isSold" : true
+  }, {
+    "adTitle" : "samsung tv",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 2000,
+      "condition" : "New",
+      "brand" : "samsyng",
+      "type" : "tv"
+    },
+    "date" : "2022-11-15",
+    "description" : "brand new tv",
+    "adId" : "7",
+    "isSold" : true
+  }, {
+    "adTitle" : "huawei",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 100000,
+      "condition" : "New",
+      "brand" : "huawei",
+      "type" : "clean"
+    },
+    "date" : "2022-11-15",
+    "description" : "clean phone",
+    "adId" : "8",
+    "isSold" : true
+  }, {
+    "adTitle" : "volvo car",
+    "product" : {
+      "@type" : "vehicles",
+      "price" : 100000,
+      "condition" : "Used",
+      "brand" : "volvo",
+      "modelName" : "sedan",
+      "modelYear" : 2022,
+      "color" : "White"
+    },
+    "date" : "2022-11-16",
+    "description" : "nice car for family",
+    "adId" : "9",
+    "isSold" : true
+  }, {
+    "adTitle" : "jjjjjj",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 500,
+      "condition" : "Used",
+      "brand" : "jjjjj",
+      "type" : "jjjjjj"
+    },
+    "date" : "2022-11-16",
+    "description" : "jjj",
+    "adId" : "10",
+    "isSold" : true
+  }, {
+    "adTitle" : "electronic",
+    "product" : {
+      "@type" : "electronics",
+      "price" : 22,
+      "condition" : "Used",
+      "brand" : "dd",
+      "type" : "dd"
+    },
+    "date" : "2022-11-16",
+    "description" : "dd",
+    "adId" : "11",
     "isSold" : true
   } ]
 }
