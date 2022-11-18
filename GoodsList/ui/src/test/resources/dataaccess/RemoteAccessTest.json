@@ -1,12 +1,4 @@
 {
-  "users" : [ 
-    {
-      "username" : "johangutt",
-      "password" : "Halla123",
-      "fullname" : "Johan",
-      "myAds" : [ ],
-      "boughtAds" : [ ]
-    }
-  ], 
+  "users" : [ ],
   "ads" : [ ]
 }

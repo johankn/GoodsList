@@ -25,7 +25,8 @@ public class GoodsListService {
 
   public GoodsListService() {
     this.fileOperator = new FileOperator();
-    this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
+    this.filename = "..//ui/src/test/resources/dataaccess/RemoteAccessTest.json";
+    // this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
     //this.objectMapper = fileOperator.getObjectMapper();
     users = fileOperator.getAllUsersAsList(filename);
     ads = fileOperator.getAllAdsInFile(filename);
@@ -69,7 +70,7 @@ public class GoodsListService {
 
   public List<Ad> getActiveAds() {
     this.ads = fileOperator.getAllAdsInFile(this.filename);
-    return new AdSorter(this.ads).sortAds(ad -> ad.getIsSold() == false);
+    return this.ads;
   }
 
   public JsonFileAsObject getJsonFileAsObject() {

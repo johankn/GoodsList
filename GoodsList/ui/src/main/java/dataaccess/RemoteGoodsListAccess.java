@@ -6,6 +6,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -38,7 +39,8 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
     fileOperator = new FileOperator();
     this.filename = filename;
     objectMapper = fileOperator.getObjectMapper();
-    this.users = getAllUsers();
+    this.users = new ArrayList<>();
+    this.ads = new ArrayList<>();
   }
 
   public URI resolveURI(String path) {
@@ -55,6 +57,9 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
   public void newAd(Ad ad) {
     String putMappingPath = "/newAd";
     try {
+      if (ad == null) {
+        throw new NullPointerException("ad cannot be null");
+      }
       String json = objectMapper.writeValueAsString(ad);
       HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI(putMappingPath))
                     .header("Accept", "application/json")
@@ -65,8 +70,8 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
       HttpClient.newBuilder()
                 .build()
                 .send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            
-    } catch (IOException | InterruptedException e) {
+      
+    } catch (Exception e) {
       throw new RuntimeException(e);
     }
     
@@ -76,18 +81,19 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
   public void newUser(User user) {
     String postMappingPath = "/newuser";
     try {
+      if (user == null) {
+        throw new NullPointerException("User cannot be null");
+      }
       String json = objectMapper.writeValueAsString(user);
       HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI(postMappingPath))
                     .header("Accept", "application/json")
                     .header("Content-Type", "application/json")
                     .PUT(BodyPublishers.ofString(json))
                     .build();
-
-      HttpClient.newBuilder()
+      final HttpResponse<String> response = HttpClient.newBuilder()
                 .build()
                 .send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            
-    } catch (IOException | InterruptedException e) {
+    } catch (Exception e) {
       throw new RuntimeException(e);
     }
   }
@@ -111,7 +117,7 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
     } catch (IOException | InterruptedException e) {
       throw new RuntimeException(e);
     }
-    return ads;
+    return new AdSorter(this.ads).sortAds(ad -> ad.getIsSold() == false);
   }
 
   @Override
@@ -131,20 +137,11 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
       // String responseString = EntityUtils.toString(entity, "UTF-8");
       this.users = objectMapper.readValue(httpResponse.body(), new TypeReference<List<User>>() {});
     } catch (IOException | InterruptedException e) {
-      System.out.println("halla noob");
-      System.out.println(this.users);
+      throw new RuntimeException(e);
     }
     return users;
   }
 
-  
-  
-  public static void main(String[] args) throws JsonProcessingException {
-    RegisteredUser ru = new RegisteredUser("Johan", "Halla1234", "Johan", "Halla1234");
-    User user = ru.generateUser();
-    ObjectMapper objectMapper = new ObjectMapper();
-    System.out.println(objectMapper.writeValueAsString(user));
-  }
 
   @Override
   public List<Ad> getAllActiveAdsWithPredicate(Predicate<Ad> expression) throws IOException {
@@ -177,6 +174,9 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
   public void updateUser(User user) {
     String postMappingPath = "/updateUser";
     try {
+      if (user == null) {
+        throw new NullPointerException("user cannot be null");
+      }
       String json = objectMapper.writeValueAsString(user);
       HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI(postMappingPath))
                     .header("Accept", "application/json")
@@ -188,7 +188,7 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
                 .build()
                 .send(httpRequest, HttpResponse.BodyHandlers.ofString());
             
-    } catch (IOException | InterruptedException e) {
+    } catch (Exception e) {
       throw new RuntimeException(e);
     }
   }
@@ -197,6 +197,9 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
   public void updateAd(Ad ad) {
     String postMappingPath = "/updateAd";
     try {
+      if (ad == null) {
+        throw new NullPointerException("Ad cannot be null");
+      }
       String json = objectMapper.writeValueAsString(ad);
       HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI(postMappingPath))
                     .header("Accept", "application/json")
@@ -208,7 +211,7 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
                 .build()
                 .send(httpRequest, HttpResponse.BodyHandlers.ofString());
             
-    } catch (IOException | InterruptedException e) {
+    } catch (Exception e) {
       throw new RuntimeException(e);
     }
     
