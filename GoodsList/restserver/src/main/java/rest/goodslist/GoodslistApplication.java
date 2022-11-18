@@ -2,15 +2,21 @@ package rest.goodslist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/** 
+ * Springboot application class.
+ */
 @SpringBootApplication
 public class GoodsListApplication {
 
-	public static void main(String[] args) {
+  
+  /** 
+   * Runs the springboot application. Starts the server.
+   *
+   * @param args args
+   */
+  public static void main(String[] args) {
     SpringApplication.run(GoodsListApplication.class, args);
-	}
+  }
 
 }
