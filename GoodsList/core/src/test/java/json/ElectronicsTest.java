@@ -1,38 +1,38 @@
 package json;
 
+import static org.junit.Assert.assertEquals;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import json.Electronics;
-
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
-
+/**
+ * Test class for Electronics.java
+ */
 public class ElectronicsTest {
 
-    private Electronics electronics;
-    
+  private Electronics electronics;
 
-    @BeforeEach
-    public void setUp() {
-        this.electronics = new Electronics(300, "good", "Apple", "phone");
-    }
+  @BeforeEach
+  public void setUp() {
+    this.electronics = new Electronics(300, "good", "Apple", "phone");
+  }
 
-    @Test
-    public void TestConstructor() {
-        assertEquals(Electronics.class, electronics.getClass()); //testing that the book has been "made"
-        assertEquals(300, electronics.getPrice());
-        assertEquals("good", electronics.getCondition());
-        assertEquals("Apple", electronics.getBrand());
-        assertEquals("phone", electronics.getType());
-    }
+  @Test
+  public void testConstructor() {
+    assertEquals(
+        Electronics.class, electronics.getClass()); // testing that the book has been "made"
+    assertEquals(300, electronics.getPrice());
+    assertEquals("good", electronics.getCondition());
+    assertEquals("Apple", electronics.getBrand());
+    assertEquals("phone", electronics.getType());
+  }
 
-    @Test
-    public void TestSetters() {
-        this.electronics.setBrand("Samsung");
-        assertEquals("Samsung", this.electronics.getBrand()); //testing that the change has been made
+  @Test
+  public void testSetters() {
+    this.electronics.setBrand("Samsung");
+    assertEquals("Samsung", this.electronics.getBrand()); // testing that the change has been made
 
-        this.electronics.setType("computer");
-        assertEquals("computer", this.electronics.getType()); //testing that the change has been made
-    }
-
+    this.electronics.setType("computer");
+    assertEquals("computer", this.electronics.getType()); // testing that the change has been made
+  }
 }

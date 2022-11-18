@@ -161,7 +161,7 @@ public class FileOperatorTest {
     Product product2 = new Electronics(120, "old", "Samsung", "Airpods");
     Ad ad2 = new Ad(
         "Airpods!",
-        product1,
+        product2,
         "12.10.22",
         "Very nice airpods, brand old",
         "2",

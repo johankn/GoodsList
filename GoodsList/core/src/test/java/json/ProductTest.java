@@ -5,7 +5,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
+/**
+ * Test for Product.java
+ */
 public class ProductTest {
     
   private Product product;
