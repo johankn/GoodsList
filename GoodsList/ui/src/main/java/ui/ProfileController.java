@@ -1,8 +1,5 @@
 package ui;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import core.AdSorter;
 import java.util.List;
 import javafx.fxml.FXML;
@@ -14,7 +11,7 @@ import json.Ad;
 import json.User;
 
 /**
- * Controller for the profile page. 
+ * Controller for the profile page.
  */
 public class ProfileController extends AbstractController {
 
@@ -35,20 +32,40 @@ public class ProfileController extends AbstractController {
 
   private Ad ad;
 
+  /**
+   * Setter methood for user.
+   *
+   * @param user user
+   */
   public void setUser(User user) {
     this.user = user;
     super.setUser(user);
   }
 
+  /**
+   * Setter for filename.
+   *
+   * @param filename filename
+   */
   public void setFilename(String filename) {
     super.setFilename(filename);
   }
 
+  /**
+   * Setter for ad.
+   *
+   * @param ad ad
+   */
   public void setAd(Ad ad) {
     this.ad = ad;
     super.setAd(ad);
   }
 
+  /**
+   * Sets info about the user on the profile page.
+   *
+   * @param user user
+   */
   public void setInfo(User user) {
     this.fullName.setText("Full name: " + user.getFullname());
     this.username.setText("Username: @" + user.getUsername());
@@ -58,8 +75,8 @@ public class ProfileController extends AbstractController {
         .getListofAdsFromId(this.user.getMyAds(), dataAccess.getAllAdsInFile());
     List<Ad> sold = new AdSorter(allAds).sortAds(ad -> ad.getIsSold() == true);
     List<Ad> boughtAds = new AdSorter()
-        .getListofAdsFromId(this.user.getBoughtAds(), 
-        dataAccess.getAllAdsInFile());
+        .getListofAdsFromId(this.user.getBoughtAds(),
+            dataAccess.getAllAdsInFile());
     for (int i = 0; i < sold.size(); i++) {
       sum += sold.get(i).getProduct().getPrice();
     }
@@ -74,14 +91,14 @@ public class ProfileController extends AbstractController {
   }
 
   /**
-   * MEthod for displaying the ads you own. 
-   * Bought ads, sold ads and active listed ads. 
+   * MEthod for displaying the ads you own.
+   * Bought ads, sold ads and active listed ads.
    */
   public void setDisplayAds() {
     List<Ad> ads = dataAccess.getAllAdsInFile();
     AdSorter adSorter = new AdSorter(ads);
-    AdSorter sorterBoughtorSold =
-        new AdSorter(adSorter.getListofAdsFromId(this.user.getMyAds(), ads));
+    AdSorter sorterBoughtorSold = new AdSorter(adSorter.getListofAdsFromId(this.user.getMyAds(),
+        ads));
     listActiveAds.getItems().addAll(sorterBoughtorSold.sortAds(ad -> ad.getIsSold() == false));
     listSoldAds.getItems().addAll(sorterBoughtorSold.sortAds(ad -> ad.getIsSold() == true));
     listBoughtAds.getItems().addAll(adSorter.getListofAdsFromId(this.user.getBoughtAds(), ads));
@@ -94,8 +111,10 @@ public class ProfileController extends AbstractController {
   }
 
   /**
-   * A method that makes it possible to click on an ad in the listview. When clicked, the user
-   * should see a preview of the ad, and will have a choice to buy the product. The user can also
+   * A method that makes it possible to click on an ad in the listview. When
+   * clicked, the user
+   * should see a preview of the ad, and will have a choice to buy the product.
+   * The user can also
    * return to the home page.
    *
    * @param event when the user clicks on an ad
@@ -104,8 +123,8 @@ public class ProfileController extends AbstractController {
   private void displaySelected(MouseEvent event) {
     List<Ad> allAds = dataAccess.getAllAdsInFile();
     AdSorter adSorter = new AdSorter(allAds);
-    AdSorter sorterBoughtorSold =
-        new AdSorter(adSorter.getListofAdsFromId(this.user.getMyAds(), allAds));
+    AdSorter sorterBoughtorSold = new AdSorter(adSorter.getListofAdsFromId(this.user.getMyAds(),
+        allAds));
     List<Ad> yourAds = sorterBoughtorSold.getAds();
     super.setPreviousController(this);
     for (int i = 0; i < yourAds.size(); i++) {
