@@ -135,8 +135,4 @@ public class FileOperator {
     return dataObject.getJsonFileAsObject();
   }
 
-  public String getJsonFileAsString(String filename) throws Exception {
-    dataObject = new DataObject(filename);
-    return DataObject.readFileAsString(filename);
-  }
 }
