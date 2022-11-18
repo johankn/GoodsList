@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
@@ -28,7 +29,7 @@ public class FileOperatorTest {
     User user1 =
         new User("tester123", "Test123", "Tester Robot", new ArrayList<>(), new ArrayList<>());
 
-    // Writes regUser1 to file
+    // Writes user to file
     fileOperator.writeNewUserDataToFile(filename, user1);
     // Reads all users in file
     List<User> usersInFile = fileOperator.getAllUsersAsList(filename);
@@ -40,10 +41,13 @@ public class FileOperatorTest {
     assertEquals("Tester Robot", usersInFile.get(0).getFullname());
     assertTrue(usersInFile.get(0) instanceof User);
 
+    //Writes new user to file
     User user2 =
         new User("tester1234", "Test1234", "Tester Robot2", new ArrayList<>(), new ArrayList<>());
     fileOperator.writeNewUserDataToFile(filename, user2);
     usersInFile = fileOperator.getAllUsersAsList(filename);
+
+    // Tests the content of the users in the file
     assertEquals("tester1234", usersInFile.get(1).getUsername());
     assertEquals("Test1234", usersInFile.get(1).getPassword());
     assertEquals("Tester Robot2", usersInFile.get(1).getFullname());
@@ -53,26 +57,31 @@ public class FileOperatorTest {
   @Test
   @DisplayName("Test updating a User in json-file")
   public void testUpdateUserObjectJsonFile() {
-    // Writes a registrated user to file
+    // Writes users to file
     User user1 =
         new User("tester123", "Test123", "Tester Robot", new ArrayList<>(), new ArrayList<>());
+    User user2 =
+        new User("tester1234", "Test1234", "Tester Robot 1", new ArrayList<>(), new ArrayList<>());
     fileOperator.writeNewUserDataToFile(filename, user1);
+    fileOperator.writeNewUserDataToFile(filename, user2);
 
-    // making a Userobject that represents the same user as regUser1 with an Ad.
-    List<Ad> listOfAds = new ArrayList<>();
+    assertTrue(fileOperator.getAllUsersAsList(filename).get(0).getMyAds().size() == 0);
+
+    //Making ad for the user
     Product product = new Electronics(1200, "new", "Apple", "Airpods");
     Ad ad =
         new Ad(
             "Golf club for sale!", product, "12.10.22", "Very nice airpods, brand new", "1", false);
-    /* User user2User = new User("tester123", "Test123", "Tester Robot", new ArrayList<>(), new
-    ArrayList<>()); */
+    //Adds the ad to users-ad-list
     user1.addAdToList("1");
 
+
+    //updates the user in jsionfile
     fileOperator.updateUserObjectJsonFile(filename, user1);
-    List<json.User> usersInFile = fileOperator.getAllUsersAsList(filename);
+    List<User> usersInFile = fileOperator.getAllUsersAsList(filename);
 
     // Different testcases:
-    assertTrue(usersInFile.size() == 1);
+    assertTrue(usersInFile.size() == 2);
     assertEquals("tester123", usersInFile.get(0).getUsername());
     assertEquals("Test123", usersInFile.get(0).getPassword());
     assertEquals("Tester Robot", usersInFile.get(0).getFullname());
@@ -98,6 +107,8 @@ public class FileOperatorTest {
     fileOperator.writeNewUserDataToFile(filename, user3);
     fileOperator.writeNewUserDataToFile(filename, user4);
 
+
+    //List of the users in jsonfile
     List<User> listOfUsers = fileOperator.getAllUsersAsList(filename);
 
     // testcases
@@ -113,7 +124,7 @@ public class FileOperatorTest {
   @Test
   @DisplayName("Tests getting all ads in file ")
   public void testGetAllAdsInFile() {
-    // making a Userobject that represents the same user as regUser1 with an Ad.
+    //Ads to be written to file
     Product product1 = new Electronics(1200, "new", "Apple", "Airpods");
     Ad ad1 = new Ad("Golf club for sale!", product1, "12.10.22", "Very nice airpods", "1", false);
 
@@ -122,6 +133,7 @@ public class FileOperatorTest {
         new Ad(
             "Book for sale", product2, "12.10.22", "Very nice book, almost brand new", "2", false);
 
+    //Writes the ads to file
     fileOperator.addAdToFile(filename, ad1);
     fileOperator.addAdToFile(filename, ad2);
 
@@ -144,9 +156,20 @@ public class FileOperatorTest {
             "Very nice airpods, brand new",
             "1",
             false);
+    
+    //another ad object
+    Product product2 = new Electronics(120, "old", "Samsung", "Airpods");
+    Ad ad2 = new Ad(
+        "Airpods!",
+        product1,
+        "12.10.22",
+        "Very nice airpods, brand old",
+        "2",
+        false);
 
     // Writing the adObject to file
     fileOperator.addAdToFile(filename, ad1);
+    fileOperator.addAdToFile(filename, ad2);
     List<Ad> adsInFile = fileOperator.getAllAdsInFile(filename);
 
     // Checks if the isSold-field is false
@@ -161,14 +184,17 @@ public class FileOperatorTest {
     assertEquals(true, adsInFile.get(0).getIsSold());
     assertEquals("Brans new Golf club for sale", adsInFile.get(0).getAdTitle());
 
+    //Checks tha ad2 aint edited
+    assertEquals(false, adsInFile.get(1).getIsSold());
+
     // Checking that it only is one Ad in the file
-    assertEquals(1, adsInFile.size());
+    assertEquals(2, adsInFile.size());
   }
 
   @Test
   @DisplayName("Test for removing all data in the Json-file")
   public void testRemoveAllDataFromFile() {
-    // Making some data to add to the file
+    // Making data to add to the file
     User user1 =
         new User("tester123", "Test123", "Tester Robot", new ArrayList<>(), new ArrayList<>());
 
@@ -224,21 +250,40 @@ public class FileOperatorTest {
   @Test
   @DisplayName("Test for adding an Ad in Json-file")
   public void testAddAdToFile() {
+
+    //Ads to be written to file
     Product product1 = new Electronics(1200, "new", "Apple", "Airpods");
     Ad ad1 = new Ad("Airpods", product1, "12.10.22", "Very nice airpods, brand new", "1", false);
 
     Product product2 = new Books(300, "Good", "Jo Nesbø", "Drama", 2012, 245);
-    Ad ad2 =
-        new Ad(
-            "Book for sale", product2, "12.10.22", "Very nice book, almost brand new", "2", false);
+    Ad ad2 = new Ad(
+        "Book for sale", product2, "12.10.22", "Very nice book, almost brand new", "2", false);
 
+    //Writing the ads to file
     fileOperator.addAdToFile(filename, ad1);
     fileOperator.addAdToFile(filename, ad2);
+
+    //List of ads in file
     List<Ad> adsInFile = fileOperator.getAllAdsInFile(filename);
 
     assertEquals(2, adsInFile.size());
     assertEquals("new", adsInFile.get(0).getProduct().getCondition());
     assertEquals("Book for sale", adsInFile.get(1).getAdTitle());
+  }
+  
+  @Test
+  @DisplayName("test to get JsonFileAsObject")
+  public void testGetJsonFileAsObject() {
+    //Checks that the jsonFileAsObject is not null
+    assertNotNull(fileOperator.getJsonFileAsObject(filename));
+    assertEquals(0, fileOperator.getJsonFileAsObject(filename).getUsers().size());
+  }
+
+  @Test
+  @DisplayName("Test for getting Objectmapper")
+  public void getObjectMapper() {
+    assertNotNull(fileOperator.getObjectMapper());
+    assertEquals(ObjectMapper.class, fileOperator.getObjectMapper().getClass());
   }
 
   @AfterEach
