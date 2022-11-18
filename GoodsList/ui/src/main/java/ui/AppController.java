@@ -3,14 +3,7 @@ package ui;
 import core.AdSorter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import core.AdSorter;
-import core.AdValidator;
-import dataaccess.GoodsListAccess;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -44,7 +37,7 @@ public class AppController extends AbstractController {
   private Ad ad;
 
   // which category ad is in the making
-  private String filename;
+  //private String filename;
   private User user;
 
   /**
@@ -67,7 +60,6 @@ public class AppController extends AbstractController {
   }
 
   public void setFilename(String filename) {
-    this.filename = filename;
     super.setFilename(filename);
   }
 
@@ -90,10 +82,6 @@ public class AppController extends AbstractController {
     Stage stage = (Stage) newAdButton.getScene().getWindow();
     super.setScene(Controllers.CATEGORIES, stage, getDataAccess());
   }
-
-
-
-
 
   /**
    * A method that makes it possible to click on an ad in the listview. When clicked, the user
@@ -129,7 +117,6 @@ public class AppController extends AbstractController {
     alert.setContentText(message);
     alert.showAndWait();
   }
-
 
   /**
    * Method that sorts ads based on different events (which button is clicked).

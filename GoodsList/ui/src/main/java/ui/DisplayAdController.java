@@ -39,7 +39,6 @@ public class DisplayAdController extends AbstractController {
 
   private Ad ad;
   private User user;
-  private String filename;
   private AbstractController previousController;
 
   public void setUser(User user) {
@@ -53,7 +52,6 @@ public class DisplayAdController extends AbstractController {
   }
 
   public void setFilename(String filename) {
-    this.filename = filename;
     super.setFilename(filename);
   }
 
@@ -199,8 +197,8 @@ public class DisplayAdController extends AbstractController {
     try {
       ad.setIsSold(true);
       user.buyAd(ad.getAdId());
-      getDataAccess().updateUser(user);
       getDataAccess().updateAd(ad);
+      getDataAccess().updateUser(user);
       handleCancel();
       displayMessage(ad.getAdTitle() + " was succesfully purchased");
       handleGoBack();
