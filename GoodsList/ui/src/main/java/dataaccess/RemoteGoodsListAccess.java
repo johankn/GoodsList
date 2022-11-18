@@ -1,41 +1,41 @@
 package dataaccess;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import core.AdSorter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
+import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.util.EntityUtils;
-
-import core.AdSorter;
-import core.RegisteredUser;
 import json.Ad;
-import json.DataObject;
 import json.FileOperator;
-import json.JsonFileAsObject;
 import json.User;
 
+/**
+ * Remote version of GoodsListAccess, when app is running via rest-api. 
+ */
 public class RemoteGoodsListAccess implements GoodsListAccess {
 
   private FileOperator fileOperator;
   private ObjectMapper objectMapper;
-  private final URI remoteURI;
+  private final URI remoteUri;
   private String filename;
   private List<User> users;
   private List<Ad> ads;
 
-  public RemoteGoodsListAccess(final URI remoteURI, String filename) {
-    this.remoteURI = remoteURI;
+  /**
+   * Constructor.  
+   *
+   * @param remoteUri uro
+   * @param filename filename
+   */
+  public RemoteGoodsListAccess(final URI remoteUri, String filename) {
+    this.remoteUri = remoteUri;
     fileOperator = new FileOperator();
     this.filename = filename;
     objectMapper = fileOperator.getObjectMapper();
@@ -43,16 +43,35 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
     this.ads = new ArrayList<>();
   }
 
-  public URI resolveURI(String path) {
-    return remoteURI.resolve(path);
+  
+  /** 
+   * method for resolving urI from a path.  
+   *
+   * @param path path
+   * @return URI
+   */
+  public URI resolveUri(String path) {
+    return remoteUri.resolve(path);
   }
 
-  @Override
+  
+  /** 
+   * Methods for gettin a users ads.  
+   *
+   * @param username username
+   * @return List
+   */
   public List<Ad> getAdsFromUser(User username) {
     // TODO Auto-generated method stub
     return null;
   }
 
+  
+  /** 
+   * Method for making newad. 
+   *
+   * @param ad ad
+   */
   @Override
   public void newAd(Ad ad) {
     String putMappingPath = "/newAd";
@@ -61,22 +80,26 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
         throw new NullPointerException("ad cannot be null");
       }
       String json = objectMapper.writeValueAsString(ad);
-      HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI(putMappingPath))
-                    .header("Accept", "application/json")
-                    .header("Content-Type", "application/json")
-                    .PUT(BodyPublishers.ofString(json))
-                    .build();
+      HttpRequest httpRequest =
+          HttpRequest.newBuilder(resolveUri(putMappingPath))
+              .header("Accept", "application/json")
+              .header("Content-Type", "application/json")
+              .PUT(BodyPublishers.ofString(json))
+              .build();
 
-      HttpClient.newBuilder()
-                .build()
-                .send(httpRequest, HttpResponse.BodyHandlers.ofString());
-      
+      HttpClient.newBuilder().build().send(httpRequest, HttpResponse.BodyHandlers.ofString());
+
     } catch (Exception e) {
       throw new RuntimeException(e);
     }
-    
   }
 
+  
+  /** 
+   * Method for writing new user to file. 
+   *
+   * @param user user
+   */
   @Override
   public void newUser(User user) {
     String postMappingPath = "/newuser";
@@ -85,31 +108,34 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
         throw new NullPointerException("User cannot be null");
       }
       String json = objectMapper.writeValueAsString(user);
-      HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI(postMappingPath))
-                    .header("Accept", "application/json")
-                    .header("Content-Type", "application/json")
-                    .PUT(BodyPublishers.ofString(json))
-                    .build();
-      final HttpResponse<String> response = HttpClient.newBuilder()
-                .build()
-                .send(httpRequest, HttpResponse.BodyHandlers.ofString());
+      HttpRequest httpRequest =
+          HttpRequest.newBuilder(resolveUri(postMappingPath))
+              .header("Accept", "application/json")
+              .header("Content-Type", "application/json")
+              .PUT(BodyPublishers.ofString(json))
+              .build();
+      HttpClient.newBuilder().build().send(httpRequest, HttpResponse.BodyHandlers.ofString());
     } catch (Exception e) {
       throw new RuntimeException(e);
     }
   }
-    
 
+  
+  /** 
+   * method for getting all the ads in file with isSold field false (not sold).
+   *
+   * @return List of ads
+   */
   @Override
   public List<Ad> getAllActiveAdsInFile() {
-    HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI("/ads"))
-                                                .header("Accept", "application/json")
-                                                .GET()
-                                                .build();
+    HttpRequest httpRequest =
+        HttpRequest.newBuilder(resolveUri("/ads"))
+            .header("Accept", "application/json")
+            .GET()
+            .build();
     try {
-      final HttpResponse<String> httpResponse = 
-                HttpClient.newBuilder()
-                        .build()
-                        .send(httpRequest, HttpResponse.BodyHandlers.ofString());
+      final HttpResponse<String> httpResponse =
+          HttpClient.newBuilder().build().send(httpRequest, HttpResponse.BodyHandlers.ofString());
       // JsonFileAsObject jsonObject = objectMapper.readValue(httpResponse.body()
       //       .substring(1, httpResponse.body().length() - 1),
       //       JsonFileAsObject.class);
@@ -120,18 +146,22 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
     return new AdSorter(this.ads).sortAds(ad -> ad.getIsSold() == false);
   }
 
+  
+  /** 
+   * Method for getting ads with a certain predicate. 
+   *
+   * @return List of ads
+   */
   @Override
   public List<User> getAllUsers() {
-    HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI("/users"))
-                                                .header("Accept", "application/json")
-                                                .GET()
-                                                .build();
+    HttpRequest httpRequest =
+        HttpRequest.newBuilder(resolveUri("/users"))
+            .header("Accept", "application/json")
+            .GET()
+            .build();
     try {
-      final HttpResponse<String> httpResponse = 
-                HttpClient.newBuilder()
-                        .build()
-                        .send(httpRequest, HttpResponse.BodyHandlers.ofString());
-
+      final HttpResponse<String> httpResponse =
+          HttpClient.newBuilder().build().send(httpRequest, HttpResponse.BodyHandlers.ofString());
 
       // HttpEntity entity = httpResponse.getEntity();
       // String responseString = EntityUtils.toString(entity, "UTF-8");
@@ -142,24 +172,36 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
     return users;
   }
 
-
+  
+  /** 
+   * method for getting all ads with a given predicate.  
+   *
+   * @param expression expression
+   * @return List of ads
+   * @throws IOException ioexception
+   */
   @Override
   public List<Ad> getAllActiveAdsWithPredicate(Predicate<Ad> expression) throws IOException {
     ads = this.getAllActiveAdsInFile();
     return new AdSorter(ads).sortAds(expression);
   }
 
+  
+  /** 
+   * method for getting all ads in file.  
+   *
+   * @return List of ads
+   */
   @Override
   public List<Ad> getAllAdsInFile() {
-    HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI("/allAds"))
-                                                .header("Accept", "application/json")
-                                                .GET()
-                                                .build();
+    HttpRequest httpRequest =
+        HttpRequest.newBuilder(resolveUri("/allAds"))
+            .header("Accept", "application/json")
+            .GET()
+            .build();
     try {
-      final HttpResponse<String> httpResponse = 
-                HttpClient.newBuilder()
-                        .build()
-                        .send(httpRequest, HttpResponse.BodyHandlers.ofString());
+      final HttpResponse<String> httpResponse =
+          HttpClient.newBuilder().build().send(httpRequest, HttpResponse.BodyHandlers.ofString());
       // JsonFileAsObject jsonObject = objectMapper.readValue(httpResponse.body()
       //       .substring(1, httpResponse.body().length() - 1),
       //       JsonFileAsObject.class);
@@ -170,6 +212,12 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
     return ads;
   }
 
+  
+  /** 
+   * method for updating a given user in file.  
+   *
+   * @param user user
+   */
   @Override
   public void updateUser(User user) {
     String postMappingPath = "/updateUser";
@@ -178,21 +226,26 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
         throw new NullPointerException("user cannot be null");
       }
       String json = objectMapper.writeValueAsString(user);
-      HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI(postMappingPath))
-                    .header("Accept", "application/json")
-                    .header("Content-Type", "application/json")
-                    .PUT(BodyPublishers.ofString(json))
-                    .build();
+      HttpRequest httpRequest =
+          HttpRequest.newBuilder(resolveUri(postMappingPath))
+              .header("Accept", "application/json")
+              .header("Content-Type", "application/json")
+              .PUT(BodyPublishers.ofString(json))
+              .build();
 
-      HttpClient.newBuilder()
-                .build()
-                .send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            
+      HttpClient.newBuilder().build().send(httpRequest, HttpResponse.BodyHandlers.ofString());
+
     } catch (Exception e) {
       throw new RuntimeException(e);
     }
   }
 
+  
+  /** 
+   * method for updating a given ad in file.  
+   *
+   * @param ad ad
+   */
   @Override
   public void updateAd(Ad ad) {
     String postMappingPath = "/updateAd";
@@ -201,20 +254,17 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
         throw new NullPointerException("Ad cannot be null");
       }
       String json = objectMapper.writeValueAsString(ad);
-      HttpRequest httpRequest = HttpRequest.newBuilder(resolveURI(postMappingPath))
-                    .header("Accept", "application/json")
-                    .header("Content-Type", "application/json")
-                    .PUT(BodyPublishers.ofString(json))
-                    .build();
+      HttpRequest httpRequest =
+          HttpRequest.newBuilder(resolveUri(postMappingPath))
+              .header("Accept", "application/json")
+              .header("Content-Type", "application/json")
+              .PUT(BodyPublishers.ofString(json))
+              .build();
 
-      HttpClient.newBuilder()
-                .build()
-                .send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            
+      HttpClient.newBuilder().build().send(httpRequest, HttpResponse.BodyHandlers.ofString());
+
     } catch (Exception e) {
       throw new RuntimeException(e);
     }
-    
   }
-  
 }

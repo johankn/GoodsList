@@ -1,16 +1,18 @@
 package ui;
 
+import dataaccess.RemoteGoodsListAccess;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-
-import dataaccess.RemoteGoodsListAccess;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Class that launches remoteapplication. 
+ */
 public class RemoteApp extends Application {
   
   private static Stage mainStage;
@@ -24,7 +26,7 @@ public class RemoteApp extends Application {
    *
    * @param stage stage
    * @throws IOException Exception
-   * @throws URISyntaxException
+   * @throws URISyntaxException exception
    */
   @Override
   public void start(Stage stage) throws IOException, URISyntaxException {
@@ -40,6 +42,7 @@ public class RemoteApp extends Application {
     stage.setScene(new Scene(parent));
     stage.show();
   }
+
   /**
    * launching the app. 
    *

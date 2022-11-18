@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -101,21 +99,6 @@ public class AppController extends AbstractController {
         super.setScene(Controllers.DISPLAYAD, stage, getDataAccess());
       }
     }
-  }
-
-  /**
-   * private method for displaying an error with the given param message Is used when making an ad,
-   * if something is wrong in the inout fields. It gets the message from the exception that is
-   * thrown The exceptions are thrown by advalidator class.
-   *
-   * @param message message
-   */
-  private void displayError(String message) {
-
-    Alert alert = new Alert(AlertType.ERROR);
-    alert.setTitle("ERROR");
-    alert.setContentText(message);
-    alert.showAndWait();
   }
 
   /**
