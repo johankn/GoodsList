@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class GoodsListApplication {
 
-  
   /** 
    * Runs the springboot application. Starts the server.
    *
