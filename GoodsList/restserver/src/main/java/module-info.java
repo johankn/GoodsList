@@ -9,8 +9,6 @@ module app.restserver {
   requires spring.webmvc;
 
   requires app.core;
-  //requires com.fasterxml.jackson.databind;
 
-  //opens app.restserver to spring.beans, spring.context, spring.web, spring.core;
-  //exports app.restserver.properties to spring.beans, spring.boot;
+  opens rest.goodslist to spring.beans, spring.context, spring.web, spring.core;
 }
