@@ -3,11 +3,13 @@ package json;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test class for User.java
+ */
 public class UserTest {
 
   private Ad ad;
@@ -21,8 +23,7 @@ public class UserTest {
     this.myAds.add("1");
     this.product = new Product(1500, "new");
     this.ad = new Ad("PC for sale", product, "13.11.2022", "Brand new PC", "2", false);
-    this.user =
-      new User("itpMan", "Qwerty123", "Kari Larsen", myAds, new ArrayList<>());
+    this.user = new User("itpMan", "Qwerty123", "Kari Larsen", myAds, new ArrayList<>());
   }
 
   @Test
