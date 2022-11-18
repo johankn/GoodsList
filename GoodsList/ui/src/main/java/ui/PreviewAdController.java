@@ -8,7 +8,6 @@ import json.Ad;
 import json.Books;
 import json.Clothing;
 import json.Electronics;
-import json.FileOperator;
 import json.Property;
 import json.User;
 import json.Vehicles;

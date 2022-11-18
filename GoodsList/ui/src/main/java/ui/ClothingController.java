@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import json.Ad;
 import json.Clothing;
-import json.FileOperator;
 import json.User;
 
 /**
@@ -27,7 +26,7 @@ public class ClothingController extends AbstractController {
   @FXML private TextField sizeField2;
   @FXML private TextArea descriptionArea2;
   @FXML private CheckBox conditionField2;
-  @FXML private ChoiceBox colourChoiceClothing;
+  @FXML private ChoiceBox<String> colourChoiceClothing;
   @FXML private Button goBackFromAd3;
   @FXML private Button makeAd2;
 

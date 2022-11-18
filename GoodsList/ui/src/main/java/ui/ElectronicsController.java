@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import json.Ad;
 import json.Electronics;
-import json.FileOperator;
 import json.User;
 
 /**

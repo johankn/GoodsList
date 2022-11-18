@@ -38,6 +38,9 @@ public class RemoteAccessTest {
   private String stringad;
   private String updatedstringad;
 
+  /**
+   * Method for setting up necessary stuff before each test. 
+   */
   @BeforeEach
   public void setUp() throws URISyntaxException {
     this.wireMockConfiguration = WireMockConfiguration.wireMockConfig().port(8080);
@@ -90,7 +93,7 @@ public class RemoteAccessTest {
   
   @Test
   @DisplayName("Method for testing the getUsers requests and response. Using stubfor")
-  public void TestGetUsers() {
+  public void testGetUsers() {
     assertThrows(RuntimeException.class, () -> {
       this.remoteGoodsListAccess.getAllUsers();
     });
@@ -107,7 +110,7 @@ public class RemoteAccessTest {
 
   @Test
   @DisplayName("Method for testing the getActiveAds requests and response. Using stubfor")
-  public void TestGetActiveAds() {
+  public void testGetActiveAds() {
     assertThrows(RuntimeException.class, () -> {
       this.remoteGoodsListAccess.getAllActiveAdsInFile();
     });
@@ -125,7 +128,7 @@ public class RemoteAccessTest {
 
   @Test
   @DisplayName("Method for testing the getAllAds requests and response. Using stubfor")
-  public void TestGetAllAds() {
+  public void testGetAllAds() {
     assertThrows(RuntimeException.class, () -> {
       this.remoteGoodsListAccess.getAllAdsInFile();
     });
@@ -143,7 +146,7 @@ public class RemoteAccessTest {
 
   @Test
   @DisplayName("Method for testing the addUser requests and response. Using stubfor")
-  public void TestAddUser() {
+  public void testAddUser() {
     WireMock.stubFor(WireMock.put(WireMock.urlEqualTo("/newuser"))
         .withHeader("Accept", equalTo("application/json"))
         .willReturn(WireMock.aResponse()
@@ -159,7 +162,7 @@ public class RemoteAccessTest {
 
   @Test
   @DisplayName("Method for testing the addAd requests and response. Using stubfor")
-  public void TestAddAd() {
+  public void testAddAd() {
     StubMapping stub = WireMock.stubFor(WireMock.put(WireMock.urlEqualTo("/newad"))
         .withHeader("Accept", equalTo("application/json"))
         .willReturn(WireMock.aResponse()
@@ -177,7 +180,7 @@ public class RemoteAccessTest {
 
   @Test
   @DisplayName("Method for testing the updateUser requests and response. Using stubfor")
-  public void TestUpdateUser() {
+  public void testUpdateUser() {
     StubMapping initalStub = WireMock.stubFor(WireMock.put(WireMock.urlEqualTo("/newuser"))
         .withHeader("Accept", equalTo("application/json"))
         .willReturn(WireMock.aResponse()
@@ -205,7 +208,7 @@ public class RemoteAccessTest {
 
   @Test
   @DisplayName("Method for testing the updateAd requests and response. Using stubfor")
-  public void TestUpdateAd() {
+  public void testUpdateAd() {
     StubMapping initalStub = WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/newad"))
         .withHeader("Accept", equalTo("application/json"))
         .willReturn(WireMock.aResponse()

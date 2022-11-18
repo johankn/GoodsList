@@ -11,7 +11,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import json.Ad;
-import json.FileOperator;
 import json.User;
 import json.Vehicles;
 
@@ -28,7 +27,7 @@ public class VehiclesController extends AbstractController {
   @FXML private TextField sizeField4;
   @FXML private TextArea descriptionArea4;
   @FXML private CheckBox conditionField4;
-  @FXML private ChoiceBox colourChoiceVehicles;
+  @FXML private ChoiceBox<String> colourChoiceVehicles;
   @FXML private Button goBackFromAd1;
   @FXML private Button makeAd22;
 

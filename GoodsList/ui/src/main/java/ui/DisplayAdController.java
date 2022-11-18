@@ -1,6 +1,5 @@
 package ui;
 
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -11,11 +10,9 @@ import json.Ad;
 import json.Books;
 import json.Clothing;
 import json.Electronics;
-import json.FileOperator;
 import json.Property;
 import json.User;
 import json.Vehicles;
-import ui.AbstractController.Controllers;
 
 /**
  * Controller for displaying an ad. 
