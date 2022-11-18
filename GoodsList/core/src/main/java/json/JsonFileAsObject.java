@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Class for making the jsonfile to an object.
  */
@@ -21,7 +22,7 @@ public class JsonFileAsObject {
    * JsonProperty to tell json what to look for in json file when make this object
    */
   @JsonCreator
-  public JsonFileAsObject(@JsonProperty(value = "users") List<User> users, 
+  public JsonFileAsObject(@JsonProperty(value = "users") List<User> users,
       @JsonProperty(value = "ads") List<Ad> ads) {
     this.users = users;
     this.ads = ads;
@@ -72,7 +73,6 @@ public class JsonFileAsObject {
     return new ArrayList<>(this.ads);
   }
 
-  
   /**
    * Adding an Ad to ads-list.
    *
@@ -81,48 +81,4 @@ public class JsonFileAsObject {
   public void addAd(Ad ad) {
     this.ads.add(ad);
   }
-
-  /**
-   * Gets a user in users-list.
-   *
-   * @param user user
-   * @return User
-   */
-  public User getUser(User user) {
-    if (this.users.contains(user)) {
-      return user;
-    } else {
-      throw new IllegalStateException();
-    }
-  }
-
-  /**
-   * Gets a user by its username.
-   *
-   * @param username username
-   * @return User
-   */
-  public User getUserByUsername(String username) {
-    return getUsers().stream().filter(u -> u.getUsername().equals(username)).findAny()
-    .orElse(null);
-  }
-
-  /** 
-   * Checks if user can login.
-   *
-   * @param username username
-   * @param password password
-   * @return boolean
-   */
-  public boolean checkValidUserLogin(String username, String password) {
-    User user = null;
-
-    for (User u : getUsers()) {
-      if (u.getUsername().equals(username)) {
-        user = u;
-      }
-    }
-    return user != null && user.getPassword().equals(password);
-  }
-  
 }
