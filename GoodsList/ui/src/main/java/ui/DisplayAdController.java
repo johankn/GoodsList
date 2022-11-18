@@ -197,8 +197,8 @@ public class DisplayAdController extends AbstractController {
     try {
       ad.setIsSold(true);
       user.buyAd(ad.getAdId());
-      getDataAccess().updateUser(user);
       getDataAccess().updateAd(ad);
+      getDataAccess().updateUser(user);
       handleCancel();
       displayMessage(ad.getAdTitle() + " was succesfully purchased");
       handleGoBack();

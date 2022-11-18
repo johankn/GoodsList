@@ -3,11 +3,20 @@ package rest.goodslist;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/** 
+ * Springboot application class.
+ */
 @SpringBootApplication
-public class GoodslistApplication {
+public class GoodsListApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GoodslistApplication.class, args);
-	}
+  
+  /** 
+   * Runs the springboot application. Starts the server.
+   *
+   * @param args args
+   */
+  public static void main(String[] args) {
+    SpringApplication.run(GoodsListApplication.class, args);
+  }
 
 }
