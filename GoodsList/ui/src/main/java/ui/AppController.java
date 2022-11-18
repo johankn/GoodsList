@@ -3,14 +3,7 @@ package ui;
 import core.AdSorter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import core.AdSorter;
-import core.AdValidator;
-import dataaccess.GoodsListAccess;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
