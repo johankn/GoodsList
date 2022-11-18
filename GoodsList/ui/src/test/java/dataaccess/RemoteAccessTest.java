@@ -1,36 +1,28 @@
 package dataaccess;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-
-
-
-import org.junit.jupiter.api.Test;
-import org.apache.http.impl.conn.Wire;
-import org.eclipse.jetty.io.ssl.ALPNProcessor.Client;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import com.github.tomakehurst.wiremock.stubbing.StubMapping;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+
 import json.Ad;
 import json.Electronics;
 import json.User;
-import net.minidev.json.JSONObject;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 public class RemoteAccessTest {
 
@@ -55,14 +47,33 @@ public class RemoteAccessTest {
     this.remoteGoodsListAccess = new RemoteGoodsListAccess(
       new URI("http://localhost:" + wireMockServer.port()), 
       "ui/src/test/resources/dataaccess/RemoteAccessTest.json");
-    this.multipleAds = "[ {\"adTitle\": \"Apple Iphone\", \"product\":{ \"@type\": \"electronics\", \"price\": 6969, \"condition\": \"new\", \"brand\": \"Apple\", \"type\": \"Iphone\"}, \"date\": \"2022-11-12\", \"description\": \"Very good phone\", \"adId\": \"1\", \"isSold\": true}, {\"adTitle\": \"Samsung phone\", \"product\":{ \"@type\": \"electronics\", \"price\": 42, \"condition\": \"new\", \"brand\": \"Samsung\", \"type\": \"phone\"}, \"date\": \"2022-11-12\", \"description\": \"Very bad phone\", \"adId\": \"2\", \"isSold\": false}]";
-    this.userlist = "[ {\"username\": \"johangutt\", \"password\": \"stavanger\", \"fullname\": \"Johakn\", \"myAds\": [], \"boughtAds\": []} ]";
-    this.user = new User("johangutt", "stavanger", "Johakn", new ArrayList<>(), new ArrayList<>());
-    this.stringuser = "{\"username\": \"johangutt\", \"password\": \"stavanger\", \"fullname\": \"Johakn\", \"myAds\": [], \"boughtAds\": []}";
-    this.updatedstringuser = "{\"username\": \"johanmann\", \"password\": \"stavanger\", \"fullname\": \"Johakn\", \"myAds\": [], \"boughtAds\": []}";
-    this.ad = new Ad("test", new Electronics(10, "used", "brand", "type"), "17.11.2022", "description", "1", false);
-    this.stringad = "{\"adTitle\": \"Apple Iphone\", \"product\":{ \"@type\": \"electronics\", \"price\": 6969, \"condition\": \"new\", \"brand\": \"Apple\", \"type\": \"Iphone\"}";
-    this.updatedstringad = "{\"adTitle\": \"Apple Ipod\", \"product\":{ \"@type\": \"electronics\", \"price\": 6969, \"condition\": \"new\", \"brand\": \"Apple\", \"type\": \"Iphone\"}";
+    this.multipleAds = 
+        "[ {\"adTitle\": \"Apple Iphone\", \"product\":{ \"@type\": \"electronics\", "
+        + "\"price\": 6969, \"condition\": \"new\", \"brand\": \"Apple\", \"type\": "
+        + "\"Iphone\"}, \"date\": \"2022-11-12\", \"description\": \"Very good phone\","
+        + " \"adId\": \"1\", \"isSold\": true}, {\"adTitle\": \"Samsung phone\","
+        + " \"product\":{ \"@type\": \"electronics\", \"price\": 42, \"condition\": \"new\","
+        + " \"brand\": \"Samsung\", \"type\": \"phone\"}, \"date\": \"2022-11-12\", "
+        + "\"description\": \"Very bad phone\", \"adId\": \"2\", \"isSold\": false}]";
+    this.userlist = 
+        "[ {\"username\": \"johangutt\", \"password\": \"stavanger\", \"fullname\": \"Johakn\", "
+        + "\"myAds\": [], \"boughtAds\": []} ]";
+    this.user = 
+        new User("johangutt", "stavanger", "Johakn", new ArrayList<>(), new ArrayList<>());
+    this.stringuser = 
+        "{\"username\": \"johangutt\", \"password\": \"stavanger\", \"fullname\": \"Johakn\", "
+        + "\"myAds\": [], \"boughtAds\": []}";
+    this.updatedstringuser = 
+        "{\"username\": \"johanmann\", \"password\": \"stavanger\", \"fullname\": \"Johakn\", "
+        + "\"myAds\": [], \"boughtAds\": []}";
+    this.ad = 
+        new Ad("test", new Electronics(10, "used", "brand", "type"), 
+        "17.11.2022", "description", "1", false);
+    this.stringad = "{\"adTitle\": \"Apple Iphone\", \"product\":{ \"@type\": \"electronics\", "
+        + "\"price\": 6969, \"condition\": \"new\", \"brand\": \"Apple\", \"type\": \"Iphone\"}";
+    this.updatedstringad = 
+        "{\"adTitle\": \"Apple Ipod\", \"product\":{ \"@type\": \"electronics\", "
+        + "\"price\": 6969, \"condition\": \"new\", \"brand\": \"Apple\", \"type\": \"Iphone\"}";
   }
 
   @AfterEach
@@ -71,12 +82,14 @@ public class RemoteAccessTest {
   }
   
   @Test
+  @DisplayName("Method for testing that themockserver is running")
   public void testWireMock() {
     assertTrue(wireMockServer.isRunning());
   }
   
   
   @Test
+  @DisplayName("Method for testing the getUsers requests and response. Using stubfor")
   public void TestGetUsers() {
     assertThrows(RuntimeException.class, () -> {
       this.remoteGoodsListAccess.getAllUsers();
@@ -93,6 +106,7 @@ public class RemoteAccessTest {
   }
 
   @Test
+  @DisplayName("Method for testing the getActiveAds requests and response. Using stubfor")
   public void TestGetActiveAds() {
     assertThrows(RuntimeException.class, () -> {
       this.remoteGoodsListAccess.getAllActiveAdsInFile();
@@ -105,10 +119,12 @@ public class RemoteAccessTest {
             .withBody(this.multipleAds)
     ));
     assertEquals(1, this.remoteGoodsListAccess.getAllActiveAdsInFile().size());
-    assertTrue(this.remoteGoodsListAccess.getAllActiveAdsInFile().get(0).getAdTitle().equals("Samsung phone"));
+    assertTrue(this.remoteGoodsListAccess.getAllActiveAdsInFile().get(0).getAdTitle()
+        .equals("Samsung phone"));
   }
 
   @Test
+  @DisplayName("Method for testing the getAllAds requests and response. Using stubfor")
   public void TestGetAllAds() {
     assertThrows(RuntimeException.class, () -> {
       this.remoteGoodsListAccess.getAllAdsInFile();
@@ -121,10 +137,12 @@ public class RemoteAccessTest {
             .withBody(this.multipleAds)    
     ));
     assertEquals(2, this.remoteGoodsListAccess.getAllAdsInFile().size());
-    assertTrue(this.remoteGoodsListAccess.getAllAdsInFile().get(0).getAdTitle().equals("Apple Iphone"));
+    assertTrue(this.remoteGoodsListAccess.getAllAdsInFile().get(0).getAdTitle()
+        .equals("Apple Iphone"));
   }
 
   @Test
+  @DisplayName("Method for testing the addUser requests and response. Using stubfor")
   public void TestAddUser() {
     WireMock.stubFor(WireMock.put(WireMock.urlEqualTo("/newuser"))
         .withHeader("Accept", equalTo("application/json"))
@@ -140,6 +158,7 @@ public class RemoteAccessTest {
   }
 
   @Test
+  @DisplayName("Method for testing the addAd requests and response. Using stubfor")
   public void TestAddAd() {
     StubMapping stub = WireMock.stubFor(WireMock.put(WireMock.urlEqualTo("/newad"))
         .withHeader("Accept", equalTo("application/json"))
@@ -157,6 +176,7 @@ public class RemoteAccessTest {
   }
 
   @Test
+  @DisplayName("Method for testing the updateUser requests and response. Using stubfor")
   public void TestUpdateUser() {
     StubMapping initalStub = WireMock.stubFor(WireMock.put(WireMock.urlEqualTo("/newuser"))
         .withHeader("Accept", equalTo("application/json"))
@@ -173,9 +193,9 @@ public class RemoteAccessTest {
             .withHeader("Content-Type", "application/json")
             .withBody(this.updatedstringuser)
     ));
+    assertNotEquals(initalStub.getRequest(), updateStub.getRequest());
     this.user.setUsername("johannmann");
     this.remoteGoodsListAccess.updateUser(user);
-    assertNotEquals(initalStub.getRequest(), updateStub.getRequest());
     assertEquals(200, updateStub.getResponse().getStatus());
     assertEquals(this.updatedstringuser, updateStub.getResponse().getBody());
     assertThrows(RuntimeException.class, () -> {
@@ -184,6 +204,7 @@ public class RemoteAccessTest {
   }
 
   @Test
+  @DisplayName("Method for testing the updateAd requests and response. Using stubfor")
   public void TestUpdateAd() {
     StubMapping initalStub = WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/newad"))
         .withHeader("Accept", equalTo("application/json"))
@@ -200,9 +221,9 @@ public class RemoteAccessTest {
             .withHeader("Content-Type", "application/json")
             .withBody(this.updatedstringad)
     ));
+    assertNotEquals(initalStub.getRequest(), updateStub.getRequest());
     this.ad.setAdTitle("Apple Ipod");
     this.remoteGoodsListAccess.updateAd(ad);
-    assertNotEquals(initalStub.getRequest(), updateStub.getRequest());
     assertEquals(200, updateStub.getResponse().getStatus());
     assertEquals(this.updatedstringad, updateStub.getResponse().getBody());
     assertThrows(RuntimeException.class, () -> {
