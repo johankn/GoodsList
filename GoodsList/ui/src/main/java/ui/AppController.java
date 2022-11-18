@@ -44,7 +44,7 @@ public class AppController extends AbstractController {
   private Ad ad;
 
   // which category ad is in the making
-  private String filename;
+  //private String filename;
   private User user;
 
   /**
@@ -67,7 +67,6 @@ public class AppController extends AbstractController {
   }
 
   public void setFilename(String filename) {
-    this.filename = filename;
     super.setFilename(filename);
   }
 
@@ -90,10 +89,6 @@ public class AppController extends AbstractController {
     Stage stage = (Stage) newAdButton.getScene().getWindow();
     super.setScene(Controllers.CATEGORIES, stage, getDataAccess());
   }
-
-
-
-
 
   /**
    * A method that makes it possible to click on an ad in the listview. When clicked, the user
@@ -129,7 +124,6 @@ public class AppController extends AbstractController {
     alert.setContentText(message);
     alert.showAndWait();
   }
-
 
   /**
    * Method that sorts ads based on different events (which button is clicked).

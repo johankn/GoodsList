@@ -39,7 +39,6 @@ public class DisplayAdController extends AbstractController {
 
   private Ad ad;
   private User user;
-  private String filename;
   private AbstractController previousController;
 
   public void setUser(User user) {
@@ -53,7 +52,6 @@ public class DisplayAdController extends AbstractController {
   }
 
   public void setFilename(String filename) {
-    this.filename = filename;
     super.setFilename(filename);
   }
 
