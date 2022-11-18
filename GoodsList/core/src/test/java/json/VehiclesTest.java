@@ -21,7 +21,8 @@ public class VehiclesTest {
 
   @Test
   public void testGetter() {
-    Assertions.assertEquals(Vehicles.class, vehicle.getClass()); // testing that the book has been "made"
+    Assertions.assertEquals(
+        Vehicles.class, vehicle.getClass()); // testing that the book has been "made"
     Assertions.assertEquals(100, vehicle.getPrice());
     Assertions.assertEquals("good", vehicle.getCondition());
     Assertions.assertEquals("porsche", vehicle.getBrand());
