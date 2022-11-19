@@ -22,7 +22,9 @@ public class AdSorter {
   }
   
   /** Empty constructor. */
-  public AdSorter() {}
+  public AdSorter() {
+    this.ads = new ArrayList<Ad>();
+  }
 
   /**
    * Sorts the list of ads by date and returs it.
