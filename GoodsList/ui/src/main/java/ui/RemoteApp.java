@@ -35,7 +35,7 @@ public class RemoteApp extends Application {
     FXMLLoader fxmlLoader = new FXMLLoader();
     LoginController li = new LoginController();
     li.setFilepath(false);
-    li.setDataAccess(new RemoteGoodsListAccess(uri, li.getFilename()));
+    li.setDataAccess(new RemoteGoodsListAccess(uri));
     fxmlLoader.setController(li);
     fxmlLoader.setLocation(App.class.getResource("Login.fxml"));
     Parent parent = fxmlLoader.load();

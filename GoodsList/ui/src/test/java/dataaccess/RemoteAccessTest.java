@@ -48,8 +48,7 @@ public class RemoteAccessTest {
     wireMockServer.start();
     WireMock.configureFor("localhost", wireMockConfiguration.portNumber());
     this.remoteGoodsListAccess = new RemoteGoodsListAccess(
-        new URI("http://localhost:" + wireMockServer.port()), 
-      "ui/src/test/resources/dataaccess/RemoteAccessTest.json");
+        new URI("http://localhost:" + wireMockServer.port()));
     this.multipleAds = 
         "[ {\"adTitle\": \"Apple Iphone\", \"product\":{ \"@type\": \"electronics\", "
         + "\"price\": 6969, \"condition\": \"new\", \"brand\": \"Apple\", \"type\": "
