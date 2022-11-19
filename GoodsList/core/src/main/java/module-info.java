@@ -3,5 +3,5 @@ module app.core {
     exports json;
     requires com.fasterxml.jackson.core;
     requires transitive com.fasterxml.jackson.databind;
-    requires org.json;
+
 }
