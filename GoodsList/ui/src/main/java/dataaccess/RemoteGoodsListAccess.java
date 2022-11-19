@@ -12,8 +12,10 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
+
 import json.Ad;
 import json.FileOperator;
+import json.JsonFileAsObject;
 import json.User;
 
 /**
@@ -237,5 +239,25 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
     } catch (Exception e) {
       throw new RuntimeException(e);
     }
+  }
+
+  @Override
+  public void initializeFile(JsonFileAsObject jsonFileAsObject) {
+    System.out.println(jsonFileAsObject.getUsers());
+    String postMappingPath = "/initialize";
+    try {
+      String json = objectMapper.writeValueAsString(jsonFileAsObject);
+      HttpRequest httpRequest =
+          HttpRequest.newBuilder(resolveUri(postMappingPath))
+              .header("Accept", "application/json")
+              .header("Content-Type", "application/json")
+              .PUT(BodyPublishers.ofString(json))
+              .build();
+
+      HttpClient.newBuilder().build().send(httpRequest, HttpResponse.BodyHandlers.ofString());
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+
   }
 }

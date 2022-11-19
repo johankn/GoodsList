@@ -23,6 +23,11 @@ public class DataObject {
     generateJsonFileAsObject(filename);
   }
 
+  public DataObject() {
+    this.objectMapper = new ObjectMapper();
+    this.jsonFileAsObject = new JsonFileAsObject(new ArrayList<User>(), new ArrayList<Ad>());
+  }
+
   /**
    * Generates a jsonFileAsObject.java object from the jsonfile
    * using objectMapper.

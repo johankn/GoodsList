@@ -3,6 +3,8 @@ package json;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
@@ -133,6 +135,36 @@ public class FileOperator {
   public JsonFileAsObject getJsonFileAsObject(String filename) {
     dataObject = new DataObject(filename);
     return dataObject.getJsonFileAsObject();
+  }
+
+  public void initializeJsonFile(String filename, JsonFileAsObject jsonFileAsObject) {
+    try {
+      objectWriter.writeValue(Paths.get(filename).toFile(), jsonFileAsObject);
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * method for generating file.
+   *
+   * @return filename
+   */
+  public String generateFilename() {
+    String path = System.getProperty("user.dir");
+    File file = new File(path);
+    String filename = "";
+    int count = 0;
+    while (file != null) {
+      if (count != 0) {
+        filename += "../";
+      }
+      file = file.getParentFile();
+      count += 1;
+    }
+    filename += System.getProperty("user.home") + "/file.json";
+    return filename;
   }
 
 }

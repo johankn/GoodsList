@@ -1,10 +1,13 @@
 package rest.goodslist;
 
 import core.AdSorter;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import json.Ad;
 import json.FileOperator;
+import json.JsonFileAsObject;
 import json.User;
 
 /** 
@@ -23,8 +26,6 @@ public class GoodsListService {
   public GoodsListService(String filename) {
     this.fileOperator = new FileOperator();
     this.filename = filename;
-    users = fileOperator.getAllUsersAsList(filename);
-    ads = fileOperator.getAllAdsInFile(filename);
   }
 
   
@@ -121,5 +122,14 @@ public class GoodsListService {
    */
   public void updateAd(Ad ad) {
     new FileOperator().updateAdObjectJsonFile(filename, ad);
+  }
+
+  /**
+   * Method for initializing the file that will be written to. 
+   *
+   * @throws IOException exception thrown. 
+   */
+  public void initializeFile(JsonFileAsObject jsonFileAsObject) {
+    new FileOperator().initializeJsonFile(this.filename, jsonFileAsObject);
   }
 }
