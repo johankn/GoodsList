@@ -56,18 +56,6 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
 
   
   /** 
-   * Methods for gettin a users ads.  
-   *
-   * @param username username
-   * @return List
-   */
-  public List<Ad> getAdsFromUser(User username) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  
-  /** 
    * Method for making newad. 
    *
    * @param ad ad
@@ -170,20 +158,6 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
       throw new RuntimeException(e);
     }
     return users;
-  }
-
-  
-  /** 
-   * method for getting all ads with a given predicate.  
-   *
-   * @param expression expression
-   * @return List of ads
-   * @throws IOException ioexception
-   */
-  @Override
-  public List<Ad> getAllActiveAdsWithPredicate(Predicate<Ad> expression) throws IOException {
-    ads = this.getAllActiveAdsInFile();
-    return new AdSorter(ads).sortAds(expression);
   }
 
   

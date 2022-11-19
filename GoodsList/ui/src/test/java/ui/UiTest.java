@@ -1,7 +1,7 @@
 package ui;
 
 import core.RegisteredUser;
-import dataaccess.LocalGoodsListAccess;
+import dataaccess.LocalGoodsListAccess; 
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

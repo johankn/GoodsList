@@ -23,18 +23,6 @@ public class LocalGoodsListAccess implements GoodsListAccess {
 
   
   /** 
-   * Methods for gettin a users ads.  
-   *
-   * @param username username
-   * @return List
-   */
-  @Override
-  public List<Ad> getAdsFromUser(User username) {
-    return null;
-  }
-
-  
-  /** 
    * Method for making newad. 
    *
    * @param ad ad
@@ -76,19 +64,6 @@ public class LocalGoodsListAccess implements GoodsListAccess {
   @Override
   public List<User> getAllUsers() {
     return fileOperator.getAllUsersAsList(filename);
-  }
-
-  
-  /** 
-   * Method for getting ads with a certain predicate. 
-   *
-   * @param expression predicate
-   * @return List of ads
-   * @throws IOException ioexception
-   */
-  @Override
-  public List<Ad> getAllActiveAdsWithPredicate(Predicate<Ad> expression) throws IOException {
-    return null;
   }
 
   
