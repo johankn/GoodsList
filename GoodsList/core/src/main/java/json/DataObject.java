@@ -6,8 +6,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * This class makes a jsonFileAsObject from the json-file and initiates various operations on the
@@ -33,7 +31,7 @@ public class DataObject {
    */
   private void generateJsonFileAsObject(String filename) {
     try {
-      String jsonString = makeJsonObjectFromJsonFile(filename).toString();
+      String jsonString = readFileAsString(filename);
       jsonFileAsObject = objectMapper.readValue(jsonString, JsonFileAsObject.class);
     } catch (Exception e) {
       e.printStackTrace();
@@ -102,18 +100,6 @@ public class DataObject {
   /** Removes all ads from the file. */
   private void removeAllAdsFromFile() {
     jsonFileAsObject.setAds(new ArrayList<>());
-  }
-
-  /**
-   * Helping method to make a JsonObject from a json-file as a string.
-   *
-   * @return JSONObject
-   * @throws JSONException exception
-   * @throws Exception exception
-   */
-  private JSONObject makeJsonObjectFromJsonFile(String filename) throws JSONException, Exception {
-    JSONObject jsonObject = new JSONObject(readFileAsString(filename));
-    return jsonObject;
   }
 
   /**

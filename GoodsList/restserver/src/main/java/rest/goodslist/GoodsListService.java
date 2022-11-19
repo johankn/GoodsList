@@ -78,7 +78,7 @@ public class GoodsListService {
    */
   public List<Ad> getActiveAds() {
     this.ads = fileOperator.getAllAdsInFile(this.filename);
-    return this.ads;
+    return new AdSorter(ads).sortAds(ad -> ad.getIsSold() == false);
   }
 
   
