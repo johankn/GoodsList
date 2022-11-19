@@ -1,7 +1,10 @@
 package rest.goodslist;
 
+import java.util.ArrayList;
 import java.util.List;
 import json.Ad;
+import json.FileOperator;
+import json.JsonFileAsObject;
 import json.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GoodsListController {
 
-  GoodsListService service = new GoodsListService("..//ui/src/main/resources/ui/dataObjects.json");
+  GoodsListService service = new GoodsListService(new FileOperator().generateFilename());
   
   /**
    * http://localhost:8080/users
@@ -102,5 +105,10 @@ public class GoodsListController {
   @PutMapping("/setFilename")
   public void setFilename(@RequestBody String filename) {
     service.setFilename(filename);
+  }
+
+  @PutMapping("/initialize")
+  public void initializeFile() {
+    service.initializeFile(new JsonFileAsObject(new ArrayList<>(), new ArrayList<>()));
   }
 }

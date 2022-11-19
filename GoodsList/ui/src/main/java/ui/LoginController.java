@@ -3,7 +3,14 @@ package ui;
 import core.LoginValidator;
 import core.RegisteredUser;
 import core.RegistrationValidator;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -12,6 +19,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import json.Ad;
+import json.FileOperator;
+import json.JsonFileAsObject;
 import json.User;
 
 /** Controller for the login fxml file. */
@@ -40,16 +50,24 @@ public class LoginController extends AbstractController {
    * istest is true it is a test, vice versa.
    *
    * @param isTest boolean for checking if it is a test
+   * @throws IOException exception
    */
   public void setFilepath(boolean isTest) {
     if (isTest) {
       this.filename = "..//ui/src/test/resources/ui/uiTest.json";
     } else {
-      this.filename = "..//ui/src/main/resources/ui/dataObjects.json";
+      this.filename = new FileOperator().generateFilename();
     }
     super.setFilepathAbstract(isTest);
     super.setFilename(this.filename);
+  }
 
+  public void initializeFile() throws IOException {
+    File file = new File(System.getProperty("user.home") + "/file.json");
+    if (file.createNewFile()) {
+      JsonFileAsObject jsonFileAsObject = new JsonFileAsObject(new ArrayList<User>(), new ArrayList<Ad>());
+      dataAccess.initializeFile(jsonFileAsObject);
+    }
   }
 
   /**

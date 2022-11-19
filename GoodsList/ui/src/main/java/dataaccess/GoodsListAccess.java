@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.function.Predicate;
 import json.Ad;
+import json.JsonFileAsObject;
 import json.User;
 
 /**
@@ -24,4 +25,6 @@ public interface GoodsListAccess {
   public void updateUser(User user);
 
   public void updateAd(Ad ad);
+
+  public void initializeFile(JsonFileAsObject jsonFileAsObject);
 }

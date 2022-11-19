@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.function.Predicate;
 import json.Ad;
 import json.FileOperator;
+import json.JsonFileAsObject;
 import json.User;
 
 /**
@@ -97,5 +98,12 @@ public class LocalGoodsListAccess implements GoodsListAccess {
   @Override
   public void updateAd(Ad ad) {
     fileOperator.updateAdObjectJsonFile(filename, ad);
+  }
+
+
+  @Override
+  public void initializeFile(JsonFileAsObject jsonFileAsObject) {
+    // TODO Auto-generated method stub
+    fileOperator.initializeJsonFile(filename, jsonFileAsObject);
   }
 }
