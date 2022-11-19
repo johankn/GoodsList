@@ -10,20 +10,20 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import com.github.tomakehurst.wiremock.stubbing.StubMapping;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-
 import json.Ad;
 import json.Electronics;
 import json.User;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test class for testing the remoteaccess methods. 
+ */
 public class RemoteAccessTest {
 
   private static WireMockServer wireMockServer;
@@ -48,7 +48,7 @@ public class RemoteAccessTest {
     wireMockServer.start();
     WireMock.configureFor("localhost", wireMockConfiguration.portNumber());
     this.remoteGoodsListAccess = new RemoteGoodsListAccess(
-      new URI("http://localhost:" + wireMockServer.port()), 
+        new URI("http://localhost:" + wireMockServer.port()), 
       "ui/src/test/resources/dataaccess/RemoteAccessTest.json");
     this.multipleAds = 
         "[ {\"adTitle\": \"Apple Iphone\", \"product\":{ \"@type\": \"electronics\", "

@@ -2,7 +2,6 @@ package ui;
 
 import core.RegisteredUser;
 import dataaccess.LocalGoodsListAccess;
-
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -165,21 +164,26 @@ public class UiTest extends ApplicationTest {
     robot.clickOn("#electronicsButton");
 
     String adTitle = "MacBook Pro 2022";
-    String adDescription = "Brand new MacBook Pro 2022";
-    String invalidPrice = "twenty thousand";
-    String validAdPrice = "20000";
-    String adBrand = "Apple";
-    String adType = "Laptop";
-    
     robot.clickOn("#titleField1").write(adTitle, 5);
+
+    String adDescription = "Brand new MacBook Pro 2022";
     robot.clickOn("#descriptionArea1").write(adDescription, 5);
-    robot.clickOn("#conditionField1");
+
+    String invalidPrice = "twenty thousand";
     robot.clickOn("#priceField1").write(invalidPrice, 5);
+    
+    String adBrand = "Apple";
     robot.clickOn("#brandField1").write(adBrand, 5);
+
+    String adType = "Laptop";
     robot.clickOn("#typeField1").write(adType, 5);
+    
+    
+    robot.clickOn("#conditionField1");
     robot.clickOn("#makeAd1");
     this.closeAlert();
-
+    
+    String validAdPrice = "20000";
     robot.doubleClickOn("#priceField1").eraseText(invalidPrice.length()).write(validAdPrice, 5);
     robot.clickOn("#makeAd1");
     robot.clickOn("#editButton");
@@ -197,22 +201,27 @@ public class UiTest extends ApplicationTest {
     robot.clickOn("#clothingButton");
 
     String adTitle = "Gucci pants";
-    String adDescription = "Used gucci pants for sale";
-    String adPrice = "5000";
-    String adType = "Sweater";
-    String validSize = "M";
-    String adBrand = "Gucci";
-
     robot.clickOn("#titleField2").write(adTitle, 5);
+
+    String adDescription = "Used gucci pants for sale";
     robot.clickOn("#descriptionArea2").write(adDescription, 5);
+
+    String adPrice = "5000";
     robot.clickOn("#priceField2").write(adPrice, 5);
+
+    String adType = "Sweater";
     robot.clickOn("#typeField2").write(adType, 5);
+
+    String adBrand = "Gucci";
     robot.clickOn("#brandField2").write(adBrand, 5);
+    
     robot.clickOn("#colourChoiceClothing");
     robot.clickOn("Black");
+    
     robot.clickOn("#makeAd2");
     this.closeAlert();
-
+    
+    String validSize = "M";
     robot.clickOn("#sizeField2").write(validSize, 5);
     robot.clickOn("#makeAd2");
     robot.clickOn("#editButton");
@@ -232,25 +241,32 @@ public class UiTest extends ApplicationTest {
     robot.clickOn("#propertyButton");
 
     String adTitle = "House for sale";
-    String adDescription = "4 bedroom house in Oslo";
-    String adPrice = "4250000";
-    String validType = "House";
-    String adYearBuilt = "2004";
-    String adBedrooms = "4";
-    String invalidadArea = "hundred";
-    String validArea = "100";
-
     robot.clickOn("#titleField3").write(adTitle, 5);
+
+    String adDescription = "4 bedroom house in Oslo";
     robot.clickOn("#descriptionArea3").write(adDescription, 5);
+
+    String adPrice = "4250000";
     robot.clickOn("#priceField3").write(adPrice, 5);
+
+    String validType = "House";
     robot.clickOn("#typeField3").write(validType, 5);
+
+    String adYearBuilt = "2004";
     robot.clickOn("#yearBuiltField3").write(adYearBuilt, 5);
+
+    String adBedrooms = "4";
     robot.clickOn("#bedroomsField3").write(adBedrooms, 5);
+
+    String invalidadArea = "hundred";
     robot.clickOn("#areaField3").write(invalidadArea, 5);
+
     robot.clickOn("#makeAd21");
     this.closeAlert();
 
+    String validArea = "100";
     robot.doubleClickOn("#areaField3").eraseText(invalidadArea.length()).write(validArea, 5);
+
     robot.clickOn("#makeAd21");
     robot.clickOn("#editButton");
     robot.clickOn("#priceField3").write("0", 5);
@@ -302,22 +318,27 @@ public class UiTest extends ApplicationTest {
     robot.clickOn("#booksButton");
 
     String adTitle = "George Orwell 1984";
-    String adDescription = "The best-selling classic from George Orwell.";
-    String adPrice = "149";
-    String validPages = "328";
-    String adAuthor = "George Orwell";
-    String adGenre = "Sci-fi";
-    String adYear = "1949";
-
     robot.clickOn("#titleField5").write(adTitle, 5);
+
+    String adDescription = "The best-selling classic from George Orwell.";
     robot.clickOn("#descriptionArea5").write(adDescription, 5);
+    
+    String adPrice = "149";
     robot.clickOn("#priceField5").write(adPrice, 5);
-    robot.clickOn("#genreField5").write(adGenre, 5);
+
+    String validPages = "328";
     robot.clickOn("#pagesField5").write(validPages, 5);
+
+    String adGenre = "Sci-fi";
+    robot.clickOn("#genreField5").write(adGenre, 5);
+    
+    String adYear = "1949";
     robot.clickOn("#yearField5").write(adYear, 5);
+    
     robot.clickOn("#makeAd23");
     this.closeAlert();
-
+    
+    String adAuthor = "George Orwell";
     robot.clickOn("#authorField5").write(adAuthor, 5);
     robot.clickOn("#makeAd23");
     robot.clickOn("#editButton");
