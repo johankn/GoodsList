@@ -24,20 +24,17 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
   private FileOperator fileOperator;
   private ObjectMapper objectMapper;
   private final URI remoteUri;
-  private String filename;
   private List<User> users;
   private List<Ad> ads;
 
   /**
    * Constructor.  
    *
-   * @param remoteUri uro
-   * @param filename filename
+   * @param remoteUri uri
    */
-  public RemoteGoodsListAccess(final URI remoteUri, String filename) {
+  public RemoteGoodsListAccess(final URI remoteUri) {
     this.remoteUri = remoteUri;
     fileOperator = new FileOperator();
-    this.filename = filename;
     objectMapper = fileOperator.getObjectMapper();
     this.users = new ArrayList<>();
     this.ads = new ArrayList<>();
