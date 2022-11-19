@@ -255,6 +255,7 @@ public class RemoteGoodsListAccess implements GoodsListAccess {
               .build();
 
       HttpClient.newBuilder().build().send(httpRequest, HttpResponse.BodyHandlers.ofString());
+      
     } catch (Exception e) {
       throw new RuntimeException(e);
     }
