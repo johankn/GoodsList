@@ -3,7 +3,6 @@ package json;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -137,6 +136,12 @@ public class FileOperator {
     return dataObject.getJsonFileAsObject();
   }
 
+  /**
+   * Method for initializing the jsonfile, if app has not been opened before.
+   *
+   * @param filename filename
+   * @param jsonFileAsObject empty object to be written
+   */
   public void initializeJsonFile(String filename, JsonFileAsObject jsonFileAsObject) {
     try {
       objectWriter.writeValue(Paths.get(filename).toFile(), jsonFileAsObject);

@@ -11,8 +11,6 @@ import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
-
 import json.Ad;
 import json.FileOperator;
 import json.JsonFileAsObject;

@@ -32,11 +32,11 @@ public class RemoteApp extends Application {
   public void start(Stage stage) throws IOException, URISyntaxException {
     URI uri = new URI("http://localhost:8080/");
     setMainStage(stage);
-    FXMLLoader fxmlLoader = new FXMLLoader();
     LoginController li = new LoginController();
     li.setFilepath(false);
     li.setDataAccess(new RemoteGoodsListAccess(uri));
     li.initializeFile();
+    FXMLLoader fxmlLoader = new FXMLLoader();
     fxmlLoader.setController(li);
     fxmlLoader.setLocation(App.class.getResource("Login.fxml"));
     Parent parent = fxmlLoader.load();

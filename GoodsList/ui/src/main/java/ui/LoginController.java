@@ -3,14 +3,12 @@ package ui;
 import core.LoginValidator;
 import core.RegisteredUser;
 import core.RegistrationValidator;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -62,10 +60,16 @@ public class LoginController extends AbstractController {
     super.setFilename(this.filename);
   }
 
+  /**
+   * Method for initializing the jsonfile, if the usser have not user the app before. 
+   *
+   * @throws IOException exception
+   */
   public void initializeFile() throws IOException {
     File file = new File(System.getProperty("user.home") + "/file.json");
     if (file.createNewFile()) {
-      JsonFileAsObject jsonFileAsObject = new JsonFileAsObject(new ArrayList<User>(), new ArrayList<Ad>());
+      JsonFileAsObject jsonFileAsObject = 
+          new JsonFileAsObject(new ArrayList<User>(), new ArrayList<Ad>());
       dataAccess.initializeFile(jsonFileAsObject);
     }
   }
