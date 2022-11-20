@@ -5,6 +5,9 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
@@ -285,6 +288,22 @@ public class FileOperatorTest {
     assertNotNull(fileOperator.getObjectMapper());
     assertEquals(ObjectMapper.class, fileOperator.getObjectMapper().getClass());
   }
+
+  @Test
+  @DisplayName("Test for generating filename. Should generate a filename that goes to user.home. Since it is different for each individual computer i just test if it generates a string.")
+  public void testGenerateFilename() throws IOException {
+    assertEquals(String.class, fileOperator.generateFilename().getClass());
+    assertTrue(fileOperator.generateFilename() != "");
+  }
+
+  @Test
+  @DisplayName("Test for the jsonfileinitialization, which happens if ts the first time a user runs the app.")
+  public void testInitialize() {
+    fileOperator.initializeJsonFile(filename, new JsonFileAsObject(new ArrayList<>(), new ArrayList<>()));
+    assertEquals(0, fileOperator.getAllUsersAsList(filename).size());
+    assertEquals(0, fileOperator.getAllAdsInFile(filename).size());
+  }
+  
 
   @AfterEach
   @DisplayName("Removes all the users after a method is tested.")
