@@ -1,7 +1,6 @@
 package rest.goodslist;
 
 import core.AdSorter;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
