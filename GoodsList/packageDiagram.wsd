@@ -1,4 +1,4 @@
-@startuml architectureDiagram
+@startuml packageDiagram
 
 component core {
 	package GoodsList.core
