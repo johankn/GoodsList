@@ -303,6 +303,7 @@ public class FileOperatorTest {
     assertEquals(0, fileOperator.getAllUsersAsList(filename).size());
     assertEquals(0, fileOperator.getAllAdsInFile(filename).size());
   }
+  
 
   @AfterEach
   @DisplayName("Removes all the users after a method is tested.")
