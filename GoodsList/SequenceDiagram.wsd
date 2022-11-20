@@ -1,0 +1,40 @@
+@startuml sequenceDiagram
+
+actor "User" as User
+participant "User Interface" as UI
+participant "LoginController" as LoginController
+participant "DataAccess" as DataAccess
+collections "users" as Users
+participant "RestServer" as RestServer
+participant "AppController" as AppController
+participant "LoginValidator" as LoginValidator
+
+autonumber
+User -> UI ++ : Input username and password
+UI -> LoginController ++ : *Click log in*
+LoginController -> DataAccess ++ : onLogin()
+DataAccess -> RestServer ++ : HTTP Get / getAllUsers()
+DataAccess --
+RestServer -> LoginController -- : List of registered users
+LoginController -> LoginValidator ++ : 
+LoginValidator -> LoginValidator : isLoginLegal()
+group if: true
+    LoginValidator -[#green]> LoginController: true
+    loop Find input user in list of registered users
+        LoginController -[#green]> Users ++: Find user in list
+        Users -[#green]> LoginController: Found
+        Users --
+    end
+    LoginController -[#green]> AppController ++ : setUser() and setScene()
+    LoginController --
+    AppController -[#green]> UI -- : first()
+    UI -[#green]> User : User successfully logged in,\nmet by the home page
+else else: false
+    autonumber 8
+    LoginValidator -[#red]> LoginController ++: false
+    LoginValidator --
+    LoginController -[#red]> UI: Login rejected
+    LoginController --
+    UI -[#red]> User: Clear textboxes and\nalert error message
+end
+@enduml
